@@ -10,20 +10,41 @@
 
 @implementation Message
 
-- (Message*) nextMessage {
+- (id) initWithName: (NSString*) newName 
+{
+	if (self = [super init]) {
+		[name autorelease];
+		name = [newName retain];
+	}
+	return self;
+}
+
+- (void) dealloc
+{
+	[nextMessage autorelease];
+	[arguments autorelease];
+	[name autorelease];
+	[super dealloc];
+}
+
+- (Message*) nextMessage 
+{
 	return nextMessage;
 }
 
-- (NSArray*)arguments {
+- (NSArray*)arguments 
+{
 	return arguments;
 }
 
-- (void) setNextMessage: (Message*) newNextMessage {
+- (void) setNextMessage: (Message*) newNextMessage 
+{
 	[nextMessage autorelease];
 	nextMessage = [newNextMessage retain];
 }
 
-- (void) setArguments: (NSArray*) newArguments {
+- (void) setArguments: (NSArray*) newArguments 
+{
 	[arguments autorelease];
 	arguments = [newArguments retain];
 }

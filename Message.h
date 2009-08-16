@@ -10,9 +10,13 @@
 
 
 @interface Message : NSObject {
+	NSString* name;
 	Message* nextMessage;
 	NSArray* arguments;
 }
+
+- (id) initWithName: (NSString*)newName;
+- (void) dealloc;
 
 - (Message*) nextMessage;
 - (NSArray*) arguments;
