@@ -10,14 +10,14 @@
 
 
 @interface Message : NSObject {
-	Message* next;
-	Message*[] arguments;
+	Message* nextMessage;
+	NSArray* arguments;
 }
 
-- (Message*) next;
-- (Message*[]) arguments;
+- (Message*) nextMessage;
+- (NSArray*) arguments;
 
-- (void) setNext: (Message*)next;
-- (void) setArguments: (Message*[])arguments;
+- (void) setNextMessage: (Message*)newNextMessage;
+- (void) setArguments: (NSArray*)newArguments;
 
 @end

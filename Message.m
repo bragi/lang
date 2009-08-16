@@ -8,25 +8,24 @@
 
 #import "Message.h"
 
-
 @implementation Message
 
-- (Message*) next {
-	return next;
+- (Message*) nextMessage {
+	return nextMessage;
 }
 
-- (Message*[])arguments {
+- (NSArray*)arguments {
 	return arguments;
 }
 
-- (void) setNext: (Message*) input {
-	[next autorelease];
-	next = [input retain];
+- (void) setNextMessage: (Message*) newNextMessage {
+	[nextMessage autorelease];
+	nextMessage = [newNextMessage retain];
 }
 
-- (void) setArguments: (NSArray*) input {
-	[next autorelease];
-	next = [input retain];
+- (void) setArguments: (NSArray*) newArguments {
+	[arguments autorelease];
+	arguments = [newArguments retain];
 }
 
 @end
