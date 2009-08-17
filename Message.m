@@ -55,15 +55,23 @@
 - (NSString*) stringValue
 {
 	NSMutableString* value = [NSMutableString stringWithString: name];
-	
+	[value retain];
+
 	if([arguments count] >  0)
 	{
 		// add (
 		[value appendString: @"("];
 		
 		Message* argument;
+		BOOL first = YES;
+
 		for(argument in arguments) {
 			// add argument's name
+			if(first) {
+				first = NO;
+			} else {
+				[value appendString: @", "];
+			}
 			[value appendString: [argument stringValue]];
 		}
 		// add )
@@ -85,4 +93,12 @@
 	}
 }
 
+@end
+
+@implementation EolMessage
+- (id) init
+{
+	self = [super initWithName:@"\n"];
+	return self;
+}
 @end

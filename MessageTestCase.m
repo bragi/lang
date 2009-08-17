@@ -38,9 +38,16 @@
 	STAssertEqualObjects([hello stringValue], @"hello", @"wrong simple string value");
 }
 
+- (void) testHasStringValueWithArgument
+{
+	[hello addArgument: beautiful];
+	STAssertEqualObjects([hello stringValue], @"hello(beautiful)", @"wrong string value with argument");
+}
+
 - (void) testHasStringValueWithArguments
 {
 	[hello addArgument: beautiful];
-	STAssertEqualObjects([hello stringValue], @"hello(beautiful)", @"wrong string value with arguments");
+	[hello addArgument: world];
+	STAssertEqualObjects([hello stringValue], @"hello(beautiful, world)", @"wrong string value with argument");
 }
 @end

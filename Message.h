@@ -27,3 +27,9 @@
 - (void) addArgument: (Message*)argument;
 - (NSString*) stringValue;
 @end
+
+@interface EolMessage : Message {
+}
+
+- (id) init;
+@end

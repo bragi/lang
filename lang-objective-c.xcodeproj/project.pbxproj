@@ -11,7 +11,6 @@
 		8DD76F9C0486AA7600D96B5E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08FB779EFE84155DC02AAC07 /* Foundation.framework */; };
 		8DD76F9F0486AA7600D96B5E /* lang-objective-c.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = C6859EA3029092ED04C91782 /* lang-objective-c.1 */; };
 		A08523491039B4F9001BBCA1 /* MessageTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = A08523481039B4F9001BBCA1 /* MessageTestCase.m */; };
-		A08523C71039BB32001BBCA1 /* StopMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = A08523C61039BB32001BBCA1 /* StopMessage.m */; };
 		A09F194E1037F2DA0089A817 /* Message.m in Sources */ = {isa = PBXBuildFile; fileRef = A09F194D1037F2DA0089A817 /* Message.m */; };
 /* End PBXBuildFile section */
 
@@ -47,8 +46,6 @@
 		A08523371039B311001BBCA1 /* Test.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Test.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A08523471039B4F9001BBCA1 /* MessageTestCase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageTestCase.h; sourceTree = "<group>"; };
 		A08523481039B4F9001BBCA1 /* MessageTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageTestCase.m; sourceTree = "<group>"; };
-		A08523C51039BB32001BBCA1 /* StopMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StopMessage.h; sourceTree = "<group>"; };
-		A08523C61039BB32001BBCA1 /* StopMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StopMessage.m; sourceTree = "<group>"; };
 		A09F194C1037F2DA0089A817 /* Message.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Message.h; sourceTree = "<group>"; };
 		A09F194D1037F2DA0089A817 /* Message.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Message.m; sourceTree = "<group>"; };
 		C6859EA3029092ED04C91782 /* lang-objective-c.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = "lang-objective-c.1"; sourceTree = "<group>"; };
@@ -94,8 +91,6 @@
 				08FB7796FE84155DC02AAC07 /* lang-objective-c.m */,
 				A08523471039B4F9001BBCA1 /* MessageTestCase.h */,
 				A08523481039B4F9001BBCA1 /* MessageTestCase.m */,
-				A08523C51039BB32001BBCA1 /* StopMessage.h */,
-				A08523C61039BB32001BBCA1 /* StopMessage.m */,
 			);
 			name = Source;
 			sourceTree = "<group>";
@@ -227,7 +222,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				A08523491039B4F9001BBCA1 /* MessageTestCase.m in Sources */,
-				A08523C71039BB32001BBCA1 /* StopMessage.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

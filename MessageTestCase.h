@@ -18,8 +18,4 @@
 	Message* more;
 }
 
-- (void) testMessageExists;
-- (void) testHasSimpleStringValue;
-- (void) testHasStringValueWithArguments;
-
 @end
