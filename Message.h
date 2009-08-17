@@ -12,16 +12,18 @@
 @interface Message : NSObject {
 	NSString* name;
 	Message* nextMessage;
-	NSArray* arguments;
+	NSMutableArray* arguments;
 }
 
 - (id) initWithName: (NSString*)newName;
 - (void) dealloc;
 
 - (Message*) nextMessage;
-- (NSArray*) arguments;
+- (NSMutableArray*) arguments;
 
 - (void) setNextMessage: (Message*)newNextMessage;
-- (void) setArguments: (NSArray*)newArguments;
+- (void) setArguments: (NSMutableArray*)newArguments;
 
+- (void) addArgument: (Message*)argument;
+- (NSString*) stringValue;
 @end

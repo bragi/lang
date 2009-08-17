@@ -12,9 +12,12 @@
 
 - (id) initWithName: (NSString*) newName 
 {
-	if (self = [super init]) {
-		[name autorelease];
+	self = [super init];
+	if(self)
+	{
 		name = [newName retain];
+		arguments = nil;
+		nextMessage = nil;
 	}
 	return self;
 }
@@ -32,7 +35,7 @@
 	return nextMessage;
 }
 
-- (NSArray*)arguments 
+- (NSMutableArray*)arguments 
 {
 	return arguments;
 }
@@ -43,10 +46,43 @@
 	nextMessage = [newNextMessage retain];
 }
 
-- (void) setArguments: (NSArray*) newArguments 
+- (void) setArguments: (NSMutableArray*) newArguments 
 {
 	[arguments autorelease];
 	arguments = [newArguments retain];
+}
+
+- (NSString*) stringValue
+{
+	NSMutableString* value = [NSMutableString stringWithString: name];
+	
+	if([arguments count] >  0)
+	{
+		// add (
+		[value appendString: @"("];
+		
+		Message* argument;
+		for(argument in arguments) {
+			// add argument's name
+			[value appendString: [argument stringValue]];
+		}
+		// add )
+		[value appendString: @")"];
+	}
+	return value;
+}
+
+- (void) addArgument: (Message*) argument
+{
+	[argument retain];
+	if(arguments == nil)
+	{
+		arguments = [NSMutableArray arrayWithObject:argument];
+	}
+	else
+	{
+		[arguments addObject: argument];
+	}
 }
 
 @end
