@@ -25,6 +25,9 @@
 - (void) dealloc
 {
 	[nextMessage autorelease];
+	for(Message* m in arguments) {
+		[m autorelease];
+	}
 	[arguments autorelease];
 	[name autorelease];
 	[super dealloc];
@@ -52,10 +55,9 @@
 	arguments = [newArguments retain];
 }
 
-- (NSString*) stringValue
+- (NSMutableString*) stringValueWithoutNested
 {
-	NSMutableString* value = [NSMutableString stringWithString: name];
-	[value retain];
+	NSMutableString* value = [[NSMutableString stringWithString: name] autorelease];
 
 	if([arguments count] >  0)
 	{
@@ -80,12 +82,25 @@
 	return value;
 }
 
+- (NSString*) stringValue
+{
+	NSMutableString* value = [[NSMutableString stringWithString: [self stringValueWithoutNested]] autorelease];
+	if(nextMessage) {
+		Message* message = self;
+		while (message = [message nextMessage]) {
+			[value appendString: @" "];
+			[value appendString: [message stringValueWithoutNested]];
+		}
+	}
+	return value;
+}
+
 - (void) addArgument: (Message*) argument
 {
 	[argument retain];
 	if(arguments == nil)
 	{
-		arguments = [NSMutableArray arrayWithObject:argument];
+		arguments = [[NSMutableArray arrayWithObject:argument] retain];
 	}
 	else
 	{

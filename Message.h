@@ -26,6 +26,7 @@
 
 - (void) addArgument: (Message*)argument;
 - (NSString*) stringValue;
+- (NSMutableString*) stringValueWithoutNested;
 @end
 
 @interface EolMessage : Message {

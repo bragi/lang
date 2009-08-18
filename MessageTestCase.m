@@ -50,4 +50,19 @@
 	[hello addArgument: world];
 	STAssertEqualObjects([hello stringValue], @"hello(beautiful, world)", @"wrong string value with argument");
 }
+
+- (void) testHasStringValueWithNext
+{
+	[hello setNextMessage: world];
+	STAssertEqualObjects([hello stringValue], @"hello world", @"wrong string value with argument");
+}
+
+- (void) testHasStringValueWithNextAndArguments
+{
+	[hello addArgument: beautiful];
+	[hello addArgument: lady];
+	[hello setNextMessage: more];
+	[more addArgument: beautiful];
+	STAssertEqualObjects([hello stringValue], @"hello(beautiful, lady) more(beautiful)", @"wrong string value with argument");
+}
 @end
