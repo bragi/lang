@@ -12,6 +12,8 @@
 		8DD76F9F0486AA7600D96B5E /* lang-objective-c.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = C6859EA3029092ED04C91782 /* lang-objective-c.1 */; };
 		A08523491039B4F9001BBCA1 /* MessageTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = A08523481039B4F9001BBCA1 /* MessageTestCase.m */; };
 		A09F194E1037F2DA0089A817 /* Message.m in Sources */ = {isa = PBXBuildFile; fileRef = A09F194D1037F2DA0089A817 /* Message.m */; };
+		A0A23F89103B084800C8A717 /* LangObjectTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = A0A23F88103B084800C8A717 /* LangObjectTestCase.m */; };
+		A0A23FBB103B137600C8A717 /* LangObject.m in Sources */ = {isa = PBXBuildFile; fileRef = A0A23F8E103B099800C8A717 /* LangObject.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +50,10 @@
 		A08523481039B4F9001BBCA1 /* MessageTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageTestCase.m; sourceTree = "<group>"; };
 		A09F194C1037F2DA0089A817 /* Message.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Message.h; sourceTree = "<group>"; };
 		A09F194D1037F2DA0089A817 /* Message.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Message.m; sourceTree = "<group>"; };
+		A0A23F87103B084800C8A717 /* LangObjectTestCase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LangObjectTestCase.h; sourceTree = "<group>"; };
+		A0A23F88103B084800C8A717 /* LangObjectTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LangObjectTestCase.m; sourceTree = "<group>"; };
+		A0A23F8D103B099800C8A717 /* LangObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LangObject.h; sourceTree = "<group>"; };
+		A0A23F8E103B099800C8A717 /* LangObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LangObject.m; sourceTree = "<group>"; };
 		C6859EA3029092ED04C91782 /* lang-objective-c.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = "lang-objective-c.1"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -85,12 +91,9 @@
 		08FB7795FE84155DC02AAC07 /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				A09F194C1037F2DA0089A817 /* Message.h */,
-				A09F194D1037F2DA0089A817 /* Message.m */,
+				A0A23F9F103B0A8700C8A717 /* Lang */,
 				32A70AAB03705E1F00C91783 /* lang-objective-c_Prefix.pch */,
 				08FB7796FE84155DC02AAC07 /* lang-objective-c.m */,
-				A08523471039B4F9001BBCA1 /* MessageTestCase.h */,
-				A08523481039B4F9001BBCA1 /* MessageTestCase.m */,
 			);
 			name = Source;
 			sourceTree = "<group>";
@@ -110,6 +113,21 @@
 				A08523371039B311001BBCA1 /* Test.octest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		A0A23F9F103B0A8700C8A717 /* Lang */ = {
+			isa = PBXGroup;
+			children = (
+				A09F194C1037F2DA0089A817 /* Message.h */,
+				A09F194D1037F2DA0089A817 /* Message.m */,
+				A08523471039B4F9001BBCA1 /* MessageTestCase.h */,
+				A08523481039B4F9001BBCA1 /* MessageTestCase.m */,
+				A0A23F87103B084800C8A717 /* LangObjectTestCase.h */,
+				A0A23F88103B084800C8A717 /* LangObjectTestCase.m */,
+				A0A23F8D103B099800C8A717 /* LangObject.h */,
+				A0A23F8E103B099800C8A717 /* LangObject.m */,
+			);
+			name = Lang;
 			sourceTree = "<group>";
 		};
 		C6859EA2029092E104C91782 /* Documentation */ = {
@@ -214,6 +232,7 @@
 			files = (
 				8DD76F9A0486AA7600D96B5E /* lang-objective-c.m in Sources */,
 				A09F194E1037F2DA0089A817 /* Message.m in Sources */,
+				A0A23FBB103B137600C8A717 /* LangObject.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -222,6 +241,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A08523491039B4F9001BBCA1 /* MessageTestCase.m in Sources */,
+				A0A23F89103B084800C8A717 /* LangObjectTestCase.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

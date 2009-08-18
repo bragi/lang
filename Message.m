@@ -51,7 +51,7 @@
 
 - (void) setArguments: (NSMutableArray*) newArguments 
 {
-	[arguments autorelease];
+	[arguments release];
 	arguments = [newArguments retain];
 }
 
