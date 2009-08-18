@@ -12,7 +12,9 @@
 @interface LangObjectTestCase : SenTestCase {
 	LangObject* object;
 	LangObject* ancestor;
+	LangObject* olderAncestor;
 	LangObject* cell;
+	LangObject* anotherCell;
 }
 
 @end

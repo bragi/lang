@@ -37,7 +37,15 @@
 
 - (LangObject*) cellForName: (NSString*) name
 {
-	return [cells valueForKey:name];
+	LangObject* cell = [cells valueForKey:name];
+	if (cell) return cell;
+	LangObject* ancestor;
+	for(ancestor in [ancestors reverseObjectEnumerator])
+	{
+		cell = [ancestor cellForName:name];
+		if (cell) return cell;
+	}
+	return nil;
 }
 
 - (void) addAncestor: (LangObject*)ancestor

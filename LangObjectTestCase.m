@@ -14,14 +14,18 @@
 {
 	object = [[[LangObject alloc] init] retain];
 	ancestor = [[[LangObject alloc] init] retain];
+	olderAncestor = [[[LangObject alloc] init] retain];
 	cell = [[[LangObject alloc] init] retain];
+	anotherCell = [[[LangObject alloc] init] retain];
 }
 
 - (void) tearDown
 {
 	[object release];
 	[ancestor release];
+	[olderAncestor release];
 	[cell release];
+	[anotherCell release];
 }
 
 - (void) testSetCell
@@ -44,4 +48,21 @@
 {
 	[object addAncestor:ancestor];
 }
+
+- (void) testLookupInAncestor
+{
+	[ancestor setCell:cell withName:@"cell"];
+	[object addAncestor:ancestor];
+	STAssertEqualObjects([object cellForName:@"cell"], cell, @"got no cell in ancestor");
+}
+
+- (void) testPreferYoungerAncestor
+{
+	[olderAncestor setCell:anotherCell withName:@"cell"];
+	[ancestor setCell:cell withName:@"cell"];
+	[object addAncestor:olderAncestor];
+	[object addAncestor:ancestor];
+	STAssertEqualObjects([object cellForName:@"cell"], cell, @"got no cell in ancestor");
+}
+
 @end
