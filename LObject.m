@@ -9,6 +9,7 @@
 #import "LObject.h"
 
 
+
 @implementation LObject
 - (id) init
 {
@@ -51,5 +52,10 @@
 - (void) addAncestor: (LObject*)ancestor
 {
 	[ancestors addObject:ancestor];
+}
+
+- (LObject*) activate: (LFrame*)frame
+{
+	return self;
 }
 @end

@@ -8,6 +8,7 @@
 
 #import <Cocoa/Cocoa.h>
 
+@class LFrame;
 
 @interface LObject : NSObject {
 	NSMutableDictionary* cells;
@@ -21,4 +22,6 @@
 - (LObject*) cellForName: (NSString *)name;
 
 - (void) addAncestor: (LObject*)ancestor;
+
+- (LObject*) activate: (LFrame*) frame;
 @end
