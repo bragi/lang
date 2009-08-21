@@ -9,55 +9,25 @@
 #import "Message.h"
 
 @implementation Message
+@synthesize nextMessage;
+@synthesize arguments;
+@synthesize name;
 
 - (id) initWithName: (NSString*) newName 
 {
 	self = [super init];
 	if(self)
 	{
-		name = [newName retain];
+		name = newName;
 		arguments = nil;
 		nextMessage = nil;
 	}
 	return self;
 }
 
-- (void) dealloc
-{
-	[nextMessage autorelease];
-	for(Message* m in arguments) {
-		[m autorelease];
-	}
-	[arguments autorelease];
-	[name autorelease];
-	[super dealloc];
-}
-
-- (Message*) nextMessage 
-{
-	return nextMessage;
-}
-
-- (NSMutableArray*)arguments 
-{
-	return arguments;
-}
-
-- (void) setNextMessage: (Message*) newNextMessage 
-{
-	[nextMessage autorelease];
-	nextMessage = [newNextMessage retain];
-}
-
-- (void) setArguments: (NSMutableArray*) newArguments 
-{
-	[arguments release];
-	arguments = [newArguments retain];
-}
-
 - (NSMutableString*) stringValueWithoutNested
 {
-	NSMutableString* value = [[NSMutableString stringWithString: name] autorelease];
+	NSMutableString* value = [NSMutableString stringWithString: name];
 
 	if([arguments count] >  0)
 	{
@@ -84,7 +54,7 @@
 
 - (NSString*) stringValue
 {
-	NSMutableString* value = [[NSMutableString stringWithString: [self stringValueWithoutNested]] autorelease];
+	NSMutableString* value = [NSMutableString stringWithString: [self stringValueWithoutNested]];
 	if(nextMessage) {
 		Message* message = self;
 		while (message = [message nextMessage]) {
@@ -97,10 +67,9 @@
 
 - (void) addArgument: (Message*) argument
 {
-	[argument retain];
 	if(arguments == nil)
 	{
-		arguments = [[NSMutableArray arrayWithObject:argument] retain];
+		arguments = [NSMutableArray arrayWithObject:argument];
 	}
 	else
 	{

@@ -16,13 +16,11 @@
 }
 
 - (id) initWithName: (NSString*)newName;
-- (void) dealloc;
 
-- (Message*) nextMessage;
-- (NSMutableArray*) arguments;
+@property (retain) Message* nextMessage;
+@property (retain) NSString* name;
+@property (retain) NSMutableArray* arguments;
 
-- (void) setNextMessage: (Message*)newNextMessage;
-- (void) setArguments: (NSMutableArray*)newArguments;
 
 - (void) addArgument: (Message*)argument;
 - (NSString*) stringValue;
