@@ -1,5 +1,5 @@
 //
-//  LangObject.h
+//  LObject.h
 //  lang-objective-c
 //
 //  Created by Łukasz Piestrzeniewicz on 09-08-18.
@@ -9,7 +9,7 @@
 #import <Cocoa/Cocoa.h>
 
 
-@interface LangObject : NSObject {
+@interface LObject : NSObject {
 	NSMutableDictionary* cells;
 	NSMutableArray* ancestors;
 }
@@ -17,8 +17,8 @@
 - (id) init;
 - (void) dealloc;
 
-- (void) setCell: (LangObject*)object withName: (NSString*)name;
-- (LangObject*) cellForName: (NSString *)name;
+- (void) setCell: (LObject*)object withName: (NSString*)name;
+- (LObject*) cellForName: (NSString *)name;
 
-- (void) addAncestor: (LangObject*)ancestor;
+- (void) addAncestor: (LObject*)ancestor;
 @end

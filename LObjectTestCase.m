@@ -1,22 +1,22 @@
 //
-//  LangObjectTestCase.m
+//  LObjectTestCase.m
 //  lang-objective-c
 //
 //  Created by Łukasz Piestrzeniewicz on 09-08-18.
 //  Copyright 2009 Ragnarson. All rights reserved.
 //
 
-#import "LangObjectTestCase.h"
+#import "LObjectTestCase.h"
 
 
-@implementation LangObjectTestCase
+@implementation LObjectTestCase
 - (void) setUp
 {
-	object = [[[LangObject alloc] init] retain];
-	ancestor = [[[LangObject alloc] init] retain];
-	olderAncestor = [[[LangObject alloc] init] retain];
-	cell = [[[LangObject alloc] init] retain];
-	anotherCell = [[[LangObject alloc] init] retain];
+	object = [[[LObject alloc] init] retain];
+	ancestor = [[[LObject alloc] init] retain];
+	olderAncestor = [[[LObject alloc] init] retain];
+	cell = [[[LObject alloc] init] retain];
+	anotherCell = [[[LObject alloc] init] retain];
 }
 
 - (void) tearDown

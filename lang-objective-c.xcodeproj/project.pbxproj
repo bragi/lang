@@ -12,8 +12,8 @@
 		8DD76F9F0486AA7600D96B5E /* lang-objective-c.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = C6859EA3029092ED04C91782 /* lang-objective-c.1 */; };
 		A08523491039B4F9001BBCA1 /* MessageTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = A08523481039B4F9001BBCA1 /* MessageTestCase.m */; };
 		A09F194E1037F2DA0089A817 /* Message.m in Sources */ = {isa = PBXBuildFile; fileRef = A09F194D1037F2DA0089A817 /* Message.m */; };
-		A0A23F89103B084800C8A717 /* LangObjectTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = A0A23F88103B084800C8A717 /* LangObjectTestCase.m */; };
-		A0A23FBB103B137600C8A717 /* LangObject.m in Sources */ = {isa = PBXBuildFile; fileRef = A0A23F8E103B099800C8A717 /* LangObject.m */; };
+		A0A23F89103B084800C8A717 /* LObjectTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = A0A23F88103B084800C8A717 /* LObjectTestCase.m */; };
+		A0A23FBB103B137600C8A717 /* LObject.m in Sources */ = {isa = PBXBuildFile; fileRef = A0A23F8E103B099800C8A717 /* LObject.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,10 +50,10 @@
 		A08523481039B4F9001BBCA1 /* MessageTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageTestCase.m; sourceTree = "<group>"; };
 		A09F194C1037F2DA0089A817 /* Message.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Message.h; sourceTree = "<group>"; };
 		A09F194D1037F2DA0089A817 /* Message.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Message.m; sourceTree = "<group>"; };
-		A0A23F87103B084800C8A717 /* LangObjectTestCase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LangObjectTestCase.h; sourceTree = "<group>"; };
-		A0A23F88103B084800C8A717 /* LangObjectTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LangObjectTestCase.m; sourceTree = "<group>"; };
-		A0A23F8D103B099800C8A717 /* LangObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LangObject.h; sourceTree = "<group>"; };
-		A0A23F8E103B099800C8A717 /* LangObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LangObject.m; sourceTree = "<group>"; };
+		A0A23F87103B084800C8A717 /* LObjectTestCase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LObjectTestCase.h; sourceTree = "<group>"; };
+		A0A23F88103B084800C8A717 /* LObjectTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LObjectTestCase.m; sourceTree = "<group>"; };
+		A0A23F8D103B099800C8A717 /* LObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LObject.h; sourceTree = "<group>"; };
+		A0A23F8E103B099800C8A717 /* LObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LObject.m; sourceTree = "<group>"; };
 		C6859EA3029092ED04C91782 /* lang-objective-c.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = "lang-objective-c.1"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -122,10 +122,10 @@
 				A09F194D1037F2DA0089A817 /* Message.m */,
 				A08523471039B4F9001BBCA1 /* MessageTestCase.h */,
 				A08523481039B4F9001BBCA1 /* MessageTestCase.m */,
-				A0A23F87103B084800C8A717 /* LangObjectTestCase.h */,
-				A0A23F88103B084800C8A717 /* LangObjectTestCase.m */,
-				A0A23F8D103B099800C8A717 /* LangObject.h */,
-				A0A23F8E103B099800C8A717 /* LangObject.m */,
+				A0A23F87103B084800C8A717 /* LObjectTestCase.h */,
+				A0A23F88103B084800C8A717 /* LObjectTestCase.m */,
+				A0A23F8D103B099800C8A717 /* LObject.h */,
+				A0A23F8E103B099800C8A717 /* LObject.m */,
 			);
 			name = Lang;
 			sourceTree = "<group>";
@@ -232,7 +232,7 @@
 			files = (
 				8DD76F9A0486AA7600D96B5E /* lang-objective-c.m in Sources */,
 				A09F194E1037F2DA0089A817 /* Message.m in Sources */,
-				A0A23FBB103B137600C8A717 /* LangObject.m in Sources */,
+				A0A23FBB103B137600C8A717 /* LObject.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -241,7 +241,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A08523491039B4F9001BBCA1 /* MessageTestCase.m in Sources */,
-				A0A23F89103B084800C8A717 /* LangObjectTestCase.m in Sources */,
+				A0A23F89103B084800C8A717 /* LObjectTestCase.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
