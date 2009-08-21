@@ -16,23 +16,14 @@
 	self = [super init];
 	if (self)
 	{
-		cells = [[NSMutableDictionary dictionary] retain];
-		ancestors = [[NSMutableArray array] retain];
+		cells = [NSMutableDictionary dictionary];
+		ancestors = [NSMutableArray array];
 	}
 	return self;
 }
 
-- (void) dealloc
-{
-	[ancestors release];
-	[cells release];
-	[super dealloc];
-}
-
 - (void) setCell: (LObject*) object withName: (NSString*) name
 {
-	[name retain];
-	[object retain];
 	[cells setValue: object forKey: name];
 }
 

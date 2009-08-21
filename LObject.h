@@ -16,7 +16,6 @@
 }
 
 - (id) init;
-- (void) dealloc;
 
 - (void) setCell: (LObject*)object withName: (NSString*)name;
 - (LObject*) cellForName: (NSString *)name;
