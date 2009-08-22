@@ -15,6 +15,7 @@
 	NSMutableArray* arguments;
 }
 
++ (id) buildWithName: (NSString*)newName;
 - (id) initWithName: (NSString*)newName;
 
 @property (retain) LMessage* nextMessage;

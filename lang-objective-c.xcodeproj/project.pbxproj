@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		8DD76F9A0486AA7600D96B5E /* lang-objective-c.m in Sources */ = {isa = PBXBuildFile; fileRef = 08FB7796FE84155DC02AAC07 /* lang-objective-c.m */; settings = {ATTRIBUTES = (); }; };
 		8DD76F9C0486AA7600D96B5E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08FB779EFE84155DC02AAC07 /* Foundation.framework */; };
-		8DD76F9F0486AA7600D96B5E /* lang-objective-c.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = C6859EA3029092ED04C91782 /* lang-objective-c.1 */; };
+		8DD76F9F0486AA7600D96B5E /* lang.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = C6859EA3029092ED04C91782 /* lang.1 */; };
 		A0616045103EDA0000A2CC3F /* LFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = A0616044103EDA0000A2CC3F /* LFrame.m */; };
 		A0616095103F0BF600A2CC3F /* LMethod.m in Sources */ = {isa = PBXBuildFile; fileRef = A0616094103F0BF600A2CC3F /* LMethod.m */; };
 		A06160CF1040074500A2CC3F /* RObject.m in Sources */ = {isa = PBXBuildFile; fileRef = A06160CE1040074500A2CC3F /* RObject.m */; };
@@ -38,7 +38,7 @@
 			dstPath = /usr/share/man/man1/;
 			dstSubfolderSpec = 0;
 			files = (
-				8DD76F9F0486AA7600D96B5E /* lang-objective-c.1 in CopyFiles */,
+				8DD76F9F0486AA7600D96B5E /* lang.1 in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 1;
 		};
@@ -69,7 +69,7 @@
 		A0A23F88103B084800C8A717 /* LObjectTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LObjectTestCase.m; sourceTree = "<group>"; };
 		A0A23F8D103B099800C8A717 /* LObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LObject.h; sourceTree = "<group>"; };
 		A0A23F8E103B099800C8A717 /* LObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LObject.m; sourceTree = "<group>"; };
-		C6859EA3029092ED04C91782 /* lang-objective-c.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = "lang-objective-c.1"; sourceTree = "<group>"; };
+		C6859EA3029092ED04C91782 /* lang.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = lang.1; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -174,7 +174,7 @@
 		C6859EA2029092E104C91782 /* Documentation */ = {
 			isa = PBXGroup;
 			children = (
-				C6859EA3029092ED04C91782 /* lang-objective-c.1 */,
+				C6859EA3029092ED04C91782 /* lang.1 */,
 			);
 			name = Documentation;
 			sourceTree = "<group>";

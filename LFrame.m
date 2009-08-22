@@ -14,14 +14,14 @@
 @synthesize context;
 @synthesize message;
 
-- (id) initWithTarget:(LObject*)newTarget context:(LObject*)newContext andLMessage:(LMessage*)newLMessage
+- (id) initWithTarget:(LObject*)newTarget context:(LObject*)newContext andMessage:(LMessage*)newMessage
 {
 	self = [super init];
 	if(self)
 	{
 		self.target = newTarget;
 		self.context = newContext;
-		self.message = newLMessage;
+		self.message = newMessage;
 	}
 	return self;
 }

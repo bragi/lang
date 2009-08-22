@@ -13,6 +13,11 @@
 @synthesize arguments;
 @synthesize name;
 
++ (id) buildWithName: (NSString*) newName
+{
+    return [[LMessage alloc] initWithName:newName];
+}
+
 - (id) initWithName: (NSString*) newName 
 {
 	self = [super init];

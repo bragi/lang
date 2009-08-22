@@ -8,10 +8,16 @@
 
 #import "LRuntimeTestCase.h"
 #import "LRuntime.h"
+#import "RObject.h"
 
 @implementation LRuntimeTestCase
 - (void) testRunSelf
 {
-	LMessage* selfMessage;
+	LMessage* selfMessage = [LMessage buildWithName:@"self"];
+    LRuntime* runtime = [[LRuntime alloc] init];
+    RObject* topContext = [RObject build];
+    runtime.topContext = topContext;
+    [runtime run:selfMessage];
+    STAssertEqualObjects(runtime.currentTarget, topContext, @"Different current target");
 }
 @end

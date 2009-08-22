@@ -23,6 +23,6 @@
 @property (retain) LObject* context;
 @property (retain) LMessage* message;
 
-- (id) initWithTarget:(LObject*)target context:(LObject*)context andLMessage:(LMessage*)message;
+- (id) initWithTarget:(LObject*)target context:(LObject*)context andMessage:(LMessage*)message;
 
 @end
