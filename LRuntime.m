@@ -14,7 +14,7 @@
 @synthesize currentTarget;
 @synthesize topContext;
 
-- (void) run:(Message*) message
+- (void) run:(LMessage*) message
 {
 	currentTarget = topContext;
 	while (message) {

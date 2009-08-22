@@ -12,6 +12,6 @@
 @implementation LRuntimeTestCase
 - (void) testRunSelf
 {
-	Message* selfMessage;
+	LMessage* selfMessage;
 }
 @end

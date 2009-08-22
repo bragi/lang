@@ -1,22 +1,22 @@
 //
-//  MessageTest.m
+//  LMessageTest.m
 //  lang-objective-c
 //
 //  Created by Łukasz Piestrzeniewicz on 09-08-17.
 //  Copyright 2009 Ragnarson. All rights reserved.
 //
 
-#import "MessageTestCase.h"
+#import "LMessageTestCase.h"
 
-@implementation MessageTestCase
+@implementation LMessageTestCase
 
 - (void) setUp
 {
-	hello = [[Message alloc] initWithName:@"hello"];
-	beautiful = [[Message alloc] initWithName:@"beautiful"];
-	world = [[Message alloc] initWithName:@"world"];
-	lady = [[Message alloc] initWithName:@"lady"];
-	more = [[Message alloc] initWithName:@"more"];
+	hello = [[LMessage alloc] initWithName:@"hello"];
+	beautiful = [[LMessage alloc] initWithName:@"beautiful"];
+	world = [[LMessage alloc] initWithName:@"world"];
+	lady = [[LMessage alloc] initWithName:@"lady"];
+	more = [[LMessage alloc] initWithName:@"more"];
 }
 
 - (void) tearDown
@@ -28,7 +28,7 @@
 	[more release];
 }
 
-- (void) testMessageExists
+- (void) testLMessageExists
 {
 	STAssertNotNil(hello, @"hello message is nil");
 }

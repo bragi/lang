@@ -8,7 +8,7 @@
 
 #import <Cocoa/Cocoa.h>
 #import "LObject.h"
-#import "Message.h"
+#import "LMessage.h"
 
 @interface LRuntime : NSObject {
 	LObject* currentTarget;
@@ -18,6 +18,6 @@
 @property (retain) LObject* currentTarget;
 @property (retain) LObject* topContext;
 
-- (void) run:(Message*) message;
+- (void) run:(LMessage*) message;
 
 @end

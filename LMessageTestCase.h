@@ -1,5 +1,5 @@
 //
-//  MessageTest.h
+//  LMessageTest.h
 //  lang-objective-c
 //
 //  Created by Łukasz Piestrzeniewicz on 09-08-17.
@@ -7,15 +7,15 @@
 //
 
 #import <SenTestingKit/SenTestingKit.h>
-#import "Message.h"
+#import "LMessage.h"
 
 
-@interface MessageTestCase : SenTestCase {
-	Message* hello;
-	Message* beautiful;
-	Message* world;
-	Message* lady;
-	Message* more;
+@interface LMessageTestCase : SenTestCase {
+	LMessage* hello;
+	LMessage* beautiful;
+	LMessage* world;
+	LMessage* lady;
+	LMessage* more;
 }
 
 @end
