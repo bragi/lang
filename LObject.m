@@ -8,8 +8,6 @@
 
 #import "LObject.h"
 
-
-
 @implementation LObject
 - (id) init
 {
@@ -50,3 +48,4 @@
 	return self;
 }
 @end
+
