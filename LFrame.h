@@ -10,6 +10,9 @@
 #import "LObject.h"
 #import "Message.h"
 
+/*
+ Represents a call frame, is given when method is called in activate. Provides access to method receiver, context in which message was sent and the message itself.
+ */
 @interface LFrame : NSObject {
 	LObject* target;
 	LObject* context;

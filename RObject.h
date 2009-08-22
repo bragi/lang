@@ -10,12 +10,17 @@
 #import "LObject.h"
 #import "LMethod.h"
 
-
+/*
+ Represents Lang Object, the most basic datatype.
+ */
 @interface RObject : LObject {
 }
 
 + (RObject*) build;
 @end
 
+/*
+ Returns the receiver.
+ */
 @interface SelfMethod : LMethod {}
 @end

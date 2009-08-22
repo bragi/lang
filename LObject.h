@@ -10,6 +10,11 @@
 
 @class LFrame;
 
+/*
+ Base building block of the Lang runtime. Keeps data about object: cells and ancestors, provides means to execute methods in response to messages.
+ 
+ Ancestor of all Lang datatypes.
+ */
 @interface LObject : NSObject {
 	NSMutableDictionary* cells;
 	NSMutableArray* ancestors;

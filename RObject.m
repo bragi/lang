@@ -18,8 +18,6 @@
 }
 @end
 
-@end
-
 @implementation SelfMethod
 
 - (LObject*) activate: (LFrame*)frame
