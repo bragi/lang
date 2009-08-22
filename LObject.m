@@ -47,5 +47,11 @@
 {
 	return self;
 }
+
+- (LObject*) send: (LFrame*)frame
+{
+	LObject* cell = [self cellForName: [[frame message] name]];
+	return [cell activate:frame];
+}
 @end
 

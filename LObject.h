@@ -28,4 +28,5 @@
 - (void) addAncestor: (LObject*)ancestor;
 
 - (LObject*) activate: (LFrame*) frame;
+- (LObject*) send: (LFrame*) frame;
 @end

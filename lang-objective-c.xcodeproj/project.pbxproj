@@ -13,6 +13,8 @@
 		A0616045103EDA0000A2CC3F /* LFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = A0616044103EDA0000A2CC3F /* LFrame.m */; };
 		A0616095103F0BF600A2CC3F /* LMethod.m in Sources */ = {isa = PBXBuildFile; fileRef = A0616094103F0BF600A2CC3F /* LMethod.m */; };
 		A06160CF1040074500A2CC3F /* RObject.m in Sources */ = {isa = PBXBuildFile; fileRef = A06160CE1040074500A2CC3F /* RObject.m */; };
+		A06161121040119700A2CC3F /* LRuntime.m in Sources */ = {isa = PBXBuildFile; fileRef = A06161111040119700A2CC3F /* LRuntime.m */; };
+		A061616E10401B4700A2CC3F /* LRuntimeTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = A061612F104018A500A2CC3F /* LRuntimeTestCase.m */; };
 		A08523491039B4F9001BBCA1 /* MessageTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = A08523481039B4F9001BBCA1 /* MessageTestCase.m */; };
 		A09F194E1037F2DA0089A817 /* Message.m in Sources */ = {isa = PBXBuildFile; fileRef = A09F194D1037F2DA0089A817 /* Message.m */; };
 		A0A23F89103B084800C8A717 /* LObjectTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = A0A23F88103B084800C8A717 /* LObjectTestCase.m */; };
@@ -53,6 +55,10 @@
 		A0616094103F0BF600A2CC3F /* LMethod.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMethod.m; sourceTree = "<group>"; };
 		A06160CD1040074500A2CC3F /* RObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RObject.h; sourceTree = "<group>"; };
 		A06160CE1040074500A2CC3F /* RObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RObject.m; sourceTree = "<group>"; };
+		A06161101040119700A2CC3F /* LRuntime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LRuntime.h; sourceTree = "<group>"; };
+		A06161111040119700A2CC3F /* LRuntime.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LRuntime.m; sourceTree = "<group>"; };
+		A061612E104018A500A2CC3F /* LRuntimeTestCase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LRuntimeTestCase.h; sourceTree = "<group>"; };
+		A061612F104018A500A2CC3F /* LRuntimeTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LRuntimeTestCase.m; sourceTree = "<group>"; };
 		A08523211039B2A7001BBCA1 /* Test-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Test-Info.plist"; sourceTree = "<group>"; };
 		A08523371039B311001BBCA1 /* Test.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Test.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A08523471039B4F9001BBCA1 /* MessageTestCase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageTestCase.h; sourceTree = "<group>"; };
@@ -100,6 +106,7 @@
 		08FB7795FE84155DC02AAC07 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				A061612C1040185900A2CC3F /* Test */,
 				A0A23F9F103B0A8700C8A717 /* Lang */,
 				32A70AAB03705E1F00C91783 /* lang-objective-c_Prefix.pch */,
 				08FB7796FE84155DC02AAC07 /* lang-objective-c.m */,
@@ -133,22 +140,33 @@
 			name = objects;
 			sourceTree = "<group>";
 		};
+		A061612C1040185900A2CC3F /* Test */ = {
+			isa = PBXGroup;
+			children = (
+				A08523471039B4F9001BBCA1 /* MessageTestCase.h */,
+				A08523481039B4F9001BBCA1 /* MessageTestCase.m */,
+				A0A23F87103B084800C8A717 /* LObjectTestCase.h */,
+				A0A23F88103B084800C8A717 /* LObjectTestCase.m */,
+				A061612E104018A500A2CC3F /* LRuntimeTestCase.h */,
+				A061612F104018A500A2CC3F /* LRuntimeTestCase.m */,
+			);
+			name = Test;
+			sourceTree = "<group>";
+		};
 		A0A23F9F103B0A8700C8A717 /* Lang */ = {
 			isa = PBXGroup;
 			children = (
 				A06160CC1040072300A2CC3F /* objects */,
 				A09F194C1037F2DA0089A817 /* Message.h */,
 				A09F194D1037F2DA0089A817 /* Message.m */,
-				A08523471039B4F9001BBCA1 /* MessageTestCase.h */,
-				A08523481039B4F9001BBCA1 /* MessageTestCase.m */,
-				A0A23F87103B084800C8A717 /* LObjectTestCase.h */,
-				A0A23F88103B084800C8A717 /* LObjectTestCase.m */,
 				A0A23F8D103B099800C8A717 /* LObject.h */,
 				A0A23F8E103B099800C8A717 /* LObject.m */,
 				A0616043103EDA0000A2CC3F /* LFrame.h */,
 				A0616044103EDA0000A2CC3F /* LFrame.m */,
 				A0616093103F0BF600A2CC3F /* LMethod.h */,
 				A0616094103F0BF600A2CC3F /* LMethod.m */,
+				A06161101040119700A2CC3F /* LRuntime.h */,
+				A06161111040119700A2CC3F /* LRuntime.m */,
 			);
 			name = Lang;
 			sourceTree = "<group>";
@@ -259,6 +277,7 @@
 				A0616045103EDA0000A2CC3F /* LFrame.m in Sources */,
 				A0616095103F0BF600A2CC3F /* LMethod.m in Sources */,
 				A06160CF1040074500A2CC3F /* RObject.m in Sources */,
+				A06161121040119700A2CC3F /* LRuntime.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -268,6 +287,7 @@
 			files = (
 				A08523491039B4F9001BBCA1 /* MessageTestCase.m in Sources */,
 				A0A23F89103B084800C8A717 /* LObjectTestCase.m in Sources */,
+				A061616E10401B4700A2CC3F /* LRuntimeTestCase.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
