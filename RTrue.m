@@ -11,4 +11,10 @@
 
 @implementation RTrue
 
++ (void) addCellsTo: (LObject*)object
+{
+    // TODO: fill in
+}
+
+
 @end

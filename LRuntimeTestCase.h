@@ -7,10 +7,10 @@
 //
 
 #import <SenTestingKit/SenTestingKit.h>
-
+#import "LRuntime.h"
 
 @interface LRuntimeTestCase : SenTestCase {
-
+    LRuntime* runtime;
 }
 
 @end

@@ -10,18 +10,21 @@
 #import "LObject.h"
 #import "LMethod.h"
 
-/*
- Represents Lang Object, the most basic datatype.
+/**
+ Factory for adding cells necessery for Object.
  */
-@interface RObject : LObject {
-}
+@interface RObject : NSObject {}
 
 /** Creates new instance with given runtime, sets all necessary cells and methods. */
-+ (RObject*) buildWithRuntime:(Runtime*)runtime;
++ (void) addCellsTo:(LObject*)object;
 @end
 
-/*
+/**
  Returns the receiver.
  */
 @interface SelfMethod : LMethod {}
+@end
+
+/** Mimics receiver. */
+@interface MimicMethod : LMethod {}
 @end

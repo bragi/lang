@@ -10,22 +10,32 @@
 
 
 @implementation RObject
-+ (RObject*) buildWithRuntime:(Runtime*)runtime
+
++ (void) addCellsTo: (LObject*)object
 {
-	RObject* object = [[RObject alloc] init];
-    object.runtime = runtime;
-    /* Add cells... */
     /* Add methods */
 	[object setCell:[[SelfMethod alloc] init] withName:@"self"];
-	return object;
+	[object setCell:[[MimicMethod alloc] init] withName:@"mimic"];
 }
+
 @end
+
 
 @implementation SelfMethod
 
 - (LObject*) activate: (LFrame*)frame
 {
 	return [frame target];
+}
+
+@end
+
+
+@implementation MimicMethod
+
+- (LObject*) activate: (LFrame*)frame
+{
+	return [[frame target] mimicWithFrame:frame];
 }
 
 @end

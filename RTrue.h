@@ -9,8 +9,8 @@
 #import <Cocoa/Cocoa.h>
 #import "RObject.h"
 
-@interface RTrue : LObject {
+@interface RTrue : NSObject {}
 
-}
++ (void) addCellsTo:(LObject*)object;
 
 @end

@@ -7,10 +7,19 @@
 //
 
 #import "LObject.h"
+#import "LMessage.h"
+#import "LFrame.h"
 
 @implementation LObject
 
 @synthesize runtime;
+
++ (id) buildWithRuntime: (LRuntime*) runtime
+{
+    LObject* object = [[LObject alloc] init];
+    object.runtime = runtime;
+    return object;
+}
 
 - (id) init
 {
@@ -61,8 +70,15 @@
 
 - (LObject*) send: (LFrame*)frame
 {
-	LObject* cell = [self cellForName: [[frame message] name]];
+    LMessage* message = frame.message;
+	LObject* cell = [self cellForName: [message name]];
 	return [cell activate:frame];
 }
+
+- (LObject*) mimicWithFrame: (LFrame*)frame
+{
+    return [self mimic];
+}
+
 @end
 

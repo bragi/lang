@@ -9,7 +9,7 @@
 #import <Cocoa/Cocoa.h>
 
 @class LFrame;
-@class Runtime;
+@class LRuntime;
 
 /**
  Base building block of the Lang runtime. Keeps data about object: cells and ancestors, 
@@ -23,11 +23,18 @@
     /** Keeps object's ancestors */
 	NSMutableArray* ancestors;
     /** Reference to runtime in which the object was created */
-    Runtime* runtime;
+    LRuntime* runtime;
 }
 
 /** Keeps the runtime of this object. */
-@property (retain) Runtime* runtime;
+@property (retain) LRuntime* runtime;
+
+/**
+ Factory method to build new instances, should be used only during LRuntime initialization.
+ When creating new mimic of particular objects use mimic. When creating new mimic during method call
+ use mimicWithFrame when LFrame is available.
+ */
++ (id) buildWithRuntime: (LRuntime*)runtime;
 
 /** Initializes the object */
 - (id) init;
@@ -43,7 +50,12 @@
  */
 - (LObject*) cellForName: (NSString *)name;
 
+/**
+ Adds given object as ancestor. Low level method used only when initializing singletons or 
+ from within method calls.
+ */
 - (void) addAncestor: (LObject*)ancestor;
+
 
 // Public interface
 
@@ -71,4 +83,13 @@
  handle the call and then sends activate to this cell.
  */
 - (LObject*) send: (LFrame*) frame;
+
+
+// Lang methods - forwarded by method invocations.
+
+/**
+ Creates a new mimic of this object. Used in running programs.
+ */
+- (LObject*) mimicWithFrame: (LFrame*) frame;
+
 @end
