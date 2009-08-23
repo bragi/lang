@@ -28,4 +28,13 @@
     [runtime run:mimicMessage];
     STAssertFalse(runtime.currentTarget == topContext, @"Same current target");
 }
+
+- (void) testRunMultipleMimics
+{
+	LMessage* mimicMessage = [LMessage buildWithName:@"mimic"];
+    mimicMessage.nextMessage = [LMessage buildWithName:@"mimic"];
+    LObject* topContext = runtime.topContext;
+    [runtime run:mimicMessage];
+    STAssertFalse(runtime.currentTarget == topContext, @"Same current target");
+}
 @end
