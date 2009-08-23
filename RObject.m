@@ -10,9 +10,12 @@
 
 
 @implementation RObject
-+ (RObject*) build
++ (RObject*) buildWithRuntime:(Runtime*)runtime
 {
 	RObject* object = [[RObject alloc] init];
+    object.runtime = runtime;
+    /* Add cells... */
+    /* Add methods */
 	[object setCell:[[SelfMethod alloc] init] withName:@"self"];
 	return object;
 }

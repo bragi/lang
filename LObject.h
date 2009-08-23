@@ -9,6 +9,7 @@
 #import <Cocoa/Cocoa.h>
 
 @class LFrame;
+@class Runtime;
 
 /**
  Base building block of the Lang runtime. Keeps data about object: cells and ancestors, 
@@ -21,10 +22,17 @@
 	NSMutableDictionary* cells;
     /** Keeps object's ancestors */
 	NSMutableArray* ancestors;
+    /** Reference to runtime in which the object was created */
+    Runtime* runtime;
 }
+
+/** Keeps the runtime of this object. */
+@property (retain) Runtime* runtime;
 
 /** Initializes the object */
 - (id) init;
+
+// Internal plumbing
 
 /**
  Adds cell to the object with given name.
@@ -37,6 +45,8 @@
 
 - (void) addAncestor: (LObject*)ancestor;
 
+// Public interface
+
 /**
  Final part of processing a message, called when self is in activated cell. Non-executable 
  objects simply return self, only executable descendants like Methods perform more complex 
@@ -48,13 +58,9 @@
 - (LObject*) activate: (LFrame*) frame;
 
 /**
- Makes self descendant of provided ancestor. Used when calling 'mimic' in runtime:
- 
- object = Object mimic
- 
- will result in [object mimicAncestor:ancestor]
+ Creates new instance with self as ancestor
  */
-- (LObject*) mimicAncestor:(LObject*) ancestor;
+- (LObject*) mimic;
 
 /**
  First part of processing message. When message is called on object:

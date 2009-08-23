@@ -16,7 +16,8 @@
 @interface RObject : LObject {
 }
 
-+ (RObject*) build;
+/** Creates new instance with given runtime, sets all necessary cells and methods. */
++ (RObject*) buildWithRuntime:(Runtime*)runtime;
 @end
 
 /*

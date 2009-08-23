@@ -9,6 +9,9 @@
 #import "LObject.h"
 
 @implementation LObject
+
+@synthesize runtime;
+
 - (id) init
 {
 	self = [super init];
@@ -46,6 +49,14 @@
 - (LObject*) activate: (LFrame*)frame
 {
 	return self;
+}
+
+- (LObject*) mimic
+{
+    LObject* mimic = [[LObject alloc] init];
+    mimic.runtime = self.runtime;
+    [mimic addAncestor:self];
+    return mimic;
 }
 
 - (LObject*) send: (LFrame*)frame

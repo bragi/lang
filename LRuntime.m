@@ -8,11 +8,27 @@
 
 #import "LRuntime.h"
 #import "LFrame.h"
+#import "RObject.h"
 
 @implementation LRuntime
 
 @synthesize currentTarget;
 @synthesize topContext;
+
+@synthesize theObject;
+@synthesize theTrue;
+
+- (id) init
+{
+    self = [super init];
+    if (self)
+    {
+        theObject = [RObject buildWithRuntime: self];
+        /** For now let's use theObject as top context, later we need another, better tailored object here. */
+        topContext = theObject;
+    }
+    return self;
+}
 
 - (void) run:(LMessage*) message
 {

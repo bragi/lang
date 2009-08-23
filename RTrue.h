@@ -9,7 +9,7 @@
 #import <Cocoa/Cocoa.h>
 #import "RObject.h"
 
-@interface RTrue : RObject {
+@interface RTrue : LObject {
 
 }
 

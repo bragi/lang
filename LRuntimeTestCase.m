@@ -15,8 +15,7 @@
 {
 	LMessage* selfMessage = [LMessage buildWithName:@"self"];
     LRuntime* runtime = [[LRuntime alloc] init];
-    RObject* topContext = [RObject build];
-    runtime.topContext = topContext;
+    LObject* topContext = runtime.topContext;
     [runtime run:selfMessage];
     STAssertEqualObjects(runtime.currentTarget, topContext, @"Different current target");
 }
