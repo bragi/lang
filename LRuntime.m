@@ -7,7 +7,7 @@
 //
 
 #import "LRuntime.h"
-#import "LFrame.h"
+#import "LExecution.h"
 #import "RObject.h"
 
 @interface LRuntime()
@@ -39,7 +39,7 @@
 
 - (void) createObjectHierarchy
 {
-    theObject = [LObject buildWithRuntime:self];
+    theObject = [LObject build];
 }
 
 - (void) createObjectCells
@@ -49,13 +49,6 @@
 
 - (void) run:(LMessage*) message
 {
-	currentTarget = topContext;
-	while (message) {
-		LFrame* frame = [[LFrame alloc] initWithTarget:currentTarget context:topContext andMessage:message];
-		currentTarget = [currentTarget send:frame];
-		
-		message = message.nextMessage;
-	}
 }
 
 @end

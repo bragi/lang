@@ -7,7 +7,7 @@
 //
 
 #import "RObject.h"
-
+#import "LExecution.h"
 
 @implementation RObject
 
@@ -23,9 +23,9 @@
 
 @implementation SelfMethod
 
-- (LObject*) activate: (LFrame*)frame
+- (LObject*) activate: (LExecution*)execution
 {
-	return [frame target];
+	return execution.target;
 }
 
 @end
@@ -33,9 +33,9 @@
 
 @implementation MimicMethod
 
-- (LObject*) activate: (LFrame*)frame
+- (LObject*) activate: (LExecution*)execution
 {
-	return [[frame target] mimicWithFrame:frame];
+	return [execution.target mimicWithExecution:execution];
 }
 
 @end

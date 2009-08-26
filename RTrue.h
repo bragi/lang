@@ -9,6 +9,9 @@
 #import <Cocoa/Cocoa.h>
 #import "RObject.h"
 
+/**
+ Adds cells and methods to true instance.
+ */
 @interface RTrue : NSObject {}
 
 + (void) addCellsTo:(LObject*)object;

@@ -25,16 +25,17 @@
 		8DD76F9A0486AA7600D96B5E /* lang-objective-c.m in Sources */ = {isa = PBXBuildFile; fileRef = 08FB7796FE84155DC02AAC07 /* lang-objective-c.m */; settings = {ATTRIBUTES = (); }; };
 		8DD76F9C0486AA7600D96B5E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08FB779EFE84155DC02AAC07 /* Foundation.framework */; };
 		8DD76F9F0486AA7600D96B5E /* lang.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = C6859EA3029092ED04C91782 /* lang.1 */; };
-		A0616045103EDA0000A2CC3F /* LFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = A0616044103EDA0000A2CC3F /* LFrame.m */; };
 		A0616095103F0BF600A2CC3F /* LMethod.m in Sources */ = {isa = PBXBuildFile; fileRef = A0616094103F0BF600A2CC3F /* LMethod.m */; };
 		A06160CF1040074500A2CC3F /* RObject.m in Sources */ = {isa = PBXBuildFile; fileRef = A06160CE1040074500A2CC3F /* RObject.m */; };
 		A06161121040119700A2CC3F /* LRuntime.m in Sources */ = {isa = PBXBuildFile; fileRef = A06161111040119700A2CC3F /* LRuntime.m */; };
 		A061616E10401B4700A2CC3F /* LRuntimeTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = A061612F104018A500A2CC3F /* LRuntimeTestCase.m */; };
 		A06161C210413B5600A2CC3F /* RTrue.m in Sources */ = {isa = PBXBuildFile; fileRef = A06161C110413B5600A2CC3F /* RTrue.m */; };
+		A06162B810427B8900A2CC3F /* LExecution.m in Sources */ = {isa = PBXBuildFile; fileRef = A06162B710427B8900A2CC3F /* LExecution.m */; };
 		A08523491039B4F9001BBCA1 /* LMessageTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = A08523481039B4F9001BBCA1 /* LMessageTestCase.m */; };
 		A09F194E1037F2DA0089A817 /* LMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = A09F194D1037F2DA0089A817 /* LMessage.m */; };
 		A0A23F89103B084800C8A717 /* LObjectTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = A0A23F88103B084800C8A717 /* LObjectTestCase.m */; };
 		A0A23FBB103B137600C8A717 /* LObject.m in Sources */ = {isa = PBXBuildFile; fileRef = A0A23F8E103B099800C8A717 /* LObject.m */; };
+		A0CFAA2310441794000760D3 /* LExecutionTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = A0CFAA2210441794000760D3 /* LExecutionTestCase.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,7 +43,7 @@
 			isa = PBXContainerItemProxy;
 			containerPortal = 08FB7793FE84155DC02AAC07 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 8DD76F960486AA7600D96B5E /* lang */;
+			remoteGlobalIDString = 8DD76F960486AA7600D96B5E;
 			remoteInfo = lang;
 		};
 		A085233D1039B32C001BBCA1 /* PBXContainerItemProxy */ = {
@@ -72,8 +73,6 @@
 		08FB779EFE84155DC02AAC07 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
 		32A70AAB03705E1F00C91783 /* lang-objective-c_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "lang-objective-c_Prefix.pch"; sourceTree = "<group>"; };
 		8DD76FA10486AA7600D96B5E /* lang */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = lang; sourceTree = BUILT_PRODUCTS_DIR; };
-		A0616043103EDA0000A2CC3F /* LFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LFrame.h; sourceTree = "<group>"; };
-		A0616044103EDA0000A2CC3F /* LFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LFrame.m; sourceTree = "<group>"; };
 		A0616093103F0BF600A2CC3F /* LMethod.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMethod.h; sourceTree = "<group>"; };
 		A0616094103F0BF600A2CC3F /* LMethod.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMethod.m; sourceTree = "<group>"; };
 		A06160CD1040074500A2CC3F /* RObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RObject.h; sourceTree = "<group>"; };
@@ -84,6 +83,8 @@
 		A061612F104018A500A2CC3F /* LRuntimeTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LRuntimeTestCase.m; sourceTree = "<group>"; };
 		A06161C010413B5600A2CC3F /* RTrue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTrue.h; sourceTree = "<group>"; };
 		A06161C110413B5600A2CC3F /* RTrue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTrue.m; sourceTree = "<group>"; };
+		A06162B610427B8900A2CC3F /* LExecution.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LExecution.h; sourceTree = "<group>"; };
+		A06162B710427B8900A2CC3F /* LExecution.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LExecution.m; sourceTree = "<group>"; };
 		A08523211039B2A7001BBCA1 /* Test-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Test-Info.plist"; sourceTree = "<group>"; };
 		A08523371039B311001BBCA1 /* Test.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Test.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A08523471039B4F9001BBCA1 /* LMessageTestCase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMessageTestCase.h; sourceTree = "<group>"; };
@@ -94,6 +95,8 @@
 		A0A23F88103B084800C8A717 /* LObjectTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LObjectTestCase.m; sourceTree = "<group>"; };
 		A0A23F8D103B099800C8A717 /* LObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LObject.h; sourceTree = "<group>"; };
 		A0A23F8E103B099800C8A717 /* LObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LObject.m; sourceTree = "<group>"; };
+		A0CFAA2110441794000760D3 /* LExecutionTestCase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LExecutionTestCase.h; sourceTree = "<group>"; };
+		A0CFAA2210441794000760D3 /* LExecutionTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LExecutionTestCase.m; sourceTree = "<group>"; };
 		C6859EA3029092ED04C91782 /* lang.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = lang.1; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -176,6 +179,8 @@
 				A0A23F88103B084800C8A717 /* LObjectTestCase.m */,
 				A061612E104018A500A2CC3F /* LRuntimeTestCase.h */,
 				A061612F104018A500A2CC3F /* LRuntimeTestCase.m */,
+				A0CFAA2110441794000760D3 /* LExecutionTestCase.h */,
+				A0CFAA2210441794000760D3 /* LExecutionTestCase.m */,
 			);
 			name = Test;
 			sourceTree = "<group>";
@@ -188,12 +193,12 @@
 				A09F194D1037F2DA0089A817 /* LMessage.m */,
 				A0A23F8D103B099800C8A717 /* LObject.h */,
 				A0A23F8E103B099800C8A717 /* LObject.m */,
-				A0616043103EDA0000A2CC3F /* LFrame.h */,
-				A0616044103EDA0000A2CC3F /* LFrame.m */,
 				A0616093103F0BF600A2CC3F /* LMethod.h */,
 				A0616094103F0BF600A2CC3F /* LMethod.m */,
 				A06161101040119700A2CC3F /* LRuntime.h */,
 				A06161111040119700A2CC3F /* LRuntime.m */,
+				A06162B610427B8900A2CC3F /* LExecution.h */,
+				A06162B710427B8900A2CC3F /* LExecution.m */,
 			);
 			name = Lang;
 			sourceTree = "<group>";
@@ -315,11 +320,11 @@
 				8DD76F9A0486AA7600D96B5E /* lang-objective-c.m in Sources */,
 				A09F194E1037F2DA0089A817 /* LMessage.m in Sources */,
 				A0A23FBB103B137600C8A717 /* LObject.m in Sources */,
-				A0616045103EDA0000A2CC3F /* LFrame.m in Sources */,
 				A0616095103F0BF600A2CC3F /* LMethod.m in Sources */,
 				A06160CF1040074500A2CC3F /* RObject.m in Sources */,
 				A06161121040119700A2CC3F /* LRuntime.m in Sources */,
 				A06161C210413B5600A2CC3F /* RTrue.m in Sources */,
+				A06162B810427B8900A2CC3F /* LExecution.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -330,6 +335,7 @@
 				A08523491039B4F9001BBCA1 /* LMessageTestCase.m in Sources */,
 				A0A23F89103B084800C8A717 /* LObjectTestCase.m in Sources */,
 				A061616E10401B4700A2CC3F /* LRuntimeTestCase.m in Sources */,
+				A0CFAA2310441794000760D3 /* LExecutionTestCase.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -8,17 +8,13 @@
 
 #import "LObject.h"
 #import "LMessage.h"
-#import "LFrame.h"
+#import "LExecution.h"
 
 @implementation LObject
 
-@synthesize runtime;
-
-+ (id) buildWithRuntime: (LRuntime*) runtime
++ (id) build
 {
-    LObject* object = [[LObject alloc] init];
-    object.runtime = runtime;
-    return object;
+    return [[LObject alloc] init];
 }
 
 - (id) init
@@ -55,7 +51,7 @@
 	[ancestors addObject:ancestor];
 }
 
-- (LObject*) activate: (LFrame*)frame
+- (LObject*) activate: (LExecution*)execution
 {
 	return self;
 }
@@ -63,19 +59,18 @@
 - (LObject*) mimic
 {
     LObject* mimic = [[LObject alloc] init];
-    mimic.runtime = self.runtime;
     [mimic addAncestor:self];
     return mimic;
 }
 
-- (LObject*) send: (LFrame*)frame
+- (LObject*) send: (LExecution*)execution
 {
-    LMessage* message = frame.message;
+    LMessage* message = execution.message;
 	LObject* cell = [self cellForName: [message name]];
-	return [cell activate:frame];
+	return [cell activate:execution];
 }
 
-- (LObject*) mimicWithFrame: (LFrame*)frame
+- (LObject*) mimicWithExecution: (LExecution*)execution
 {
     return [self mimic];
 }
