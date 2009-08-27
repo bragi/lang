@@ -9,13 +9,15 @@
 #import "LExecutionTestCase.h"
 #import "RObject.h"
 #import "LMessage.h"
+#import "LText.h"
 
 
 @implementation LExecutionTestCase
 
 - (void) setUp
 {
-    execution = [[LExecution alloc] initWithRuntime:nil];
+    runtime = [[LRuntime alloc] init];
+    execution = [[LExecution alloc] initWithRuntime:runtime];
     context = [LObject build];
     [RObject addCellsTo:context];
 }
@@ -44,12 +46,17 @@
 
 - (void) testRunTextLiteral
 {
-    
+    LMessage* textLiteral = [LTextLiteral buildWithName:@"hello"];
+    result = [execution runMessage:textLiteral withContext:context];
+    STAssertTrue([result isKindOfClass:[LText class]], @"Different class");
 }
 
 - (void) testRunTextUpcase
 {
-    
+    LMessage* textLiteral = [LTextLiteral buildWithName:@"hello"];
+    textLiteral.nextMessage = [LMessage buildWithName:@"upcase"];
+    result = [execution runMessage:textLiteral withContext:context];
+    STAssertEqualObjects([(LText*)result text], @"HELLO", @"Not upper case");
 }
 
 @end

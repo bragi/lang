@@ -96,4 +96,8 @@
 @end
 
 @implementation LTextLiteral
++ (id) buildWithName: (NSString*) newName
+{
+    return [[LTextLiteral alloc] initWithName:newName];
+}
 @end
