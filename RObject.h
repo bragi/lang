@@ -11,11 +11,11 @@
 #import "LMethod.h"
 
 /**
- Factory for adding cells necessery for Object.
+ Adds cells and methods to Object.
  */
 @interface RObject : NSObject {}
 
-/** Creates new instance with given runtime, sets all necessary cells and methods. */
+/** Sets all necessary cells and methods. */
 + (void) addCellsTo:(LObject*)object;
 @end
 

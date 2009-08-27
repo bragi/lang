@@ -9,6 +9,7 @@
 #import <Cocoa/Cocoa.h>
 #import "LObject.h"
 #import "LMessage.h"
+#import "LText.h"
 
 /**
  Runtime of the Lang. Initializes all basic objects, provides access to them,
@@ -34,7 +35,8 @@
     LObject* theObject;
     /** True */
     LObject* theTrue;
-     
+    /** Text */
+    LText* theText;
 }
 
 @property (retain) LObject* currentTarget;
@@ -42,6 +44,7 @@
 
 @property (retain) LObject* theObject;
 @property (retain) LObject* theTrue;
+@property (retain) LText* theText;
 
 /**
  Initializes Runtime, creates all necessary runtime objects.
@@ -49,8 +52,8 @@
 - (id) init;
 
 /**
- Runs message chain, should only be called once. Executes all messages in chain.
+ Creates new instance of Text
  */
-- (void) run:(LMessage*) message;
+- (LText*) makeTextWithString:(NSString*)string;
 
 @end

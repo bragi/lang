@@ -9,6 +9,7 @@
 #import "LRuntime.h"
 #import "LExecution.h"
 #import "RObject.h"
+#import "RText.h"
 
 @interface LRuntime()
 - (void) createObjectHierarchy;
@@ -22,6 +23,7 @@
 
 @synthesize theObject;
 @synthesize theTrue;
+@synthesize theText;
 
 - (id) init
 {
@@ -40,15 +42,18 @@
 - (void) createObjectHierarchy
 {
     theObject = [LObject build];
+    theText = [LText buildWithAncestor:theObject];
 }
 
 - (void) createObjectCells
 {
     [RObject addCellsTo:theObject];
+    [RText addCellsTo:theText];
 }
 
-- (void) run:(LMessage*) message
+- (LText*) makeTextWithString:(NSString*)string
 {
+    return [theText mimicWithString:string];
 }
 
 @end
