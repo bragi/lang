@@ -19,7 +19,7 @@
 - (id) initWithString:(NSString*)newText;
 - (LText*) mimicWithString:(NSString*)newText;
 
-/** Messages forwarded by runtime execution. */
+// Messages forwarded by runtime execution.
 
 /** Return text with upcase content. */
 - (LText*) upcaseWithExecution:(LExecution*)execution;

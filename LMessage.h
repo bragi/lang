@@ -22,14 +22,19 @@
 @property (retain) NSString* name;
 @property (retain) NSMutableArray* arguments;
 
-
 - (void) addArgument: (LMessage*)argument;
 - (NSString*) stringValue;
 - (NSMutableString*) stringValueWithoutNested;
 @end
 
-@interface EolLMessage : LMessage {
-}
-
+@interface EndMessage : LMessage {}
 - (id) init;
+@end
+
+/** Base class for all literals. */
+@interface LLiteral : LMessage {}
+@end
+
+/** Text literal. */
+@interface LTextLiteral : LLiteral {}
 @end

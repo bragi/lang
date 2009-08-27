@@ -9,7 +9,7 @@
 #import "LExecution.h"
 #import "LMessage.h"
 #import "LObject.h"
-
+#import "LRuntime.h"
 
 @implementation LExecution
 
@@ -44,7 +44,15 @@
     target = context;
     message = nmessage;
     while (message) {
-        target = [target send:self];
+        // TODO: Rethink. Maybe we should do message runWithExecution and message decides what to do next
+        // Normal messages re-send to target. Literals create instances. Complex.
+        if([message isKindOfClass: [LLiteral class]]) {
+            if([message isKindOfClass:[LTextLiteral class]]) {
+                target = [runtime makeTextWithString:message.name];
+            }
+        } else {
+            target = [target send:self];
+        }
         message = message.nextMessage;
     }
     return target;

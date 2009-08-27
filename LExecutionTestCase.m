@@ -42,4 +42,14 @@
     STAssertFalse(result == context, @"Same current target");
 }
 
+- (void) testRunTextLiteral
+{
+    
+}
+
+- (void) testRunTextUpcase
+{
+    
+}
+
 @end

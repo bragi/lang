@@ -84,10 +84,16 @@
 
 @end
 
-@implementation EolLMessage
+@implementation EndMessage
 - (id) init
 {
 	self = [super initWithName:@"\n"];
 	return self;
 }
+@end
+
+@implementation LLiteral
+@end
+
+@implementation LTextLiteral
 @end

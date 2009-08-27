@@ -31,7 +31,6 @@
 		A061616E10401B4700A2CC3F /* LRuntimeTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = A061612F104018A500A2CC3F /* LRuntimeTestCase.m */; };
 		A06161C210413B5600A2CC3F /* RTrue.m in Sources */ = {isa = PBXBuildFile; fileRef = A06161C110413B5600A2CC3F /* RTrue.m */; };
 		A06162B810427B8900A2CC3F /* LExecution.m in Sources */ = {isa = PBXBuildFile; fileRef = A06162B710427B8900A2CC3F /* LExecution.m */; };
-		A065BB2F1046587B000230CA /* LLiteral.m in Sources */ = {isa = PBXBuildFile; fileRef = A065BB2E1046587B000230CA /* LLiteral.m */; };
 		A08523491039B4F9001BBCA1 /* LMessageTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = A08523481039B4F9001BBCA1 /* LMessageTestCase.m */; };
 		A09F194E1037F2DA0089A817 /* LMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = A09F194D1037F2DA0089A817 /* LMessage.m */; };
 		A0A23F89103B084800C8A717 /* LObjectTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = A0A23F88103B084800C8A717 /* LObjectTestCase.m */; };
@@ -88,8 +87,6 @@
 		A06161C110413B5600A2CC3F /* RTrue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTrue.m; sourceTree = "<group>"; };
 		A06162B610427B8900A2CC3F /* LExecution.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LExecution.h; sourceTree = "<group>"; };
 		A06162B710427B8900A2CC3F /* LExecution.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LExecution.m; sourceTree = "<group>"; };
-		A065BB2D1046587B000230CA /* LLiteral.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLiteral.h; sourceTree = "<group>"; };
-		A065BB2E1046587B000230CA /* LLiteral.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLiteral.m; sourceTree = "<group>"; };
 		A08523211039B2A7001BBCA1 /* Test-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Test-Info.plist"; sourceTree = "<group>"; };
 		A08523371039B311001BBCA1 /* Test.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Test.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A08523471039B4F9001BBCA1 /* LMessageTestCase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMessageTestCase.h; sourceTree = "<group>"; };
@@ -212,8 +209,6 @@
 				A06161111040119700A2CC3F /* LRuntime.m */,
 				A06162B610427B8900A2CC3F /* LExecution.h */,
 				A06162B710427B8900A2CC3F /* LExecution.m */,
-				A065BB2D1046587B000230CA /* LLiteral.h */,
-				A065BB2E1046587B000230CA /* LLiteral.m */,
 			);
 			name = Lang;
 			sourceTree = "<group>";
@@ -340,7 +335,6 @@
 				A06161121040119700A2CC3F /* LRuntime.m in Sources */,
 				A06161C210413B5600A2CC3F /* RTrue.m in Sources */,
 				A06162B810427B8900A2CC3F /* LExecution.m in Sources */,
-				A065BB2F1046587B000230CA /* LLiteral.m in Sources */,
 				A0EE7F091046AFF3007EEC5F /* LText.m in Sources */,
 				A0EE7F0E1046BB68007EEC5F /* RText.m in Sources */,
 			);
