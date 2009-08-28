@@ -59,4 +59,12 @@
     STAssertEqualObjects([(LText*)result text], @"HELLO", @"Not upper case");
 }
 
+- (void) testRunEndMessage
+{
+    LMessage* textLiteral = [LTextLiteral buildWithName:@"hello"];
+    textLiteral.nextMessage = [EndMessage build];
+    result = [execution runMessage:textLiteral withContext:context];
+    STAssertEquals(result, context, @"Different current target");
+}
+
 @end

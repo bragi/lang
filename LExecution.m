@@ -50,6 +50,8 @@
             if([message isKindOfClass:[LTextLiteral class]]) {
                 target = [runtime makeTextWithString:message.name];
             }
+        } else if([message isKindOfClass: [EndMessage class]]) {
+            target = context;
         } else {
             target = [target send:self];
         }

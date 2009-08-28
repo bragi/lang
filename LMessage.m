@@ -85,6 +85,11 @@
 @end
 
 @implementation EndMessage
++ (id) build
+{
+    return [[EndMessage alloc] init];
+}
+
 - (id) init
 {
 	self = [super initWithName:@"\n"];

@@ -28,6 +28,7 @@
 @end
 
 @interface EndMessage : LMessage {}
++ (id) build;
 - (id) init;
 @end
 
