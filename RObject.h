@@ -25,6 +25,12 @@
 @interface SelfMethod : LMethod {}
 @end
 
-/** Mimics receiver. */
-@interface MimicMethod : LMethod {}
+/** Executes Objective-C method called *name*WithExecution: */
+@interface ForwardingMethod : LMethod
+{
+    SEL name;
+}
+
+- (id) initWithName:(NSString*)newName;
+
 @end

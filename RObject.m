@@ -15,7 +15,7 @@
 {
     /* Add methods */
 	[object setCell:[[SelfMethod alloc] init] withName:@"self"];
-	[object setCell:[[MimicMethod alloc] init] withName:@"mimic"];
+	[object setCell:[[ForwardingMethod alloc] initWithName:@"mimic"] withName:@"mimic"];
 }
 
 @end
@@ -31,11 +31,17 @@
 @end
 
 
-@implementation MimicMethod
+@implementation ForwardingMethod
+- (id) initWithName:(NSString*)newName
+{
+    self = [super init];
+    name = sel_registerName([[newName stringByAppendingString:@"WithExecution:"] UTF8String]);
+    return self;
+}
 
 - (LObject*) activate: (LExecution*)execution
 {
-	return [execution.target mimicWithExecution:execution];
+    return (LObject*)objc_msgSend(execution.target, name, execution);
 }
 
 @end

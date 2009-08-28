@@ -50,7 +50,7 @@
 - (void) addAncestor: (LObject*)ancestor;
 
 
-// Public interface
+#pragma mark Public interface
 
 /**
  Final part of processing a message, called when self is in activated cell. Non-executable 
@@ -78,7 +78,7 @@
 - (LObject*) send: (LExecution*) execution;
 
 
-// Lang methods - forwarded by method invocations.
+#pragma mark Lang methods - called by method invocations.
 
 /**
  Creates a new mimic of this object. Used in running programs.
