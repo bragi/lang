@@ -16,6 +16,8 @@
     /* Add methods */
 	[object setCell:[[SelfMethod alloc] init] withName:@"self"];
 	[object setCell:[[ForwardingMethod alloc] initWithName:@"mimic"] withName:@"mimic"];
+	[object setCell:[[ForwardingMethod alloc] initWithName:@"assignment"] withName:@"="];
+	[object setCell:[[MethodMethod alloc] init] withName:@"method"];
 }
 
 @end
@@ -42,6 +44,19 @@
 - (LObject*) activate: (LExecution*)execution
 {
     return (LObject*)objc_msgSend(execution.target, name, execution);
+}
+
+@end
+
+
+@implementation MethodMethod
+
+- (LObject*)activate:(LExecution*)execution
+{
+    // Create and return new instance of LLangMethod
+    NSArray* arguments = [execution.message arguments];
+    LMessage* code = (LMessage*)[arguments lastObject];
+    return [[LLangMethod alloc] initWithCode:code];
 }
 
 @end

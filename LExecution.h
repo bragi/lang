@@ -54,4 +54,8 @@
  */
 - (LObject*) runMessage:(LMessage*)message withContext:(LObject*)context;
 
+#pragma mark Evaluating code
+
+/** Evaluates given argument in context of caller */
+- (LObject*) evaluateWithCurrentContext:(LMessage*)code;
 @end

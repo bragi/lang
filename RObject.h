@@ -34,3 +34,10 @@
 - (id) initWithName:(NSString*)newName;
 
 @end
+
+/** 
+ Creates new instance of LLangMethod with code provided in argument.
+ Represents method() in runtime.
+ */
+@interface MethodMethod : LMethod {}
+@end

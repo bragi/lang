@@ -81,6 +81,12 @@
 #pragma mark Lang methods - called by method invocations.
 
 /**
+ Assigns cell. First argument is a name, second is value. Name is not evaluated, value is.
+ =(name, cell value)
+ */
+- (LObject*) assignmentWithExecution: (LExecution*) execution;
+
+/**
  Creates a new mimic of this object. Used in running programs.
  */
 - (LObject*) mimicWithExecution: (LExecution*) execution;

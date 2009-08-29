@@ -65,4 +65,9 @@
     return target;
 }
 
+- (LObject*) evaluateWithCurrentContext:(LMessage*)code
+{
+    LExecution* codeExecution = [[LExecution alloc] initWithParent:self];
+    return [codeExecution runMessage:code withContext:self.context];
+}
 @end

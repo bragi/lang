@@ -8,9 +8,15 @@
 
 #import <Cocoa/Cocoa.h>
 #import "LObject.h"
+#import "LMessage.h"
 
-@interface LMethod : LObject {
+/** Base class for all methods. */
+@interface LMethod : LObject {}
+@end
 
+/** Represents methods created in runtime using method(). */
+@interface LLangMethod : LMethod {
+    LMessage* code;
 }
-
+- (id) initWithCode:(LMessage*)newCode;
 @end

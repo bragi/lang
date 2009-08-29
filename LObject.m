@@ -70,6 +70,17 @@
 	return [cell activate:execution];
 }
 
+- (LObject*) assignmentWithExecution: (LExecution*) execution
+{
+    // TODO: validate number of arguments
+    NSArray* arguments = [[execution message] arguments];
+    NSString* name = [(LMessage*)[arguments objectAtIndex:0] name];
+    LObject* value = [execution evaluateWithCurrentContext:[arguments objectAtIndex:1]];
+    [self setCell:value withName:name];
+    
+    return value;
+}
+
 - (LObject*) mimicWithExecution: (LExecution*)execution
 {
     return [self mimic];

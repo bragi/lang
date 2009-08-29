@@ -24,6 +24,7 @@
 
 - (void) testRunSelf
 {
+    // self
 	LMessage* selfMessage = [LMessage buildWithName:@"self"];
     result = [execution runMessage:selfMessage withContext:context];
     STAssertEquals(result, context, @"Different current target");
@@ -31,6 +32,7 @@
 
 - (void) testRunMimic
 {
+    // mimic
 	LMessage* mimicMessage = [LMessage buildWithName:@"mimic"];
     result = [execution runMessage:mimicMessage withContext:context];
     STAssertFalse(result == context, @"Same current target");
@@ -38,6 +40,7 @@
 
 - (void) testRunMultipleMimics
 {
+    // mimic mimic
 	LMessage* mimicMessage = [LMessage buildWithName:@"mimic"];
     mimicMessage.nextMessage = [LMessage buildWithName:@"mimic"];
     result = [execution runMessage:mimicMessage withContext:context];
@@ -46,6 +49,7 @@
 
 - (void) testRunTextLiteral
 {
+    // "hello"
     LMessage* textLiteral = [LTextLiteral buildWithName:@"hello"];
     result = [execution runMessage:textLiteral withContext:context];
     STAssertTrue([result isKindOfClass:[LText class]], @"Different class");
@@ -53,6 +57,7 @@
 
 - (void) testRunTextUpcase
 {
+    // "hello" upcase
     LMessage* textLiteral = [LTextLiteral buildWithName:@"hello"];
     textLiteral.nextMessage = [LMessage buildWithName:@"upcase"];
     result = [execution runMessage:textLiteral withContext:context];
@@ -61,10 +66,29 @@
 
 - (void) testRunEndMessage
 {
+    // "hello"
+    //
     LMessage* textLiteral = [LTextLiteral buildWithName:@"hello"];
     textLiteral.nextMessage = [EndMessage build];
     result = [execution runMessage:textLiteral withContext:context];
     STAssertEquals(result, context, @"Different current target");
+}
+
+- (void) testAssignement
+{
+    // hello = "Hello Cell"
+    // hello
+    LMessage* assignment = [LMessage buildWithName:@"="];
+    [assignment addArgument:[LMessage buildWithName:@"hello"]];
+    [assignment addArgument:[LTextLiteral buildWithName:@"Hello Cell"]];
+    
+    LMessage* end = [EndMessage build];
+    assignment.nextMessage = end;
+    
+    end.nextMessage = [LMessage buildWithName:@"hello"];
+    
+    result = [execution runMessage:assignment withContext:context];
+    STAssertEqualObjects([(LText*)result text], @"Hello Cell", @"Target not evaluated");
 }
 
 @end
