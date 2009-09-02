@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 45;
+	objectVersion = 46;
 	objects = {
 
 /* Begin PBXAggregateTarget section */
@@ -33,6 +33,9 @@
 		A06161C210413B5600A2CC3F /* RTrue.m in Sources */ = {isa = PBXBuildFile; fileRef = A06161C110413B5600A2CC3F /* RTrue.m */; };
 		A06162B810427B8900A2CC3F /* LExecution.m in Sources */ = {isa = PBXBuildFile; fileRef = A06162B710427B8900A2CC3F /* LExecution.m */; };
 		A08523491039B4F9001BBCA1 /* LMessageTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = A08523481039B4F9001BBCA1 /* LMessageTestCase.m */; };
+		A093DE8D104EBBAA00AB0A40 /* LangScanner.m in Sources */ = {isa = PBXBuildFile; fileRef = A093DE8B104EBBAA00AB0A40 /* LangScanner.m */; };
+		A093DEB3104EBDDC00AB0A40 /* LangScannerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = A093DEB2104EBDDC00AB0A40 /* LangScannerTest.m */; };
+		A093DED9104EC75800AB0A40 /* LangBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = A093DED8104EC75800AB0A40 /* LangBuilder.m */; };
 		A09F194E1037F2DA0089A817 /* LMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = A09F194D1037F2DA0089A817 /* LMessage.m */; };
 		A0A23F89103B084800C8A717 /* LObjectTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = A0A23F88103B084800C8A717 /* LObjectTestCase.m */; };
 		A0A23FBB103B137600C8A717 /* LObject.m in Sources */ = {isa = PBXBuildFile; fileRef = A0A23F8E103B099800C8A717 /* LObject.m */; };
@@ -94,6 +97,13 @@
 		A08523371039B311001BBCA1 /* Test.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Test.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A08523471039B4F9001BBCA1 /* LMessageTestCase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMessageTestCase.h; sourceTree = "<group>"; };
 		A08523481039B4F9001BBCA1 /* LMessageTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMessageTestCase.m; sourceTree = "<group>"; };
+		A093DE8A104EBBAA00AB0A40 /* LangScanner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LangScanner.h; sourceTree = "<group>"; };
+		A093DE8B104EBBAA00AB0A40 /* LangScanner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LangScanner.m; sourceTree = "<group>"; };
+		A093DE8C104EBBAA00AB0A40 /* LangScanner.rl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LangScanner.rl; sourceTree = "<group>"; };
+		A093DEB1104EBDDC00AB0A40 /* LangScannerTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LangScannerTest.h; sourceTree = "<group>"; };
+		A093DEB2104EBDDC00AB0A40 /* LangScannerTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LangScannerTest.m; sourceTree = "<group>"; };
+		A093DED7104EC75800AB0A40 /* LangBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LangBuilder.h; sourceTree = "<group>"; };
+		A093DED8104EC75800AB0A40 /* LangBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LangBuilder.m; sourceTree = "<group>"; };
 		A09F194C1037F2DA0089A817 /* LMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMessage.h; sourceTree = "<group>"; };
 		A09F194D1037F2DA0089A817 /* LMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMessage.m; sourceTree = "<group>"; };
 		A0A23F87103B084800C8A717 /* LObjectTestCase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LObjectTestCase.h; sourceTree = "<group>"; };
@@ -143,6 +153,7 @@
 		08FB7795FE84155DC02AAC07 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				A093DE89104EBB9200AB0A40 /* Parser */,
 				A061612C1040185900A2CC3F /* Test */,
 				A0A23F9F103B0A8700C8A717 /* Lang */,
 				32A70AAB03705E1F00C91783 /* lang-objective-c_Prefix.pch */,
@@ -194,8 +205,22 @@
 				A0CFAA2210441794000760D3 /* LExecutionTestCase.m */,
 				A01A0B0910481F13001FA18B /* MethodTestCase.h */,
 				A01A0B0A10481F13001FA18B /* MethodTestCase.m */,
+				A093DEB1104EBDDC00AB0A40 /* LangScannerTest.h */,
+				A093DEB2104EBDDC00AB0A40 /* LangScannerTest.m */,
 			);
 			name = Test;
+			sourceTree = "<group>";
+		};
+		A093DE89104EBB9200AB0A40 /* Parser */ = {
+			isa = PBXGroup;
+			children = (
+				A093DE8A104EBBAA00AB0A40 /* LangScanner.h */,
+				A093DE8B104EBBAA00AB0A40 /* LangScanner.m */,
+				A093DE8C104EBBAA00AB0A40 /* LangScanner.rl */,
+				A093DED7104EC75800AB0A40 /* LangBuilder.h */,
+				A093DED8104EC75800AB0A40 /* LangBuilder.m */,
+			);
+			name = Parser;
 			sourceTree = "<group>";
 		};
 		A0A23F9F103B0A8700C8A717 /* Lang */ = {
@@ -275,7 +300,7 @@
 				BuildIndependentTargetsInParallel = YES;
 			};
 			buildConfigurationList = 1DEB927808733DD40010E9CD /* Build configuration list for PBXProject "lang-objective-c" */;
-			compatibilityVersion = "Xcode 3.1";
+			compatibilityVersion = "Xcode 3.2";
 			hasScannedForEncodings = 1;
 			mainGroup = 08FB7794FE84155DC02AAC07 /* lang-objective-c */;
 			projectDirPath = "";
@@ -342,6 +367,8 @@
 				A06162B810427B8900A2CC3F /* LExecution.m in Sources */,
 				A0EE7F091046AFF3007EEC5F /* LText.m in Sources */,
 				A0EE7F0E1046BB68007EEC5F /* RText.m in Sources */,
+				A093DE8D104EBBAA00AB0A40 /* LangScanner.m in Sources */,
+				A093DED9104EC75800AB0A40 /* LangBuilder.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -354,6 +381,7 @@
 				A061616E10401B4700A2CC3F /* LRuntimeTestCase.m in Sources */,
 				A0CFAA2310441794000760D3 /* LExecutionTestCase.m in Sources */,
 				A01A0B0B10481F13001FA18B /* MethodTestCase.m in Sources */,
+				A093DEB3104EBDDC00AB0A40 /* LangScannerTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -405,15 +433,16 @@
 		1DEB927908733DD40010E9CD /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_ENABLE_OBJC_GC = required;
 				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				PREBINDING = NO;
-				SDKROOT = macosx10.5;
+				SDKROOT = macosx10.6;
 			};
 			name = Debug;
 		};
@@ -425,7 +454,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				PREBINDING = NO;
-				SDKROOT = macosx10.5;
+				SDKROOT = macosx10.6;
 			};
 			name = Release;
 		};

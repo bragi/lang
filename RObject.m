@@ -8,6 +8,7 @@
 
 #import "RObject.h"
 #import "LExecution.h"
+#import <objc/message.h>
 
 @implementation RObject
 
