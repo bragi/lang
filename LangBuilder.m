@@ -35,6 +35,7 @@
         }
     }
     currentMessage = newMessage;
+    NSLog(@"Curent message is: %@", currentMessage);
 }
 
 - (void) identifier:(NSString*)name
@@ -44,6 +45,7 @@
 
 - (void) argumentsStart
 {
+    NSLog(@"Curent message is: %@", currentMessage);
     argumentStarted = YES;
     [messages addObject:currentMessage];
 }
@@ -52,6 +54,7 @@
 {
     currentMessage = [messages lastObject];
     [messages removeLastObject];
+    argumentStarted = NO;
 }
 
 - (void) nextArgument

@@ -12,11 +12,11 @@
 
 - (void) setUp
 {
-	hello = [[LMessage alloc] initWithName:@"hello"];
-	beautiful = [[LMessage alloc] initWithName:@"beautiful"];
-	world = [[LMessage alloc] initWithName:@"world"];
-	lady = [[LMessage alloc] initWithName:@"lady"];
-	more = [[LMessage alloc] initWithName:@"more"];
+	hello = [LMessage buildWithName:@"hello"];
+	beautiful = [LMessage buildWithName:@"beautiful"];
+	world = [LMessage buildWithName:@"world"];
+	lady = [LMessage buildWithName:@"lady"];
+	more = [LMessage buildWithName:@"more"];
 }
 
 - (void) tearDown
@@ -64,5 +64,11 @@
 	[hello setNextMessage: more];
 	[more addArgument: beautiful];
 	STAssertEqualObjects([hello stringValue], @"hello(beautiful, lady) more(beautiful)", @"wrong string value with argument");
+}
+
+- (void) testEqualSimpleMessages
+{
+    STAssertTrue([hello isEqual:[LMessage buildWithName:@"hello"]], @"identical messages not equal");
+    STAssertEqualObjects(hello, [LMessage buildWithName:@"hello"], @"identical messages not equal");
 }
 @end

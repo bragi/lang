@@ -135,7 +135,7 @@ static const int Lang_en_main = 4;
 - (void) identifier:(char*)start length:(int)length
 {
   NSString* name = [[NSString alloc] initWithBytes:start length:length encoding:NSUTF8StringEncoding];
-  NSLog(name);
+  NSLog(@"%@", name);
   [builder identifier:name];
 }
 
@@ -146,21 +146,21 @@ static const int Lang_en_main = 4;
   [builder textLiteral:name];
 }
 
-- (void) digitLiteral:(char*)start length:(int)length
+- (void) numberLiteral:(char*)start length:(int)length
 {
   NSString* name = [[NSString alloc] initWithBytes:start length:length encoding:NSUTF8StringEncoding];
-  NSLog(@"digit: %@", name);
-  [builder digitLiteral:name];
+  NSLog(@"number: %@", name);
+  [builder numberLiteral:name];
 }
 
 - (void) scan:(NSString*)code
 {
-    char* code_string = [code UTF8String];
+    char *code_string = (char*)[code UTF8String];
     
     int cs, act;
     char *ts, *te = 0;
     char *p = code_string;
-    char *pe = *p + strlen(code_string);
+    char *pe = p + strlen(code_string);
     char *eof = pe;
 
     
@@ -319,7 +319,7 @@ _eof_trans:
 	case 13:
 #line 26 "LangScanner.rl"
 	{te = p;p--;{
-      [self digitLiteral:ts length:te-ts];
+      [self numberLiteral:ts length:te-ts];
     }}
 	break;
 	case 14:

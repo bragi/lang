@@ -10,7 +10,8 @@
 #import "RObject.h"
 #import "LMessage.h"
 #import "LText.h"
-
+#import "LangBuilder.h"
+#import "LangScanner.h"
 
 @implementation MethodTestCase
 - (void) setUp
@@ -63,4 +64,13 @@
     STAssertEqualObjects([(LText*)result text], @"HELLO", @"Method not called");
 }
 
+- (void) testMoreComplexCreateAndCallWithNoArgumentsFromString
+{
+    LangBuilder* builder = [[LangBuilder alloc] init];
+    LangScanner* scanner = [[LangScanner alloc] initWithBuilder:builder];
+    [scanner scan:@"=(hello, method(\"hello\" upcase))\nhello"];
+
+    result = [execution runMessage:[builder message] withContext:context];
+    STAssertEqualObjects([(LText*)result text], @"HELLO", @"Method not called");
+}
 @end

@@ -24,7 +24,7 @@
     };
     
     digit+  {
-      [self digitLiteral:ts length:te-ts];
+      [self numberLiteral:ts length:te-ts];
     };
     
     (" " | "\\\n")+;
@@ -105,7 +105,7 @@
 - (void) identifier:(char*)start length:(int)length
 {
   NSString* name = [[NSString alloc] initWithBytes:start length:length encoding:NSUTF8StringEncoding];
-  NSLog(name);
+  NSLog(@"%@", name);
   [builder identifier:name];
 }
 
@@ -116,21 +116,21 @@
   [builder textLiteral:name];
 }
 
-- (void) digitLiteral:(char*)start length:(int)length
+- (void) numberLiteral:(char*)start length:(int)length
 {
   NSString* name = [[NSString alloc] initWithBytes:start length:length encoding:NSUTF8StringEncoding];
-  NSLog(@"digit: %@", name);
-  [builder digitLiteral:name];
+  NSLog(@"number: %@", name);
+  [builder numberLiteral:name];
 }
 
 - (void) scan:(NSString*)code
 {
-    char* code_string = [code UTF8String];
+    char *code_string = (char*)[code UTF8String];
     
     int cs, act;
     char *ts, *te = 0;
     char *p = code_string;
-    char *pe = *p + strlen(code_string);
+    char *pe = p + strlen(code_string);
     char *eof = pe;
 
     %% write init;

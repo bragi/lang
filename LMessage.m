@@ -82,6 +82,28 @@
 	}
 }
 
+- (BOOL) isEqual:(id)object
+{
+    if (![object isKindOfClass:[LMessage class]]) {
+        NSLog(@"Object is of wrong kind: %@", [object class]);
+        return NO;
+    }
+    LMessage* other = (LMessage*)object;
+    if (name != other.name) {
+        NSLog(@"Names differ: %@, %@", name, other.name);
+        return NO;
+    }
+    if ((arguments != nil || other.arguments !=nil) && ![arguments isEqualTo:other.arguments]) {
+        NSLog(@"Arguments differ: %@, %@", arguments, other.arguments);
+        return NO;
+    }
+    if ((nextMessage != nil || other.nextMessage != nil) && ![nextMessage isEqual:other.nextMessage]) {
+        NSLog(@"nextMessage differ");
+        return NO;
+    }
+    return YES;
+}
+
 @end
 
 @implementation EndMessage

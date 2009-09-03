@@ -12,7 +12,7 @@
 @interface LangBuilder : NSObject {
     LMessage* message;
     LMessage* currentMessage;
-    Boolean argumentStarted;
+    BOOL argumentStarted;
     NSMutableArray* messages;
 }
 

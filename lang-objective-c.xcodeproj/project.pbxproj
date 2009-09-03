@@ -36,6 +36,7 @@
 		A093DE8D104EBBAA00AB0A40 /* LangScanner.m in Sources */ = {isa = PBXBuildFile; fileRef = A093DE8B104EBBAA00AB0A40 /* LangScanner.m */; };
 		A093DEB3104EBDDC00AB0A40 /* LangScannerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = A093DEB2104EBDDC00AB0A40 /* LangScannerTest.m */; };
 		A093DED9104EC75800AB0A40 /* LangBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = A093DED8104EC75800AB0A40 /* LangBuilder.m */; };
+		A093DF17104EFDD900AB0A40 /* LangBuilderTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = A093DF16104EFDD900AB0A40 /* LangBuilderTestCase.m */; };
 		A09F194E1037F2DA0089A817 /* LMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = A09F194D1037F2DA0089A817 /* LMessage.m */; };
 		A0A23F89103B084800C8A717 /* LObjectTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = A0A23F88103B084800C8A717 /* LObjectTestCase.m */; };
 		A0A23FBB103B137600C8A717 /* LObject.m in Sources */ = {isa = PBXBuildFile; fileRef = A0A23F8E103B099800C8A717 /* LObject.m */; };
@@ -104,6 +105,8 @@
 		A093DEB2104EBDDC00AB0A40 /* LangScannerTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LangScannerTest.m; sourceTree = "<group>"; };
 		A093DED7104EC75800AB0A40 /* LangBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LangBuilder.h; sourceTree = "<group>"; };
 		A093DED8104EC75800AB0A40 /* LangBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LangBuilder.m; sourceTree = "<group>"; };
+		A093DF15104EFDD900AB0A40 /* LangBuilderTestCase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LangBuilderTestCase.h; sourceTree = "<group>"; };
+		A093DF16104EFDD900AB0A40 /* LangBuilderTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LangBuilderTestCase.m; sourceTree = "<group>"; };
 		A09F194C1037F2DA0089A817 /* LMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMessage.h; sourceTree = "<group>"; };
 		A09F194D1037F2DA0089A817 /* LMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMessage.m; sourceTree = "<group>"; };
 		A0A23F87103B084800C8A717 /* LObjectTestCase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LObjectTestCase.h; sourceTree = "<group>"; };
@@ -207,6 +210,8 @@
 				A01A0B0A10481F13001FA18B /* MethodTestCase.m */,
 				A093DEB1104EBDDC00AB0A40 /* LangScannerTest.h */,
 				A093DEB2104EBDDC00AB0A40 /* LangScannerTest.m */,
+				A093DF15104EFDD900AB0A40 /* LangBuilderTestCase.h */,
+				A093DF16104EFDD900AB0A40 /* LangBuilderTestCase.m */,
 			);
 			name = Test;
 			sourceTree = "<group>";
@@ -382,6 +387,7 @@
 				A0CFAA2310441794000760D3 /* LExecutionTestCase.m in Sources */,
 				A01A0B0B10481F13001FA18B /* MethodTestCase.m in Sources */,
 				A093DEB3104EBDDC00AB0A40 /* LangScannerTest.m in Sources */,
+				A093DF17104EFDD900AB0A40 /* LangBuilderTestCase.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
