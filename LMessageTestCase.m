@@ -69,6 +69,6 @@
 - (void) testEqualSimpleMessages
 {
     STAssertTrue([hello isEqual:[LMessage buildWithName:@"hello"]], @"identical messages not equal");
-    STAssertEqualObjects(hello, [LMessage buildWithName:@"hello"], @"identical messages not equal");
+    STAssertFalse([lady isEqual:[LMessage buildWithName:@"hello"]], @"different messages not");
 }
 @end
