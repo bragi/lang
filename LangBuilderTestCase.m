@@ -7,14 +7,32 @@
 //
 
 #import "LangBuilderTestCase.h"
-
+#import "LMessage.h"
 
 @implementation LangBuilderTestCase
 - (void)setUp
 {
     builder = [[LangBuilder alloc] init];
-    scanner = [[LangScanner alloc] initWithBuilder:builder];
+    name = [LMessage buildWithName:@"name"];
+    hello = [LMessage buildWithName:@"hello"];
 }
 
+- (void)testSimpleMessage
+{
+    NSLog(@"testSimpleMesage");
+    [builder identifier:@"name"];
+    STAssertTrue([[builder message] isEqual:name], 
+                 @"Different messages: %@", [builder message]);
+}
 
+- (void)testSimpleMessageWithArgument
+{
+    [builder identifier:@"name"];
+    [builder argumentsStart];
+    [builder identifier:@"hello"];
+    [builder argumentsEnd];
+    [name addArgument:hello];
+    STAssertTrue([[builder message] isEqual:name], 
+                 @"Different messages: %@", [builder message]);
+}
 @end

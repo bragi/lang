@@ -24,13 +24,18 @@
 
 - (void) addMessage:(LMessage*)newMessage
 {
+    NSLog(@"Adding Message: %@", newMessage);
     if (message == nil) {
         message = newMessage;
+        NSLog(@"First message, set to: %@", message);
     } else {
+        NSLog(@"Message exists: %@", message);
         if (argumentStarted) {
+            NSLog(@"Adding argument");
             argumentStarted = NO;
             [(LMessage*)[messages lastObject] addArgument:newMessage];
         } else {
+            NSLog(@"Setting next message");
             currentMessage.nextMessage = newMessage;
         }
     }
@@ -40,7 +45,8 @@
 
 - (void) identifier:(NSString*)name
 {
-    addMessage:[LMessage buildWithName:name];
+    NSLog(@"Identifier: %@", name);
+    [self addMessage:[LMessage buildWithName:name]];
 }
 
 - (void) argumentsStart
@@ -64,12 +70,12 @@
 
 - (void) endMessage
 {
-    addMessage:[EndMessage build];
+    [self addMessage:[EndMessage build]];
 }
 
 - (void) textLiteral:(NSString*)name
 {
-    addMessage:[LTextLiteral buildWithName:name];
+    [self addMessage:[LTextLiteral buildWithName:name]];
 }
 
 - (void) numberLiteral:(NSString*)name

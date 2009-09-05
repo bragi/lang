@@ -135,7 +135,7 @@ static const int Lang_en_main = 4;
 - (void) identifier:(char*)start length:(int)length
 {
   NSString* name = [[NSString alloc] initWithBytes:start length:length encoding:NSUTF8StringEncoding];
-  NSLog(@"%@", name);
+  NSLog(@"putting identifier: %@", name);
   [builder identifier:name];
 }
 
@@ -277,7 +277,7 @@ _eof_trans:
 	case 6:
 #line 22 "LangScanner.rl"
 	{te = p+1;{
-      [self textLiteral:ts length:te-ts];
+      [self textLiteral:ts length:te-ts-1];
     }}
 	break;
 	case 7:

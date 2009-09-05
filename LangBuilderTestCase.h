@@ -9,10 +9,13 @@
 #import <SenTestingKit/SenTestingKit.h>
 #import "LangBuilder.h"
 #import "LangScanner.h"
+#import "LMessage.h"
 
 @interface LangBuilderTestCase : SenTestCase {
     LangBuilder* builder;
     LangScanner* scanner;
+    LMessage* name;
+    LMessage* hello;
 }
 
 @end

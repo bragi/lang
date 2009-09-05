@@ -20,7 +20,7 @@
     };
     
     '"' ( [^\\"] | '\\' any ) * '"' {
-      [self textLiteral:ts length:te-ts];
+      [self textLiteral:ts length:te-ts-1];
     };
     
     digit+  {
@@ -105,7 +105,7 @@
 - (void) identifier:(char*)start length:(int)length
 {
   NSString* name = [[NSString alloc] initWithBytes:start length:length encoding:NSUTF8StringEncoding];
-  NSLog(@"%@", name);
+  NSLog(@"putting identifier: %@", name);
   [builder identifier:name];
 }
 
