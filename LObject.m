@@ -17,6 +17,13 @@
     return [[LObject alloc] init];
 }
 
++ (id) buildWithAncestor:(LObject*)ancestor
+{
+    LObject* object = [LObject build];
+    [object addAncestor:ancestor];
+    return object;
+}
+
 - (id) init
 {
 	self = [super init];

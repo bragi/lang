@@ -17,17 +17,10 @@
  */
 @interface LRuntime : NSObject {
     /**
-     Pointer to current invocation target. It starts at topContext and keeps what
-     last executed method returned. StopMethod is the only method that returns 
-     topContext allowing to end message chain and start a new one.
-     */
-	LObject* currentTarget;
-    
-    /**
      Keeps reference to the topmost execution context (typically the only Kernel 
      instance).
      */
-	LObject* topContext;
+	LObject* theBaseContext;
     
     // Base objects
     
@@ -35,15 +28,20 @@
     LObject* theObject;
     /** True */
     LObject* theTrue;
+    /** False */
+    LObject* theFalse;
+    /** Nil */
+    LObject* theNil;
     /** Text */
     LText* theText;
 }
 
-@property (retain) LObject* currentTarget;
-@property (retain) LObject* topContext;
+@property (retain) LObject* theBaseContext;
 
 @property (retain) LObject* theObject;
 @property (retain) LObject* theTrue;
+@property (retain) LObject* theFalse;
+@property (retain) LObject* theNil;
 @property (retain) LText* theText;
 
 /**

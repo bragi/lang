@@ -18,11 +18,12 @@
 
 @implementation LRuntime
 
-@synthesize currentTarget;
-@synthesize topContext;
+@synthesize theBaseContext;
 
 @synthesize theObject;
 @synthesize theTrue;
+@synthesize theFalse;
+@synthesize theNil;
 @synthesize theText;
 
 - (id) init
@@ -32,16 +33,14 @@
     {
         [self createObjectHierarchy];
         [self createObjectCells];
-        
-        /** For now let's use theObject as top context, later we need another, better tailored object here. */
-        topContext = theObject;
     }
     return self;
 }
 
 - (void) createObjectHierarchy
 {
-    theObject = [LObject build];
+    theBaseContext = [LObject build];
+    theObject = [LObject buildWithAncestor:theBaseContext];
     theText = [LText buildWithAncestor:theObject];
 }
 

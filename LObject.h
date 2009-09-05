@@ -29,6 +29,11 @@
  */
 + (id) build;
 
+/**
+ Builds object with given ancestor.
+ */
++ (id) buildWithAncestor:(LObject*)ancestor;
+
 /** Initializes the object */
 - (id) init;
 
