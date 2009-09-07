@@ -18,6 +18,10 @@
 	[object setCell:[[ForwardingMethod alloc] initWithName:@"assignment"] withName:@"="];
 	[object setCell:[[MethodMethod alloc] init] withName:@"method"];
 	[object setCell:runtime.theObject withName:@"Object"];
+	[object setCell:[[TrueMethod alloc] init] withName:@"true"];
+	[object setCell:[[TrueMethod alloc] init] withName:@"True"];
+	[object setCell:[[FalseMethod alloc] init] withName:@"false"];
+	[object setCell:[[FalseMethod alloc] init] withName:@"False"];
 }
 
 @end

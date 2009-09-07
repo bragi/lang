@@ -12,6 +12,7 @@
 #import "LMessage.h"
 #import "LObject.h"
 #import "LMethod.h"
+#import "LRuntime.h"
 
 
 @implementation SelfMethod
@@ -19,6 +20,26 @@
 - (LObject*) activate: (LExecution*)execution
 {
 	return execution.target;
+}
+
+@end
+
+
+@implementation TrueMethod
+
+- (LObject*) activate: (LExecution*)execution
+{
+	return execution.runtime.theTrue;
+}
+
+@end
+
+
+@implementation FalseMethod
+
+- (LObject*) activate: (LExecution*)execution
+{
+	return execution.runtime.theFalse;
 }
 
 @end

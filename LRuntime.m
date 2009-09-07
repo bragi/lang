@@ -10,7 +10,9 @@
 #import "LExecution.h"
 #import "LangScanner.h"
 #import "LangBuilder.h"
+
 #import "RBaseContext.h"
+#import "RBoolean.h"
 #import "RObject.h"
 #import "RText.h"
 
@@ -45,6 +47,8 @@
     theBaseContext = [LObject build];
     theObject = [LObject buildWithAncestor:theBaseContext];
     theText = [LText buildWithAncestor:theObject];
+    theTrue = [LObject buildWithAncestor:theObject];
+    theFalse = [LObject buildWithAncestor:theObject];
 }
 
 - (void) createObjectCells
@@ -52,6 +56,8 @@
     [RBaseContext addCellsTo:theBaseContext inRuntime:self];
     [RObject addCellsTo:theObject inRuntime:self];
     [RText addCellsTo:theText inRuntime:self];
+    [RTrue addCellsTo:theTrue inRuntime:self];
+    [RFalse addCellsTo:theFalse inRuntime:self];
 }
 
 - (LText*) makeTextWithString:(NSString*)string
