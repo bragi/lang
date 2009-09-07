@@ -8,6 +8,8 @@
 
 #import "LRuntime.h"
 #import "LExecution.h"
+#import "LangScanner.h"
+#import "LangBuilder.h"
 #import "RBaseContext.h"
 #import "RObject.h"
 #import "RText.h"
@@ -55,6 +57,22 @@
 - (LText*) makeTextWithString:(NSString*)string
 {
     return [theText mimicWithString:string];
+}
+
+- (LMessage*)parse:(NSString *)code
+{
+    LangBuilder* builder = [[LangBuilder alloc] init];
+    LangScanner* scanner = [[LangScanner alloc] initWithBuilder:builder];
+    [scanner scan:code];
+    return [builder message];
+}
+
+- (void) bootstrap
+{
+    // BOGUS: this is trully HARDcoded :(
+    NSString* codeText = [NSString stringWithContentsOfFile:@"/Users/bragi/projects/lang-objective-c/boot.lang" encoding:NSUTF8StringEncoding error:nil];
+    LMessage* code = [self parse:codeText];
+    [[LExecution buildWithRuntime:self] runMessage:code withContext:theBaseContext];
 }
 
 @end

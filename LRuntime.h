@@ -50,6 +50,16 @@
 - (id) init;
 
 /**
+ Reads bootstrap code and executes it.
+ */
+- (void) bootstrap;
+
+/**
+ Parses given string and returns a message object.
+ */
+- (LMessage*)parse:(NSString*)code;
+
+/**
  Creates new instance of Text
  */
 - (LText*) makeTextWithString:(NSString*)string;

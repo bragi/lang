@@ -10,6 +10,7 @@
 #import "LMessage.h"
 
 @implementation LangBuilder
+
 - (id)init
 {
     self = [super init];
