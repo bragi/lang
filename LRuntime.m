@@ -13,6 +13,7 @@
 
 #import "RBaseContext.h"
 #import "RBoolean.h"
+#import "RNil.h"
 #import "RObject.h"
 #import "RText.h"
 
@@ -49,6 +50,7 @@
     theText = [LText buildWithAncestor:theObject];
     theTrue = [LObject buildWithAncestor:theObject];
     theFalse = [LObject buildWithAncestor:theObject];
+    theNil = [LObject buildWithAncestor:theObject];
 }
 
 - (void) createObjectCells
@@ -58,6 +60,7 @@
     [RText addCellsTo:theText inRuntime:self];
     [RTrue addCellsTo:theTrue inRuntime:self];
     [RFalse addCellsTo:theFalse inRuntime:self];
+    [RNil addCellsTo:theNil inRuntime:self];
 }
 
 - (LText*) makeTextWithString:(NSString*)string

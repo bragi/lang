@@ -27,6 +27,12 @@
 @interface FalseMethod : LMethod {}
 @end
 
+/**
+ Returns theNil object
+ */
+@interface NilMethod : LMethod {}
+@end
+
 /** Executes Objective-C method called *name*WithExecution: */
 @interface ForwardingMethod : LMethod
 {

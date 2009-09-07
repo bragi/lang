@@ -43,6 +43,7 @@
 		A0A23F89103B084800C8A717 /* LObjectTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = A0A23F88103B084800C8A717 /* LObjectTestCase.m */; };
 		A0A23FBB103B137600C8A717 /* LObject.m in Sources */ = {isa = PBXBuildFile; fileRef = A0A23F8E103B099800C8A717 /* LObject.m */; };
 		A0CFAA2310441794000760D3 /* LExecutionTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = A0CFAA2210441794000760D3 /* LExecutionTestCase.m */; };
+		A0DB8FD910557C2B00AE6824 /* RNil.m in Sources */ = {isa = PBXBuildFile; fileRef = A0DB8FD810557C2B00AE6824 /* RNil.m */; };
 		A0EE7F091046AFF3007EEC5F /* LText.m in Sources */ = {isa = PBXBuildFile; fileRef = A0EE7F081046AFF3007EEC5F /* LText.m */; };
 		A0EE7F0E1046BB68007EEC5F /* RText.m in Sources */ = {isa = PBXBuildFile; fileRef = A0EE7F0D1046BB68007EEC5F /* RText.m */; };
 /* End PBXBuildFile section */
@@ -121,6 +122,8 @@
 		A0A23F8E103B099800C8A717 /* LObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LObject.m; sourceTree = "<group>"; };
 		A0CFAA2110441794000760D3 /* LExecutionTestCase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LExecutionTestCase.h; sourceTree = "<group>"; };
 		A0CFAA2210441794000760D3 /* LExecutionTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LExecutionTestCase.m; sourceTree = "<group>"; };
+		A0DB8FD710557C2B00AE6824 /* RNil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RNil.h; sourceTree = "<group>"; };
+		A0DB8FD810557C2B00AE6824 /* RNil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RNil.m; sourceTree = "<group>"; };
 		A0EE7F071046AFF3007EEC5F /* LText.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LText.h; sourceTree = "<group>"; };
 		A0EE7F081046AFF3007EEC5F /* LText.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LText.m; sourceTree = "<group>"; };
 		A0EE7F0C1046BB68007EEC5F /* RText.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RText.h; sourceTree = "<group>"; };
@@ -201,6 +204,8 @@
 				A061C2361052AA680064F230 /* CommonMethods.m */,
 				A061C2381052AB080064F230 /* RBaseContext.h */,
 				A061C2391052AB080064F230 /* RBaseContext.m */,
+				A0DB8FD710557C2B00AE6824 /* RNil.h */,
+				A0DB8FD810557C2B00AE6824 /* RNil.m */,
 			);
 			name = objects;
 			sourceTree = "<group>";
@@ -386,6 +391,7 @@
 				A093DED9104EC75800AB0A40 /* LangBuilder.m in Sources */,
 				A061C2371052AA680064F230 /* CommonMethods.m in Sources */,
 				A061C23A1052AB080064F230 /* RBaseContext.m in Sources */,
+				A0DB8FD910557C2B00AE6824 /* RNil.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

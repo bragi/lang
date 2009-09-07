@@ -22,6 +22,8 @@
 	[object setCell:[[TrueMethod alloc] init] withName:@"True"];
 	[object setCell:[[FalseMethod alloc] init] withName:@"false"];
 	[object setCell:[[FalseMethod alloc] init] withName:@"False"];
+	[object setCell:[[NilMethod alloc] init] withName:@"nil"];
+	[object setCell:[[NilMethod alloc] init] withName:@"Nil"];
 }
 
 @end

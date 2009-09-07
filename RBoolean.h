@@ -7,7 +7,8 @@
 //
 
 #import <Cocoa/Cocoa.h>
-#import "RObject.h"
+#import "LRuntime.h"
+#import "LObject.h"
 
 /**
  Adds cells and methods to true instance.

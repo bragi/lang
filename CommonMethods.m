@@ -45,6 +45,16 @@
 @end
 
 
+@implementation NilMethod
+
+- (LObject*) activate: (LExecution*)execution
+{
+	return execution.runtime.theNil;
+}
+
+@end
+
+
 @implementation ForwardingMethod
 
 - (id) initWithName:(NSString*)newName
