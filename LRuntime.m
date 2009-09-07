@@ -8,6 +8,7 @@
 
 #import "LRuntime.h"
 #import "LExecution.h"
+#import "RBaseContext.h"
 #import "RObject.h"
 #import "RText.h"
 
@@ -46,8 +47,9 @@
 
 - (void) createObjectCells
 {
-    [RObject addCellsTo:theObject];
-    [RText addCellsTo:theText];
+    [RBaseContext addCellsTo:theBaseContext inRuntime:self];
+    [RObject addCellsTo:theObject inRuntime:self];
+    [RText addCellsTo:theText inRuntime:self];
 }
 
 - (LText*) makeTextWithString:(NSString*)string

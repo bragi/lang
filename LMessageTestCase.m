@@ -19,15 +19,6 @@
 	more = [LMessage buildWithName:@"more"];
 }
 
-- (void) tearDown
-{
-	[hello release];
-	[beautiful release];
-	[world release];
-	[lady release];
-	[more release];
-}
-
 - (void) testLMessageExists
 {
 	STAssertNotNil(hello, @"hello message is nil");

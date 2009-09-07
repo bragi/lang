@@ -8,6 +8,7 @@
 
 #import "LExecutionTestCase.h"
 #import "RObject.h"
+#import "RBaseContext.h"
 #import "LMessage.h"
 #import "LText.h"
 
@@ -18,8 +19,7 @@
 {
     runtime = [[LRuntime alloc] init];
     execution = [[LExecution alloc] initWithRuntime:runtime];
-    context = [LObject build];
-    [RObject addCellsTo:context];
+    context = runtime.theBaseContext;
 }
 
 - (void) testRunSelf
@@ -27,23 +27,26 @@
     // self
 	LMessage* selfMessage = [LMessage buildWithName:@"self"];
     result = [execution runMessage:selfMessage withContext:context];
-    STAssertEquals(result, context, @"Different current target");
+    STAssertEquals(result, context, @"Different result: %@ (context: %@)", result, context);
 }
 
 - (void) testRunMimic
 {
     // mimic
-	LMessage* mimicMessage = [LMessage buildWithName:@"mimic"];
-    result = [execution runMessage:mimicMessage withContext:context];
-    STAssertFalse(result == context, @"Same current target");
+	LMessage* objectMessage = [LMessage buildWithName:@"Object"];
+    objectMessage.nextMessage = [LMessage buildWithName:@"mimic"];
+    result = [execution runMessage:objectMessage withContext:context];
+    STAssertFalse(result == runtime.theObject, @"Same current target");
 }
 
 - (void) testRunMultipleMimics
 {
     // mimic mimic
+	LMessage* objectMessage = [LMessage buildWithName:@"Object"];
 	LMessage* mimicMessage = [LMessage buildWithName:@"mimic"];
+    objectMessage.nextMessage = mimicMessage;
     mimicMessage.nextMessage = [LMessage buildWithName:@"mimic"];
-    result = [execution runMessage:mimicMessage withContext:context];
+    result = [execution runMessage:objectMessage withContext:context];
     STAssertFalse(result == context, @"Same current target");
 }
 

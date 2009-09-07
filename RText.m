@@ -9,23 +9,14 @@
 #import "RText.h"
 #import "LExecution.h"
 #import "LText.h"
+#import "CommonMethods.h"
 
 @implementation RText
 
-+ (void) addCellsTo: (LObject*)object
++ (void) addCellsTo: (LObject*)object inRuntime:(LRuntime*)runtime
 {
     /* Add methods */
-	[object setCell:[[UpcaseMethod alloc] init] withName:@"upcase"];
-}
-
-@end
-
-
-@implementation UpcaseMethod
-
-- (LObject*) activate: (LExecution*)execution
-{
-	return [(LText*)execution.target upcaseWithExecution:execution];
+	[object setCell:[[ForwardingMethod alloc] initWithName:@"upcase"] withName:@"upcase"];
 }
 
 @end

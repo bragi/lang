@@ -8,16 +8,10 @@
 
 #import <Cocoa/Cocoa.h>
 #import "LObject.h"
-#import "LMethod.h"
+#import "LRuntime.h"
 
 @interface RText : NSObject {}
 
 /** Sets all necessary cells and methods. */
-+ (void) addCellsTo:(LObject*)object;
-@end
-
-/**
- Returns upcase text.
- */
-@interface UpcaseMethod : LMethod {}
++ (void) addCellsTo:(LObject*)object inRuntime:(LRuntime*)runtime;
 @end

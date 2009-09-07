@@ -73,7 +73,8 @@
 - (LObject*) send: (LExecution*)execution
 {
     LMessage* message = execution.message;
-	LObject* cell = [self cellForName: [message name]];
+    NSString* name = [message name];
+	LObject* cell = [self cellForName: name];
 	return [cell activate:execution];
 }
 

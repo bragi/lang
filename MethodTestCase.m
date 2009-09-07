@@ -18,8 +18,7 @@
 {
     runtime = [[LRuntime alloc] init];
     execution = [[LExecution alloc] initWithRuntime:runtime];
-    context = [LObject build];
-    [RObject addCellsTo:context];
+    context = runtime.theBaseContext;
 }
 
 - (void) testCreateAndCallWithNoArguments

@@ -14,6 +14,6 @@
  */
 @interface RTrue : NSObject {}
 
-+ (void) addCellsTo:(LObject*)object;
++ (void) addCellsTo:(LObject*)object inRuntime:(LRuntime*)runtime;
 
 @end

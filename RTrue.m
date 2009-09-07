@@ -11,7 +11,7 @@
 
 @implementation RTrue
 
-+ (void) addCellsTo: (LObject*)object
++ (void) addCellsTo: (LObject*)object inRuntime:(LRuntime*)runtime
 {
     
 }
