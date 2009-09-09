@@ -46,7 +46,7 @@
     while (message) {
         // TODO: Rethink. Maybe we should call message's runWithExecution and message decides what to do next
         // Normal messages re-send to target. Literals create instances. Complex...
-        
+        NSLog(@"Executing message: %@", message.name);
         // Handle literals
         if([message isKindOfClass: [LLiteral class]]) {
             // For each literal type create proper object and make it a new target

@@ -71,7 +71,9 @@
 {
     // BOGUS: this is trully HARDcoded :(
     NSString* codeText = [NSString stringWithContentsOfFile:@"/Users/bragi/projects/lang-objective-c/boot.lang" encoding:NSUTF8StringEncoding error:nil];
+    NSLog(@"Parsing bootstrap code");
     LMessage* code = [LangParser parse:codeText];
+    NSLog(@"Executing bootstrap code");
     [[LExecution buildWithRuntime:self] runMessage:code withContext:theBaseContext];
 }
 

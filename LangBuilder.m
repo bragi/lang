@@ -52,13 +52,14 @@
 
 - (void) argumentsStart
 {
-    NSLog(@"Curent message is: %@", currentMessage);
+    NSLog(@"argumentsStart");
     argumentStarted = YES;
     [messages addObject:currentMessage];
 }
 
 - (void) argumentsEnd
 {
+    NSLog(@"argumentsEnd");
     currentMessage = [messages lastObject];
     [messages removeLastObject];
     argumentStarted = NO;

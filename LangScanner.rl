@@ -29,22 +29,22 @@
     
     (" " | "\\\n")+;
     
-    "." | "\n" {
-      [self endMessage];
-    };
-    
     '(' {
       [self argumentsStart];
     };
 
-    ')' {
+    ("\n" | " ")* ')' {
       [self argumentsEnd];
     };
     
-    ',' {
+    ("\n" | " ")* ',' {
       [self nextArgument];
     };
 
+    "." | "\n" {
+      [self endMessage];
+    };
+    
   *|;
 }%%
 
@@ -80,46 +80,46 @@
 
 - (void) nextArgument
 {
-  NSLog(@", ");
+  NSLog(@"Scan: , ");
   [builder nextArgument];
 }
 
 - (void) endMessage
 {
-  NSLog(@".\n");
+  NSLog(@"Scan: .\n");
   [builder endMessage];
 }
 
 - (void) argumentsStart
 {
-  NSLog(@"(");
+  NSLog(@"Scan: (");
   [builder argumentsStart];
 }
 
 - (void) argumentsEnd
 {
-  NSLog(@")");
+  NSLog(@"Scan: )");
   [builder argumentsEnd];
 }
 
 - (void) identifier:(char*)start length:(int)length
 {
   NSString* name = [[NSString alloc] initWithBytes:start length:length encoding:NSUTF8StringEncoding];
-  NSLog(@"putting identifier: %@", name);
+  NSLog(@"Scan: identifier '%@'", name);
   [builder identifier:name];
 }
 
 - (void) textLiteral:(char*)start length:(int)length
 {
   NSString* name = [[NSString alloc] initWithBytes:start+1 length:length-1 encoding:NSUTF8StringEncoding];
-  NSLog(@"string: %@", name);
+  NSLog(@"Scan: string '%@'", name);
   [builder textLiteral:name];
 }
 
 - (void) numberLiteral:(char*)start length:(int)length
 {
   NSString* name = [[NSString alloc] initWithBytes:start length:length encoding:NSUTF8StringEncoding];
-  NSLog(@"number: %@", name);
+  NSLog(@"Scan: number %@", name);
   [builder numberLiteral:name];
 }
 
