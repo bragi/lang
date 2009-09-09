@@ -1,0 +1,33 @@
+h1. Last Message In Code
+
+Watch out for last message in methods and macro. It can be EndMessage and should not be evaluated if is not explicit:
+
+  method(
+    "Hello world"
+  )
+
+evaluates to "Hello world", while:
+
+  method(
+    "Hello world".
+  )
+
+evaluates to self.
+
+Strip implicit EndMessages from end of code, possibly in parser.
+
+Spec = Object new
+Spec do(
+  describe = macro(
+    
+    description = call arguments first
+  )
+  
+  Scope = Object with(
+    initialize = method(description, attributes={}, code,
+      
+    )
+  )
+  Test = Object new
+)
+

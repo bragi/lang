@@ -11,6 +11,8 @@
 #import "LMessage.h"
 #import "LObject.h"
 
+#import "LangParser.h"
+
 @implementation LRuntimeTestCase
 - (void) setUp
 {
@@ -19,7 +21,7 @@
 
 - (void) testBootstrap
 {
-    LMessage* objectKind = [runtime parse:@"Object kind"];
+    LMessage* objectKind = [LangParser parse:@"Object kind"];
     LExecution* execution = [LExecution buildWithRuntime:runtime];
     LText* result = (LText*)[execution runMessage:objectKind withContext:runtime.theBaseContext];
     STAssertNil(result, @"Object kind is not nil");
