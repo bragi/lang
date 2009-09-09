@@ -1,20 +1,4 @@
-h1. Last Message In Code
-
-Watch out for last message in methods and macro. It can be EndMessage and should not be evaluated if is not explicit:
-
-  method(
-    "Hello world"
-  )
-
-evaluates to "Hello world", while:
-
-  method(
-    "Hello world".
-  )
-
-evaluates to self.
-
-Strip implicit EndMessages from end of code, possibly in parser.
+h1. Specs
 
 Spec = Object new
 Spec do(
@@ -30,4 +14,23 @@ Spec do(
   )
   Test = Object new
 )
+
+
+h1. Last Message In Code (Done!)
+
+Watch out for last message in methods and macro. It can be EndMessage and should not be evaluated if is not explicit:
+
+  method(
+    "Hello world"
+  )
+
+evaluates to "Hello world", while:
+
+  method(
+    "Hello world".
+  )
+
+evaluates to self.
+
+Strip implicit EndMessages from end of code, possibly in parser. 
 
