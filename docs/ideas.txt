@@ -1,18 +1,39 @@
 h1. Specs
 
-Spec = Object new
-Spec do(
+SpecScope = Object new do(
+  initialize = method(
+    self examples = []
+    self scopes = []
+  )
+
   describe = macro(
-    
-    description = call arguments first
-  )
-  
-  Scope = Object with(
-    initialize = method(description, attributes={}, code,
-      
+    description = call evaluatedArguments first
+    attributes = if(call arguments lenght > 2,
+      call evaluatedArguments[1],
+      {}
     )
+    code = call arguments last
+    scopes << Scope build(description, attributes, code)
   )
-  Test = Object new
+)
+Spec do(
+  examples = []
+  scopes = []
+
+
+  Scope = Object with(
+    build = method(description, attributes, code,
+      scope = with(description: description, attributes: attributes, code: code)
+      scope collectTests
+      scope
+    )
+    
+    collectTests = method(
+      instanceEvaluate(code)
+    )
+    
+    description = Spec cell(:description)
+  )
 )
 
 

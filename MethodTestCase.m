@@ -72,4 +72,5 @@
     result = [execution runMessage:[builder message] withContext:context];
     STAssertEqualObjects([(LText*)result text], @"HELLO", @"Method not called");
 }
+
 @end

@@ -44,6 +44,8 @@
 		A0A23FBB103B137600C8A717 /* LObject.m in Sources */ = {isa = PBXBuildFile; fileRef = A0A23F8E103B099800C8A717 /* LObject.m */; };
 		A0A9505110579241000A0E4C /* LangParser.m in Sources */ = {isa = PBXBuildFile; fileRef = A0A9505010579241000A0E4C /* LangParser.m */; };
 		A0A9506D10579458000A0E4C /* LangParserTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = A0A9506C10579458000A0E4C /* LangParserTestCase.m */; };
+		A0A950B21057ACCD000A0E4C /* RBooleanTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = A0A950B11057ACCD000A0E4C /* RBooleanTestCase.m */; };
+		A0A950B61057AD70000A0E4C /* Lang.m in Sources */ = {isa = PBXBuildFile; fileRef = A0A950B51057AD70000A0E4C /* Lang.m */; };
 		A0CFAA2310441794000760D3 /* LExecutionTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = A0CFAA2210441794000760D3 /* LExecutionTestCase.m */; };
 		A0DB8FD910557C2B00AE6824 /* RNil.m in Sources */ = {isa = PBXBuildFile; fileRef = A0DB8FD810557C2B00AE6824 /* RNil.m */; };
 		A0EE7F091046AFF3007EEC5F /* LText.m in Sources */ = {isa = PBXBuildFile; fileRef = A0EE7F081046AFF3007EEC5F /* LText.m */; };
@@ -126,6 +128,10 @@
 		A0A9505010579241000A0E4C /* LangParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LangParser.m; sourceTree = "<group>"; };
 		A0A9506B10579458000A0E4C /* LangParserTestCase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LangParserTestCase.h; sourceTree = "<group>"; };
 		A0A9506C10579458000A0E4C /* LangParserTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LangParserTestCase.m; sourceTree = "<group>"; };
+		A0A950B01057ACCD000A0E4C /* RBooleanTestCase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RBooleanTestCase.h; sourceTree = "<group>"; };
+		A0A950B11057ACCD000A0E4C /* RBooleanTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RBooleanTestCase.m; sourceTree = "<group>"; };
+		A0A950B41057AD70000A0E4C /* Lang.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Lang.h; sourceTree = "<group>"; };
+		A0A950B51057AD70000A0E4C /* Lang.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Lang.m; sourceTree = "<group>"; };
 		A0CFAA2110441794000760D3 /* LExecutionTestCase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LExecutionTestCase.h; sourceTree = "<group>"; };
 		A0CFAA2210441794000760D3 /* LExecutionTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LExecutionTestCase.m; sourceTree = "<group>"; };
 		A0DB8FD710557C2B00AE6824 /* RNil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RNil.h; sourceTree = "<group>"; };
@@ -219,6 +225,7 @@
 		A061612C1040185900A2CC3F /* Test */ = {
 			isa = PBXGroup;
 			children = (
+				A0A950AF1057ACBA000A0E4C /* objects */,
 				A08523471039B4F9001BBCA1 /* LMessageTestCase.h */,
 				A08523481039B4F9001BBCA1 /* LMessageTestCase.m */,
 				A0A23F87103B084800C8A717 /* LObjectTestCase.h */,
@@ -269,8 +276,19 @@
 				A06161111040119700A2CC3F /* LRuntime.m */,
 				A06162B610427B8900A2CC3F /* LExecution.h */,
 				A06162B710427B8900A2CC3F /* LExecution.m */,
+				A0A950B41057AD70000A0E4C /* Lang.h */,
+				A0A950B51057AD70000A0E4C /* Lang.m */,
 			);
 			name = Lang;
+			sourceTree = "<group>";
+		};
+		A0A950AF1057ACBA000A0E4C /* objects */ = {
+			isa = PBXGroup;
+			children = (
+				A0A950B01057ACCD000A0E4C /* RBooleanTestCase.h */,
+				A0A950B11057ACCD000A0E4C /* RBooleanTestCase.m */,
+			);
+			name = objects;
 			sourceTree = "<group>";
 		};
 		C6859EA2029092E104C91782 /* Documentation */ = {
@@ -418,6 +436,8 @@
 				A093DEB3104EBDDC00AB0A40 /* LangScannerTest.m in Sources */,
 				A093DF17104EFDD900AB0A40 /* LangBuilderTestCase.m in Sources */,
 				A0A9506D10579458000A0E4C /* LangParserTestCase.m in Sources */,
+				A0A950B21057ACCD000A0E4C /* RBooleanTestCase.m in Sources */,
+				A0A950B61057AD70000A0E4C /* Lang.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

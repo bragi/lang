@@ -52,7 +52,7 @@
 /**
  Reads bootstrap code and executes it.
  */
-- (void) bootstrap;
+- (LRuntime*) bootstrap;
 
 /**
  Creates new instance of Text
