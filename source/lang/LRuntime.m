@@ -70,7 +70,7 @@
 - (LRuntime*) bootstrap
 {
     // BOGUS: this is trully HARDcoded :(
-    NSString* codeText = [NSString stringWithContentsOfFile:@"/Users/bragi/projects/lang-objective-c/boot.lang" encoding:NSUTF8StringEncoding error:nil];
+    NSString* codeText = [NSString stringWithContentsOfFile:@"/Users/bragi/projects/lang-objective-c/system/boot.lang" encoding:NSUTF8StringEncoding error:nil];
     NSLog(@"Parsing bootstrap code");
     LMessage* code = [LangParser parse:codeText];
     NSLog(@"Executing bootstrap code");
