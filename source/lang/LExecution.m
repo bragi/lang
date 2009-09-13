@@ -52,6 +52,8 @@
             // For each literal type create proper object and make it a new target
             if([message isKindOfClass:[LTextLiteral class]]) {
                 target = [runtime makeTextWithString:message.name];
+            } else if([message isKindOfClass:[LNumberLiteral class]]) {
+                target = [runtime makeNumberWithString:message.name];
             }
         } else if([message isKindOfClass: [EndMessage class]]) {
             // Handle EndMessage: This messages resets current target back to original context

@@ -128,3 +128,10 @@
     return [[LTextLiteral alloc] initWithName:newName];
 }
 @end
+
+@implementation LNumberLiteral
++ (id) buildWithName: (NSString*) newName
+{
+    return [[LNumberLiteral alloc] initWithName:newName];
+}
+@end

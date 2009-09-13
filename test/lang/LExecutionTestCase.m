@@ -92,4 +92,12 @@
     STAssertEqualObjects([(LText*)result text], @"Hello Cell", @"Target not evaluated");
 }
 
+- (void) testRunNumberLiteral
+{
+    // 9
+    LMessage* numberLiteral = [LNumberLiteral buildWithName:@"9"];
+    result = [execution runMessage:numberLiteral withContext:context];
+    STAssertTrue([result isKindOfClass:[LNumber class]], @"Different class");
+}
+
 @end

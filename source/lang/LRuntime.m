@@ -30,6 +30,7 @@
 @synthesize theFalse;
 @synthesize theNil;
 @synthesize theText;
+@synthesize theNumber;
 
 - (id) init
 {
@@ -50,6 +51,7 @@
     theTrue = [LObject buildWithAncestor:theObject];
     theFalse = [LObject buildWithAncestor:theObject];
     theNil = [LObject buildWithAncestor:theObject];
+    theNumber = [LNumber buildWithAncestor:theObject];
 }
 
 - (void) createObjectCells
@@ -65,6 +67,11 @@
 - (LText*) makeTextWithString:(NSString*)string
 {
     return [theText mimicWithString:string];
+}
+
+- (LNumber*) makeNumberWithString:(NSString*)string
+{
+    return [theNumber mimicWithString:string];
 }
 
 - (LRuntime*) bootstrap

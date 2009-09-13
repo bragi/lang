@@ -10,6 +10,7 @@
 #import "LObject.h"
 #import "LMessage.h"
 #import "LText.h"
+#import "LNumber.h"
 
 /**
  Runtime of the Lang. Initializes all basic objects, provides access to them,
@@ -24,16 +25,24 @@
     
     // Base objects
     
+#pragma mark the objects
     /** Object. */
     LObject* theObject;
+
     /** True */
     LObject* theTrue;
+    
     /** False */
     LObject* theFalse;
+    
     /** Nil */
     LObject* theNil;
+    
     /** Text */
     LText* theText;
+    
+    /** Number */
+    LNumber* theNumber;
 }
 
 @property (retain) LObject* theBaseContext;
@@ -43,6 +52,7 @@
 @property (retain) LObject* theFalse;
 @property (retain) LObject* theNil;
 @property (retain) LText* theText;
+@property (retain) LNumber* theNumber;
 
 /**
  Initializes Runtime, creates all necessary runtime objects.
@@ -59,4 +69,8 @@
  */
 - (LText*) makeTextWithString:(NSString*)string;
 
+/**
+ Creates new instance of Number
+ */
+- (LNumber*) makeNumberWithString:(NSString*)string;
 @end

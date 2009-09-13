@@ -39,3 +39,7 @@
 /** Text literal. */
 @interface LTextLiteral : LLiteral {}
 @end
+
+/** Number literal. */
+@interface LNumberLiteral : LLiteral {}
+@end
