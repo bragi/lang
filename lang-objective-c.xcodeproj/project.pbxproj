@@ -51,6 +51,7 @@
 		A013F5F9105CF988009DBBB6 /* LangParserTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = A013F5EF105CF988009DBBB6 /* LangParserTestCase.m */; };
 		A013F5FA105CF988009DBBB6 /* LangScannerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = A013F5F1105CF988009DBBB6 /* LangScannerTest.m */; };
 		A013F61D105CFD2F009DBBB6 /* LNumber.m in Sources */ = {isa = PBXBuildFile; fileRef = A013F61C105CFD2F009DBBB6 /* LNumber.m */; };
+		A013F64A105D09B3009DBBB6 /* RNumber.m in Sources */ = {isa = PBXBuildFile; fileRef = A013F649105D09B3009DBBB6 /* RNumber.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -141,6 +142,8 @@
 		A013F5F1105CF988009DBBB6 /* LangScannerTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LangScannerTest.m; sourceTree = "<group>"; };
 		A013F61B105CFD2F009DBBB6 /* LNumber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LNumber.h; sourceTree = "<group>"; };
 		A013F61C105CFD2F009DBBB6 /* LNumber.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LNumber.m; sourceTree = "<group>"; };
+		A013F648105D09B3009DBBB6 /* RNumber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RNumber.h; sourceTree = "<group>"; };
+		A013F649105D09B3009DBBB6 /* RNumber.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RNumber.m; sourceTree = "<group>"; };
 		A08523211039B2A7001BBCA1 /* Test-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Test-Info.plist"; sourceTree = "<group>"; };
 		A08523371039B311001BBCA1 /* Test.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Test.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6859EA3029092ED04C91782 /* lang.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; name = lang.1; path = documentation/lang.1; sourceTree = "<group>"; };
@@ -246,6 +249,8 @@
 				A013F5C1105CF970009DBBB6 /* RObject.m */,
 				A013F5C2105CF970009DBBB6 /* RText.h */,
 				A013F5C3105CF970009DBBB6 /* RText.m */,
+				A013F648105D09B3009DBBB6 /* RNumber.h */,
+				A013F649105D09B3009DBBB6 /* RNumber.m */,
 			);
 			name = objects;
 			path = source/objects;
@@ -450,6 +455,7 @@
 				A013F5DB105CF970009DBBB6 /* LangParser.m in Sources */,
 				A013F5DC105CF970009DBBB6 /* LangScanner.m in Sources */,
 				A013F61D105CFD2F009DBBB6 /* LNumber.m in Sources */,
+				A013F64A105D09B3009DBBB6 /* RNumber.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -11,6 +11,12 @@
 
 @interface LRuntimeTestCase : SenTestCase {
     LRuntime* runtime;
+    LExecution* execution;
+    LMessage* code;
+    LObject* result;
 }
+
+- (LObject*) executeCode;
+- (LObject*) executeText:(NSString*)codeText;
 
 @end

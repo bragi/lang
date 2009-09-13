@@ -17,16 +17,37 @@
 - (void) setUp
 {
     runtime = [[LRuntime alloc] init];
+    execution = [LExecution buildWithRuntime:runtime];
+}
+
+- (LObject*) executeText:(NSString*)text
+{
+    code = [LangParser parse:text];
+    return [self executeCode];
+}
+
+- (LObject*) executeCode
+{
+    result = [execution runMessage:code withContext:runtime.theBaseContext];
+    return result;
 }
 
 - (void) testBootstrap
 {
-    LMessage* objectKind = [LangParser parse:@"Object kind"];
-    LExecution* execution = [LExecution buildWithRuntime:runtime];
-    LText* result = (LText*)[execution runMessage:objectKind withContext:runtime.theBaseContext];
+    [self executeText:@"Object kind"];
     STAssertNil(result, @"Object kind is not nil");
     [runtime bootstrap];
-    result = (LText*)[execution runMessage:objectKind withContext:runtime.theBaseContext];
-    STAssertEqualObjects([result text], @"Object", @"Object kind is not Object");
+    [self executeText:@"Object kind"];
+    STAssertEqualObjects([(LText*)result text], @"Object", @"Object kind is not Object");
+}
+
+- (void) testTypes
+{
+    STAssertEqualObjects([self executeText:@"Object"], runtime.theObject, @"Object value is not theObject");
+    STAssertEqualObjects([self executeText:@"Text"], runtime.theText, @"Text value is not theText");
+    STAssertEqualObjects([self executeText:@"Nil"], runtime.theNil, @"Nil value is not theNil");
+    STAssertEqualObjects([self executeText:@"False"], runtime.theFalse, @"False value is not theFalse");
+    STAssertEqualObjects([self executeText:@"True"], runtime.theTrue, @"True value is not theTrue");
+    STAssertEqualObjects([self executeText:@"Number"], runtime.theNumber, @"Number value is not theNumber");
 }
 @end

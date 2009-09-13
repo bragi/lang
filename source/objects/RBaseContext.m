@@ -36,6 +36,11 @@
 	[object setCell:[[NilMethod alloc] init] withName:@"nil"];
 	[object setCell:[[NilMethod alloc] init] withName:@"Nil"];
 
+    /* Text cell */
+	[object setCell:runtime.theText withName:@"Text"];
+
+    /* Number cell */
+	[object setCell:runtime.theNumber withName:@"Number"];
 }
 
 @end
