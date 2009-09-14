@@ -7,7 +7,8 @@
 //
 
 #import "LList.h"
-
+#import "LExecution.h"
+#import "LRuntime.h"
 
 @implementation LList
 
@@ -25,6 +26,18 @@
     self = [super init];
     list = entries;
     return self;
+}
+
+- (LList*) mimicWithEntries:(NSMutableArray*)entries
+{
+    LList* mimic = [[LList alloc] initWithEntries:entries];
+    [mimic addAncestor:self];
+    return mimic;
+}
+
+- (LNumber*) lengthWithExecution:(LExecution*)execution
+{
+    return [execution.runtime makeNumberWithInteger:[list count]];
 }
 
 @end

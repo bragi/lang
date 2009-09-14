@@ -8,6 +8,7 @@
 
 #import <Cocoa/Cocoa.h>
 #import "LObject.h"
+#import "LNumber.h"
 
 @interface LList : LObject {
     NSMutableArray* list;
@@ -17,5 +18,10 @@
 
 + (id) buildWithAncestor:(LObject*)ancestor;
 - (id) initWithEntries:(NSMutableArray*)entries;
+- (LList*) mimicWithEntries:(NSMutableArray*)entries;
 
+// Messages forwarded by runtime execution.
+
+/** Return length of the list. */
+- (LNumber*) lengthWithExecution:(LExecution*)execution;
 @end

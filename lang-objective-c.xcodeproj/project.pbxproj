@@ -54,6 +54,7 @@
 		A013F64A105D09B3009DBBB6 /* RNumber.m in Sources */ = {isa = PBXBuildFile; fileRef = A013F649105D09B3009DBBB6 /* RNumber.m */; };
 		A013F666105D1388009DBBB6 /* LList.m in Sources */ = {isa = PBXBuildFile; fileRef = A013F665105D1388009DBBB6 /* LList.m */; };
 		A06ABC7E105EA78D0091E538 /* RListTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = A06ABC7D105EA78D0091E538 /* RListTestCase.m */; };
+		A06ABCB2105EAE2F0091E538 /* RList.m in Sources */ = {isa = PBXBuildFile; fileRef = A06ABCB1105EAE2F0091E538 /* RList.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -150,6 +151,8 @@
 		A013F665105D1388009DBBB6 /* LList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LList.m; sourceTree = "<group>"; };
 		A06ABC7C105EA78D0091E538 /* RListTestCase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RListTestCase.h; sourceTree = "<group>"; };
 		A06ABC7D105EA78D0091E538 /* RListTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RListTestCase.m; sourceTree = "<group>"; };
+		A06ABCB0105EAE2F0091E538 /* RList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RList.h; sourceTree = "<group>"; };
+		A06ABCB1105EAE2F0091E538 /* RList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RList.m; sourceTree = "<group>"; };
 		A08523211039B2A7001BBCA1 /* Test-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Test-Info.plist"; sourceTree = "<group>"; };
 		A08523371039B311001BBCA1 /* Test.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Test.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6859EA3029092ED04C91782 /* lang.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; name = lang.1; path = documentation/lang.1; sourceTree = "<group>"; };
@@ -259,6 +262,8 @@
 				A013F5C3105CF970009DBBB6 /* RText.m */,
 				A013F648105D09B3009DBBB6 /* RNumber.h */,
 				A013F649105D09B3009DBBB6 /* RNumber.m */,
+				A06ABCB0105EAE2F0091E538 /* RList.h */,
+				A06ABCB1105EAE2F0091E538 /* RList.m */,
 			);
 			name = objects;
 			path = source/objects;
@@ -467,6 +472,7 @@
 				A013F61D105CFD2F009DBBB6 /* LNumber.m in Sources */,
 				A013F64A105D09B3009DBBB6 /* RNumber.m in Sources */,
 				A013F666105D1388009DBBB6 /* LList.m in Sources */,
+				A06ABCB2105EAE2F0091E538 /* RList.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -27,6 +27,13 @@
     return self;
 }
 
+- (id) initWithInteger:(NSInteger)integerValue
+{
+    self = [super init];
+    number = [NSDecimalNumber decimalNumberWithMantissa:integerValue exponent:0 isNegative:NO];
+    return self;
+}
+
 - (LNumber*) mimicWithString:(NSString*)textValue
 {
     LNumber* mimic = [[LNumber alloc] initWithString:textValue];
@@ -34,4 +41,10 @@
     return mimic;
 }
 
+- (LNumber*) mimicWithInteger:(NSInteger)integerValue
+{
+    LNumber* mimic = [[LNumber alloc] initWithInteger:integerValue];
+    [mimic addAncestor:self];
+    return mimic;
+}
 @end

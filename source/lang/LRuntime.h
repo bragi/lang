@@ -78,4 +78,14 @@
  Creates new instance of Number
  */
 - (LNumber*) makeNumberWithString:(NSString*)string;
+
+/**
+ Creates new instance of Number
+ */
+- (LNumber*) makeNumberWithInteger:(NSInteger)value;
+
+/**
+ Creates new instance of List
+ */
+- (LList*) makeListWithEntries:(NSMutableArray*)entries;
 @end

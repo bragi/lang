@@ -91,7 +91,7 @@
 - (LObject*)activate:(LExecution*)execution
 {
     // Create and return new instance of LList
-    return [[LList alloc] initWithEntries:[execution evaluatedArguments]];
+    return [execution.runtime makeListWithEntries:[execution evaluatedArguments]];
 }
 
 @end

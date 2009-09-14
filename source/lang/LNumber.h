@@ -17,5 +17,6 @@
 
 - (id) initWithString:(NSString*)textValue;
 - (LNumber*) mimicWithString:(NSString*)textValue;
+- (LNumber*) mimicWithInteger:(NSInteger)integerValue;
 
 @end

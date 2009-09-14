@@ -15,6 +15,7 @@
 #import "RNil.h"
 #import "RObject.h"
 #import "RText.h"
+#import "RList.h"
 
 @interface LRuntime()
 - (void) createObjectHierarchy;
@@ -64,6 +65,7 @@
     [RTrue addCellsTo:theTrue inRuntime:self];
     [RFalse addCellsTo:theFalse inRuntime:self];
     [RNil addCellsTo:theNil inRuntime:self];
+    [RList addCellsTo:theList inRuntime:self];
 }
 
 - (LText*) makeTextWithString:(NSString*)string
@@ -74,6 +76,16 @@
 - (LNumber*) makeNumberWithString:(NSString*)string
 {
     return [theNumber mimicWithString:string];
+}
+
+- (LNumber*) makeNumberWithInteger:(NSInteger)value
+{
+    return [theNumber mimicWithInteger:value];
+}
+
+- (LList*) makeListWithEntries:(NSMutableArray*)entries
+{
+    return [theList mimicWithEntries:entries];
 }
 
 - (LRuntime*) bootstrap
