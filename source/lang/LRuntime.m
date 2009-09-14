@@ -31,6 +31,7 @@
 @synthesize theNil;
 @synthesize theText;
 @synthesize theNumber;
+@synthesize theList;
 
 - (id) init
 {
@@ -52,6 +53,7 @@
     theFalse = [LObject buildWithAncestor:theObject];
     theNil = [LObject buildWithAncestor:theObject];
     theNumber = [LNumber buildWithAncestor:theObject];
+    theList = [LList buildWithAncestor:theObject];
 }
 
 - (void) createObjectCells

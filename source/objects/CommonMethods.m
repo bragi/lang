@@ -13,6 +13,7 @@
 #import "LObject.h"
 #import "LMethod.h"
 #import "LRuntime.h"
+#import "LList.h"
 
 
 @implementation SelfMethod
@@ -80,6 +81,17 @@
     NSArray* arguments = [execution.message arguments];
     LMessage* code = (LMessage*)[arguments lastObject];
     return [[LLangMethod alloc] initWithCode:code];
+}
+
+@end
+
+
+@implementation ListMethod
+
+- (LObject*)activate:(LExecution*)execution
+{
+    // Create and return new instance of LList
+    return [[LList alloc] initWithEntries:[execution evaluatedArguments]];
 }
 
 @end

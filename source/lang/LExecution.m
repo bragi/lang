@@ -72,4 +72,13 @@
     LExecution* codeExecution = [[LExecution alloc] initWithParent:self];
     return [codeExecution runMessage:code withContext:self.context];
 }
+
+- (NSMutableArray*) evaluatedArguments
+{
+    NSMutableArray* result = [NSMutableArray arrayWithCapacity:[message.arguments count]];
+    for(LMessage* m in message.arguments) {
+        [result addObject:[self evaluateWithCurrentContext:m]];
+    }
+    return result;
+}
 @end

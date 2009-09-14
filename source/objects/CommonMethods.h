@@ -49,3 +49,10 @@
  */
 @interface MethodMethod : LMethod {}
 @end
+
+/** 
+ Creates new instance of LList with evaluated arguments as list entries.
+ Represents list() in runtime.
+ */
+@interface ListMethod : LMethod {}
+@end

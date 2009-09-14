@@ -11,6 +11,7 @@
 #import "LMessage.h"
 #import "LText.h"
 #import "LNumber.h"
+#import "LList.h"
 
 /**
  Runtime of the Lang. Initializes all basic objects, provides access to them,
@@ -43,6 +44,9 @@
     
     /** Number */
     LNumber* theNumber;
+    
+    /** List */
+    LList* theList;
 }
 
 @property (retain) LObject* theBaseContext;
@@ -53,6 +57,7 @@
 @property (retain) LObject* theNil;
 @property (retain) LText* theText;
 @property (retain) LNumber* theNumber;
+@property (retain) LList* theList;
 
 /**
  Initializes Runtime, creates all necessary runtime objects.

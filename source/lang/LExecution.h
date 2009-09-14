@@ -56,6 +56,9 @@
 
 #pragma mark Evaluating code
 
-/** Evaluates given argument in context of caller */
+/** Evaluates code within caller */
 - (LObject*) evaluateWithCurrentContext:(LMessage*)code;
+
+/** Returns all arguments evaluated in context of caller */
+- (NSMutableArray*) evaluatedArguments;
 @end

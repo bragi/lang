@@ -41,6 +41,10 @@
 
     /* Number cell */
 	[object setCell:runtime.theNumber withName:@"Number"];
+
+    /* List cell */
+	[object setCell:runtime.theList withName:@"List"];
+    [object setCell:[[ListMethod alloc] init] withName:@"list"];
 }
 
 @end
