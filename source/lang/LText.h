@@ -15,9 +15,8 @@
 
 @property (readonly, retain) NSString* text;
 
-+ (id) buildWithAncestor:(LObject*)ancestor;
++ (id) textWithAncestor:(LObject*)ancestor string:(NSString*)string;
 - (id) initWithString:(NSString*)newText;
-- (LText*) mimicWithString:(NSString*)newText;
 
 // Messages forwarded by runtime execution.
 

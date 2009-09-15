@@ -49,7 +49,7 @@
 {
     theBaseContext = [LObject build];
     theObject = [LObject buildWithAncestor:theBaseContext];
-    theText = [LText buildWithAncestor:theObject];
+    theText = [LText textWithAncestor:theObject string:@""];
     theTrue = [LObject buildWithAncestor:theObject];
     theFalse = [LObject buildWithAncestor:theObject];
     theNil = [LObject buildWithAncestor:theObject];
@@ -70,7 +70,7 @@
 
 - (LText*) makeTextWithString:(NSString*)string
 {
-    return [theText mimicWithString:string];
+    return [LText textWithAncestor:theText string:string];
 }
 
 - (LNumber*) makeNumberWithString:(NSString*)string

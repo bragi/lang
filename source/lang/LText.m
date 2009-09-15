@@ -7,15 +7,16 @@
 //
 
 #import "LText.h"
-
+#import "LExecution.h"
+#import "LRuntime.h"
 
 @implementation LText
 
 @synthesize text;
 
-+ (id) buildWithAncestor:(LObject*)ancestor
++ (id) textWithAncestor:(LObject*)ancestor string:(NSString*)string
 {
-    LText* theText = [[LText alloc] initWithString:@""];
+    LText* theText = [[LText alloc] initWithString:string];
     [theText addAncestor:ancestor];
     return theText;
 }
@@ -37,16 +38,9 @@
     return mimic;
 }
 
-- (LText*) mimicWithString:(NSString*)newText
-{
-    LText* mimic = [[LText alloc] initWithString:newText];
-    [mimic addAncestor:self];
-    return mimic;
-}
-
 - (LText*) upcaseWithExecution:(LExecution*)execution
 {
-    return [self mimicWithString:[self.text uppercaseString]];
+    return [execution.runtime makeTextWithString:[self.text uppercaseString]];
 }
 
 @end
