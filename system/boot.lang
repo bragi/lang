@@ -8,3 +8,7 @@ true =(new, true)
 
 nil =(new, nil)
 =(Nil, nil)
+
+true =(ifFalse, nil)
+
+false =(ifTrue, nil)

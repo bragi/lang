@@ -24,4 +24,28 @@
     STAssertEquals(result, lang.runtime.theTrue, @"true not evaluated");
 }
 
+- (void) testIfTrueOnTrue
+{
+    result = [lang run:@"true ifTrue(\"hello\")"];
+    STAssertEqualObjects([(LText*)result text], @"hello", @"ifTrue does not evaluate properly on true");
+}
+
+- (void) testIfFalseOnTrue
+{
+    result = [lang run:@"true ifFalse(\"hello\")"];
+    STAssertEqualObjects(result, lang.runtime.theNil, @"ifFalse does not evaluate properly on true");
+}
+
+- (void) testIfFalseOnFalse
+{
+    result = [lang run:@"false ifFalse(\"hello\")"];
+    STAssertEqualObjects([(LText*)result text], @"hello", @"ifFalse does not evaluate properly on false");
+}
+
+- (void) testIfTrueOnFalse
+{
+    result = [lang run:@"false ifTrue(\"hello\")"];
+    STAssertEqualObjects(result, lang.runtime.theNil, @"ifTrue does not evaluate properly on false");
+}
+
 @end
