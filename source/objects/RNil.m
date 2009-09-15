@@ -13,8 +13,6 @@
 
 + (void) addCellsTo: (LObject*)object inRuntime:(LRuntime*)runtime
 {
-    // nil should be only one
-	[object setCell:[[SelfMethod alloc] init] withName:@"mimic"];
 }
 
 @end

@@ -1,1 +1,10 @@
 Object =(kind, "Object")
+
+false =(new, false)
+=(False, false)
+
+true =(new, true)
+=(True, true)
+
+nil =(new, nil)
+=(Nil, nil)

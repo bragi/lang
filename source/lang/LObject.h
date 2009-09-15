@@ -25,7 +25,6 @@
 
 /**
  Factory method to build new instances, should be used only during LRuntime initialization.
- When creating new mimic of particular objects use mimic.
  */
 + (id) build;
 
@@ -87,8 +86,8 @@
 - (LObject*) assignmentWithExecution: (LExecution*) execution;
 
 /**
- Creates a new mimic of this object. Used in running programs.
+ Creates a new object with this object as ancestor. Used in running programs.
  */
-- (LObject*) mimicWithExecution: (LExecution*) execution;
+- (LObject*) newWithExecution: (LExecution*) execution;
 
 @end

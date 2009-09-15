@@ -14,7 +14,7 @@
 + (void) addCellsTo: (LObject*)object inRuntime:(LRuntime*)runtime
 {
     /* Add methods */
-	[object setCell:[[ForwardingMethod alloc] initWithName:@"mimic"] withName:@"mimic"];
+	[object setCell:[[ForwardingMethod alloc] initWithName:@"new"] withName:@"new"];
 }
 
 @end

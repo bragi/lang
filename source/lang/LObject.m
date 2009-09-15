@@ -83,7 +83,7 @@
     return value;
 }
 
-- (LObject*) mimicWithExecution: (LExecution*)execution
+- (LObject*) newWithExecution: (LExecution*)execution
 {
     return [LObject objectWithAncestor:self];
 }

@@ -15,24 +15,6 @@
 @interface SelfMethod : LMethod {}
 @end
 
-/**
- Returns theTrue object
- */
-@interface TrueMethod : LMethod {}
-@end
-
-/**
- Returns theFalse object
- */
-@interface FalseMethod : LMethod {}
-@end
-
-/**
- Returns theNil object
- */
-@interface NilMethod : LMethod {}
-@end
-
 /** Executes Objective-C method called *name*WithExecution: */
 @interface ForwardingMethod : LMethod
 {

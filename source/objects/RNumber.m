@@ -8,15 +8,11 @@
 
 #import "RNumber.h"
 #import "LExecution.h"
-#import "LText.h"
-#import "CommonMethods.h"
 
 @implementation RNumber
 
 + (void) addCellsTo: (LObject*)object inRuntime:(LRuntime*)runtime
 {
-    /* Add methods */
-	[object setCell:[[ForwardingMethod alloc] initWithName:@"upcase"] withName:@"upcase"];
 }
 
 @end

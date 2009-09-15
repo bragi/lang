@@ -13,8 +13,6 @@
 
 + (void) addCellsTo: (LObject*)object inRuntime:(LRuntime*)runtime
 {
-    // true should be only one
-	[object setCell:[[SelfMethod alloc] init] withName:@"mimic"];
 }
 
 @end
@@ -24,8 +22,6 @@
 
 + (void) addCellsTo: (LObject*)object inRuntime:(LRuntime*)runtime
 {
-    // false should be only one
-	[object setCell:[[SelfMethod alloc] init] withName:@"mimic"];
 }
 
 @end

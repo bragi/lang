@@ -28,16 +28,6 @@
     return self;
 }
 
-
-// TODO: rethink the whole deal with mimicking text
-
-- (LObject*) mimic
-{
-    LObject* mimic = [[LText alloc] initWithString:self.text];
-    [mimic addAncestor:self];
-    return mimic;
-}
-
 - (LText*) upcaseWithExecution:(LExecution*)execution
 {
     return [execution.runtime makeTextWithString:[self.text uppercaseString]];

@@ -26,36 +26,6 @@
 @end
 
 
-@implementation TrueMethod
-
-- (LObject*) activate: (LExecution*)execution
-{
-	return execution.runtime.theTrue;
-}
-
-@end
-
-
-@implementation FalseMethod
-
-- (LObject*) activate: (LExecution*)execution
-{
-	return execution.runtime.theFalse;
-}
-
-@end
-
-
-@implementation NilMethod
-
-- (LObject*) activate: (LExecution*)execution
-{
-	return execution.runtime.theNil;
-}
-
-@end
-
-
 @implementation ForwardingMethod
 
 - (id) initWithName:(NSString*)newName

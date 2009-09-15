@@ -25,16 +25,13 @@
 	[object setCell:runtime.theObject withName:@"Object"];
     
     /* True cell */
-	[object setCell:[[TrueMethod alloc] init] withName:@"true"];
-	[object setCell:[[TrueMethod alloc] init] withName:@"True"];
+	[object setCell:runtime.theTrue withName:@"true"];
 
     /* False cell */
-	[object setCell:[[FalseMethod alloc] init] withName:@"false"];
-	[object setCell:[[FalseMethod alloc] init] withName:@"False"];
+	[object setCell:runtime.theFalse withName:@"false"];
 
     /* Nil cell */
-	[object setCell:[[NilMethod alloc] init] withName:@"nil"];
-	[object setCell:[[NilMethod alloc] init] withName:@"Nil"];
+	[object setCell:runtime.theNil withName:@"nil"];
 
     /* Text cell */
 	[object setCell:runtime.theText withName:@"Text"];

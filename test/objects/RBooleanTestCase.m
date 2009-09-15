@@ -20,6 +20,8 @@
 {
     result = [lang run:@"true"];
     STAssertEquals(result, lang.runtime.theTrue, @"true not evaluated");
+    result = [lang run:@"True"];
+    STAssertEquals(result, lang.runtime.theTrue, @"true not evaluated");
 }
 
 @end
