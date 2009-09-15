@@ -20,3 +20,10 @@
 }
 - (id) initWithCode:(LMessage*)newCode;
 @end
+
+/** Represents macros created in runtime using macro(). */
+@interface LLangMacro : LMethod {
+    LMessage* code;
+}
+- (id) initWithCode:(LMessage*)newCode;
+@end

@@ -7,11 +7,11 @@
 //
 
 #import "RBaseContextTestCase.h"
-
+#import "LText.h"
 
 @implementation RBaseContextTestCase
 
--(void)setUp
+- (void) setUp
 {
     lang = [[Lang alloc] init];
 }
@@ -24,6 +24,12 @@
     STAssertEqualObjects([lang run:@"False"], lang.runtime.theFalse, @"False value is not theFalse");
     STAssertEqualObjects([lang run:@"True"], lang.runtime.theTrue, @"True value is not theTrue");
     STAssertEqualObjects([lang run:@"Number"], lang.runtime.theNumber, @"Number value is not theNumber");
+}
+
+- (void) testMacro
+{
+    result = [lang run:@"=(hello, macro(\"hello\" upcase)). hello"];
+    STAssertEqualObjects([(LText*)result text], @"HELLO", @"Macro not called properly");
 }
 
 @end

@@ -33,6 +33,13 @@
 @end
 
 /** 
+ Creates new instance of LLangMacro with code provided in argument.
+ Represents macro() in runtime.
+ */
+@interface MacroMethod : LMethod {}
+@end
+
+/** 
  Creates new instance of LList with evaluated arguments as list entries.
  Represents list() in runtime.
  */

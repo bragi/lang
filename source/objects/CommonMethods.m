@@ -56,6 +56,19 @@
 @end
 
 
+@implementation MacroMethod
+
+- (LObject*)activate:(LExecution*)execution
+{
+    // Create and return new instance of LLangMacro
+    NSArray* arguments = [execution.message arguments];
+    LMessage* code = (LMessage*)[arguments lastObject];
+    return [[LLangMacro alloc] initWithCode:code];
+}
+
+@end
+
+
 @implementation ListMethod
 
 - (LObject*)activate:(LExecution*)execution

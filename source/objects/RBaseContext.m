@@ -20,6 +20,7 @@
 	[object setCell:[[SelfMethod alloc] init] withName:@"self"];
 	[object setCell:[[ForwardingMethod alloc] initWithName:@"assignment"] withName:@"="];
 	[object setCell:[[MethodMethod alloc] init] withName:@"method"];
+	[object setCell:[[MacroMethod alloc] init] withName:@"macro"];
     
     /* Object cell */
 	[object setCell:runtime.theObject withName:@"Object"];
