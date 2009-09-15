@@ -17,7 +17,7 @@
     return [[LObject alloc] init];
 }
 
-+ (id) buildWithAncestor:(LObject*)ancestor
++ (id) objectWithAncestor:(LObject*)ancestor
 {
     LObject* object = [LObject build];
     [object addAncestor:ancestor];
@@ -63,12 +63,6 @@
 	return self;
 }
 
-- (LObject*) mimic
-{
-    LObject* mimic = [[LObject alloc] init];
-    [mimic addAncestor:self];
-    return mimic;
-}
 
 - (LObject*) send: (LExecution*)execution
 {
@@ -91,7 +85,7 @@
 
 - (LObject*) mimicWithExecution: (LExecution*)execution
 {
-    return [self mimic];
+    return [LObject objectWithAncestor:self];
 }
 
 @end

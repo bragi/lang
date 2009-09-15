@@ -32,7 +32,7 @@
 /**
  Builds object with given ancestor.
  */
-+ (id) buildWithAncestor:(LObject*)ancestor;
++ (id) objectWithAncestor:(LObject*)ancestor;
 
 /** Initializes the object */
 - (id) init;
@@ -66,11 +66,6 @@
  otherwise.
  */
 - (LObject*) activate: (LExecution*) execution;
-
-/**
- Creates new instance with self as ancestor
- */
-- (LObject*) mimic;
 
 /**
  First part of processing message. When message is called on object:

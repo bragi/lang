@@ -48,11 +48,11 @@
 - (void) createObjectHierarchy
 {
     theBaseContext = [LObject build];
-    theObject = [LObject buildWithAncestor:theBaseContext];
+    theObject = [LObject objectWithAncestor:theBaseContext];
     theText = [LText textWithAncestor:theObject string:@""];
-    theTrue = [LObject buildWithAncestor:theObject];
-    theFalse = [LObject buildWithAncestor:theObject];
-    theNil = [LObject buildWithAncestor:theObject];
+    theTrue = [LObject objectWithAncestor:theObject];
+    theFalse = [LObject objectWithAncestor:theObject];
+    theNil = [LObject objectWithAncestor:theObject];
     theNumber = [LNumber numberWithAncestor:theObject integer:0];
     theList = [LList buildWithAncestor:theObject];
 }
