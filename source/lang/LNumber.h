@@ -15,8 +15,10 @@
 
 @property (readonly) NSDecimalNumber* number;
 
-- (id) initWithString:(NSString*)textValue;
-- (LNumber*) mimicWithString:(NSString*)textValue;
-- (LNumber*) mimicWithInteger:(NSInteger)integerValue;
++ (id) numberWithAncestor:(LObject*)ancestor string:(NSString*)string;
++ (id) numberWithAncestor:(LObject*)ancestor integer:(NSInteger)integer;
+
+- (id) initWithString:(NSString*)string;
+- (id) initWithInteger:(NSInteger)integer;
 
 @end

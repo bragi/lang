@@ -53,7 +53,7 @@
     theTrue = [LObject buildWithAncestor:theObject];
     theFalse = [LObject buildWithAncestor:theObject];
     theNil = [LObject buildWithAncestor:theObject];
-    theNumber = [LNumber buildWithAncestor:theObject];
+    theNumber = [LNumber numberWithAncestor:theObject integer:0];
     theList = [LList buildWithAncestor:theObject];
 }
 
@@ -75,12 +75,12 @@
 
 - (LNumber*) makeNumberWithString:(NSString*)string
 {
-    return [theNumber mimicWithString:string];
+    return [LNumber numberWithAncestor:theNumber string:string];
 }
 
-- (LNumber*) makeNumberWithInteger:(NSInteger)value
+- (LNumber*) makeNumberWithInteger:(NSInteger)integer
 {
-    return [theNumber mimicWithInteger:value];
+    return [LNumber numberWithAncestor:theNumber integer:integer];
 }
 
 - (LList*) makeListWithEntries:(NSMutableArray*)entries

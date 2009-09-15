@@ -13,38 +13,32 @@
 
 @synthesize number;
 
-+ (id) buildWithAncestor:(LObject*)ancestor
++ (id) numberWithAncestor:(LObject*)ancestor string:(NSString*)string
 {
-    LNumber* theNumber = [[LNumber alloc] initWithString:@"0"];
+    LNumber* theNumber = [[LNumber alloc] initWithString:string];
     [theNumber addAncestor:ancestor];
     return theNumber;
 }
 
-- (id) initWithString:(NSString*)textValue
++ (id) numberWithAncestor:(LObject*)ancestor integer:(NSInteger)integer
+{
+    LNumber* theNumber = [[LNumber alloc] initWithInteger:integer];
+    [theNumber addAncestor:ancestor];
+    return theNumber;
+}
+
+- (id) initWithString:(NSString*)string
 {
     self = [super init];
-    number = [NSDecimalNumber decimalNumberWithString:textValue];
+    number = [NSDecimalNumber decimalNumberWithString:string];
     return self;
 }
 
-- (id) initWithInteger:(NSInteger)integerValue
+- (id) initWithInteger:(NSInteger)integer
 {
     self = [super init];
-    number = [NSDecimalNumber decimalNumberWithMantissa:integerValue exponent:0 isNegative:NO];
+    number = [NSDecimalNumber decimalNumberWithMantissa:integer exponent:0 isNegative:NO];
     return self;
 }
 
-- (LNumber*) mimicWithString:(NSString*)textValue
-{
-    LNumber* mimic = [[LNumber alloc] initWithString:textValue];
-    [mimic addAncestor:self];
-    return mimic;
-}
-
-- (LNumber*) mimicWithInteger:(NSInteger)integerValue
-{
-    LNumber* mimic = [[LNumber alloc] initWithInteger:integerValue];
-    [mimic addAncestor:self];
-    return mimic;
-}
 @end
