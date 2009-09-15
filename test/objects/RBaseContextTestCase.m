@@ -32,4 +32,10 @@
     STAssertEqualObjects([(LText*)result text], @"HELLO", @"Macro not called properly");
 }
 
+- (void) testIfTrueOnTrue
+{
+    result = [lang run:@"true ifTrue(\"hello\")"];
+    STAssertEqualObjects([(LText*)result text], @"hello", @"ifTrue does not evaluate properly on true");
+}
+
 @end

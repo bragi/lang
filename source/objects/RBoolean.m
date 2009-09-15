@@ -13,6 +13,7 @@
 
 + (void) addCellsTo: (LObject*)object inRuntime:(LRuntime*)runtime
 {
+    [object setCell:[[EvaluateFirstArgumentMethod alloc] init] withName:@"ifTrue"];
 }
 
 @end

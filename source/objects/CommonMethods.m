@@ -78,3 +78,15 @@
 }
 
 @end
+
+
+@implementation EvaluateFirstArgumentMethod
+
+- (LObject*) activate: (LExecution*)execution
+{
+    NSArray* arguments = [execution.message arguments];
+    LMessage* code = (LMessage*)[arguments lastObject];
+    return [execution evaluateWithCurrentContext:code];
+}
+
+@end

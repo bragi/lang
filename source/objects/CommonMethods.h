@@ -45,3 +45,9 @@
  */
 @interface ListMethod : LMethod {}
 @end
+
+/**
+ Evaluates first argument and returns it.
+ */
+@interface EvaluateFirstArgumentMethod : LMethod {}
+@end
