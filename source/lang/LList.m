@@ -14,9 +14,9 @@
 
 @synthesize list;
 
-+ (id) buildWithAncestor:(LObject*)ancestor
++ (id) listWithAncestor:(LObject*)ancestor entries:(NSMutableArray*)entries
 {
-    LList* theList = [[LList alloc] initWithEntries:[NSMutableArray arrayWithCapacity:0]];
+    LList* theList = [[LList alloc] initWithEntries:entries];
     [theList addAncestor:ancestor];
     return theList;
 }
@@ -26,13 +26,6 @@
     self = [super init];
     list = entries;
     return self;
-}
-
-- (LList*) mimicWithEntries:(NSMutableArray*)entries
-{
-    LList* mimic = [[LList alloc] initWithEntries:entries];
-    [mimic addAncestor:self];
-    return mimic;
 }
 
 - (LNumber*) lengthWithExecution:(LExecution*)execution

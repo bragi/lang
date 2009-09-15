@@ -54,7 +54,7 @@
     theFalse = [LObject objectWithAncestor:theObject];
     theNil = [LObject objectWithAncestor:theObject];
     theNumber = [LNumber numberWithAncestor:theObject integer:0];
-    theList = [LList buildWithAncestor:theObject];
+    theList = [LList listWithAncestor:theObject entries:[NSMutableArray arrayWithCapacity:0]];
 }
 
 - (void) createObjectCells
@@ -85,7 +85,7 @@
 
 - (LList*) makeListWithEntries:(NSMutableArray*)entries
 {
-    return [theList mimicWithEntries:entries];
+    return [LList listWithAncestor:theList entries:entries];
 }
 
 - (LRuntime*) bootstrap

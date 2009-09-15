@@ -16,9 +16,8 @@
 
 @property (readonly) NSMutableArray* list;
 
-+ (id) buildWithAncestor:(LObject*)ancestor;
++ (id) listWithAncestor:(LObject*)ancestor entries:(NSMutableArray*)entries;
 - (id) initWithEntries:(NSMutableArray*)entries;
-- (LList*) mimicWithEntries:(NSMutableArray*)entries;
 
 // Messages forwarded by runtime execution.
 
