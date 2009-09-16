@@ -18,7 +18,7 @@
 
 @implementation SelfMethod
 
-- (LObject*) activate: (LExecution*)execution
+- (LObject*)activate:(LExecution*)execution
 {
     return execution.target;
 }
@@ -28,14 +28,14 @@
 
 @implementation ForwardingMethod
 
-- (id) initWithName:(NSString*)newName
+- (id)initWithName:(NSString*)newName
 {
     self = [super init];
     name = sel_registerName([[newName stringByAppendingString:@"WithExecution:"] UTF8String]);
     return self;
 }
 
-- (LObject*) activate: (LExecution*)execution
+- (LObject*)activate:(LExecution*)execution
 {
     return (LObject*)objc_msgSend(execution.target, name, execution);
 }
@@ -48,8 +48,8 @@
 - (LObject*)activate:(LExecution*)execution
 {
     // Create and return new instance of LLangMethod
-    NSArray* arguments = [execution.message arguments];
-    LMessage* code = (LMessage*)[arguments lastObject];
+    NSArray *arguments = [execution.message arguments];
+    LMessage *code = (LMessage*)[arguments lastObject];
     return [[LLangMethod alloc] initWithCode:code];
 }
 
@@ -61,8 +61,8 @@
 - (LObject*)activate:(LExecution*)execution
 {
     // Create and return new instance of LLangMacro
-    NSArray* arguments = [execution.message arguments];
-    LMessage* code = (LMessage*)[arguments lastObject];
+    NSArray *arguments = [execution.message arguments];
+    LMessage *code = (LMessage*)[arguments lastObject];
     return [[LLangMacro alloc] initWithCode:code];
 }
 
@@ -82,10 +82,10 @@
 
 @implementation EvaluateFirstArgumentMethod
 
-- (LObject*) activate: (LExecution*)execution
+- (LObject*)activate:(LExecution*)execution
 {
-    NSArray* arguments = [execution.message arguments];
-    LMessage* code = (LMessage*)[arguments lastObject];
+    NSArray *arguments = [execution.message arguments];
+    LMessage *code = (LMessage*)[arguments lastObject];
     return [execution evaluateWithCurrentContext:code];
 }
 

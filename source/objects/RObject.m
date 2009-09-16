@@ -11,7 +11,7 @@
 
 @implementation RObject
 
-+ (void) addCellsTo: (LObject*)object inRuntime:(LRuntime*)runtime
++ (void)addCellsTo: (LObject*)object inRuntime:(LRuntime*)runtime
 {
     /* Add methods */
     [object setCell:[[ForwardingMethod alloc] initWithName:@"new"] withName:@"new"];

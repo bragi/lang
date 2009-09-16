@@ -14,21 +14,21 @@
 
 @synthesize text;
 
-+ (id) textWithAncestor:(LObject*)ancestor string:(NSString*)string
++ (id)textWithAncestor:(LObject*)ancestor string:(NSString*)string
 {
-    LText* theText = [[LText alloc] initWithString:string];
+    LText *theText = [[LText alloc] initWithString:string];
     [theText addAncestor:ancestor];
     return theText;
 }
 
-- (id) initWithString:(NSString*)newText
+- (id)initWithString:(NSString*)newText
 {
     self = [super init];
     text = newText;
     return self;
 }
 
-- (LText*) upcaseWithExecution:(LExecution*)execution
+- (LText*)upcaseWithExecution:(LExecution*)execution
 {
     return [execution.runtime makeTextWithString:[self.text uppercaseString]];
 }

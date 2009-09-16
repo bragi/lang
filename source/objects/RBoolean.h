@@ -15,12 +15,13 @@
  */
 @interface RTrue : NSObject {}
 
-+ (void) addCellsTo:(LObject*)object inRuntime:(LRuntime*)runtime;
++ (void)addCellsTo:(LObject*)object inRuntime:(LRuntime*)runtime;
 
 @end
 
+
 @interface RFalse : NSObject {}
 
-+ (void) addCellsTo:(LObject*)object inRuntime:(LRuntime*)runtime;
++ (void)addCellsTo:(LObject*)object inRuntime:(LRuntime*)runtime;
 
 @end

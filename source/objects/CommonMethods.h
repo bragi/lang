@@ -15,15 +15,17 @@
 @interface SelfMethod : LMethod {}
 @end
 
+
 /** Executes Objective-C method called *name*WithExecution: */
 @interface ForwardingMethod : LMethod
 {
     SEL name;
 }
 
-- (id) initWithName:(NSString*)newName;
+- (id)initWithName:(NSString*)newName;
 
 @end
+
 
 /** 
  Creates new instance of LLangMethod with code provided in argument.
@@ -32,6 +34,7 @@
 @interface MethodMethod : LMethod {}
 @end
 
+
 /** 
  Creates new instance of LLangMacro with code provided in argument.
  Represents macro() in runtime.
@@ -39,12 +42,14 @@
 @interface MacroMethod : LMethod {}
 @end
 
+
 /** 
  Creates new instance of LList with evaluated arguments as list entries.
  Represents list() in runtime.
  */
 @interface ListMethod : LMethod {}
 @end
+
 
 /**
  Evaluates first argument and returns it.

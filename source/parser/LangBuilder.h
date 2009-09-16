@@ -10,21 +10,22 @@
 #import "LMessage.h"
 
 @interface LangBuilder : NSObject {
-    LMessage* message;
-    LMessage* currentMessage;
+    LMessage *message;
+    LMessage *currentMessage;
     BOOL argumentStarted;
-    NSMutableArray* messages;
+    NSMutableArray *messages;
 }
 
-- (LMessage*) message;
-- (id) init;
-- (void) identifier:(NSString*)name;
-- (void) argumentsStart;
-- (void) argumentsEnd;
-- (void) nextArgument;
-- (void) endMessage;
-- (void) textLiteral:(NSString*)name;
-- (void) numberLiteral:(NSString*)name;
+@property (readonly) LMessage *message;
 
-- (void) addMessage:(LMessage*) newMessage;
+- (id)init;
+- (void)identifier:(NSString*)name;
+- (void)argumentsStart;
+- (void)argumentsEnd;
+- (void)nextArgument;
+- (void)endMessage;
+- (void)textLiteral:(NSString*)name;
+- (void)numberLiteral:(NSString*)name;
+- (void)addMessage:(LMessage*) newMessage;
+
 @end

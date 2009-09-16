@@ -15,6 +15,6 @@
 @interface RList : NSObject {}
 
 /** Sets all necessary cells and methods. */
-+ (void) addCellsTo:(LObject*)object inRuntime:(LRuntime*)runtime;
++ (void)addCellsTo:(LObject*)object inRuntime:(LRuntime*)runtime;
 
 @end

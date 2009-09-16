@@ -11,7 +11,7 @@
 
 @implementation RTrue
 
-+ (void) addCellsTo: (LObject*)object inRuntime:(LRuntime*)runtime
++ (void)addCellsTo:(LObject*)object inRuntime:(LRuntime*)runtime
 {
     [object setCell:[[EvaluateFirstArgumentMethod alloc] init] withName:@"ifTrue"];
 }
@@ -21,7 +21,7 @@
 
 @implementation RFalse
 
-+ (void) addCellsTo: (LObject*)object inRuntime:(LRuntime*)runtime
++ (void)addCellsTo:(LObject*)object inRuntime:(LRuntime*)runtime
 {
     [object setCell:[[EvaluateFirstArgumentMethod alloc] init] withName:@"ifFalse"];
 }

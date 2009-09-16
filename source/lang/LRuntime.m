@@ -18,8 +18,8 @@
 #import "RList.h"
 
 @interface LRuntime()
-- (void) createObjectHierarchy;
-- (void) createObjectCells;
+- (void)createObjectHierarchy;
+- (void)createObjectCells;
 @end
 
 @implementation LRuntime
@@ -34,7 +34,7 @@
 @synthesize theNumber;
 @synthesize theList;
 
-- (id) init
+- (id)init
 {
     self = [super init];
     if (self)
@@ -45,7 +45,7 @@
     return self;
 }
 
-- (void) createObjectHierarchy
+- (void)createObjectHierarchy
 {
     theBaseContext = [LObject build];
     theObject = [LObject objectWithAncestor:theBaseContext];
@@ -57,7 +57,7 @@
     theList = [LList listWithAncestor:theObject entries:[NSMutableArray arrayWithCapacity:0]];
 }
 
-- (void) createObjectCells
+- (void)createObjectCells
 {
     [RBaseContext addCellsTo:theBaseContext inRuntime:self];
     [RObject addCellsTo:theObject inRuntime:self];
@@ -68,32 +68,32 @@
     [RList addCellsTo:theList inRuntime:self];
 }
 
-- (LText*) makeTextWithString:(NSString*)string
+- (LText*)makeTextWithString:(NSString*)string
 {
     return [LText textWithAncestor:theText string:string];
 }
 
-- (LNumber*) makeNumberWithString:(NSString*)string
+- (LNumber*)makeNumberWithString:(NSString*)string
 {
     return [LNumber numberWithAncestor:theNumber string:string];
 }
 
-- (LNumber*) makeNumberWithInteger:(NSInteger)integer
+- (LNumber*)makeNumberWithInteger:(NSInteger)integer
 {
     return [LNumber numberWithAncestor:theNumber integer:integer];
 }
 
-- (LList*) makeListWithEntries:(NSMutableArray*)entries
+- (LList*)makeListWithEntries:(NSMutableArray*)entries
 {
     return [LList listWithAncestor:theList entries:entries];
 }
 
-- (LRuntime*) bootstrap
+- (LRuntime*)bootstrap
 {
     // BOGUS: this is trully HARDcoded :(
-    NSString* codeText = [NSString stringWithContentsOfFile:@"/Users/bragi/projects/lang-objective-c/system/boot.lang" encoding:NSUTF8StringEncoding error:nil];
+    NSString *codeText = [NSString stringWithContentsOfFile:@"/Users/bragi/projects/lang-objective-c/system/boot.lang" encoding:NSUTF8StringEncoding error:nil];
     NSLog(@"Parsing bootstrap code");
-    LMessage* code = [LangParser parse:codeText];
+    LMessage *code = [LangParser parse:codeText];
     NSLog(@"Executing bootstrap code");
     [[LExecution buildWithRuntime:self] runMessage:code withContext:theBaseContext];
     return self;

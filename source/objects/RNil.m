@@ -11,8 +11,9 @@
 
 @implementation RNil
 
-+ (void) addCellsTo: (LObject*)object inRuntime:(LRuntime*)runtime
++ (void)addCellsTo: (LObject*)object inRuntime:(LRuntime*)runtime
 {
+    
 }
 
 @end

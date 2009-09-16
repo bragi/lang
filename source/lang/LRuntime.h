@@ -22,70 +22,69 @@
      Keeps reference to the topmost execution context (typically the only Kernel 
      instance).
      */
-    LObject* theBaseContext;
+    LObject *theBaseContext;
     
     // Base objects
     
 #pragma mark the objects
     /** Object. */
-    LObject* theObject;
+    LObject *theObject;
 
     /** True */
-    LObject* theTrue;
+    LObject *theTrue;
     
     /** False */
-    LObject* theFalse;
+    LObject *theFalse;
     
     /** Nil */
-    LObject* theNil;
+    LObject *theNil;
     
     /** Text */
-    LText* theText;
+    LText *theText;
     
     /** Number */
-    LNumber* theNumber;
+    LNumber *theNumber;
     
     /** List */
-    LList* theList;
+    LList *theList;
 }
 
-@property (retain) LObject* theBaseContext;
-
-@property (retain) LObject* theObject;
-@property (retain) LObject* theTrue;
-@property (retain) LObject* theFalse;
-@property (retain) LObject* theNil;
-@property (retain) LText* theText;
-@property (retain) LNumber* theNumber;
-@property (retain) LList* theList;
+@property LObject *theBaseContext;
+@property LObject *theObject;
+@property LObject *theTrue;
+@property LObject *theFalse;
+@property LObject *theNil;
+@property LText *theText;
+@property LNumber *theNumber;
+@property LList *theList;
 
 /**
  Initializes Runtime, creates all necessary runtime objects.
  */
-- (id) init;
+- (id)init;
 
 /**
  Reads bootstrap code and executes it.
  */
-- (LRuntime*) bootstrap;
+- (LRuntime*)bootstrap;
 
 /**
  Creates new instance of Text
  */
-- (LText*) makeTextWithString:(NSString*)string;
+- (LText*)makeTextWithString:(NSString*)string;
 
 /**
  Creates new instance of Number
  */
-- (LNumber*) makeNumberWithString:(NSString*)string;
+- (LNumber*)makeNumberWithString:(NSString*)string;
 
 /**
  Creates new instance of Number
  */
-- (LNumber*) makeNumberWithInteger:(NSInteger)value;
+- (LNumber*)makeNumberWithInteger:(NSInteger)value;
 
 /**
  Creates new instance of List
  */
-- (LList*) makeListWithEntries:(NSMutableArray*)entries;
+- (LList*)makeListWithEntries:(NSMutableArray*)entries;
 @end

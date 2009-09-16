@@ -11,6 +11,8 @@
 
 @implementation LangBuilder
 
+@synthesize message;
+
 - (id)init
 {
     self = [super init];
@@ -18,12 +20,7 @@
     return self;
 }
 
-- (LMessage*) message
-{
-    return message;
-}
-
-- (void) addMessage:(LMessage*)newMessage
+- (void)addMessage:(LMessage*)newMessage
 {
     NSLog(@"Builder adding message: %@", newMessage);
     if (message == nil) {
@@ -41,20 +38,20 @@
     currentMessage = newMessage;
 }
 
-- (void) identifier:(NSString*)name
+- (void)identifier:(NSString*)name
 {
     NSLog(@"Builder identifier: %@", name);
     [self addMessage:[LMessage buildWithName:name]];
 }
 
-- (void) argumentsStart
+- (void)argumentsStart
 {
     NSLog(@"Builder argumentsStart");
     argumentStarted = YES;
     [messages addObject:currentMessage];
 }
 
-- (void) argumentsEnd
+- (void)argumentsEnd
 {
     NSLog(@"Builder argumentsEnd");
     currentMessage = [messages lastObject];
@@ -62,24 +59,24 @@
     argumentStarted = NO;
 }
 
-- (void) nextArgument
+- (void)nextArgument
 {
     argumentStarted = YES;
 }
 
-- (void) endMessage
+- (void)endMessage
 {
     [self addMessage:[EndMessage build]];
 }
 
-- (void) textLiteral:(NSString*)name
+- (void)textLiteral:(NSString*)name
 {
     [self addMessage:[LTextLiteral buildWithName:name]];
 }
 
-- (void) numberLiteral:(NSString*)name
+- (void)numberLiteral:(NSString*)name
 {
-    
+  [self addMessage:[LNumberLiteral buildWithName:name]];
 }
 
 @end

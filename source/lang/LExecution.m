@@ -23,7 +23,7 @@
     return [[LExecution alloc] initWithRuntime:runtime];
 }
 
-- (id)initWithRuntime: (LRuntime*)nruntime
+- (id)initWithRuntime:(LRuntime*)nruntime
 {
     self = [super init];
     runtime = nruntime;

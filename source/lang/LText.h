@@ -10,17 +10,17 @@
 #import "LObject.h"
 
 @interface LText : LObject {
-    NSString* text;  
+    NSString *text;  
 }
 
-@property (readonly, retain) NSString* text;
+@property (readonly, retain) NSString *text;
 
-+ (id) textWithAncestor:(LObject*)ancestor string:(NSString*)string;
-- (id) initWithString:(NSString*)newText;
++ (id)textWithAncestor:(LObject*)ancestor string:(NSString*)string;
+- (id)initWithString:(NSString*)newText;
 
 // Messages forwarded by runtime execution.
 
 /** Return text with upcase content. */
-- (LText*) upcaseWithExecution:(LExecution*)execution;
+- (LText*)upcaseWithExecution:(LExecution*)execution;
 
 @end

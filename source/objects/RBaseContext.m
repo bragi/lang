@@ -11,7 +11,7 @@
 
 @implementation RBaseContext
 
-+ (void) addCellsTo: (LObject*)object inRuntime:(LRuntime*)runtime
++ (void)addCellsTo:(LObject*)object inRuntime:(LRuntime*)runtime
 {
     /* Self in BaseContext */
     [object setCell:object withName:@"BaseContext"];
