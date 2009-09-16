@@ -119,7 +119,6 @@
 		A013F5C1105CF970009DBBB6 /* RObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RObject.m; sourceTree = "<group>"; };
 		A013F5C2105CF970009DBBB6 /* RText.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RText.h; sourceTree = "<group>"; };
 		A013F5C3105CF970009DBBB6 /* RText.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RText.m; sourceTree = "<group>"; };
-		A013F5C6105CF970009DBBB6 /* English */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = English; path = English.lproj/LangScanner.h; sourceTree = "<group>"; };
 		A013F5C7105CF970009DBBB6 /* LangBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LangBuilder.h; sourceTree = "<group>"; };
 		A013F5C8105CF970009DBBB6 /* LangBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LangBuilder.m; sourceTree = "<group>"; };
 		A013F5C9105CF970009DBBB6 /* LangParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LangParser.h; sourceTree = "<group>"; };
@@ -156,6 +155,7 @@
 		A06ABCB1105EAE2F0091E538 /* RList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RList.m; sourceTree = "<group>"; };
 		A08523211039B2A7001BBCA1 /* Test-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Test-Info.plist"; sourceTree = "<group>"; };
 		A08523371039B311001BBCA1 /* Test.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Test.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A09B4E171060CEF7000C5286 /* LangScanner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LangScanner.h; sourceTree = "<group>"; };
 		A0E91298105FC21E00FE7A61 /* boot.lang */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = boot.lang; path = system/boot.lang; sourceTree = "<group>"; };
 		A0E912B2105FC3D900FE7A61 /* RBaseContextTestCase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RBaseContextTestCase.h; sourceTree = "<group>"; };
 		A0E912B3105FC3D900FE7A61 /* RBaseContextTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RBaseContextTestCase.m; sourceTree = "<group>"; };
@@ -277,7 +277,7 @@
 		A013F5C4105CF970009DBBB6 /* parser */ = {
 			isa = PBXGroup;
 			children = (
-				A013F5C5105CF970009DBBB6 /* LangScanner.h */,
+				A09B4E171060CEF7000C5286 /* LangScanner.h */,
 				A013F5C7105CF970009DBBB6 /* LangBuilder.h */,
 				A013F5C8105CF970009DBBB6 /* LangBuilder.m */,
 				A013F5C9105CF970009DBBB6 /* LangParser.h */,
@@ -515,17 +515,6 @@
 			targetProxy = A085233D1039B32C001BBCA1 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		A013F5C5105CF970009DBBB6 /* LangScanner.h */ = {
-			isa = PBXVariantGroup;
-			children = (
-				A013F5C6105CF970009DBBB6 /* English */,
-			);
-			name = LangScanner.h;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		1DEB927508733DD40010E9CD /* Debug */ = {

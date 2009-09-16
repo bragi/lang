@@ -14,34 +14,34 @@
 + (void) addCellsTo: (LObject*)object inRuntime:(LRuntime*)runtime
 {
     /* Self in BaseContext */
-	[object setCell:object withName:@"BaseContext"];
+    [object setCell:object withName:@"BaseContext"];
 
     /* Basic methods */
-	[object setCell:[[SelfMethod alloc] init] withName:@"self"];
-	[object setCell:[[ForwardingMethod alloc] initWithName:@"assignment"] withName:@"="];
-	[object setCell:[[MethodMethod alloc] init] withName:@"method"];
-	[object setCell:[[MacroMethod alloc] init] withName:@"macro"];
+    [object setCell:[[SelfMethod alloc] init] withName:@"self"];
+    [object setCell:[[ForwardingMethod alloc] initWithName:@"assignment"] withName:@"="];
+    [object setCell:[[MethodMethod alloc] init] withName:@"method"];
+    [object setCell:[[MacroMethod alloc] init] withName:@"macro"];
     
     /* Object cell */
-	[object setCell:runtime.theObject withName:@"Object"];
+    [object setCell:runtime.theObject withName:@"Object"];
     
     /* True cell */
-	[object setCell:runtime.theTrue withName:@"true"];
+    [object setCell:runtime.theTrue withName:@"true"];
 
     /* False cell */
-	[object setCell:runtime.theFalse withName:@"false"];
+    [object setCell:runtime.theFalse withName:@"false"];
 
     /* Nil cell */
-	[object setCell:runtime.theNil withName:@"nil"];
+    [object setCell:runtime.theNil withName:@"nil"];
 
     /* Text cell */
-	[object setCell:runtime.theText withName:@"Text"];
+    [object setCell:runtime.theText withName:@"Text"];
 
     /* Number cell */
-	[object setCell:runtime.theNumber withName:@"Number"];
+    [object setCell:runtime.theNumber withName:@"Number"];
 
     /* List cell */
-	[object setCell:runtime.theList withName:@"List"];
+    [object setCell:runtime.theList withName:@"List"];
     [object setCell:[[ListMethod alloc] init] withName:@"list"];
 }
 

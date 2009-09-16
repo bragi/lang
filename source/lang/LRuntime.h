@@ -22,7 +22,7 @@
      Keeps reference to the topmost execution context (typically the only Kernel 
      instance).
      */
-	LObject* theBaseContext;
+    LObject* theBaseContext;
     
     // Base objects
     

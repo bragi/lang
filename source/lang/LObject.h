@@ -18,41 +18,40 @@
  */
 @interface LObject : NSObject {
     /** Keeps cells provided by this object */
-	NSMutableDictionary* cells;
+    NSMutableDictionary *cells;
     /** Keeps object's ancestors */
-	NSMutableArray* ancestors;
+    NSMutableArray *ancestors;
 }
 
 /**
  Factory method to build new instances, should be used only during LRuntime initialization.
  */
-+ (id) build;
++ (id)build;
 
 /**
  Builds object with given ancestor.
  */
-+ (id) objectWithAncestor:(LObject*)ancestor;
++ (id)objectWithAncestor:(LObject*)ancestor;
 
 /** Initializes the object */
-- (id) init;
+- (id)init;
 
 // Internal plumbing
 
 /**
  Adds cell to the object with given name.
  */
-- (void) setCell: (LObject*)object withName: (NSString*)name;
+- (void)setCell:(LObject*)object withName:(NSString*)name;
 /**
  Finds cell with given name in the object.
  */
-- (LObject*) cellForName: (NSString *)name;
+- (LObject*)cellForName:(NSString*)name;
 
 /**
  Adds given object as ancestor. Low level method used only when initializing singletons or 
  from within method calls.
  */
-- (void) addAncestor: (LObject*)ancestor;
-
+- (void)addAncestor:(LObject*)ancestor;
 
 #pragma mark Public interface
 
@@ -64,7 +63,7 @@
  Returns result of activation - self for non-executable objects, result of computation
  otherwise.
  */
-- (LObject*) activate: (LExecution*) execution;
+- (LObject*)activate:(LExecution*)execution;
 
 /**
  First part of processing message. When message is called on object:
@@ -74,8 +73,7 @@
  then object will receive send: with message in frame. It needs to decide which cell will
  handle the call and then sends activate to this cell.
  */
-- (LObject*) send: (LExecution*) execution;
-
+- (LObject*)send:(LExecution*)execution;
 
 #pragma mark Lang methods - called by method invocations.
 
@@ -83,11 +81,11 @@
  Assigns cell. First argument is a name, second is value. Name is not evaluated, value is.
  =(name, cell value)
  */
-- (LObject*) assignmentWithExecution: (LExecution*) execution;
+- (LObject*)assignmentWithExecution:(LExecution*)execution;
 
 /**
  Creates a new object with this object as ancestor. Used in running programs.
  */
-- (LObject*) newWithExecution: (LExecution*) execution;
+- (LObject*)newWithExecution:(LExecution*)execution;
 
 @end

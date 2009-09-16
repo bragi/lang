@@ -12,49 +12,49 @@
 
 - (void) setUp
 {
-	hello = [LMessage buildWithName:@"hello"];
-	beautiful = [LMessage buildWithName:@"beautiful"];
-	world = [LMessage buildWithName:@"world"];
-	lady = [LMessage buildWithName:@"lady"];
-	more = [LMessage buildWithName:@"more"];
+    hello = [LMessage buildWithName:@"hello"];
+    beautiful = [LMessage buildWithName:@"beautiful"];
+    world = [LMessage buildWithName:@"world"];
+    lady = [LMessage buildWithName:@"lady"];
+    more = [LMessage buildWithName:@"more"];
 }
 
 - (void) testLMessageExists
 {
-	STAssertNotNil(hello, @"hello message is nil");
+    STAssertNotNil(hello, @"hello message is nil");
 }
 
 - (void) testHasSimpleStringValue
 {
-	STAssertEqualObjects([hello stringValue], @"hello", @"wrong simple string value");
+    STAssertEqualObjects([hello stringValue], @"hello", @"wrong simple string value");
 }
 
 - (void) testHasStringValueWithArgument
 {
-	[hello addArgument: beautiful];
-	STAssertEqualObjects([hello stringValue], @"hello(beautiful)", @"wrong string value with argument");
+    [hello addArgument: beautiful];
+    STAssertEqualObjects([hello stringValue], @"hello(beautiful)", @"wrong string value with argument");
 }
 
 - (void) testHasStringValueWithArguments
 {
-	[hello addArgument: beautiful];
-	[hello addArgument: world];
-	STAssertEqualObjects([hello stringValue], @"hello(beautiful, world)", @"wrong string value with argument");
+    [hello addArgument: beautiful];
+    [hello addArgument: world];
+    STAssertEqualObjects([hello stringValue], @"hello(beautiful, world)", @"wrong string value with argument");
 }
 
 - (void) testHasStringValueWithNext
 {
-	[hello setNextMessage: world];
-	STAssertEqualObjects([hello stringValue], @"hello world", @"wrong string value with argument");
+    [hello setNextMessage: world];
+    STAssertEqualObjects([hello stringValue], @"hello world", @"wrong string value with argument");
 }
 
 - (void) testHasStringValueWithNextAndArguments
 {
-	[hello addArgument: beautiful];
-	[hello addArgument: lady];
-	[hello setNextMessage: more];
-	[more addArgument: beautiful];
-	STAssertEqualObjects([hello stringValue], @"hello(beautiful, lady) more(beautiful)", @"wrong string value with argument");
+    [hello addArgument: beautiful];
+    [hello addArgument: lady];
+    [hello setNextMessage: more];
+    [more addArgument: beautiful];
+    STAssertEqualObjects([hello stringValue], @"hello(beautiful, lady) more(beautiful)", @"wrong string value with argument");
 }
 
 - (void) testEqualSimpleMessages

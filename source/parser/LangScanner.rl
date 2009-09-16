@@ -73,54 +73,54 @@
 
 - (id) initWithBuilder:(LangBuilder*)newBuilder
 {
-  self = [super init];
-  builder = newBuilder;
-  return self;
+    self = [super init];
+    builder = newBuilder;
+    return self;
 }
 
 - (void) nextArgument
 {
-  NSLog(@"Scan: , ");
-  [builder nextArgument];
+    NSLog(@"Scan: , ");
+    [builder nextArgument];
 }
 
 - (void) endMessage
 {
-  NSLog(@"Scan: .\n");
-  [builder endMessage];
+    NSLog(@"Scan: .\n");
+    [builder endMessage];
 }
 
 - (void) argumentsStart
 {
-  NSLog(@"Scan: (");
-  [builder argumentsStart];
+    NSLog(@"Scan: (");
+    [builder argumentsStart];
 }
 
 - (void) argumentsEnd
 {
-  NSLog(@"Scan: )");
-  [builder argumentsEnd];
+    NSLog(@"Scan: )");
+    [builder argumentsEnd];
 }
 
 - (void) identifier:(char*)start length:(int)length
 {
-  NSString* name = [[NSString alloc] initWithBytes:start length:length encoding:NSUTF8StringEncoding];
-  NSLog(@"Scan: identifier '%@'", name);
-  [builder identifier:name];
+    NSString* name = [[NSString alloc] initWithBytes:start length:length encoding:NSUTF8StringEncoding];
+    NSLog(@"Scan: identifier '%@'", name);
+    [builder identifier:name];
 }
 
 - (void) textLiteral:(char*)start length:(int)length
 {
-  NSString* name = [[NSString alloc] initWithBytes:start+1 length:length-1 encoding:NSUTF8StringEncoding];
-  NSLog(@"Scan: string '%@'", name);
-  [builder textLiteral:name];
+    NSString* name = [[NSString alloc] initWithBytes:start+1 length:length-1 encoding:NSUTF8StringEncoding];
+    NSLog(@"Scan: string '%@'", name);
+    [builder textLiteral:name];
 }
 
 - (void) numberLiteral:(char*)start length:(int)length
 {
-  NSString* name = [[NSString alloc] initWithBytes:start length:length encoding:NSUTF8StringEncoding];
-  NSLog(@"Scan: number %@", name);
-  [builder numberLiteral:name];
+    NSString* name = [[NSString alloc] initWithBytes:start length:length encoding:NSUTF8StringEncoding];
+    NSLog(@"Scan: number %@", name);
+    [builder numberLiteral:name];
 }
 
 - (void) scan:(NSString*)code

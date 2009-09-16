@@ -20,7 +20,7 @@
 
 - (LObject*) activate: (LExecution*)execution
 {
-	return execution.target;
+    return execution.target;
 }
 
 @end

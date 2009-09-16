@@ -1,7 +1,7 @@
 
-#line 1 "LangScanner.rl"
+#line 1 "source/parser/LangScanner.rl"
 
-#line 49 "LangScanner.rl"
+#line 49 "source/parser/LangScanner.rl"
 
 
 //
@@ -14,7 +14,7 @@
 #import "LangScanner.h"
 
 
-#line 18 "LangScanner.m"
+#line 18 "source/parser/LangScanner.m"
 static const char _Lang_actions[] = {
 	0, 1, 2, 1, 6, 1, 7, 1, 
 	8, 1, 9, 1, 10, 1, 11, 1, 
@@ -95,7 +95,7 @@ static const int Lang_error = 0;
 static const int Lang_en_main = 5;
 
 
-#line 61 "LangScanner.rl"
+#line 61 "source/parser/LangScanner.rl"
 
 @interface LangScanner()
 - (void) identifier:(char*)start length:(int)length;
@@ -111,54 +111,54 @@ static const int Lang_en_main = 5;
 
 - (id) initWithBuilder:(LangBuilder*)newBuilder
 {
-  self = [super init];
-  builder = newBuilder;
-  return self;
+    self = [super init];
+    builder = newBuilder;
+    return self;
 }
 
 - (void) nextArgument
 {
-  NSLog(@"Scan: , ");
-  [builder nextArgument];
+    NSLog(@"Scan: , ");
+    [builder nextArgument];
 }
 
 - (void) endMessage
 {
-  NSLog(@"Scan: .\n");
-  [builder endMessage];
+    NSLog(@"Scan: .\n");
+    [builder endMessage];
 }
 
 - (void) argumentsStart
 {
-  NSLog(@"Scan: (");
-  [builder argumentsStart];
+    NSLog(@"Scan: (");
+    [builder argumentsStart];
 }
 
 - (void) argumentsEnd
 {
-  NSLog(@"Scan: )");
-  [builder argumentsEnd];
+    NSLog(@"Scan: )");
+    [builder argumentsEnd];
 }
 
 - (void) identifier:(char*)start length:(int)length
 {
-  NSString* name = [[NSString alloc] initWithBytes:start length:length encoding:NSUTF8StringEncoding];
-  NSLog(@"Scan: identifier '%@'", name);
-  [builder identifier:name];
+    NSString* name = [[NSString alloc] initWithBytes:start length:length encoding:NSUTF8StringEncoding];
+    NSLog(@"Scan: identifier '%@'", name);
+    [builder identifier:name];
 }
 
 - (void) textLiteral:(char*)start length:(int)length
 {
-  NSString* name = [[NSString alloc] initWithBytes:start+1 length:length-1 encoding:NSUTF8StringEncoding];
-  NSLog(@"Scan: string '%@'", name);
-  [builder textLiteral:name];
+    NSString* name = [[NSString alloc] initWithBytes:start+1 length:length-1 encoding:NSUTF8StringEncoding];
+    NSLog(@"Scan: string '%@'", name);
+    [builder textLiteral:name];
 }
 
 - (void) numberLiteral:(char*)start length:(int)length
 {
-  NSString* name = [[NSString alloc] initWithBytes:start length:length encoding:NSUTF8StringEncoding];
-  NSLog(@"Scan: number %@", name);
-  [builder numberLiteral:name];
+    NSString* name = [[NSString alloc] initWithBytes:start length:length encoding:NSUTF8StringEncoding];
+    NSLog(@"Scan: number %@", name);
+    [builder numberLiteral:name];
 }
 
 - (void) scan:(NSString*)code
@@ -172,7 +172,7 @@ static const int Lang_en_main = 5;
     char *eof = pe;
 
     
-#line 176 "LangScanner.m"
+#line 176 "source/parser/LangScanner.m"
 	{
 	cs = Lang_start;
 	ts = 0;
@@ -180,9 +180,9 @@ static const int Lang_en_main = 5;
 	act = 0;
 	}
 
-#line 137 "LangScanner.rl"
+#line 137 "source/parser/LangScanner.rl"
     
-#line 186 "LangScanner.m"
+#line 186 "source/parser/LangScanner.m"
 	{
 	int _klen;
 	unsigned int _trans;
@@ -200,10 +200,10 @@ _resume:
 	while ( _nacts-- > 0 ) {
 		switch ( *_acts++ ) {
 	case 2:
-#line 1 "LangScanner.rl"
+#line 1 "source/parser/LangScanner.rl"
 	{ts = p;}
 	break;
-#line 207 "LangScanner.m"
+#line 207 "source/parser/LangScanner.m"
 		}
 	}
 
@@ -270,83 +270,83 @@ _eof_trans:
 		switch ( *_acts++ )
 		{
 	case 3:
-#line 1 "LangScanner.rl"
+#line 1 "source/parser/LangScanner.rl"
 	{te = p+1;}
 	break;
 	case 4:
-#line 30 "LangScanner.rl"
+#line 30 "source/parser/LangScanner.rl"
 	{act = 5;}
 	break;
 	case 5:
-#line 44 "LangScanner.rl"
+#line 44 "source/parser/LangScanner.rl"
 	{act = 9;}
 	break;
 	case 6:
-#line 18 "LangScanner.rl"
+#line 18 "source/parser/LangScanner.rl"
 	{te = p+1;{
       [self identifier:ts length:te-ts];
     }}
 	break;
 	case 7:
-#line 22 "LangScanner.rl"
+#line 22 "source/parser/LangScanner.rl"
 	{te = p+1;{
       [self textLiteral:ts length:te-ts-1];
     }}
 	break;
 	case 8:
-#line 32 "LangScanner.rl"
+#line 32 "source/parser/LangScanner.rl"
 	{te = p+1;{
       [self argumentsStart];
     }}
 	break;
 	case 9:
-#line 36 "LangScanner.rl"
+#line 36 "source/parser/LangScanner.rl"
 	{te = p+1;{
       [self argumentsEnd];
     }}
 	break;
 	case 10:
-#line 40 "LangScanner.rl"
+#line 40 "source/parser/LangScanner.rl"
 	{te = p+1;{
       [self nextArgument];
     }}
 	break;
 	case 11:
-#line 44 "LangScanner.rl"
+#line 44 "source/parser/LangScanner.rl"
 	{te = p+1;{
       [self endMessage];
     }}
 	break;
 	case 12:
-#line 14 "LangScanner.rl"
+#line 14 "source/parser/LangScanner.rl"
 	{te = p;p--;{
       [self identifier:ts length:te-ts];
     }}
 	break;
 	case 13:
-#line 18 "LangScanner.rl"
+#line 18 "source/parser/LangScanner.rl"
 	{te = p;p--;{
       [self identifier:ts length:te-ts];
     }}
 	break;
 	case 14:
-#line 26 "LangScanner.rl"
+#line 26 "source/parser/LangScanner.rl"
 	{te = p;p--;{
       [self numberLiteral:ts length:te-ts];
     }}
 	break;
 	case 15:
-#line 30 "LangScanner.rl"
+#line 30 "source/parser/LangScanner.rl"
 	{te = p;p--;}
 	break;
 	case 16:
-#line 44 "LangScanner.rl"
+#line 44 "source/parser/LangScanner.rl"
 	{te = p;p--;{
       [self endMessage];
     }}
 	break;
 	case 17:
-#line 1 "LangScanner.rl"
+#line 1 "source/parser/LangScanner.rl"
 	{	switch( act ) {
 	case 0:
 	{{cs = 0; goto _again;}}
@@ -362,7 +362,7 @@ _eof_trans:
 	}
 	}
 	break;
-#line 366 "LangScanner.m"
+#line 366 "source/parser/LangScanner.m"
 		}
 	}
 
@@ -372,14 +372,14 @@ _again:
 	while ( _nacts-- > 0 ) {
 		switch ( *_acts++ ) {
 	case 0:
-#line 1 "LangScanner.rl"
+#line 1 "source/parser/LangScanner.rl"
 	{ts = 0;}
 	break;
 	case 1:
-#line 1 "LangScanner.rl"
+#line 1 "source/parser/LangScanner.rl"
 	{act = 0;}
 	break;
-#line 383 "LangScanner.m"
+#line 383 "source/parser/LangScanner.m"
 		}
 	}
 
@@ -399,6 +399,6 @@ _again:
 	_out: {}
 	}
 
-#line 138 "LangScanner.rl"
+#line 138 "source/parser/LangScanner.rl"
 }
 @end

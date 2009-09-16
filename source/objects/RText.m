@@ -16,7 +16,7 @@
 + (void) addCellsTo: (LObject*)object inRuntime:(LRuntime*)runtime
 {
     /* Add methods */
-	[object setCell:[[ForwardingMethod alloc] initWithName:@"upcase"] withName:@"upcase"];
+    [object setCell:[[ForwardingMethod alloc] initWithName:@"upcase"] withName:@"upcase"];
 }
 
 @end

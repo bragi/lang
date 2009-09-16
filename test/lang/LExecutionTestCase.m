@@ -23,7 +23,7 @@
 - (void) testRunSelf
 {
     // self
-	LMessage* selfMessage = [LMessage buildWithName:@"self"];
+    LMessage* selfMessage = [LMessage buildWithName:@"self"];
     result = [execution runMessage:selfMessage withContext:context];
     STAssertEquals(result, context, @"Different result: %@ (context: %@)", result, context);
 }
@@ -31,7 +31,7 @@
 - (void) testRunMimic
 {
     // mimic
-	LMessage* objectMessage = [LMessage buildWithName:@"Object"];
+    LMessage* objectMessage = [LMessage buildWithName:@"Object"];
     objectMessage.nextMessage = [LMessage buildWithName:@"mimic"];
     result = [execution runMessage:objectMessage withContext:context];
     STAssertFalse(result == runtime.theObject, @"Same current target");
@@ -40,8 +40,8 @@
 - (void) testRunMultipleMimics
 {
     // mimic mimic
-	LMessage* objectMessage = [LMessage buildWithName:@"Object"];
-	LMessage* mimicMessage = [LMessage buildWithName:@"mimic"];
+    LMessage* objectMessage = [LMessage buildWithName:@"Object"];
+    LMessage* mimicMessage = [LMessage buildWithName:@"mimic"];
     objectMessage.nextMessage = mimicMessage;
     mimicMessage.nextMessage = [LMessage buildWithName:@"mimic"];
     result = [execution runMessage:objectMessage withContext:context];

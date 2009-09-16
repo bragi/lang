@@ -15,7 +15,6 @@
     lang = [[Lang alloc] init];
 }
 
-
 - (void) testTrue
 {
     result = [lang run:@"true"];
