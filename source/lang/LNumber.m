@@ -13,28 +13,28 @@
 
 @synthesize number;
 
-+ (id) numberWithAncestor:(LObject*)ancestor string:(NSString*)string
++ (id)numberWithAncestor:(LObject*)ancestor string:(NSString*)string
 {
-    LNumber* theNumber = [[LNumber alloc] initWithString:string];
+    LNumber *theNumber = [[LNumber alloc] initWithString:string];
     [theNumber addAncestor:ancestor];
     return theNumber;
 }
 
-+ (id) numberWithAncestor:(LObject*)ancestor integer:(NSInteger)integer
++ (id)numberWithAncestor:(LObject*)ancestor integer:(NSInteger)integer
 {
-    LNumber* theNumber = [[LNumber alloc] initWithInteger:integer];
+    LNumber *theNumber = [[LNumber alloc] initWithInteger:integer];
     [theNumber addAncestor:ancestor];
     return theNumber;
 }
 
-- (id) initWithString:(NSString*)string
+- (id)initWithString:(NSString*)string
 {
     self = [super init];
     number = [NSDecimalNumber decimalNumberWithString:string];
     return self;
 }
 
-- (id) initWithInteger:(NSInteger)integer
+- (id)initWithInteger:(NSInteger)integer
 {
     self = [super init];
     number = [NSDecimalNumber decimalNumberWithMantissa:integer exponent:0 isNegative:NO];

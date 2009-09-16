@@ -18,19 +18,19 @@
 @synthesize runtime;
 @synthesize target;
 
-+ (id) buildWithRuntime: (LRuntime*)runtime
++ (id)buildWithRuntime:(LRuntime*)runtime
 {
     return [[LExecution alloc] initWithRuntime:runtime];
 }
 
-- (id) initWithRuntime: (LRuntime*)nruntime
+- (id)initWithRuntime: (LRuntime*)nruntime
 {
     self = [super init];
     runtime = nruntime;
     return self;
 }
 
-- (id) initWithParent:(LExecution*)nparent
+- (id)initWithParent:(LExecution*)nparent
 {
     self = [super init];
     parent = nparent;
@@ -38,7 +38,7 @@
     return self;
 }
 
-- (LObject*) runMessage:(LMessage*)nmessage withContext:(LObject*)ncontext
+- (LObject*)runMessage:(LMessage*)nmessage withContext:(LObject*)ncontext
 {
     context = ncontext;
     target = context;
@@ -67,16 +67,16 @@
     return target;
 }
 
-- (LObject*) evaluateWithCurrentContext:(LMessage*)code
+- (LObject*)evaluateWithCurrentContext:(LMessage*)code
 {
-    LExecution* codeExecution = [[LExecution alloc] initWithParent:self];
+    LExecution *codeExecution = [[LExecution alloc] initWithParent:self];
     return [codeExecution runMessage:code withContext:self.context];
 }
 
-- (NSMutableArray*) evaluatedArguments
+- (NSMutableArray*)evaluatedArguments
 {
-    NSMutableArray* result = [NSMutableArray arrayWithCapacity:[message.arguments count]];
-    for(LMessage* m in message.arguments) {
+    NSMutableArray *result = [NSMutableArray arrayWithCapacity:[message.arguments count]];
+    for(LMessage *m in message.arguments) {
         [result addObject:[self evaluateWithCurrentContext:m]];
     }
     return result;

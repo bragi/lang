@@ -14,21 +14,21 @@
 
 @synthesize list;
 
-+ (id) listWithAncestor:(LObject*)ancestor entries:(NSMutableArray*)entries
++ (id)listWithAncestor:(LObject*)ancestor entries:(NSMutableArray*)entries
 {
-    LList* theList = [[LList alloc] initWithEntries:entries];
+    LList *theList = [[LList alloc] initWithEntries:entries];
     [theList addAncestor:ancestor];
     return theList;
 }
 
-- (id) initWithEntries:(NSMutableArray*)entries
+- (id)initWithEntries:(NSMutableArray*)entries
 {
     self = [super init];
     list = entries;
     return self;
 }
 
-- (LNumber*) lengthWithExecution:(LExecution*)execution
+- (LNumber*)lengthWithExecution:(LExecution*)execution
 {
     return [execution.runtime makeNumberWithInteger:[list count]];
 }

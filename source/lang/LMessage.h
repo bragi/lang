@@ -10,36 +10,36 @@
 
 
 @interface LMessage : NSObject {
-	NSString* name;
-	LMessage* nextMessage;
-	NSMutableArray* arguments;
+	NSString *name;
+	LMessage *nextMessage;
+	NSMutableArray *arguments;
 }
 
-+ (id) buildWithName: (NSString*)newName;
-- (id) initWithName: (NSString*)newName;
++ (id)buildWithName:(NSString*)newName;
+- (id)initWithName:(NSString*)newName;
 
-@property (retain) LMessage* nextMessage;
-@property (retain) NSString* name;
-@property (retain) NSMutableArray* arguments;
+@property LMessage *nextMessage;
+@property NSString *name;
+@property NSMutableArray *arguments;
 
-- (void) addArgument: (LMessage*)argument;
-- (NSString*) stringValue;
-- (NSMutableString*) stringValueWithoutNested;
+- (void)addArgument:(LMessage*)argument;
+- (NSString*)stringValue;
+- (NSMutableString*)stringValueWithoutNested;
 @end
 
 @interface EndMessage : LMessage {}
-+ (id) build;
-- (id) init;
++ (id)build;
+- (id)init;
 @end
 
-/** Base class for all literals. */
+/**Base class for all literals. */
 @interface LLiteral : LMessage {}
 @end
 
-/** Text literal. */
+/**Text literal. */
 @interface LTextLiteral : LLiteral {}
 @end
 
-/** Number literal. */
+/**Number literal. */
 @interface LNumberLiteral : LLiteral {}
 @end

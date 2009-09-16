@@ -10,15 +10,15 @@
 #import "LObject.h"
 
 @interface LNumber : LObject {
-    NSDecimalNumber* number;
+    NSDecimalNumber *number;
 }
 
-@property (readonly) NSDecimalNumber* number;
+@property (readonly) NSDecimalNumber *number;
 
-+ (id) numberWithAncestor:(LObject*)ancestor string:(NSString*)string;
-+ (id) numberWithAncestor:(LObject*)ancestor integer:(NSInteger)integer;
++ (id)numberWithAncestor:(LObject*)ancestor string:(NSString*)string;
++ (id)numberWithAncestor:(LObject*)ancestor integer:(NSInteger)integer;
 
-- (id) initWithString:(NSString*)string;
-- (id) initWithInteger:(NSInteger)integer;
+- (id)initWithString:(NSString*)string;
+- (id)initWithInteger:(NSInteger)integer;
 
 @end

@@ -18,47 +18,47 @@
  */
 @interface LExecution : NSObject {
     /** Current context of execution */
-    LObject* context;
+    LObject *context;
     
     /** Currently executed message */
-    LMessage* message;
+    LMessage *message;
     
     /** Parent execution context */
-    LExecution* parent;
+    LExecution *parent;
 
     /** Keeps current runtime */
-    LRuntime* runtime;
+    LRuntime *runtime;
     
     /** Current invocation target */
-    LObject* target;
+    LObject *target;
 }
 
-@property (retain) LObject* context;
-@property (retain) LMessage* message;
-@property (retain) LRuntime* runtime;
-@property (retain) LObject* target;
+@property LObject *context;
+@property LMessage *message;
+@property LRuntime *runtime;
+@property LObject *target;
 
 /**
  Creates new execution with given runtime, used only from within LRuntime instance.
  */
-+ (id) buildWithRuntime:(LRuntime*)runtime;
++ (id)buildWithRuntime:(LRuntime*)runtime;
 
 /** Inits with given runtime */
-- (id) initWithRuntime:(LRuntime*)runtime;
+- (id)initWithRuntime:(LRuntime*)runtime;
 
 /** Inits with given parent */
-- (id) initWithParent:(LExecution*)parent;
+- (id)initWithParent:(LExecution*)parent;
 
 /**
  Runs code in given message returning value from last message in chain.
  */
-- (LObject*) runMessage:(LMessage*)message withContext:(LObject*)context;
+- (LObject*)runMessage:(LMessage*)message withContext:(LObject*)context;
 
 #pragma mark Evaluating code
 
 /** Evaluates code within caller */
-- (LObject*) evaluateWithCurrentContext:(LMessage*)code;
+- (LObject*)evaluateWithCurrentContext:(LMessage*)code;
 
 /** Returns all arguments evaluated in context of caller */
-- (NSMutableArray*) evaluatedArguments;
+- (NSMutableArray*)evaluatedArguments;
 @end

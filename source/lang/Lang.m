@@ -13,7 +13,7 @@
 
 @synthesize runtime;
 
-- (id) init
+- (id)init
 {
     self = [super init];
     runtime = [[[LRuntime alloc] init] bootstrap];

@@ -11,16 +11,16 @@
 #import "LNumber.h"
 
 @interface LList : LObject {
-    NSMutableArray* list;
+    NSMutableArray *list;
 }
 
-@property (readonly) NSMutableArray* list;
+@property (readonly) NSMutableArray *list;
 
-+ (id) listWithAncestor:(LObject*)ancestor entries:(NSMutableArray*)entries;
-- (id) initWithEntries:(NSMutableArray*)entries;
++ (id)listWithAncestor:(LObject*)ancestor entries:(NSMutableArray*)entries;
+- (id)initWithEntries:(NSMutableArray*)entries;
 
 // Messages forwarded by runtime execution.
 
 /** Return length of the list. */
-- (LNumber*) lengthWithExecution:(LExecution*)execution;
+- (LNumber*)lengthWithExecution:(LExecution*)execution;
 @end

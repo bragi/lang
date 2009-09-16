@@ -14,16 +14,22 @@
 @interface LMethod : LObject {}
 @end
 
+
 /** Represents methods created in runtime using method(). */
 @interface LLangMethod : LMethod {
-    LMessage* code;
+    LMessage *code;
 }
-- (id) initWithCode:(LMessage*)newCode;
+
+- (id)initWithCode:(LMessage*)newCode;
+
 @end
+
 
 /** Represents macros created in runtime using macro(). */
 @interface LLangMacro : LMethod {
-    LMessage* code;
+    LMessage *code;
 }
-- (id) initWithCode:(LMessage*)newCode;
+
+- (id)initWithCode:(LMessage*)newCode;
+
 @end

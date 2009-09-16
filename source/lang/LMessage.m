@@ -9,86 +9,87 @@
 #import "LMessage.h"
 
 @implementation LMessage
+
 @synthesize nextMessage;
 @synthesize arguments;
 @synthesize name;
 
-+ (id) buildWithName: (NSString*) newName
++ (id)buildWithName:(NSString*) newName
 {
     return [[LMessage alloc] initWithName:newName];
 }
 
-- (id) initWithName: (NSString*) newName 
+- (id)initWithName:(NSString*) newName 
 {
-	self = [super init];
-	if(self)
-	{
-		name = newName;
-		arguments = nil;
-		nextMessage = nil;
-	}
-	return self;
+    self = [super init];
+    if(self)
+    {
+        name = newName;
+        arguments = nil;
+        nextMessage = nil;
+    }
+    return self;
 }
 
-- (NSMutableString*) stringValueWithoutNested
+- (NSMutableString*)stringValueWithoutNested
 {
-	NSMutableString* value = [NSMutableString stringWithString: name];
+    NSMutableString *value = [NSMutableString stringWithString: name];
 
-	if([arguments count] >  0)
-	{
-		// add (
-		[value appendString: @"("];
-		
-		LMessage* argument;
-		BOOL first = YES;
+    if([arguments count] >  0)
+    {
+        // add (
+        [value appendString: @"("];
+        
+        LMessage *argument;
+        BOOL first = YES;
 
-		for(argument in arguments) {
-			// add argument's name
-			if(first) {
-				first = NO;
-			} else {
-				[value appendString: @", "];
-			}
-			[value appendString: [argument stringValue]];
-		}
-		// add )
-		[value appendString: @")"];
-	}
-	return value;
+        for(argument in arguments) {
+            // add argument's name
+            if(first) {
+                first = NO;
+            } else {
+                [value appendString: @", "];
+            }
+            [value appendString: [argument stringValue]];
+        }
+        // add )
+        [value appendString: @")"];
+    }
+    return value;
 }
 
-- (NSString*) stringValue
+- (NSString*)stringValue
 {
-	NSMutableString* value = [NSMutableString stringWithString: [self stringValueWithoutNested]];
-	if(nextMessage) {
-		LMessage* message = self;
-		while (message = [message nextMessage]) {
-			[value appendString: @" "];
-			[value appendString: [message stringValueWithoutNested]];
-		}
-	}
-	return value;
+    NSMutableString *value = [NSMutableString stringWithString: [self stringValueWithoutNested]];
+    if(nextMessage) {
+        LMessage *message = self;
+        while (message = [message nextMessage]) {
+            [value appendString: @" "];
+            [value appendString: [message stringValueWithoutNested]];
+        }
+    }
+    return value;
 }
 
-- (void) addArgument: (LMessage*) argument
+- (void)addArgument:(LMessage*) argument
 {
-	if(arguments == nil)
-	{
-		arguments = [NSMutableArray arrayWithObject:argument];
-	}
-	else
-	{
-		[arguments addObject: argument];
-	}
+    if(arguments == nil)
+    {
+        arguments = [NSMutableArray arrayWithObject:argument];
+    }
+    else
+    {
+        [arguments addObject: argument];
+    }
 }
 
-- (BOOL) isEqual:(id)object
+- (BOOL)isEqual:(id)object
 {
     if (![object isKindOfClass:[LMessage class]]) {
         NSLog(@"Object is of wrong kind: %@", [object class]);
         return NO;
     }
-    LMessage* other = (LMessage*)object;
+    LMessage *other = (LMessage*)object;
     if (name != other.name) {
         NSLog(@"Names differ: %@, %@", name, other.name);
         return NO;
@@ -106,32 +107,41 @@
 
 @end
 
+
 @implementation EndMessage
-+ (id) build
+
++ (id)build
 {
     return [[EndMessage alloc] init];
 }
 
-- (id) init
+- (id)init
 {
-	self = [super initWithName:@"\n"];
-	return self;
+    self = [super initWithName:@"\n"];
+    return self;
 }
+
 @end
+
 
 @implementation LLiteral
 @end
 
 @implementation LTextLiteral
-+ (id) buildWithName: (NSString*) newName
+
++ (id)buildWithName:(NSString*) newName
 {
     return [[LTextLiteral alloc] initWithName:newName];
 }
+
 @end
 
+
 @implementation LNumberLiteral
-+ (id) buildWithName: (NSString*) newName
+
++ (id)buildWithName:(NSString*) newName
 {
     return [[LNumberLiteral alloc] initWithName:newName];
 }
+
 @end

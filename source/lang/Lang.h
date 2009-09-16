@@ -17,10 +17,9 @@
     LExecution* execution;
     LMessage* code;
     LRuntime* runtime;
-
 }
 
-@property (readonly) LRuntime* runtime;
+@property (readonly) LRuntime *runtime;
 
 - (LObject*)run:(NSString*)codeText;
 @end

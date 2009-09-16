@@ -12,6 +12,7 @@
 @implementation LMethod
 @end
 
+
 @implementation LLangMethod
 
 - (id)initWithCode:(LMessage*)newCode
@@ -27,6 +28,7 @@
 }
 
 @end
+
 
 @implementation LLangMacro
 
