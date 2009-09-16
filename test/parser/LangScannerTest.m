@@ -11,22 +11,22 @@
 
 @implementation LangScannerTest
 
-- (void) setUp
+- (void)setUp
 {
     scanner = [[LangScanner alloc] init];
 }
 
-- (void) testParseSingleMessage
+- (void)testParseSingleMessage
 {
     [scanner scan:@"hello"];
 }
 
-- (void) testParseTwoMessages
+- (void)testParseTwoMessages
 {
     [scanner scan:@"hello world"];
 }
 
-- (void) testParseComplexExpression
+- (void)testParseComplexExpression
 {
     [scanner scan:@"=(Company, Object new)\n=(company, Company new). company new"];
 }

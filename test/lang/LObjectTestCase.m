@@ -10,7 +10,7 @@
 
 
 @implementation LObjectTestCase
-- (void) setUp
+- (void)setUp
 {
     object = [[[LObject alloc] init] retain];
     ancestor = [[[LObject alloc] init] retain];
@@ -19,7 +19,7 @@
     anotherCell = [[[LObject alloc] init] retain];
 }
 
-- (void) tearDown
+- (void)tearDown
 {
     [object release];
     [ancestor release];
@@ -28,35 +28,35 @@
     [anotherCell release];
 }
 
-- (void) testSetCell
+- (void)testSetCell
 {
     [object setCell: cell withName: @"cell"];
 }
 
-- (void) testGetDirectCell
+- (void)testGetDirectCell
 {
     [object setCell:cell withName: @"cell"];
     STAssertEqualObjects([object cellForName: @"cell"], cell, @"got no cell");
 }
 
-- (void) testGetNoCell
+- (void)testGetNoCell
 {
     STAssertNil([object cellForName:@"cell"], @"cell is not nil");
 }
 
-- (void) testAddAncestor
+- (void)testAddAncestor
 {
     [object addAncestor:ancestor];
 }
 
-- (void) testLookupInAncestor
+- (void)testLookupInAncestor
 {
     [ancestor setCell:cell withName:@"cell"];
     [object addAncestor:ancestor];
     STAssertEqualObjects([object cellForName:@"cell"], cell, @"got no cell in ancestor");
 }
 
-- (void) testPreferYoungerAncestor
+- (void)testPreferYoungerAncestor
 {
     [olderAncestor setCell:anotherCell withName:@"cell"];
     [ancestor setCell:cell withName:@"cell"];

@@ -10,7 +10,7 @@
 #import "LangScanner.h"
 
 @interface LangScannerTest : SenTestCase {
-    LangScanner* scanner;
+    LangScanner *scanner;
 }
 
 @end

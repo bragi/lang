@@ -11,8 +11,8 @@
 #import "LObject.h"
 
 @interface RBooleanTestCase : SenTestCase {
-    Lang* lang;
-    LObject* result;
+    Lang *lang;
+    LObject *result;
 }
 
 @end

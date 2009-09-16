@@ -10,12 +10,12 @@
 
 @implementation RBooleanTestCase
 
-- (void) setUp
+- (void)setUp
 {
     lang = [[Lang alloc] init];
 }
 
-- (void) testTrue
+- (void)testTrue
 {
     result = [lang run:@"true"];
     STAssertEquals(result, lang.runtime.theTrue, @"true not evaluated");
@@ -23,25 +23,25 @@
     STAssertEquals(result, lang.runtime.theTrue, @"true not evaluated");
 }
 
-- (void) testIfTrueOnTrue
+- (void)testIfTrueOnTrue
 {
     result = [lang run:@"true ifTrue(\"hello\")"];
     STAssertEqualObjects([(LText*)result text], @"hello", @"ifTrue does not evaluate properly on true");
 }
 
-- (void) testIfFalseOnTrue
+- (void)testIfFalseOnTrue
 {
     result = [lang run:@"true ifFalse(\"hello\")"];
     STAssertEqualObjects(result, lang.runtime.theNil, @"ifFalse does not evaluate properly on true");
 }
 
-- (void) testIfFalseOnFalse
+- (void)testIfFalseOnFalse
 {
     result = [lang run:@"false ifFalse(\"hello\")"];
     STAssertEqualObjects([(LText*)result text], @"hello", @"ifFalse does not evaluate properly on false");
 }
 
-- (void) testIfTrueOnFalse
+- (void)testIfTrueOnFalse
 {
     result = [lang run:@"false ifTrue(\"hello\")"];
     STAssertEqualObjects(result, lang.runtime.theNil, @"ifTrue does not evaluate properly on false");

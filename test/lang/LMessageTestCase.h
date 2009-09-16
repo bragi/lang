@@ -11,11 +11,11 @@
 
 
 @interface LMessageTestCase : SenTestCase {
-    LMessage* hello;
-    LMessage* beautiful;
-    LMessage* world;
-    LMessage* lady;
-    LMessage* more;
+    LMessage *hello;
+    LMessage *beautiful;
+    LMessage *world;
+    LMessage *lady;
+    LMessage *more;
 }
 
 @end

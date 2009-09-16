@@ -13,77 +13,77 @@
 
 @implementation LExecutionTestCase
 
-- (void) setUp
+- (void)setUp
 {
     runtime = [[LRuntime alloc] init];
     execution = [[LExecution alloc] initWithRuntime:runtime];
     context = runtime.theBaseContext;
 }
 
-- (void) testRunSelf
+- (void)testRunSelf
 {
     // self
-    LMessage* selfMessage = [LMessage buildWithName:@"self"];
+    LMessage *selfMessage = [LMessage buildWithName:@"self"];
     result = [execution runMessage:selfMessage withContext:context];
     STAssertEquals(result, context, @"Different result: %@ (context: %@)", result, context);
 }
 
-- (void) testRunMimic
+- (void)testRunMimic
 {
     // mimic
-    LMessage* objectMessage = [LMessage buildWithName:@"Object"];
+    LMessage *objectMessage = [LMessage buildWithName:@"Object"];
     objectMessage.nextMessage = [LMessage buildWithName:@"mimic"];
     result = [execution runMessage:objectMessage withContext:context];
     STAssertFalse(result == runtime.theObject, @"Same current target");
 }
 
-- (void) testRunMultipleMimics
+- (void)testRunMultipleMimics
 {
     // mimic mimic
-    LMessage* objectMessage = [LMessage buildWithName:@"Object"];
-    LMessage* mimicMessage = [LMessage buildWithName:@"mimic"];
+    LMessage *objectMessage = [LMessage buildWithName:@"Object"];
+    LMessage *mimicMessage = [LMessage buildWithName:@"mimic"];
     objectMessage.nextMessage = mimicMessage;
     mimicMessage.nextMessage = [LMessage buildWithName:@"mimic"];
     result = [execution runMessage:objectMessage withContext:context];
     STAssertFalse(result == context, @"Same current target");
 }
 
-- (void) testRunTextLiteral
+- (void)testRunTextLiteral
 {
     // "hello"
-    LMessage* textLiteral = [LTextLiteral buildWithName:@"hello"];
+    LMessage *textLiteral = [LTextLiteral buildWithName:@"hello"];
     result = [execution runMessage:textLiteral withContext:context];
     STAssertTrue([result isKindOfClass:[LText class]], @"Different class");
 }
 
-- (void) testRunTextUpcase
+- (void)testRunTextUpcase
 {
     // "hello" upcase
-    LMessage* textLiteral = [LTextLiteral buildWithName:@"hello"];
+    LMessage *textLiteral = [LTextLiteral buildWithName:@"hello"];
     textLiteral.nextMessage = [LMessage buildWithName:@"upcase"];
     result = [execution runMessage:textLiteral withContext:context];
     STAssertEqualObjects([(LText*)result text], @"HELLO", @"Not upper case");
 }
 
-- (void) testRunEndMessage
+- (void)testRunEndMessage
 {
     // "hello"
     //
-    LMessage* textLiteral = [LTextLiteral buildWithName:@"hello"];
+    LMessage *textLiteral = [LTextLiteral buildWithName:@"hello"];
     textLiteral.nextMessage = [EndMessage build];
     result = [execution runMessage:textLiteral withContext:context];
     STAssertEquals(result, context, @"Different current target");
 }
 
-- (void) testAssignement
+- (void)testAssignement
 {
     // hello = "Hello Cell"
     // hello
-    LMessage* assignment = [LMessage buildWithName:@"="];
+    LMessage *assignment = [LMessage buildWithName:@"="];
     [assignment addArgument:[LMessage buildWithName:@"hello"]];
     [assignment addArgument:[LTextLiteral buildWithName:@"Hello Cell"]];
     
-    LMessage* end = [EndMessage build];
+    LMessage *end = [EndMessage build];
     assignment.nextMessage = end;
     
     end.nextMessage = [LMessage buildWithName:@"hello"];
@@ -92,10 +92,10 @@
     STAssertEqualObjects([(LText*)result text], @"Hello Cell", @"Target not evaluated");
 }
 
-- (void) testRunNumberLiteral
+- (void)testRunNumberLiteral
 {
     // 9
-    LMessage* numberLiteral = [LNumberLiteral buildWithName:@"9"];
+    LMessage *numberLiteral = [LNumberLiteral buildWithName:@"9"];
     result = [execution runMessage:numberLiteral withContext:context];
     STAssertTrue([result isKindOfClass:[LNumber class]], @"Different class");
 }

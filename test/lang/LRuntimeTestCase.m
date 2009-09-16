@@ -14,25 +14,25 @@
 #import "LangParser.h"
 
 @implementation LRuntimeTestCase
-- (void) setUp
+- (void)setUp
 {
     runtime = [[LRuntime alloc] init];
     execution = [LExecution buildWithRuntime:runtime];
 }
 
-- (LObject*) executeText:(NSString*)text
+- (LObject*)executeText:(NSString*)text
 {
     code = [LangParser parse:text];
     return [self executeCode];
 }
 
-- (LObject*) executeCode
+- (LObject*)executeCode
 {
     result = [execution runMessage:code withContext:runtime.theBaseContext];
     return result;
 }
 
-- (void) testBootstrap
+- (void)testBootstrap
 {
     [self executeText:@"Object kind"];
     STAssertNil(result, @"Object kind is not nil");

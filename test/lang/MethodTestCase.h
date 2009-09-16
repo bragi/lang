@@ -13,10 +13,10 @@
 
 
 @interface MethodTestCase : SenTestCase {
-    LExecution* execution;
-    LObject* context;
-    LObject* result;
-    LRuntime* runtime;
+    LExecution *execution;
+    LObject *context;
+    LObject *result;
+    LRuntime *runtime;
 }
 
 @end

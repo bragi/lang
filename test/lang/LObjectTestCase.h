@@ -10,11 +10,11 @@
 #import "LObject.h"
 
 @interface LObjectTestCase : SenTestCase {
-    LObject* object;
-    LObject* ancestor;
-    LObject* olderAncestor;
-    LObject* cell;
-    LObject* anotherCell;
+    LObject *object;
+    LObject *ancestor;
+    LObject *olderAncestor;
+    LObject *cell;
+    LObject *anotherCell;
 }
 
 @end

@@ -10,8 +10,8 @@
 #import "Lang.h"
 
 @interface RListTestCase : SenTestCase {
-    Lang* lang;
-    LObject* result;
+    Lang *lang;
+    LObject *result;
 }
 
 @end

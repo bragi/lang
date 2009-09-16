@@ -11,8 +11,8 @@
 #import "LObject.h"
 
 @interface RBaseContextTestCase : SenTestCase {
-    Lang* lang;
-    LObject* result;
+    Lang *lang;
+    LObject *result;
 }
 
 @end

@@ -12,10 +12,10 @@
 #import "LMessage.h"
 
 @interface LangBuilderTestCase : SenTestCase {
-    LangBuilder* builder;
-    LangScanner* scanner;
-    LMessage* name;
-    LMessage* hello;
+    LangBuilder *builder;
+    LangScanner *scanner;
+    LMessage *name;
+    LMessage *hello;
 }
 
 @end

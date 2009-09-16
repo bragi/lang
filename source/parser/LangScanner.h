@@ -10,9 +10,9 @@
 #import "LangBuilder.h"
 
 @interface LangScanner : NSObject {
-    LangBuilder* builder;
+    LangBuilder *builder;
 }
 
-- (id) initWithBuilder:(LangBuilder*)builder;
-- (void) scan:(NSString*)code;
+- (id)initWithBuilder:(LangBuilder*)builder;
+- (void)scan:(NSString*)code;
 @end

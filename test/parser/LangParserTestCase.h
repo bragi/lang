@@ -7,10 +7,11 @@
 //
 
 #import <SenTestingKit/SenTestingKit.h>
-
+#import "LMessage.h"
 
 @interface LangParserTestCase : SenTestCase {
-
+    LMessage *message;
+    LMessage *argument;
 }
 
 @end
