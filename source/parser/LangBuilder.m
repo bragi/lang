@@ -22,16 +22,13 @@
 
 - (void)addMessage:(LMessage*)newMessage
 {
-    NSLog(@"Builder adding message: %@", newMessage);
     if (message == nil) {
         message = newMessage;
     } else {
         if (argumentStarted) {
-            NSLog(@"Builder adding argument");
             argumentStarted = NO;
             [(LMessage*)[messages lastObject] addArgument:newMessage];
         } else {
-            NSLog(@"Builder setting next message");
             currentMessage.nextMessage = newMessage;
         }
     }
@@ -40,20 +37,17 @@
 
 - (void)identifier:(NSString*)name
 {
-    NSLog(@"Builder identifier: %@", name);
     [self addMessage:[LMessage buildWithName:name]];
 }
 
 - (void)argumentsStart
 {
-    NSLog(@"Builder argumentsStart");
     argumentStarted = YES;
     [messages addObject:currentMessage];
 }
 
 - (void)argumentsEnd
 {
-    NSLog(@"Builder argumentsEnd");
     currentMessage = [messages lastObject];
     [messages removeLastObject];
     argumentStarted = NO;

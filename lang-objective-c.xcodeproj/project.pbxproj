@@ -280,11 +280,11 @@
 		A013F5C4105CF970009DBBB6 /* parser */ = {
 			isa = PBXGroup;
 			children = (
-				A09B4E171060CEF7000C5286 /* LangScanner.h */,
 				A013F5C7105CF970009DBBB6 /* LangBuilder.h */,
 				A013F5C8105CF970009DBBB6 /* LangBuilder.m */,
 				A013F5C9105CF970009DBBB6 /* LangParser.h */,
 				A013F5CA105CF970009DBBB6 /* LangParser.m */,
+				A09B4E171060CEF7000C5286 /* LangScanner.h */,
 				A013F5CB105CF970009DBBB6 /* LangScanner.m */,
 				A013F5CC105CF970009DBBB6 /* LangScanner.rl */,
 			);

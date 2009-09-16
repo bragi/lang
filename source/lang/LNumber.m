@@ -7,7 +7,8 @@
 //
 
 #import "LNumber.h"
-
+#import "LExecution.h"
+#import "LRuntime.h"
 
 @implementation LNumber
 
@@ -39,6 +40,11 @@
     self = [super init];
     number = [NSDecimalNumber decimalNumberWithMantissa:integer exponent:0 isNegative:NO];
     return self;
+}
+
+- (LObject*)toTextWithExecution:(LExecution *)execution
+{
+    return [execution.runtime makeTextWithString:[NSString stringWithFormat:@"%d", [number integerValue]]];
 }
 
 @end

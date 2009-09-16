@@ -57,4 +57,11 @@
     expected = @"text";
     STAssertEqualObjects([result text], expected, @"\"text\" toText is not \"text\"");
 }
+
+- (void)testNumberLiteralToText
+{
+    result = (LText*)[lang run:@"9 toText"];
+    expected = @"9";
+    STAssertEqualObjects([result text], expected, @"9 toText is not \"9\"");
+}
 @end

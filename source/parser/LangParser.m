@@ -17,7 +17,6 @@
     LangBuilder *builder = [[LangBuilder alloc] init];
     LangScanner *scanner = [[LangScanner alloc] initWithBuilder:builder];
     [scanner scan:codeText];
-    NSLog(@"Parsing done");
     return [builder message];
 }
 
