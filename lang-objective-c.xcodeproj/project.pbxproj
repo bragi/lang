@@ -56,6 +56,7 @@
 		A06ABC7E105EA78D0091E538 /* RListTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = A06ABC7D105EA78D0091E538 /* RListTestCase.m */; };
 		A06ABCB2105EAE2F0091E538 /* RList.m in Sources */ = {isa = PBXBuildFile; fileRef = A06ABCB1105EAE2F0091E538 /* RList.m */; };
 		A0E912B4105FC3D900FE7A61 /* RBaseContextTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = A0E912B3105FC3D900FE7A61 /* RBaseContextTestCase.m */; };
+		A0FBCD4310613012008EE0D8 /* ToTextTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = A0FBCD4210613012008EE0D8 /* ToTextTestCase.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -159,6 +160,8 @@
 		A0E91298105FC21E00FE7A61 /* boot.lang */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = boot.lang; path = system/boot.lang; sourceTree = "<group>"; };
 		A0E912B2105FC3D900FE7A61 /* RBaseContextTestCase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RBaseContextTestCase.h; sourceTree = "<group>"; };
 		A0E912B3105FC3D900FE7A61 /* RBaseContextTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RBaseContextTestCase.m; sourceTree = "<group>"; };
+		A0FBCD4110613012008EE0D8 /* ToTextTestCase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToTextTestCase.h; sourceTree = "<group>"; };
+		A0FBCD4210613012008EE0D8 /* ToTextTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToTextTestCase.m; sourceTree = "<group>"; };
 		C6859EA3029092ED04C91782 /* lang.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; name = lang.1; path = documentation/lang.1; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -316,6 +319,8 @@
 				A06ABC7D105EA78D0091E538 /* RListTestCase.m */,
 				A0E912B2105FC3D900FE7A61 /* RBaseContextTestCase.h */,
 				A0E912B3105FC3D900FE7A61 /* RBaseContextTestCase.m */,
+				A0FBCD4110613012008EE0D8 /* ToTextTestCase.h */,
+				A0FBCD4210613012008EE0D8 /* ToTextTestCase.m */,
 			);
 			name = objects;
 			path = test/objects;
@@ -498,6 +503,7 @@
 				A013F5FA105CF988009DBBB6 /* LangScannerTest.m in Sources */,
 				A06ABC7E105EA78D0091E538 /* RListTestCase.m in Sources */,
 				A0E912B4105FC3D900FE7A61 /* RBaseContextTestCase.m in Sources */,
+				A0FBCD4310613012008EE0D8 /* ToTextTestCase.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

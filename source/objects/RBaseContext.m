@@ -21,6 +21,7 @@
     [object setCell:[[ForwardingMethod alloc] initWithName:@"assignment"] withName:@"="];
     [object setCell:[[MethodMethod alloc] init] withName:@"method"];
     [object setCell:[[MacroMethod alloc] init] withName:@"macro"];
+    [object setCell:[[ForwardingMethod alloc] initWithName:@"toText"] withName:@"toText"];
     
     /* Object cell */
     [object setCell:runtime.theObject withName:@"Object"];

@@ -12,3 +12,7 @@ nil =(new, nil)
 true =(ifFalse, nil)
 
 false =(ifTrue, nil)
+
+nil =(toText, "nil")
+false =(toText, "false")
+true =(toText, "true")

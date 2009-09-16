@@ -9,6 +9,7 @@
 #import "LObject.h"
 #import "LMessage.h"
 #import "LExecution.h"
+#import "LRuntime.h"
 
 @implementation LObject
 
@@ -88,5 +89,9 @@
     return [LObject objectWithAncestor:self];
 }
 
+- (LObject*)toTextWithExecution:(LExecution*)execution
+{
+    return [execution.runtime makeTextWithString:[NSString stringWithFormat:@"%@", self]];
+}
 @end
 
