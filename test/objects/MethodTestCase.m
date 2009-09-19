@@ -40,4 +40,12 @@
     result = [lang run:@"true =(hello, method(self))\ntrue hello"];
     STAssertEqualObjects(result, lang.runtime.theTrue, @"Self in invoked method differs");
 }
+
+- (void)testReturnInMethod
+{
+    // hello = method(return(true). false)
+    // hello
+    result = [lang run:@"=(hello, method(return(true). false))\nhello"];
+    STAssertEqualObjects(result, lang.runtime.theTrue, @"Return does not return proper value");
+}
 @end

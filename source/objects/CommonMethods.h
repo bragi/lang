@@ -56,3 +56,9 @@
  */
 @interface EvaluateFirstArgumentMethod : LMethod {}
 @end
+
+/**
+ Forces execution to return evaulated argument and stop processing subsequent messages.
+ */
+@interface ReturnMethod : EvaluateFirstArgumentMethod {}
+@end

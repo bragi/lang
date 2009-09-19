@@ -17,6 +17,7 @@
 @synthesize message;
 @synthesize runtime;
 @synthesize target;
+@synthesize stopAndReturn;
 
 + (id)buildWithRuntime:(LRuntime*)runtime
 {
@@ -27,6 +28,7 @@
 {
     self = [super init];
     runtime = nruntime;
+    stopAndReturn = NO;
     return self;
 }
 
@@ -35,6 +37,7 @@
     self = [super init];
     parent = nparent;
     runtime = parent.runtime;
+    stopAndReturn = NO;
     return self;
 }
 
@@ -43,7 +46,7 @@
     context = ncontext;
     target = context;
     message = nmessage;
-    while (message) {
+    while (message && !stopAndReturn) {
         // TODO: Rethink. Maybe we should call message's runWithExecution and message decides what to do next
         // Normal messages re-send to target. Literals create instances. Complex...
         NSLog(@"Executing message: %@", message.name);

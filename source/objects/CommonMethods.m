@@ -90,3 +90,15 @@
 }
 
 @end
+
+
+@implementation ReturnMethod
+
+- (LObject*)activate:(LExecution*)execution
+{
+    LObject *result = [super activate:execution];
+    execution.stopAndReturn = YES;
+    return result;
+}
+
+@end

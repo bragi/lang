@@ -8,6 +8,7 @@
 
 #import "LMethod.h"
 #import "LExecution.h"
+#import "CommonMethods.h"
 
 @implementation LMethod
 @end
@@ -38,6 +39,7 @@
      context itself. We need to redefine self then.
      */
     [context setCell:execution.target withName:@"self"];
+    [context setCell:[[ReturnMethod alloc] init] withName:@"return"];
     return context;
 }
 @end

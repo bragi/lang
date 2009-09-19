@@ -31,12 +31,16 @@
     
     /** Current invocation target */
     LObject *target;
+    
+    /** When set to true execution of messages stop and current target is returned. */
+    BOOL stopAndReturn;
 }
 
-@property LObject *context;
-@property LMessage *message;
-@property LRuntime *runtime;
-@property LObject *target;
+@property (readonly) LObject *context;
+@property (readonly) LMessage *message;
+@property (readonly) LRuntime *runtime;
+@property (readonly) LObject *target;
+@property BOOL stopAndReturn;
 
 /**
  Creates new execution with given runtime, used only from within LRuntime instance.
