@@ -73,6 +73,13 @@
     return [codeExecution runMessage:code withContext:self.context];
 }
 
+- (LObject*)evaluateCode:(LMessage*)code inContext:(LObject*)givenContext
+{
+    // BOGUS: code smell, this and method above are way too similar!
+    LExecution *codeExecution = [[LExecution alloc] initWithParent:self];
+    return [codeExecution runMessage:code withContext:givenContext];
+}
+
 - (NSMutableArray*)evaluatedArguments
 {
     NSMutableArray *result = [NSMutableArray arrayWithCapacity:[message.arguments count]];

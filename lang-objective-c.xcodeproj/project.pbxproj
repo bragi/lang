@@ -45,7 +45,6 @@
 		A013F5F3105CF988009DBBB6 /* LMessageTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = A013F5E1105CF988009DBBB6 /* LMessageTestCase.m */; };
 		A013F5F4105CF988009DBBB6 /* LObjectTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = A013F5E3105CF988009DBBB6 /* LObjectTestCase.m */; };
 		A013F5F5105CF988009DBBB6 /* LRuntimeTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = A013F5E5105CF988009DBBB6 /* LRuntimeTestCase.m */; };
-		A013F5F6105CF988009DBBB6 /* MethodTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = A013F5E7105CF988009DBBB6 /* MethodTestCase.m */; };
 		A013F5F7105CF988009DBBB6 /* RBooleanTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = A013F5EA105CF988009DBBB6 /* RBooleanTestCase.m */; };
 		A013F5F8105CF988009DBBB6 /* LangBuilderTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = A013F5ED105CF988009DBBB6 /* LangBuilderTestCase.m */; };
 		A013F5F9105CF988009DBBB6 /* LangParserTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = A013F5EF105CF988009DBBB6 /* LangParserTestCase.m */; };
@@ -55,6 +54,7 @@
 		A013F666105D1388009DBBB6 /* LList.m in Sources */ = {isa = PBXBuildFile; fileRef = A013F665105D1388009DBBB6 /* LList.m */; };
 		A06ABC7E105EA78D0091E538 /* RListTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = A06ABC7D105EA78D0091E538 /* RListTestCase.m */; };
 		A06ABCB2105EAE2F0091E538 /* RList.m in Sources */ = {isa = PBXBuildFile; fileRef = A06ABCB1105EAE2F0091E538 /* RList.m */; };
+		A074C70C10652834000B9A08 /* MethodTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = A074C70B10652834000B9A08 /* MethodTestCase.m */; };
 		A0E912B4105FC3D900FE7A61 /* RBaseContextTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = A0E912B3105FC3D900FE7A61 /* RBaseContextTestCase.m */; };
 		A0FBCD4310613012008EE0D8 /* ToTextTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = A0FBCD4210613012008EE0D8 /* ToTextTestCase.m */; };
 /* End PBXBuildFile section */
@@ -134,8 +134,6 @@
 		A013F5E3105CF988009DBBB6 /* LObjectTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LObjectTestCase.m; sourceTree = "<group>"; };
 		A013F5E4105CF988009DBBB6 /* LRuntimeTestCase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LRuntimeTestCase.h; sourceTree = "<group>"; };
 		A013F5E5105CF988009DBBB6 /* LRuntimeTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LRuntimeTestCase.m; sourceTree = "<group>"; };
-		A013F5E6105CF988009DBBB6 /* MethodTestCase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MethodTestCase.h; sourceTree = "<group>"; };
-		A013F5E7105CF988009DBBB6 /* MethodTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MethodTestCase.m; sourceTree = "<group>"; };
 		A013F5E9105CF988009DBBB6 /* RBooleanTestCase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RBooleanTestCase.h; sourceTree = "<group>"; };
 		A013F5EA105CF988009DBBB6 /* RBooleanTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RBooleanTestCase.m; sourceTree = "<group>"; };
 		A013F5EC105CF988009DBBB6 /* LangBuilderTestCase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LangBuilderTestCase.h; sourceTree = "<group>"; };
@@ -154,6 +152,8 @@
 		A06ABC7D105EA78D0091E538 /* RListTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RListTestCase.m; sourceTree = "<group>"; };
 		A06ABCB0105EAE2F0091E538 /* RList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RList.h; sourceTree = "<group>"; };
 		A06ABCB1105EAE2F0091E538 /* RList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RList.m; sourceTree = "<group>"; };
+		A074C70A10652834000B9A08 /* MethodTestCase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MethodTestCase.h; sourceTree = "<group>"; };
+		A074C70B10652834000B9A08 /* MethodTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MethodTestCase.m; sourceTree = "<group>"; };
 		A08523211039B2A7001BBCA1 /* Test-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Test-Info.plist"; sourceTree = "<group>"; };
 		A08523371039B311001BBCA1 /* Test.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Test.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A09B4E171060CEF7000C5286 /* LangScanner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LangScanner.h; sourceTree = "<group>"; };
@@ -303,8 +303,6 @@
 				A013F5E3105CF988009DBBB6 /* LObjectTestCase.m */,
 				A013F5E4105CF988009DBBB6 /* LRuntimeTestCase.h */,
 				A013F5E5105CF988009DBBB6 /* LRuntimeTestCase.m */,
-				A013F5E6105CF988009DBBB6 /* MethodTestCase.h */,
-				A013F5E7105CF988009DBBB6 /* MethodTestCase.m */,
 			);
 			name = lang;
 			path = test/lang;
@@ -321,6 +319,8 @@
 				A0E912B3105FC3D900FE7A61 /* RBaseContextTestCase.m */,
 				A0FBCD4110613012008EE0D8 /* ToTextTestCase.h */,
 				A0FBCD4210613012008EE0D8 /* ToTextTestCase.m */,
+				A074C70A10652834000B9A08 /* MethodTestCase.h */,
+				A074C70B10652834000B9A08 /* MethodTestCase.m */,
 			);
 			name = objects;
 			path = test/objects;
@@ -496,7 +496,6 @@
 				A013F5F3105CF988009DBBB6 /* LMessageTestCase.m in Sources */,
 				A013F5F4105CF988009DBBB6 /* LObjectTestCase.m in Sources */,
 				A013F5F5105CF988009DBBB6 /* LRuntimeTestCase.m in Sources */,
-				A013F5F6105CF988009DBBB6 /* MethodTestCase.m in Sources */,
 				A013F5F7105CF988009DBBB6 /* RBooleanTestCase.m in Sources */,
 				A013F5F8105CF988009DBBB6 /* LangBuilderTestCase.m in Sources */,
 				A013F5F9105CF988009DBBB6 /* LangParserTestCase.m in Sources */,
@@ -504,6 +503,7 @@
 				A06ABC7E105EA78D0091E538 /* RListTestCase.m in Sources */,
 				A0E912B4105FC3D900FE7A61 /* RBaseContextTestCase.m in Sources */,
 				A0FBCD4310613012008EE0D8 /* ToTextTestCase.m in Sources */,
+				A074C70C10652834000B9A08 /* MethodTestCase.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

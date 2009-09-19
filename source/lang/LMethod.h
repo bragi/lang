@@ -20,8 +20,11 @@
     LMessage *code;
 }
 
+/** Initializes LLangMethod object and stores code to execute when activated. */
 - (id)initWithCode:(LMessage*)newCode;
 
+/** Builds context that keeps locals throughout method execution. */
+- (id)methodContextWithExecution:(LExecution*)execution;
 @end
 
 
