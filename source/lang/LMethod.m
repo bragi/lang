@@ -39,6 +39,10 @@
      context itself. We need to redefine self then.
      */
     [context setCell:execution.target withName:@"self"];
+    /**
+     Allow to return value from method body.
+     */
+    // TODO: handle returns from method arguments.
     [context setCell:[[ReturnMethod alloc] init] withName:@"return"];
     return context;
 }
