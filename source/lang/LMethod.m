@@ -13,15 +13,49 @@
 @implementation LExecutable
 @end
 
+
+#pragma mark Methods
+
 @implementation LMethod
 @end
 
-@implementation LLangMethod
 
-- (id)initWithCode:(LMessage*)newCode
+@implementation LArguments
+
+- (id)initWithMessageArguments:(NSArray *)arguments
 {
     self = [super init];
-    code = newCode;
+
+    mandatoryArguments = [NSMutableSet set];
+    defaultArguments = [NSMutableDictionary dictionary];
+
+    for(LMessage *argument in arguments) {
+        [self parseArgument:argument];
+    }
+}
+
+- (void)parseArgument:(LMessage *)argument
+{
+    NSString *name = argument.name;
+    if (argument.nextMessage == nil) {
+        [mandatoryArguments addObject:name];
+    } else {
+        [defaultArguments setObject:argument.nextMessage forKey:name];
+    }
+
+}
+
+@end
+
+
+@implementation LLangMethod
+
+- (id)initWithArguments:(NSArray*)theArguments
+{
+    self = [super init];
+    // TODO Add range check, documentation
+    arguments = [[LArguments alloc] initWithMessageArguments:[theArguments subarrayWithRange:NSMakeRange(0, [theArguments count] -1)]];
+    code = [theArguments lastObject];
     return self;
 }
 
@@ -51,6 +85,8 @@
 }
 @end
 
+
+#pragma mark Macros
 
 @implementation LLangMacro
 

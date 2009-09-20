@@ -14,25 +14,48 @@
 @interface LExecutable : LObject {}
 @end
 
+
+#pragma mark Methods
+
+/**
+ Represents arguments.
+ */
+@interface LArguments : NSObject
+{
+    NSMutableSet *mandatoryArguments;
+    NSMutableDictionary *defaultArguments;
+}
+
+- (id)initWithMessageArguments:(NSArray *)arguments;
+- (void)parseArgument:(LMessage*)argument;
+@end
+
+
 /** 
  Base class for methods. Evaluates parameters and binds their values
  to names.
  */
-@interface LMethod : LExecutable {}
+@interface LMethod : LExecutable {
+}
+
 @end
+
 
 /** Represents methods created in runtime using method(). */
 @interface LLangMethod : LExecutable {
+    LArguments *arguments;
     LMessage *code;
 }
 
-/** Initializes LLangMethod object and stores code to execute when activated. */
-- (id)initWithCode:(LMessage*)newCode;
+/** Initializes LLangMethod object, parses arguments and stores code to execute when activated. */
+- (id)initWithArguments:(NSArray*)theArguments;
 
 /** Builds context that keeps locals throughout method execution. */
 - (id)methodContextWithExecution:(LExecution*)execution;
 @end
 
+
+#pragma mark Macros
 
 /** Represents macros created in runtime using macro(). */
 @interface LLangMacro : LExecutable {

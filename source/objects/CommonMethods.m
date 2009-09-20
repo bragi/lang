@@ -47,10 +47,7 @@
 
 - (LObject*)activate:(LExecution*)execution
 {
-    // Create and return new instance of LLangMethod
-    NSArray *arguments = [execution.message arguments];
-    LMessage *code = (LMessage*)[arguments lastObject];
-    return [[LLangMethod alloc] initWithCode:code];
+    return [[LLangMethod alloc] initWithArguments:[execution.message arguments]];
 }
 
 @end
