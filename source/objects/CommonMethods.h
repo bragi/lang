@@ -12,7 +12,7 @@
 /**
  Returns the receiver.
  */
-@interface SelfMethod : LMethod {}
+@interface SelfMethod : LExecutable {}
 @end
 
 
@@ -31,7 +31,7 @@
  Creates new instance of LLangMethod with code provided in argument.
  Represents method() in runtime.
  */
-@interface MethodMethod : LMethod {}
+@interface MethodMethod : LExecutable {}
 @end
 
 
@@ -39,7 +39,7 @@
  Creates new instance of LLangMacro with code provided in argument.
  Represents macro() in runtime.
  */
-@interface MacroMethod : LMethod {}
+@interface MacroMethod : LExecutable {}
 @end
 
 
@@ -47,14 +47,14 @@
  Creates new instance of LList with evaluated arguments as list entries.
  Represents list() in runtime.
  */
-@interface ListMethod : LMethod {}
+@interface ListMethod : LExecutable {}
 @end
 
 
 /**
  Evaluates first argument and returns it.
  */
-@interface EvaluateFirstArgumentMethod : LMethod {}
+@interface EvaluateFirstArgumentMethod : LExecutable {}
 @end
 
 /**

@@ -10,13 +10,19 @@
 #import "LObject.h"
 #import "LMessage.h"
 
-/** Base class for all methods. */
-@interface LMethod : LObject {}
+/** Base class for all executable code. */
+@interface LExecutable : LObject {}
 @end
 
+/** 
+ Base class for methods. Evaluates parameters and binds their values
+ to names.
+ */
+@interface LMethod : LExecutable {}
+@end
 
 /** Represents methods created in runtime using method(). */
-@interface LLangMethod : LMethod {
+@interface LLangMethod : LExecutable {
     LMessage *code;
 }
 
@@ -29,7 +35,7 @@
 
 
 /** Represents macros created in runtime using macro(). */
-@interface LLangMacro : LMethod {
+@interface LLangMacro : LExecutable {
     LMessage *code;
 }
 

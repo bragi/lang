@@ -10,6 +10,9 @@
 #import "LExecution.h"
 #import "CommonMethods.h"
 
+@implementation LExecutable
+@end
+
 @implementation LMethod
 @end
 
