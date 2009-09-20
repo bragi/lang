@@ -22,8 +22,9 @@
  */
 @interface LArguments : NSObject
 {
-    NSMutableSet *mandatoryArguments;
-    NSMutableDictionary *defaultArguments;
+    NSMutableArray *mandatoryArguments;
+    NSMutableArray *defaultArguments;
+    NSMutableDictionary *defaultArgumentsValues;
 }
 
 - (id)initWithMessageArguments:(NSArray *)arguments;

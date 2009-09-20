@@ -26,23 +26,31 @@
 {
     self = [super init];
 
-    mandatoryArguments = [NSMutableSet set];
-    defaultArguments = [NSMutableDictionary dictionary];
+    mandatoryArguments = [NSMutableArray array];
+    defaultArguments = [NSMutableArray array];
+    defaultArgumentsValues = [NSMutableDictionary dictionary];
 
     for(LMessage *argument in arguments) {
         [self parseArgument:argument];
     }
 }
 
+/**
+ Parses given argument, checks if it is a mandatory or default argument and updates proper collection.
+ */
 - (void)parseArgument:(LMessage *)argument
 {
     NSString *name = argument.name;
     if (argument.nextMessage == nil) {
+        // Looks like we have a mandatory argument, eg:
+        // method(mandatoryArgument, ...)
         [mandatoryArguments addObject:name];
     } else {
-        [defaultArguments setObject:argument.nextMessage forKey:name];
+        // Looks like default argument, eg:
+        // method(defaultArgument false or maybe true, ...)
+        [defaultArguments addObject:name];
+        [defaultArgumentsValues setObject:argument.nextMessage forKey:name];
     }
-
 }
 
 @end
