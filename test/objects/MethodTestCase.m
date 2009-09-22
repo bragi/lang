@@ -48,4 +48,29 @@
     result = [lang run:@"=(hello, method(return(true). false))\nhello"];
     STAssertEqualObjects(result, lang.runtime.theTrue, @"Return does not return proper value");
 }
+
+- (void)testMethodWithArguments
+{
+    // myUpcase = method(text, text upcase)
+    // myUpcase("hello")
+    result = [lang run:@"=(myUpcase, method(text, text upcase)). myUpcase(\"hello\")"];
+    STAssertEqualObjects([(LText*)result text], @"HELLO", @"Method not called");
+}
+
+- (void)testMethodWithEvaluatedArguments
+{
+    // text = "hello"
+    // myUpcase = method(text, text upcase)
+    // myUpcase(text)
+    result = [lang run:@"=(text, \"hello\").=(myUpcase, method(text, text upcase)). myUpcase(text)"];
+    STAssertEqualObjects([(LText*)result text], @"HELLO", @"Method not called");
+}
+
+- (void)testMethodWithDefaultArgument
+{
+    // myUpcase = method(text "hello", text upcase)
+    // myUpcase()
+    result = [lang run:@"=(myUpcase, method(text \"hello\", text upcase)). myUpcase"];
+    STAssertEqualObjects([(LText*)result text], @"HELLO", @"Method not called");
+}
 @end

@@ -9,6 +9,7 @@
 #import <Cocoa/Cocoa.h>
 #import "LObject.h"
 #import "LMessage.h"
+#import "LExecution.h"
 
 /** Base class for all executable code. */
 @interface LExecutable : LObject {}
@@ -28,7 +29,18 @@
 }
 
 - (id)initWithMessageArguments:(NSArray *)arguments;
+
+/**
+ Parses given argument, checks if it is a mandatory or default argument and updates proper collection.
+ */
+
 - (void)parseArgument:(LMessage*)argument;
+
+/**
+ Evaluates arguments and puts them in local method context.
+ */
+- (void)evaluateArgumentsFromExecution:(LExecution*)execution toContext:(LObject*)context;
+
 @end
 
 

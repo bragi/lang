@@ -33,11 +33,9 @@
     for(LMessage *argument in arguments) {
         [self parseArgument:argument];
     }
+    return self;
 }
 
-/**
- Parses given argument, checks if it is a mandatory or default argument and updates proper collection.
- */
 - (void)parseArgument:(LMessage *)argument
 {
     NSString *name = argument.name;
@@ -53,6 +51,43 @@
     }
 }
 
+- (void)evaluateArgumentsFromExecution:(LExecution*)execution toContext:(LObject*)context
+{
+    // TODO: add argument checks, fix return evaluation
+    NSEnumerator *mae = [mandatoryArguments objectEnumerator];
+    NSEnumerator *ae = [execution.message.arguments objectEnumerator];
+    NSEnumerator *dae = [defaultArguments objectEnumerator];
+    NSString *name;
+    LObject *local;
+    LMessage *argumentCode;
+    
+    // Iterate over mandatory arguments
+    while (name = (NSString*)[mae nextObject]) {
+        // Get code for argument
+        argumentCode = (LMessage*)[ae nextObject];
+        // Evaluate code in caller context
+        local = [execution evaluateWithCurrentContext:argumentCode];
+        // Store value in locals
+        [context setCell:local withName:name];
+    }
+    
+    // Iterate over arguments with default values
+    while (name = (NSString*)[dae nextObject]) {
+        // Check if code for the argument was provided
+        if (argumentCode = (LMessage*)[ae nextObject]) {
+            // If so then evaluate it in caller context
+            local = [execution evaluateWithCurrentContext:argumentCode];
+        } else {
+            // Otherwise use code provided when method was defined
+            argumentCode = (LMessage*)[defaultArgumentsValues objectForKey:name];
+            // And evaluate it in calee context
+            local = [execution evaluateCode:argumentCode inContext:execution.target];
+        }
+        // Store value in locals
+        [context setCell:local withName:name];
+    }
+}
+
 @end
 
 
@@ -62,14 +97,23 @@
 {
     self = [super init];
     // TODO Add range check, documentation
-    arguments = [[LArguments alloc] initWithMessageArguments:[theArguments subarrayWithRange:NSMakeRange(0, [theArguments count] -1)]];
+    NSArray *argumentNames;
+    
+    if([theArguments count] > 1) {
+        argumentNames = [theArguments subarrayWithRange:NSMakeRange(0, [theArguments count] -1)];
+    } else {
+        argumentNames = [NSArray array];
+    }
+    arguments = [[LArguments alloc] initWithMessageArguments:argumentNames];
+    
     code = [theArguments lastObject];
     return self;
 }
 
 - (LObject*)activate:(LExecution*)execution
 {
-    return [execution evaluateCode:code inContext:[self methodContextWithExecution:execution]];
+    LObject *methodContext = [self methodContextWithExecution:execution];
+    return [execution evaluateCode:code inContext:methodContext];
 }
 
 - (id)methodContextWithExecution:(LExecution*)execution
@@ -79,6 +123,11 @@
      We use normal inheritance model to achieve that. Simple.
      */
     LObject *context = [execution.target newWithExecution:execution];
+    /**
+     Evaluate arguments form message given in execution and put them as locals in 
+     method execution context.
+     */
+    [arguments evaluateArgumentsFromExecution:execution toContext:context];
     /**
      Self in execution context must point to execution target, not the
      context itself. We need to redefine self then.
