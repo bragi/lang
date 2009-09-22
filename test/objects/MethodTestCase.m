@@ -69,8 +69,10 @@
 - (void)testMethodWithDefaultArgument
 {
     // myUpcase = method(text "hello", text upcase)
-    // myUpcase()
+    // myUpcase
     result = [lang run:@"=(myUpcase, method(text \"hello\", text upcase)). myUpcase"];
     STAssertEqualObjects([(LText*)result text], @"HELLO", @"Method not called");
+    result = [lang run:@"=(myUpcase, method(text \"hello\", text upcase)). myUpcase(\"xxx\")"];
+    STAssertEqualObjects([(LText*)result text], @"XXX", @"Method not called");
 }
 @end
