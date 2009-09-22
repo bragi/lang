@@ -23,8 +23,16 @@
 
 - (LObject*)run:(NSString*)codeText
 {
+    LObject *result;
     code = [LangParser parse:codeText];
-    return [execution runMessage:code withContext:runtime.theBaseContext];
+    @try {
+        result = [execution runMessage:code withContext:runtime.theBaseContext];
+    }
+    @catch (LObject * e) {
+        result = e;
+    }
+    
+    return result;
 }
 
 @end

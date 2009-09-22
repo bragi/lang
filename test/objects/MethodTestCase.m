@@ -75,4 +75,14 @@
     result = [lang run:@"=(myUpcase, method(text \"hello\", text upcase)). myUpcase(\"xxx\")"];
     STAssertEqualObjects([(LText*)result text], @"XXX", @"Method not called");
 }
+
+- (void)testReturnInArguments
+{
+    // inner = method(a, true)
+    // outer = method(inner(return(false))) # This returns false always, inner code is never called
+    // outer
+    result = [lang run:@"=(inner, method(a, true)). =(outer, method(inner(return(false)))). outer"];
+    STAssertEqualObjects(result, lang.runtime.theFalse, @"return not evaluated properly in arguments");
+}
+
 @end

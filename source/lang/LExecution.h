@@ -12,6 +12,7 @@
 @class LRuntime;
 @class LObject;
 
+
 /**
  Executes given code, provides means to evaluate arguments and arbitrary code (usable by methods and macros),
  keeps track of execution state. Gives access to current runtime and allows to create objects programatically.
@@ -40,7 +41,6 @@
 @property (readonly) LMessage *message;
 @property (readonly) LRuntime *runtime;
 @property (readonly) LObject *target;
-@property BOOL stopAndReturn;
 
 /**
  Creates new execution with given runtime, used only from within LRuntime instance.
@@ -69,3 +69,4 @@
 /** Returns all arguments evaluated in context of caller */
 - (NSMutableArray*)evaluatedArguments;
 @end
+

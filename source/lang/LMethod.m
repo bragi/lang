@@ -112,8 +112,15 @@
 
 - (LObject*)activate:(LExecution*)execution
 {
-    LObject *methodContext = [self methodContextWithExecution:execution];
-    return [execution evaluateCode:code inContext:methodContext];
+    LObject *result;
+    @try {
+        LObject *methodContext = [self methodContextWithExecution:execution];
+        result = [execution evaluateCode:code inContext:methodContext];
+    }
+    @catch (LObject *e) {
+        result = e;
+    }
+    return result;
 }
 
 - (id)methodContextWithExecution:(LExecution*)execution

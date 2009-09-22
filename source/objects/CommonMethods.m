@@ -93,9 +93,7 @@
 
 - (LObject*)activate:(LExecution*)execution
 {
-    LObject *result = [super activate:execution];
-    execution.stopAndReturn = YES;
-    return result;
+    @throw [super activate:execution];
 }
 
 @end
