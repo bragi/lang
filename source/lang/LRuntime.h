@@ -12,6 +12,7 @@
 #import "LText.h"
 #import "LNumber.h"
 #import "LList.h"
+#import "LMethod.h"
 
 /**
  Runtime of the Lang. Initializes all basic objects, provides access to them,
@@ -47,6 +48,15 @@
     
     /** List */
     LList *theList;
+
+    /** Executable */
+    LObject *theExecutable;
+
+    /** Method */
+    LObject *theMethod;
+
+    /** Method */
+    LObject *theMacro;
 }
 
 @property LObject *theBaseContext;
@@ -57,6 +67,9 @@
 @property LText *theText;
 @property LNumber *theNumber;
 @property LList *theList;
+@property LObject *theExecutable;
+@property LObject *theMethod;
+@property LObject *theMacro;
 
 /**
  Initializes Runtime, creates all necessary runtime objects.
@@ -87,4 +100,14 @@
  Creates new instance of List
  */
 - (LList*)makeListWithEntries:(NSMutableArray*)entries;
+
+/**
+ Adds proper ancestor to the method and returns it
+ */
+- (LObject*)withMethodAncestor:(LObject*)method;
+
+/**
+ Adds proper ancestor to the macro and returns it
+ */
+- (LObject*)withMacroAncestor:(LObject*)macro;
 @end

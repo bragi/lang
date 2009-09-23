@@ -33,6 +33,9 @@
 @synthesize theText;
 @synthesize theNumber;
 @synthesize theList;
+@synthesize theExecutable;
+@synthesize theMethod;
+@synthesize theMacro;
 
 - (id)init
 {
@@ -55,6 +58,9 @@
     theNil = [LObject objectWithAncestor:theObject];
     theNumber = [LNumber numberWithAncestor:theObject integer:0];
     theList = [LList listWithAncestor:theObject entries:[NSMutableArray arrayWithCapacity:0]];
+    theExecutable = [LObject objectWithAncestor:theObject];
+    theMethod = [LObject objectWithAncestor:theExecutable];
+    theMacro = [LObject objectWithAncestor:theExecutable];
 }
 
 - (void)createObjectCells
@@ -86,6 +92,18 @@
 - (LList*)makeListWithEntries:(NSMutableArray*)entries
 {
     return [LList listWithAncestor:theList entries:entries];
+}
+
+- (LObject*)withMethodAncestor:(LObject*)method
+{
+    [method addAncestor:theMethod];
+    return method;
+}
+
+- (LObject*)withMacroAncestor:(LObject*)macro
+{
+    [macro addAncestor:theMacro];
+    return macro;
 }
 
 - (LRuntime*)bootstrap

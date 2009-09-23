@@ -47,7 +47,9 @@
 
 - (LObject*)activate:(LExecution*)execution
 {
-    return [[LLangMethod alloc] initWithArguments:[execution.message arguments]];
+    LObject *result = [[LLangMethod alloc] initWithArguments:[execution.message arguments]];
+    [result addAncestor:execution.runtime.theMethod];
+    return result;
 }
 
 @end
@@ -60,7 +62,9 @@
     // Create and return new instance of LLangMacro
     NSArray *arguments = [execution.message arguments];
     LMessage *code = (LMessage*)[arguments lastObject];
-    return [[LLangMacro alloc] initWithCode:code];
+    LObject *result = [[LLangMacro alloc] initWithCode:code];
+    [result addAncestor:execution.runtime.theMacro];
+    return result;
 }
 
 @end
