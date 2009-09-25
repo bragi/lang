@@ -16,6 +16,7 @@
 #import "RObject.h"
 #import "RText.h"
 #import "RList.h"
+#import "RMessage.h"
 
 @interface LRuntime()
 - (void)createObjectHierarchy;
@@ -75,6 +76,7 @@
     [RFalse addCellsTo:theFalse inRuntime:self];
     [RNil addCellsTo:theNil inRuntime:self];
     [RList addCellsTo:theList inRuntime:self];
+    [RMessage addCellsTo:theMessage inRuntime:self];
 }
 
 - (LText*)makeTextWithString:(NSString*)string

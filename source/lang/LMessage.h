@@ -10,6 +10,7 @@
 #import "LObject.h"
 
 @class LRuntime;
+@class LExecution;
 
 @interface LMessage : LObject {
 	NSString *name;
@@ -27,20 +28,40 @@
 - (void)addArgument:(LMessage*)argument;
 - (NSString*)stringValue;
 - (NSMutableString*)stringValueWithoutNested;
+
+/**
+ Gives access to the next message within execution.
+ */
+- (LObject*)nextWithExecution:(LExecution*)execution;
+
+/**
+ Gives access to the arguments within execution.
+ */
+- (LObject*)argumentsWithExecution:(LExecution*)execution;
+
+/**
+ Gives access to the name within execution.
+ */
+- (LObject*)nameWithExecution:(LExecution*)execution;
+
 @end
+
 
 @interface EndMessage : LMessage {}
 + (id)build;
 - (id)init;
 @end
 
+
 /**Base class for all literals. */
 @interface LLiteral : LMessage {}
 @end
 
+
 /**Text literal. */
 @interface LTextLiteral : LLiteral {}
 @end
+
 
 /**Number literal. */
 @interface LNumberLiteral : LLiteral {}

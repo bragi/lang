@@ -106,6 +106,20 @@
     return YES;
 }
 
+- (LObject*)nextWithExecution:(LExecution*)execution
+{
+    return nextMessage;
+}
+
+- (LObject*)argumentsWithExecution:(LExecution*)execution
+{
+    return [execution.runtime makeListWithEntries:arguments];
+}
+
+- (LObject*)nameWithExecution:(LExecution*)execution
+{
+    return [execution.runtime makeTextWithString:name];
+}
 @end
 
 
