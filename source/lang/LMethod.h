@@ -12,7 +12,13 @@
 #import "LExecution.h"
 
 /** Base class for all executable code. */
-@interface LExecutable : LObject {}
+@interface LExecutable : LObject {
+    LMessage *code;
+}
+
+/** Builds context that keeps locals throughout invocation. */
+- (id)invocationContextWithExecution:(LExecution*)execution;
+
 @end
 
 
@@ -48,32 +54,24 @@
  Base class for methods. Evaluates parameters and binds their values
  to names.
  */
-@interface LMethod : LExecutable {
-}
-
+@interface LMethod : LExecutable {}
 @end
 
 
 /** Represents methods created in runtime using method(). */
 @interface LLangMethod : LExecutable {
     LArguments *arguments;
-    LMessage *code;
 }
 
 /** Initializes LLangMethod object, parses arguments and stores code to execute when activated. */
 - (id)initWithArguments:(NSArray*)theArguments;
-
-/** Builds context that keeps locals throughout method execution. */
-- (id)methodContextWithExecution:(LExecution*)execution;
 @end
 
 
 #pragma mark Macros
 
 /** Represents macros created in runtime using macro(). */
-@interface LLangMacro : LExecutable {
-    LMessage *code;
-}
+@interface LLangMacro : LExecutable {}
 
 - (id)initWithCode:(LMessage*)newCode;
 

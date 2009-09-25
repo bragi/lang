@@ -17,6 +17,7 @@
 {
     /* Add methods */
     [object setCell:[[ForwardingMethod alloc] initWithName:@"length"] withName:@"length"];
+    [object setCell:[[ForwardingMethod alloc] initWithName:@"first"] withName:@"first"];
 }
 
 @end

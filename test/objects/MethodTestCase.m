@@ -85,4 +85,19 @@
     STAssertEqualObjects(result, lang.runtime.theFalse, @"return not evaluated properly in arguments");
 }
 
+- (void)testMessageNameInMacro
+{
+    // m = macro(call message name)
+    // m
+    result = [lang run:@"=(m, macro(call message name)). m"];
+    STAssertEqualObjects([(LText*)result text], @"m", @"Message name is different");
+}
+
+- (void)testMessageArgumentsInMacro
+{
+    // m = macro(call message arguments first name)
+    // m(hello)
+    result = [lang run:@"=(m, macro(call message arguments first name)). m(hello)"];
+    STAssertEqualObjects([(LText*)result text], @"hello", @"Message name is different");
+}
 @end

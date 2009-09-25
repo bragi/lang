@@ -23,4 +23,6 @@
 
 /** Return length of the list. */
 - (LNumber*)lengthWithExecution:(LExecution*)execution;
+/** Return first element of the list. */
+- (LNumber*)firstWithExecution:(LExecution*)execution;
 @end

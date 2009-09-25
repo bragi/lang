@@ -9,8 +9,27 @@
 #import "LMethod.h"
 #import "LExecution.h"
 #import "CommonMethods.h"
+#import "LRuntime.h"
 
 @implementation LExecutable
+
+- (LObject*)activate:(LExecution*)execution
+{
+    LObject *result;
+    @try {
+        LObject *invocationContext = [self invocationContextWithExecution:execution];
+        result = [execution evaluateCode:code inContext:invocationContext];
+    }
+    @catch (LObject *e) {
+        result = e;
+    }
+    return result;
+}
+
+- (id)invocationContextWithExecution:(LExecution*)execution
+{
+    @throw @"Not implemented";
+}
 @end
 
 
@@ -110,20 +129,7 @@
     return self;
 }
 
-- (LObject*)activate:(LExecution*)execution
-{
-    LObject *result;
-    @try {
-        LObject *methodContext = [self methodContextWithExecution:execution];
-        result = [execution evaluateCode:code inContext:methodContext];
-    }
-    @catch (LObject *e) {
-        result = e;
-    }
-    return result;
-}
-
-- (id)methodContextWithExecution:(LExecution*)execution
+- (id)invocationContextWithExecution:(LExecution*)execution
 {
     /** 
      Execution context forwards all cell access to execution target.
@@ -143,8 +149,9 @@
     /**
      Allow to return value from method body.
      */
-    // TODO: handle returns from method arguments.
-    [context setCell:[[ReturnMethod alloc] init] withName:@"return"];
+    LMethod *returnMethod = [[ReturnMethod alloc] init];
+    [returnMethod addAncestor:execution.runtime.theMethod];
+    [context setCell:returnMethod withName:@"return"];
     return context;
 }
 @end
@@ -161,9 +168,35 @@
     return self;
 }
 
-- (LObject*)activate:(LExecution*)execution
+- (id)invocationContextWithExecution:(LExecution*)execution
 {
-    return [execution evaluateWithCurrentContext:code];
+    /** 
+     Execution context forwards all cell access to execution target.
+     We use normal inheritance model to achieve that. Simple.
+     */
+    LObject *context = [execution.target newWithExecution:execution];
+    
+    /**
+     Call represents the call to this macro, gives access to all parts of macro.
+     */
+    LObject *call = [execution.runtime.theObject newWithExecution:execution];
+    [context setCell:call withName:@"call"];
+    /**
+     Message that was sent to activate this macro.
+     */
+    [call setCell:execution.message withName:@"message"];
+    /**
+     Self in execution context must point to execution target, not the
+     context itself. We need to redefine self then.
+     */
+    [context setCell:execution.target withName:@"self"];
+    /**
+     Allow to return value from method body.
+     */
+    LMethod *returnMethod = [[ReturnMethod alloc] init];
+    [returnMethod addAncestor:execution.runtime.theMethod];
+    [context setCell:returnMethod withName:@"return"];
+    return context;
 }
 
 @end

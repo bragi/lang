@@ -33,4 +33,9 @@
     return [execution.runtime makeNumberWithInteger:[list count]];
 }
 
+- (LNumber*)firstWithExecution:(LExecution*)execution
+{
+    return [list objectAtIndex:0];
+}
+
 @end
