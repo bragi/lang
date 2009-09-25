@@ -13,15 +13,17 @@
 
 @synthesize message;
 
-- (id)init
+- (id)initWithRuntime:(LRuntime*)aRuntime
 {
     self = [super init];
+    runtime = aRuntime;
     messages = [NSMutableArray array];
     return self;
 }
 
 - (void)addMessage:(LMessage*)newMessage
 {
+    [newMessage addAncestor:runtime.theMessage];
     if (message == nil) {
         message = newMessage;
     } else {

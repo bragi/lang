@@ -8,8 +8,10 @@
 
 #import <Cocoa/Cocoa.h>
 #import "LMessage.h"
+#import "LRuntime.h"
 
 @interface LangBuilder : NSObject {
+    LRuntime *runtime;
     LMessage *message;
     LMessage *currentMessage;
     BOOL argumentStarted;
@@ -18,7 +20,7 @@
 
 @property (readonly) LMessage *message;
 
-- (id)init;
+- (id)initWithRuntime:(LRuntime*)runtime;
 - (void)identifier:(NSString*)name;
 - (void)argumentsStart;
 - (void)argumentsEnd;

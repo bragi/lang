@@ -8,11 +8,12 @@
 
 #import "LangBuilderTestCase.h"
 #import "LMessage.h"
+#import "LRuntime.h"
 
 @implementation LangBuilderTestCase
 - (void)setUp
 {
-    builder = [[LangBuilder alloc] init];
+    builder = [[LangBuilder alloc] initWithRuntime:[[LRuntime alloc] init]];
     name = [LMessage buildWithName:@"name"];
     hello = [LMessage buildWithName:@"hello"];
 }

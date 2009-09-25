@@ -7,9 +7,11 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "LObject.h"
 
+@class LRuntime;
 
-@interface LMessage : NSObject {
+@interface LMessage : LObject {
 	NSString *name;
 	LMessage *nextMessage;
 	NSMutableArray *arguments;

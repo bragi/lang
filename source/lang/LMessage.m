@@ -7,6 +7,7 @@
 //
 
 #import "LMessage.h"
+#import "LRuntime.h"
 
 @implementation LMessage
 

@@ -22,7 +22,7 @@
 
 - (LObject*)executeText:(NSString*)text
 {
-    code = [LangParser parse:text];
+    code = [LangParser parse:text inRuntime:runtime];
     return [self executeCode];
 }
 

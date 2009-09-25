@@ -36,6 +36,7 @@
 @synthesize theExecutable;
 @synthesize theMethod;
 @synthesize theMacro;
+@synthesize theMessage;
 
 - (id)init
 {
@@ -61,6 +62,8 @@
     theExecutable = [LObject objectWithAncestor:theObject];
     theMethod = [LObject objectWithAncestor:theExecutable];
     theMacro = [LObject objectWithAncestor:theExecutable];
+    theMessage = [LMessage buildWithName:@""];
+    [theMessage addAncestor:theObject];
 }
 
 - (void)createObjectCells
@@ -111,7 +114,7 @@
     // BOGUS: this is trully HARDcoded :(
     NSString *codeText = [NSString stringWithContentsOfFile:@"/Users/bragi/projects/lang-objective-c/system/boot.lang" encoding:NSUTF8StringEncoding error:nil];
     NSLog(@"Parsing bootstrap code");
-    LMessage *code = [LangParser parse:codeText];
+    LMessage *code = [LangParser parse:codeText inRuntime:self];
     NSLog(@"Executing bootstrap code");
     [[LExecution buildWithRuntime:self] runMessage:code withContext:theBaseContext];
     return self;

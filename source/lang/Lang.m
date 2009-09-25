@@ -24,7 +24,7 @@
 - (LObject*)run:(NSString*)codeText
 {
     LObject *result;
-    code = [LangParser parse:codeText];
+    code = [LangParser parse:codeText inRuntime:runtime];
     @try {
         result = [execution runMessage:code withContext:runtime.theBaseContext];
     }

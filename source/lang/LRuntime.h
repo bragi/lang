@@ -55,8 +55,11 @@
     /** Method */
     LObject *theMethod;
 
-    /** Method */
+    /** Macro */
     LObject *theMacro;
+
+    /** Message */
+    LMessage *theMessage;
 }
 
 @property LObject *theBaseContext;
@@ -70,6 +73,7 @@
 @property LObject *theExecutable;
 @property LObject *theMethod;
 @property LObject *theMacro;
+@property LMessage *theMessage;
 
 /**
  Initializes Runtime, creates all necessary runtime objects.

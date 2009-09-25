@@ -10,6 +10,7 @@
 #import "LMessage.h"
 
 @interface LangParserTestCase : SenTestCase {
+    LRuntime *runtime;
     LMessage *message;
     LMessage *argument;
 }

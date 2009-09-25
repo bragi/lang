@@ -12,9 +12,9 @@
 
 @implementation LangParser
 
-+ (LMessage*)parse:(NSString*)codeText
++ (LMessage*)parse:(NSString*)codeText inRuntime:(LRuntime*)runtime
 {
-    LangBuilder *builder = [[LangBuilder alloc] init];
+    LangBuilder *builder = [[LangBuilder alloc] initWithRuntime:runtime];
     LangScanner *scanner = [[LangScanner alloc] initWithBuilder:builder];
     [scanner scan:codeText];
     return [builder message];

@@ -15,6 +15,6 @@
 /**
  Parses given string and returns a message object.
  */
-+ (LMessage*)parse:(NSString*)codeString;
++ (LMessage*)parse:(NSString*)codeText inRuntime:(LRuntime*)runtime;
 
 @end
