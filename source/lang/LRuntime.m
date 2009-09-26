@@ -21,6 +21,7 @@
 @interface LRuntime()
 - (void)createObjectHierarchy;
 - (void)createObjectCells;
+- (NSString*)bootstrapPath;
 @end
 
 @implementation LRuntime
@@ -114,12 +115,31 @@
 - (LRuntime*)bootstrap
 {
     // BOGUS: this is trully HARDcoded :(
-    NSString *codeText = [NSString stringWithContentsOfFile:@"/Users/bragi/projects/lang-objective-c/system/boot.lang" encoding:NSUTF8StringEncoding error:nil];
+    NSString *codeText = [NSString stringWithContentsOfFile:[self bootstrapPath] encoding:NSUTF8StringEncoding error:nil];
     NSLog(@"Parsing bootstrap code");
     LMessage *code = [LangParser parse:codeText inRuntime:self];
     NSLog(@"Executing bootstrap code");
     [[LExecution buildWithRuntime:self] runMessage:code withContext:theBaseContext];
     return self;
+}
+
+- (NSString*)bootstrapPath
+{
+    char *pathBuffer = "";
+    uint32_t pathSize = strlen(pathBuffer);
+    
+    _NSGetExecutablePath(pathBuffer, &pathSize);
+    pathBuffer = malloc(pathSize+1);
+    pathBuffer[pathSize]=0;
+    _NSGetExecutablePath(pathBuffer, &pathSize);
+    
+    NSString *path = [NSString stringWithCString:pathBuffer encoding:NSUTF8StringEncoding];
+    free(pathBuffer);
+    
+    path = [path stringByAppendingPathComponent:@"../../../system/boot.lang"];
+    path = [path stringByStandardizingPath];
+    NSLog(@"Bootstrap path is: %@", path);
+    return path;
 }
 
 @end
