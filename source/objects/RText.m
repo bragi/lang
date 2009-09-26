@@ -18,6 +18,7 @@
     /* Add methods */
     [object setCell:[[ForwardingMethod alloc] initWithName:@"upcase"] withName:@"upcase"];
     [object setCell:[[SelfMethod alloc] init] withName:@"toText"];
+    [object setCell:[[ForwardingMethod alloc] initWithName:@"puts"] withName:@"puts"];
 }
 
 @end

@@ -70,8 +70,8 @@
 
  object message
  
- then object will receive send: with message in frame. It needs to decide which cell will
- handle the call and then sends activate to this cell.
+ then object will receive send: with message in execution. It needs to decide which cell will
+ handle the call and then sends 'activate' to this cell.
  */
 - (LObject*)send:(LExecution*)execution;
 
@@ -87,5 +87,10 @@
  Creates a new object with this object as ancestor. Used in running programs.
  */
 - (LObject*)newWithExecution:(LExecution*)execution;
+
+/**
+ Returns Text representation of this object.
+ */
+- (LObject*)toTextWithExecution:(LExecution*)execution;
 
 @end

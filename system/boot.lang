@@ -1,4 +1,5 @@
 Object =(kind, "Object")
+Object =(puts, method(self toText puts))
 
 false =(new, false)
 =(False, false)

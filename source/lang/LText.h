@@ -23,4 +23,8 @@
 /** Return text with upcase content. */
 - (LText*)upcaseWithExecution:(LExecution*)execution;
 
+/**
+ Outputs text value of object on console and returns self.
+ */
+- (LObject*)putsWithExecution:(LExecution*)execution;
 @end

@@ -33,4 +33,9 @@
     return [execution.runtime makeTextWithString:[self.text uppercaseString]];
 }
 
+- (LObject*)putsWithExecution:(LExecution*)execution
+{
+    NSLog(@"%@", text);
+    return self;
+}
 @end
