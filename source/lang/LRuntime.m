@@ -116,9 +116,9 @@
 {
     // BOGUS: this is trully HARDcoded :(
     NSString *codeText = [NSString stringWithContentsOfFile:[self bootstrapPath] encoding:NSUTF8StringEncoding error:nil];
-    NSLog(@"Parsing bootstrap code");
+
     LMessage *code = [LangParser parse:codeText inRuntime:self];
-    NSLog(@"Executing bootstrap code");
+
     [[LExecution buildWithRuntime:self] runMessage:code withContext:theBaseContext];
     return self;
 }
@@ -138,7 +138,7 @@
     
     path = [path stringByAppendingPathComponent:@"../../../system/boot.lang"];
     path = [path stringByStandardizingPath];
-    NSLog(@"Bootstrap path is: %@", path);
+
     return path;
 }
 

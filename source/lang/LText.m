@@ -35,7 +35,7 @@
 
 - (LObject*)putsWithExecution:(LExecution*)execution
 {
-    NSLog(@"%@", text);
+    printf("%s\n", [text cStringUsingEncoding:NSUTF8StringEncoding]);
     return self;
 }
 @end
