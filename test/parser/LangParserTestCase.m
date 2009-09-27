@@ -49,4 +49,16 @@
     STAssertNotNil(argument.nextMessage, @"End message after last argument skipped");
     STAssertTrue([message.arguments count] == 1, @"Not enough arguments");
 }
+
+- (void)testShuffleAssignement
+{
+    message = [LangParser parse:@"a = 1" inRuntime:runtime];
+    STAssertEqualObjects(message.name, @"=", @"Assignement not shuffled properly");
+    NSLog(@"Arguments: %d", [message.arguments count]);
+    STAssertTrue([message.arguments count] == 2, @"Not enough arguments");
+    argument = (LMessage*)[message.arguments objectAtIndex:0];
+    STAssertEqualObjects(argument.name, @"a", @"Assignement not shuffled properly");
+    argument = (LMessage*)[message.arguments objectAtIndex:1];
+    STAssertEqualObjects(argument.name, @"1", @"Assignement not shuffled properly");
+}
 @end

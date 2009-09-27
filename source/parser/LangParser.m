@@ -9,6 +9,7 @@
 #import "LangParser.h"
 #import "LangBuilder.h"
 #import "LangScanner.h"
+#import "LangOperators.h"
 
 @implementation LangParser
 
@@ -17,7 +18,7 @@
     LangBuilder *builder = [[LangBuilder alloc] initWithRuntime:runtime];
     LangScanner *scanner = [[LangScanner alloc] initWithBuilder:builder];
     [scanner scan:codeText];
-    return [builder message];
+    LangOperators *operators = [[LangOperators alloc] init];
+    return [operators shuffle:[builder message]];
 }
-
 @end
