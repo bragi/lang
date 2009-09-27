@@ -1,19 +1,19 @@
-Object =(kind, "Object")
-Object =(puts, method(self toText puts))
+Object kind = "Object"
+Object puts = method(self toText puts)
 
-false =(new, false)
-=(False, false)
+false new = false
+False = false
 
-true =(new, true)
-=(True, true)
+true new = true
+True = true
 
-nil =(new, nil)
-=(Nil, nil)
+nil new = nil
+Nil = nil
 
-true =(ifFalse, nil)
+true ifFalse = nil
 
-false =(ifTrue, nil)
+false ifTrue = nil
 
-nil =(toText, "nil")
-false =(toText, "false")
-true =(toText, "true")
+nil toText = "nil"
+false toText = "false"
+true toText = "true"
