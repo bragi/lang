@@ -13,7 +13,7 @@
 
 + (void)addCellsTo:(LObject*)object inRuntime:(LRuntime*)runtime
 {
-    [object setCell:[[EvaluateFirstArgumentMethod alloc] init] withName:@"ifTrue"];
+    [object setCell:[runtime withExecutableAncestor:[[EEvaluateFirstArgument alloc] init]] withName:@"ifTrue"];
 }
 
 @end
@@ -23,7 +23,7 @@
 
 + (void)addCellsTo:(LObject*)object inRuntime:(LRuntime*)runtime
 {
-    [object setCell:[[EvaluateFirstArgumentMethod alloc] init] withName:@"ifFalse"];
+    [object setCell:[runtime withExecutableAncestor:[[EEvaluateFirstArgument alloc] init]] withName:@"ifFalse"];
 }
 
 @end

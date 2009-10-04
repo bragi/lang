@@ -16,9 +16,9 @@
 + (void)addCellsTo: (LObject*)object inRuntime:(LRuntime*)runtime
 {
     /* Add methods */
-    [object setCell:[[ForwardingMethod alloc] initWithName:@"upcase"] withName:@"upcase"];
-    [object setCell:[[SelfMethod alloc] init] withName:@"toText"];
-    [object setCell:[[ForwardingMethod alloc] initWithName:@"puts"] withName:@"puts"];
+    [object setCell:[runtime withExecutableAncestor:[[EForward alloc] initWithName:@"upcase"]] withName:@"upcase"];
+    [object setCell:[runtime withExecutableAncestor:[[ESelf alloc] init]] withName:@"toText"];
+    [object setCell:[runtime withExecutableAncestor:[[EForward alloc] initWithName:@"puts"]] withName:@"puts"];
 }
 
 @end

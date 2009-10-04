@@ -36,6 +36,7 @@
 @synthesize theNumber;
 @synthesize theList;
 @synthesize theExecutable;
+@synthesize theLangExecutable;
 @synthesize theMethod;
 @synthesize theMacro;
 @synthesize theMessage;
@@ -62,8 +63,9 @@
     theNumber = [LNumber numberWithAncestor:theObject integer:0];
     theList = [LList listWithAncestor:theObject entries:[NSMutableArray arrayWithCapacity:0]];
     theExecutable = [LObject objectWithAncestor:theObject];
-    theMethod = [LObject objectWithAncestor:theExecutable];
-    theMacro = [LObject objectWithAncestor:theExecutable];
+    theLangExecutable = [LObject objectWithAncestor:theExecutable];
+    theMethod = [LObject objectWithAncestor:theLangExecutable];
+    theMacro = [LObject objectWithAncestor:theLangExecutable];
     theMessage = [LMessage buildWithName:@""];
     [theMessage addAncestor:theObject];
 }
@@ -100,16 +102,10 @@
     return [LList listWithAncestor:theList entries:entries];
 }
 
-- (LObject*)withMethodAncestor:(LObject*)method
+- (LObject*)withExecutableAncestor:(LObject*)method
 {
-    [method addAncestor:theMethod];
+    [method addAncestor:theExecutable];
     return method;
-}
-
-- (LObject*)withMacroAncestor:(LObject*)macro
-{
-    [macro addAncestor:theMacro];
-    return macro;
 }
 
 - (LRuntime*)bootstrap

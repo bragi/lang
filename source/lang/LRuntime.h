@@ -52,6 +52,9 @@
     /** Executable */
     LObject *theExecutable;
 
+    /** Executable */
+    LObject *theLangExecutable;
+
     /** Method */
     LObject *theMethod;
 
@@ -71,6 +74,7 @@
 @property LNumber *theNumber;
 @property LList *theList;
 @property LObject *theExecutable;
+@property LObject *theLangExecutable;
 @property LObject *theMethod;
 @property LObject *theMacro;
 @property LMessage *theMessage;
@@ -106,12 +110,8 @@
 - (LList*)makeListWithEntries:(NSMutableArray*)entries;
 
 /**
- Adds proper ancestor to the method and returns it
+ Adds proper ancestor to native method and returns it
  */
-- (LObject*)withMethodAncestor:(LObject*)method;
+- (LObject*)withExecutableAncestor:(LObject*)nativeMethod;
 
-/**
- Adds proper ancestor to the macro and returns it
- */
-- (LObject*)withMacroAncestor:(LObject*)macro;
 @end

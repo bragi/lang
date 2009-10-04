@@ -17,11 +17,12 @@
     [object setCell:object withName:@"BaseContext"];
 
     /* Basic methods */
-    [object setCell:[runtime withMacroAncestor:[[SelfMethod alloc] init]] withName:@"self"];
-    [object setCell:[runtime withMacroAncestor:[[ForwardingMethod alloc] initWithName:@"assignment"]] withName:@"="];
-    [object setCell:[runtime withMacroAncestor:[[MethodMethod alloc] init]] withName:@"method"];
-    [object setCell:[runtime withMacroAncestor:[[MacroMethod alloc] init]] withName:@"macro"];
-    [object setCell:[runtime withMacroAncestor:[[ForwardingMethod alloc] initWithName:@"toText"]] withName:@"toText"];
+    [object setCell:[runtime withExecutableAncestor:[[ESelf alloc] init]] withName:@"self"];
+    [object setCell:[runtime withExecutableAncestor:[[EForward alloc] initWithName:@"assignment"]] withName:@"="];
+    [object setCell:[runtime withExecutableAncestor:[[ECreateMethod alloc] init]] withName:@"method"];
+    [object setCell:[runtime withExecutableAncestor:[[ECreateMacro alloc] init]] withName:@"macro"];
+    [object setCell:[runtime withExecutableAncestor:[[EForward alloc] initWithName:@"toText"]] withName:@"toText"];
+    [object setCell:[runtime withExecutableAncestor:[[EForward alloc] initWithName:@"cell"]] withName:@"cell"];
     
     /* Object cell */
     [object setCell:runtime.theObject withName:@"Object"];
@@ -43,7 +44,7 @@
 
     /* List cell */
     [object setCell:runtime.theList withName:@"List"];
-    [object setCell:[runtime withMacroAncestor:[[ListMethod alloc] init]] withName:@"list"];
+    [object setCell:[runtime withExecutableAncestor:[[ECreateList alloc] init]] withName:@"list"];
 }
 
 @end

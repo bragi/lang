@@ -94,5 +94,11 @@
     return [execution.runtime makeTextWithString:[NSString stringWithFormat:@"%@", self]];
 }
 
+- (LObject*)cellWithExecution:(LExecution*)execution
+{
+    NSString *name = [(LText*)[[execution evaluatedArguments] objectAtIndex:0] text];
+    return [self cellForName:name];
+}
+
 @end
 

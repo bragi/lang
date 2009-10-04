@@ -12,6 +12,10 @@
 #import "LRuntime.h"
 
 @implementation LExecutable
+@end
+
+
+@implementation LLangExecutable
 
 - (LObject*)activate:(LExecution*)execution
 {
@@ -30,14 +34,16 @@
 {
     @throw @"Not implemented";
 }
+
+- (id)codeWithExecution:(LExecution*)execution
+{
+    return code;
+}
+
 @end
 
 
 #pragma mark Methods
-
-@implementation LMethod
-@end
-
 
 @implementation LArguments
 
@@ -110,7 +116,7 @@
 @end
 
 
-@implementation LLangMethod
+@implementation LMethod
 
 - (id)initWithArguments:(NSArray*)theArguments
 {
@@ -149,9 +155,7 @@
     /**
      Allow to return value from method body.
      */
-    LMethod *returnMethod = [[ReturnMethod alloc] init];
-    [returnMethod addAncestor:execution.runtime.theMethod];
-    [context setCell:returnMethod withName:@"return"];
+    [context setCell:[execution.runtime withExecutableAncestor:[[EReturn alloc] init]] withName:@"return"];
     return context;
 }
 @end
@@ -159,7 +163,7 @@
 
 #pragma mark Macros
 
-@implementation LLangMacro
+@implementation LMacro
 
 - (id)initWithCode:(LMessage*)newCode
 {
@@ -193,9 +197,7 @@
     /**
      Allow to return value from method body.
      */
-    LMethod *returnMethod = [[ReturnMethod alloc] init];
-    [returnMethod addAncestor:execution.runtime.theMethod];
-    [context setCell:returnMethod withName:@"return"];
+    [context setCell:[execution.runtime withExecutableAncestor:[[EReturn alloc] init]] withName:@"return"];
     return context;
 }
 

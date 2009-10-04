@@ -17,3 +17,9 @@ false ifTrue = nil
 nil toText = "nil"
 false toText = "false"
 true toText = "true"
+
+Object ifTrue = true cell("ifTrue")
+
+if = macro(
+  call arguments 
+)

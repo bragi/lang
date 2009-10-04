@@ -12,12 +12,12 @@
 /**
  Returns the receiver.
  */
-@interface SelfMethod : LExecutable {}
+@interface ESelf : LExecutable {}
 @end
 
 
 /** Executes Objective-C method called *name*WithExecution: */
-@interface ForwardingMethod : LMethod
+@interface EForward : LMethod
 {
     SEL name;
 }
@@ -31,7 +31,7 @@
  Creates new instance of LLangMethod with code provided in argument.
  Represents method() in runtime.
  */
-@interface MethodMethod : LExecutable {}
+@interface ECreateMethod : LExecutable {}
 @end
 
 
@@ -39,7 +39,7 @@
  Creates new instance of LLangMacro with code provided in argument.
  Represents macro() in runtime.
  */
-@interface MacroMethod : LExecutable {}
+@interface ECreateMacro : LExecutable {}
 @end
 
 
@@ -47,18 +47,18 @@
  Creates new instance of LList with evaluated arguments as list entries.
  Represents list() in runtime.
  */
-@interface ListMethod : LExecutable {}
+@interface ECreateList : LExecutable {}
 @end
 
 
 /**
  Evaluates first argument and returns it.
  */
-@interface EvaluateFirstArgumentMethod : LExecutable {}
+@interface EEvaluateFirstArgument : LExecutable {}
 @end
 
 /**
  Forces execution to return evaulated argument and stop processing subsequent messages.
  */
-@interface ReturnMethod : EvaluateFirstArgumentMethod {}
+@interface EReturn : EEvaluateFirstArgument {}
 @end

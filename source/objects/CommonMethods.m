@@ -16,7 +16,7 @@
 #import "LList.h"
 
 
-@implementation SelfMethod
+@implementation ESelf
 
 - (LObject*)activate:(LExecution*)execution
 {
@@ -26,7 +26,7 @@
 @end
 
 
-@implementation ForwardingMethod
+@implementation EForward
 
 - (id)initWithName:(NSString*)newName
 {
@@ -43,11 +43,11 @@
 @end
 
 
-@implementation MethodMethod
+@implementation ECreateMethod
 
 - (LObject*)activate:(LExecution*)execution
 {
-    LObject *result = [[LLangMethod alloc] initWithArguments:[execution.message arguments]];
+    LObject *result = [[LMethod alloc] initWithArguments:[execution.message arguments]];
     [result addAncestor:execution.runtime.theMethod];
     return result;
 }
@@ -55,14 +55,14 @@
 @end
 
 
-@implementation MacroMethod
+@implementation ECreateMacro
 
 - (LObject*)activate:(LExecution*)execution
 {
     // Create and return new instance of LLangMacro
     NSArray *arguments = [execution.message arguments];
     LMessage *macroCode = (LMessage*)[arguments lastObject];
-    LObject *result = [[LLangMacro alloc] initWithCode:macroCode];
+    LObject *result = [[LMacro alloc] initWithCode:macroCode];
     [result addAncestor:execution.runtime.theMacro];
     return result;
 }
@@ -70,7 +70,7 @@
 @end
 
 
-@implementation ListMethod
+@implementation ECreateList
 
 - (LObject*)activate:(LExecution*)execution
 {
@@ -81,7 +81,7 @@
 @end
 
 
-@implementation EvaluateFirstArgumentMethod
+@implementation EEvaluateFirstArgument
 
 - (LObject*)activate:(LExecution*)execution
 {
@@ -93,7 +93,7 @@
 @end
 
 
-@implementation ReturnMethod
+@implementation EReturn
 
 - (LObject*)activate:(LExecution*)execution
 {
