@@ -39,7 +39,7 @@
 
 - (void)identifier:(NSString*)name
 {
-    [self addMessage:[LMessage buildWithName:name]];
+    [self addMessage:[LMessage messageWithName:name]];
 }
 
 - (void)argumentsStart
@@ -67,12 +67,12 @@
 
 - (void)textLiteral:(NSString*)name
 {
-    [self addMessage:[LTextLiteral buildWithName:name]];
+    [self addMessage:[LTextLiteral messageWithName:name]];
 }
 
 - (void)numberLiteral:(NSString*)name
 {
-  [self addMessage:[LNumberLiteral buildWithName:name]];
+  [self addMessage:[LNumberLiteral messageWithName:name]];
 }
 
 @end

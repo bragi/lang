@@ -20,7 +20,7 @@
     NSUInteger column;
 }
 
-+ (id)buildWithName:(NSString*)newName;
++ (id)messageWithName:(NSString*)newName;
 - (id)initWithName:(NSString*)newName;
 
 @property LMessage *nextMessage;

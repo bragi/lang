@@ -17,7 +17,7 @@
 @synthesize line;
 @synthesize column;
 
-+ (id)buildWithName:(NSString*) newName
++ (id)messageWithName:(NSString*) newName
 {
     return [[LMessage alloc] initWithName:newName];
 }
@@ -157,7 +157,7 @@
 
 @implementation LTextLiteral
 
-+ (id)buildWithName:(NSString*) newName
++ (id)messageWithName:(NSString*) newName
 {
     return [[LTextLiteral alloc] initWithName:newName];
 }
@@ -167,7 +167,7 @@
 
 @implementation LNumberLiteral
 
-+ (id)buildWithName:(NSString*) newName
++ (id)messageWithName:(NSString*) newName
 {
     return [[LNumberLiteral alloc] initWithName:newName];
 }

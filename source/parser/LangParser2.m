@@ -199,9 +199,17 @@
     return chain;
 }
 
-- (LMessage*)parseCharacter:(unichar)ch
+- (void)parseCharacter:(unichar)ch
 {
-    return nil;
+    NSUInteger line = lineNumber;
+    NSUInteger column = columnNumber;
+
+    [self readWhiteSpace];
+    unichar rr = [self read];
+    if(rr != ch) {
+        NSString *message = [NSString stringWithFormat:@"Expected %C got %C", ch, rr];
+        [self fail:message line:line column:column];
+    }
 }
 
 - (LMessage*)parseComment
@@ -220,15 +228,109 @@
     NSUInteger column = columnNumber-1;
     NSMutableArray *arguments = [self parseExpressionChain];
     [self parseCharacter:')'];
-    LMessage *message = [self messageWithName:@"" line:line column:column];
+    LMessage *message = [self message:[LMessage messageWithName:@""] withLine:line andColumn:column];
     message.arguments = arguments;
     
     return message;
 }
 
-- (LMessage*)parseOperatorChars:(unichar)start
+- (LMessage*)parseOperatorChars:(unichar)indicator
 {
-    return nil;
+    NSUInteger line = lineNumber;
+    NSUInteger column = columnNumber;
+
+    NSMutableString *name = [NSMutableString string];
+    [name appendFormat:@"%C", indicator];
+    LMessage *message;
+
+    unichar rr;
+    
+    if(indicator == '#') {
+        while(true) {
+            rr = [self peek];
+            switch(rr) {
+                case '+':
+                case '-':
+                case '*':
+                case '%':
+                case '<':
+                case '>':
+                case '!':
+                case '?':
+                case '~':
+                case '&':
+                case '|':
+                case '^':
+                case '$':
+                case '=':
+                case '@':
+                case '\'':
+                case '`':
+                case ':':
+                case '#':
+                    [self read];
+                    [name appendFormat:@"%C", rr];
+                    break;
+                default:
+                    message = [self message:[LMessage messageWithName:name] withLine:line andColumn:column];
+
+                    if(rr == '(') {
+                        [self read];
+                        NSMutableArray *arguments = [self parseExpressionChain];
+                        [self parseCharacter:')'];
+                        message.arguments = arguments;
+                    }
+                    return message;
+            }
+        }
+    } else {
+        while(true) {
+            rr = [self peek];
+            switch(rr) {
+                case '+':
+                case '-':
+                case '*':
+                case '%':
+                case '<':
+                case '>':
+                case '!':
+                case '?':
+                case '~':
+                case '&':
+                case '|':
+                case '^':
+                case '$':
+                case '=':
+                case '@':
+                case '\'':
+                case '`':
+                case '/':
+                case ':':
+                case '#':
+                    [self read];
+                    [name appendFormat:@"%C", rr];
+                    break;
+                default:
+                    message = [self message:[LMessage messageWithName:name] withLine:line andColumn:column];
+
+                    int rr2 = rr;
+                    [self readWhiteSpace];
+                    rr = [self peek];
+
+                    if(rr == '(') {
+                        [self read];
+                        NSMutableArray *arguments = [self parseExpressionChain];
+                        [self parseCharacter:')'];
+                        message.arguments = arguments;
+                        if(rr != rr2) {
+                            // Message.SetType(mx, Message.Type.DETACH);
+                            // TODO: DETACH message type
+                        }
+                    }
+                    return message;
+                }
+        }
+    }
 }
 
 - (LMessage*)parseNumber:(unichar)start
@@ -248,7 +350,38 @@
 
 - (LMessage*)parseRegularMessageSend:(unichar)start
 {
-    return nil;
+    NSUInteger line = lineNumber;
+    NSUInteger column = columnNumber;
+    
+    NSMutableString *name = [NSMutableString string];
+    [name appendFormat:@"%C", start];
+    
+    unichar rr = [self peek];
+    
+    while([self isLetter:rr] || [self isIDDigit:rr] || rr == ':' || rr == '!' || rr == '?' || rr == '$') {
+        [self read];
+        [name appendFormat:@"%C", rr];
+    }
+    
+    LMessage *result = [self message:[LMessage messageWithName:name] withLine:line andColumn:column];
+    
+
+    unichar rr2 = rr;
+    [self readWhiteSpace];
+    rr = [self peek];
+    if(rr == '(') {
+        [self read];
+        NSMutableArray *arguments = [self parseExpressionChain];
+        [self parseCharacter:')'];
+        result.arguments = arguments;
+
+        if(rr != rr2) {
+            // Message.SetType(mx, Message.Type.DETACH);
+            // TODO: what is detach?!
+        }
+    }
+
+    return result;
 }
 
 - (LMessage*)parseSquareMessageSend
@@ -271,9 +404,13 @@
     return nil;
 }
 
-- (LMessage*)readWhiteSpace
+- (void)readWhiteSpace
 {
-    return nil;
+    unichar ch = [self peek];
+    while (ch == ' ') {
+        [self read];
+        ch = [self peek];
+    }
 }
 
 - (unichar)read
@@ -314,9 +451,8 @@
 
 }
      
-- (LMessage*)messageWithName:(NSString*)name line:(NSUInteger)line column:(NSUInteger)column
+- (LMessage*)message:(LMessage*)message withLine:(NSUInteger)line andColumn:(NSUInteger)column
 {
-    LMessage *message = [[LMessage alloc] initWithName:name];
     message.line = line;
     message.column = column;
     [message addAncestor:runtime.theMessage];
@@ -325,6 +461,11 @@
 
 
 - (void)fail:(NSString*)message
+{
+    
+}
+
+- (void)fail:(NSString*)message line:(NSUInteger)line column:(NSUInteger)column
 {
     
 }

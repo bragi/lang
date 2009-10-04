@@ -32,7 +32,7 @@
 - (NSMutableArray*)parseExpressionChain;
 
 - (LMessage*)parseComment;
-- (LMessage*)parseCharacter:(unichar)ch;
+- (void)parseCharacter:(unichar)ch;
 - (LMessage*)parseCurlyMessageSend;
 - (LMessage*)parseEmptyMessageSend;
 - (LMessage*)parseOperatorChars:(unichar)start;
@@ -44,10 +44,11 @@
 - (LMessage*)parseSetMessageSend;
 - (LMessage*)parseTerminator:(unichar)start;
 - (LMessage*)parseText:(unichar)start;
-- (LMessage*)readWhiteSpace;
 
+- (void)readWhiteSpace;
 - (void)fail:(NSString*)message;
-- (LMessage*)messageWithName:(NSString*)name line:(NSUInteger)line column:(NSUInteger)column;
+- (void)fail:(NSString*)message line:(NSUInteger)line column:(NSUInteger)column;
+- (LMessage*)message:(LMessage*)message withLine:(NSUInteger)line andColumn:(NSUInteger)column;
 - (unichar)read;
 - (unichar)peek;
 - (unichar)peek2;
