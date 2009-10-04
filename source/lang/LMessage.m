@@ -14,6 +14,8 @@
 @synthesize nextMessage;
 @synthesize arguments;
 @synthesize name;
+@synthesize line;
+@synthesize column;
 
 + (id)buildWithName:(NSString*) newName
 {
@@ -120,6 +122,12 @@
 {
     return [execution.runtime makeTextWithString:name];
 }
+
+- (BOOL)isTerminator
+{
+    return NO;
+}
+
 @end
 
 
@@ -134,6 +142,11 @@
 {
     self = [super initWithName:@"\n"];
     return self;
+}
+
+- (BOOL)isTerminator
+{
+    return YES;
 }
 
 @end

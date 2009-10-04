@@ -27,10 +27,12 @@
 - (id)initWithCode:(NSString*)codeText andRuntime:(LRuntime*)runtime;
 
 - (LMessage*)parse;
-- (LMessage*)parseExpressions;
 - (LMessage*)parseExpression;
+- (LMessage*)parseExpressions;
+- (NSMutableArray*)parseExpressionChain;
 
 - (LMessage*)parseComment;
+- (LMessage*)parseCharacter:(unichar)ch;
 - (LMessage*)parseCurlyMessageSend;
 - (LMessage*)parseEmptyMessageSend;
 - (LMessage*)parseOperatorChars:(unichar)start;
@@ -45,6 +47,7 @@
 - (LMessage*)readWhiteSpace;
 
 - (void)fail:(NSString*)message;
+- (LMessage*)messageWithName:(NSString*)name line:(NSUInteger)line column:(NSUInteger)column;
 - (unichar)read;
 - (unichar)peek;
 - (unichar)peek2;

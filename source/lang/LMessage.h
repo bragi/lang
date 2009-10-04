@@ -16,6 +16,8 @@
 	NSString *name;
 	LMessage *nextMessage;
 	NSMutableArray *arguments;
+    NSUInteger line;
+    NSUInteger column;
 }
 
 + (id)buildWithName:(NSString*)newName;
@@ -24,10 +26,13 @@
 @property LMessage *nextMessage;
 @property NSString *name;
 @property NSMutableArray *arguments;
+@property NSUInteger line;
+@property NSUInteger column;
 
 - (void)addArgument:(LMessage*)argument;
 - (NSString*)stringValue;
 - (NSMutableString*)stringValueWithoutNested;
+- (BOOL)isTerminator;
 
 /**
  Gives access to the next message within execution.

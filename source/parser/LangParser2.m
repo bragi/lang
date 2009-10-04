@@ -172,6 +172,38 @@
     }
 }
 
+- (NSMutableArray*)parseExpressionChain
+{
+    NSMutableArray *chain = [NSMutableArray array];
+
+    LMessage *currentMessage = [self parseExpressions];
+    while(currentMessage) {
+        [chain addObject:currentMessage];
+        [self readWhiteSpace];
+
+        unichar rr = [self peek];
+        if(rr == ',') {
+            [self read];
+            currentMessage = [self parseExpressions];
+            if(!currentMessage) {
+              [self fail:@"Expected expression following comma"];
+            }
+        } else {
+            if(currentMessage && [currentMessage isTerminator] && currentMessage.nextMessage == nil) {
+                [chain removeLastObject];
+            }
+            currentMessage = nil;
+        }
+    }
+
+    return chain;
+}
+
+- (LMessage*)parseCharacter:(unichar)ch
+{
+    return nil;
+}
+
 - (LMessage*)parseComment
 {
     return nil;
@@ -184,7 +216,14 @@
 
 - (LMessage*)parseEmptyMessageSend
 {
-    return nil;
+    NSUInteger line = lineNumber;
+    NSUInteger column = columnNumber-1;
+    NSMutableArray *arguments = [self parseExpressionChain];
+    [self parseCharacter:')'];
+    LMessage *message = [self messageWithName:@"" line:line column:column];
+    message.arguments = arguments;
+    
+    return message;
 }
 
 - (LMessage*)parseOperatorChars:(unichar)start
@@ -237,8 +276,6 @@
     return nil;
 }
 
-
-
 - (unichar)read
 {
     if (currentPosition < [codeText length]) {
@@ -276,6 +313,16 @@
     }
 
 }
+     
+- (LMessage*)messageWithName:(NSString*)name line:(NSUInteger)line column:(NSUInteger)column
+{
+    LMessage *message = [[LMessage alloc] initWithName:name];
+    message.line = line;
+    message.column = column;
+    [message addAncestor:runtime.theMessage];
+    return message;
+}
+
 
 - (void)fail:(NSString*)message
 {
@@ -291,6 +338,7 @@
 
 - (BOOL)isIDDigit:(unichar)c
 {
-    return ((c>='0' && c<='9'));}
+    return ((c>='0' && c<='9'));
+}
 
 @end
