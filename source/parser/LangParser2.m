@@ -282,14 +282,15 @@
     
 }
 
-- (BOOL)isLetter:(unichar)letter
+- (BOOL)isLetter:(unichar)c
 {
-    return YES;
+    return ((c>='A' && c<='Z') ||
+            c=='_' ||
+            (c>='a' && c<='z'));
 }
 
-- (BOOL)isIDDigit:(unichar)digit
+- (BOOL)isIDDigit:(unichar)c
 {
-    return YES;
-}
+    return ((c>='0' && c<='9'));}
 
 @end
