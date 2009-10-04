@@ -56,39 +56,240 @@
 
 - (LMessage*)parseExpression
 {
+    unichar rr;
+
+    while(true) {
+        rr = [self peek];
+        switch(rr) {
+            case -1:
+                [self read];
+                return nil;
+            case ',':
+            case ')':
+            case ']':
+            case '}':
+                return nil;
+            case '(':
+                [self read];
+                return [self parseEmptyMessageSend];
+            case '[':
+                [self read];
+                return [self parseSquareMessageSend];
+            case '{':
+                [self read];
+                return [self parseCurlyMessageSend];
+            case '#':
+                [self read];
+                switch([self peek]) {
+                case '{':
+                    return [self parseSetMessageSend];
+                case '/':
+                    return [self parseRegexpLiteral:'/'];
+                case '[':
+                    return [self parseText:'['];
+                case 'r':
+                    return [self parseRegexpLiteral:'r'];
+                case '!':
+                    [self parseComment];
+                    break;
+                default:
+                    return [self parseOperatorChars:'#'];
+                }
+                break;
+            case '"':
+                [self read];
+                return [self parseText:'"'];
+            case '0':
+            case '1':
+            case '2':
+            case '3':
+            case '4':
+            case '5':
+            case '6':
+            case '7':
+            case '8':
+            case '9':
+                [self read];
+                return [self parseNumber:rr];
+            case '.':
+                [self read];
+                if((rr = [self peek]) == '.') {
+                    return [self parseRange];
+                } else {
+                    return [self parseTerminator:'.'];
+                }
+            case ';':
+                [self read];
+                [self parseComment];
+                break;
+            case ' ':
+                [self read];
+                [self readWhiteSpace];
+                break;
+            case '\\':
+                [self read];
+                if((rr = [self peek]) == '\n') {
+                    [self read];
+                    break;
+                } else {
+                    [self fail:@"Expected newline after free-floating escape character"];
+                }
+                break;
+            case '\n':
+                [self read];
+                return [self parseTerminator:rr];
+            case '+':
+            case '-':
+            case '*':
+            case '%':
+            case '<':
+            case '>':
+            case '!':
+            case '?':
+            case '~':
+            case '&':
+            case '|':
+            case '^':
+            case '$':
+            case '=':
+            case '@':
+            case '\'':
+            case '`':
+            case '/':
+                [self read];
+                return [self parseOperatorChars:rr];
+            case ':':
+                [self read];
+                if([self isLetter:(rr = [self peek])] || [self isIDDigit:rr]) {
+                    return [self parseRegularMessageSend:':'];
+                } else {
+                    return [self parseOperatorChars:':'];
+                }
+            default:
+                [self read];
+                return [self parseRegularMessageSend:rr];
+        }
+    }
+}
+
+- (LMessage*)parseComment
+{
     return nil;
 }
 
+- (LMessage*)parseCurlyMessageSend
+{
+    return nil;
+}
+
+- (LMessage*)parseEmptyMessageSend
+{
+    return nil;
+}
+
+- (LMessage*)parseOperatorChars:(unichar)start
+{
+    return nil;
+}
+
+- (LMessage*)parseNumber:(unichar)start
+{
+    return nil;
+}
+
+- (LMessage*)parseRange
+{
+    return nil;
+}
+
+- (LMessage*)parseRegexpLiteral:(unichar)start
+{
+    return nil;
+}
+
+- (LMessage*)parseRegularMessageSend:(unichar)start
+{
+    return nil;
+}
+
+- (LMessage*)parseSquareMessageSend
+{
+    return nil;
+}
+
+- (LMessage*)parseSetMessageSend
+{
+    return nil;
+}
+
+- (LMessage*)parseTerminator:(unichar)start
+{
+    return nil;
+}
+
+- (LMessage*)parseText:(unichar)start
+{
+    return nil;
+}
+
+- (LMessage*)readWhiteSpace
+{
+    return nil;
+}
+
+
+
 - (unichar)read
 {
-    unichar value = [codeText characterAtIndex:currentPosition];
-    currentPosition++;
-    if (value == '\n') {
-        lineNumber++;
-        columnNumber = 0;
+    if (currentPosition < [codeText length]) {
+        unichar value = [codeText characterAtIndex:currentPosition];
+        currentPosition++;
+        if (value == '\n') {
+            lineNumber++;
+            columnNumber = 0;
+        } else {
+            columnNumber++;
+        }
+
+        return value;
     } else {
-        columnNumber++;
+        return -1;
     }
 
-    return value;
 }
 
 - (unichar)peek
 {
-    if (currentPosition > 0) {
-        return [codeText characterAtIndex:(currentPosition - 1)];
+    if (currentPosition < [codeText length]) {
+        return [codeText characterAtIndex:currentPosition];
     } else {
-        return nil;
+        return -1;
     }
 
 }
 - (unichar)peek2
 {
-    if (currentPosition > 1) {
-        return [codeText characterAtIndex:(currentPosition - 2)];
+    if (currentPosition > 0) {
+        return [codeText characterAtIndex:(currentPosition - 1)];
     } else {
-        return nil;
+        return -1;
     }
 
 }
+
+- (void)fail:(NSString*)message
+{
+    
+}
+
+- (BOOL)isLetter:(unichar)letter
+{
+    return YES;
+}
+
+- (BOOL)isIDDigit:(unichar)digit
+{
+    return YES;
+}
+
 @end

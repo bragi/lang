@@ -30,8 +30,24 @@
 - (LMessage*)parseExpressions;
 - (LMessage*)parseExpression;
 
+- (LMessage*)parseComment;
+- (LMessage*)parseCurlyMessageSend;
+- (LMessage*)parseEmptyMessageSend;
+- (LMessage*)parseOperatorChars:(unichar)start;
+- (LMessage*)parseNumber:(unichar)start;
+- (LMessage*)parseRange;
+- (LMessage*)parseRegexpLiteral:(unichar)start;
+- (LMessage*)parseRegularMessageSend:(unichar)start;
+- (LMessage*)parseSquareMessageSend;
+- (LMessage*)parseSetMessageSend;
+- (LMessage*)parseTerminator:(unichar)start;
+- (LMessage*)parseText:(unichar)start;
+- (LMessage*)readWhiteSpace;
+
+- (void)fail:(NSString*)message;
 - (unichar)read;
 - (unichar)peek;
 - (unichar)peek2;
-
+- (BOOL)isLetter:(unichar)ch;
+- (BOOL)isIDDigit:(unichar)ch;
 @end
