@@ -333,9 +333,42 @@
     }
 }
 
-- (LMessage*)parseNumber:(unichar)start
+// TODO: include hexadecimal digits and scientific notation
+- (LMessage*)parseNumber:(unichar)indicator
 {
-    return nil;
+    NSUInteger line = lineNumber;
+    NSUInteger column = columnNumber;
+
+    NSMutableString *name = [NSMutableString string];
+    [name appendFormat:@"%C", indicator];
+    LMessage *message;
+    unichar rr = [self peek];
+    
+    // Read all decimal digits
+    while (rr >= '0' && rr <= '9') {
+        [self read];
+        [name appendFormat:@"%C", rr];
+        rr = [self peek];
+    }
+    
+    // Check for decimal
+    if (rr == '.') {
+        // Check if there are more digits after decimal or is it simply EndMessage
+        unichar rr2 = [self peek2];
+        if (rr2 >= '0' && rr2 <= '9' ) {
+            [self read];
+            [name appendFormat:@"%C", rr];
+            
+            // Get remaining decimal digits
+            while (rr >= '0' && rr <= '9') {
+                [self read];
+                [name appendFormat:@"%C", rr];
+                rr = [self peek];
+            }
+        }
+    }
+    
+    return [self message:[LNumberLiteral messageWithName:name] withLine:line andColumn:column];
 }
 
 - (LMessage*)parseRange
@@ -396,12 +429,51 @@
 
 - (LMessage*)parseTerminator:(unichar)start
 {
-    return nil;
+    NSUInteger line = lineNumber;
+    NSUInteger column = columnNumber;
+    
+    NSMutableString *name = [NSMutableString string];
+    [name appendFormat:@"%C", start];
+
+    unichar rr;
+    unichar rr2;
+
+    while(true) {
+        rr = [self peek];
+        rr2 = [self peek2];
+        if((rr == '.' && rr2 != '.') || (rr == '\n')) {
+            [self read];
+        } else {
+            break;
+        }
+    }
+
+    return [self message:[EndMessage messageWithName:name] withLine:line andColumn:column];
 }
 
 - (LMessage*)parseText:(unichar)start
 {
-    return nil;
+    NSUInteger line = lineNumber;
+    NSUInteger column = columnNumber;
+    
+    NSMutableString *name = [NSMutableString string];
+    unichar rr;
+    unichar rr2;
+    
+    switch (start) {
+        case '"':
+            rr = [self peek];
+            while (rr != '"') {
+                // TODO: add escaping
+                [self read];
+                [name appendFormat:@"%C", rr];
+            }
+            break;
+        default:
+            break;
+    }
+    return [self message:[LTextLiteral messageWithName:name] withLine:line andColumn:column];
+    
 }
 
 - (void)readWhiteSpace
@@ -443,8 +515,8 @@
 }
 - (unichar)peek2
 {
-    if (currentPosition > 0) {
-        return [codeText characterAtIndex:(currentPosition - 1)];
+    if (currentPosition < ([codeText length] -1)) {
+        return [codeText characterAtIndex:(currentPosition + 1)];
     } else {
         return -1;
     }
