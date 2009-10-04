@@ -62,7 +62,7 @@
 
 - (void)endMessage
 {
-    [self addMessage:[EndMessage build]];
+    [self addMessage:[EndMessage messageWithName:@"."]];
 }
 
 - (void)textLiteral:(NSString*)name

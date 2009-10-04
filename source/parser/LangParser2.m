@@ -7,14 +7,15 @@
 //
 
 #import "LangParser2.h"
-
+#import "LangOperators.h"
 
 @implementation LangParser2
 
 + (LMessage*)parse:(NSString*)codeText inRuntime:(LRuntime*)runtime
 {
     LangParser2 *parser = [[LangParser2 alloc] initWithCode:codeText andRuntime:runtime];
-    return [parser parse];
+    LangOperators *operators = [[LangOperators alloc] init];
+    return [operators shuffle:[parser parse]];
 }
 
 - (id)initWithCode:(NSString*)aCodeText andRuntime:(LRuntime*)aRuntime
@@ -22,6 +23,7 @@
     self = [super init];
     runtime = aRuntime;
     codeText = aCodeText;
+    length = [codeText length];
     currentPosition = 0;
     lineNumber = 0;
     columnNumber = 0;
@@ -35,33 +37,39 @@
 
 - (LMessage*)parseExpressions
 {
-    LMessage *current;
-    LMessage *last;
-    LMessage *head;
-    while (current = [self parseExpression]) {
-        if(head)
-        {
-            last.nextMessage = current;
-            last = current;
-        }
-        else {
+    NSLog(@"parseExpressions");
+    LMessage *current = nil;
+    LMessage *last = nil;
+    LMessage *head = nil;
+    
+    while ((current = [self parseExpression]) != nil) {
+        if (head == nil) {
             head = current;
+            last = current;
+        } else {
+            last.nextMessage = current;
+            current.previousMessage = last;
             last = current;
         }
     }
     
-    // TODO: skip terminators
+    while ([last isTerminator]) {
+        last = last.previousMessage;
+        last.nextMessage = nil;
+    }
+    NSLog(@"-parseExpressions");
     return head;
 }
 
 - (LMessage*)parseExpression
 {
+    NSLog(@"parseExpression");
     unichar rr;
 
-    while(true) {
+    while (true) {
         rr = [self peek];
-        switch(rr) {
-            case -1:
+        switch (rr) {
+            case 0:
                 [self read];
                 return nil;
             case ',':
@@ -174,10 +182,11 @@
 
 - (NSMutableArray*)parseExpressionChain
 {
+    NSLog(@"parseExpressionChain");
     NSMutableArray *chain = [NSMutableArray array];
 
     LMessage *currentMessage = [self parseExpressions];
-    while(currentMessage) {
+    while (currentMessage != nil) {
         [chain addObject:currentMessage];
         [self readWhiteSpace];
 
@@ -196,11 +205,13 @@
         }
     }
 
+    NSLog(@"-parseExpressionChain");
     return chain;
 }
 
 - (void)parseCharacter:(unichar)ch
 {
+    NSLog(@"parseCharacter: %C", ch);
     NSUInteger line = lineNumber;
     NSUInteger column = columnNumber;
 
@@ -210,6 +221,7 @@
         NSString *message = [NSString stringWithFormat:@"Expected %C got %C", ch, rr];
         [self fail:message line:line column:column];
     }
+    NSLog(@"-parseCharacter: %C", ch);
 }
 
 - (LMessage*)parseComment
@@ -246,7 +258,7 @@
     unichar rr;
     
     if(indicator == '#') {
-        while(true) {
+        while (true) {
             rr = [self peek];
             switch(rr) {
                 case '+':
@@ -284,7 +296,7 @@
             }
         }
     } else {
-        while(true) {
+        while (true) {
             rr = [self peek];
             switch(rr) {
                 case '+':
@@ -383,6 +395,8 @@
 
 - (LMessage*)parseRegularMessageSend:(unichar)start
 {
+    NSLog(@"parseRegularMessageSend");
+
     NSUInteger line = lineNumber;
     NSUInteger column = columnNumber;
     
@@ -391,9 +405,10 @@
     
     unichar rr = [self peek];
     
-    while([self isLetter:rr] || [self isIDDigit:rr] || rr == ':' || rr == '!' || rr == '?' || rr == '$') {
+    while ([self isLetter:rr] || [self isIDDigit:rr] || rr == ':' || rr == '!' || rr == '?' || rr == '$') {
         [self read];
         [name appendFormat:@"%C", rr];
+        rr = [self peek];
     }
     
     LMessage *result = [self message:[LMessage messageWithName:name] withLine:line andColumn:column];
@@ -414,6 +429,7 @@
         }
     }
 
+    NSLog(@"-parseRegularMessageSend:%@", name);
     return result;
 }
 
@@ -429,6 +445,7 @@
 
 - (LMessage*)parseTerminator:(unichar)start
 {
+    NSLog(@"parseTerminator:%C", start);
     NSUInteger line = lineNumber;
     NSUInteger column = columnNumber;
     
@@ -438,7 +455,7 @@
     unichar rr;
     unichar rr2;
 
-    while(true) {
+    while (true) {
         rr = [self peek];
         rr2 = [self peek2];
         if((rr == '.' && rr2 != '.') || (rr == '\n')) {
@@ -448,6 +465,7 @@
         }
     }
 
+    NSLog(@"-parseTerminator:%C", start);
     return [self message:[EndMessage messageWithName:name] withLine:line andColumn:column];
 }
 
@@ -499,26 +517,29 @@
 
         return value;
     } else {
-        return -1;
+        return 0;
     }
 
 }
 
 - (unichar)peek
 {
-    if (currentPosition < [codeText length]) {
-        return [codeText characterAtIndex:currentPosition];
+    unichar result;
+    if (currentPosition < length) {
+        result = [codeText characterAtIndex:currentPosition];
     } else {
-        return -1;
+        result = 0;
     }
+    NSLog(@"peek: %C (%d)", result, currentPosition);
+    return result;
 
 }
 - (unichar)peek2
 {
-    if (currentPosition < ([codeText length] -1)) {
+    if (currentPosition < (length - 1)) {
         return [codeText characterAtIndex:(currentPosition + 1)];
     } else {
-        return -1;
+        return 0;
     }
 
 }

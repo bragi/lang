@@ -13,6 +13,7 @@
 /** Allows to parse given string returning LMessage chain. */
 @interface LangParser2 : NSObject {
     NSString *codeText;
+    NSUInteger length;
     NSUInteger currentPosition;
     NSUInteger lineNumber;
     NSUInteger columnNumber;

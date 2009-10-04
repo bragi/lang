@@ -70,7 +70,7 @@
     // "hello"
     //
     LMessage *textLiteral = [LTextLiteral messageWithName:@"hello"];
-    textLiteral.nextMessage = [EndMessage build];
+    textLiteral.nextMessage = [EndMessage messageWithName:@"."];
     result = [execution runMessage:textLiteral withContext:context];
     STAssertEquals(result, context, @"Different current target");
 }
@@ -83,7 +83,7 @@
     [assignment addArgument:[LMessage messageWithName:@"hello"]];
     [assignment addArgument:[LTextLiteral messageWithName:@"Hello Cell"]];
     
-    LMessage *end = [EndMessage build];
+    LMessage *end = [EndMessage messageWithName:@"."];
     assignment.nextMessage = end;
     
     end.nextMessage = [LMessage messageWithName:@"hello"];

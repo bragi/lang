@@ -15,6 +15,7 @@
 @interface LMessage : LObject {
 	NSString *name;
 	LMessage *nextMessage;
+	LMessage *previousMessage;
 	NSMutableArray *arguments;
     NSUInteger line;
     NSUInteger column;
@@ -24,6 +25,7 @@
 - (id)initWithName:(NSString*)newName;
 
 @property LMessage *nextMessage;
+@property LMessage *previousMessage;
 @property NSString *name;
 @property NSMutableArray *arguments;
 @property NSUInteger line;
@@ -53,8 +55,6 @@
 
 
 @interface EndMessage : LMessage {}
-+ (id)build;
-- (id)init;
 @end
 
 

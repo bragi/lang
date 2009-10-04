@@ -12,6 +12,7 @@
 @implementation LMessage
 
 @synthesize nextMessage;
+@synthesize previousMessage;
 @synthesize arguments;
 @synthesize name;
 @synthesize line;
@@ -133,15 +134,9 @@
 
 @implementation EndMessage
 
-+ (id)build
++ (id)messageWithName:(NSString*) newName
 {
-    return [[EndMessage alloc] init];
-}
-
-- (id)init
-{
-    self = [super initWithName:@"\n"];
-    return self;
+    return [[EndMessage alloc] initWithName:newName];
 }
 
 - (BOOL)isTerminator

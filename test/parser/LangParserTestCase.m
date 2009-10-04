@@ -8,6 +8,7 @@
 
 #import "LangParserTestCase.h"
 #import "LangParser.h"
+#import "LangParser2.h"
 #import "LMessage.h"
 #import "LRuntime.h"
 
@@ -18,9 +19,29 @@
     runtime = [[LRuntime alloc] init];
 }
 
+- testReadAndPeek
+{
+    LangParser2 *parser = [[LangParser2 alloc] initWithCode:@"012" andRuntime:runtime];
+    STAssertEquals([parser peek], '0', @"Peek is not 0");
+    STAssertEquals([parser peek2], '1', @"Peek2 is not 1");
+    STAssertEquals([parser read], '0', @"Read is not 0");
+    
+    STAssertEquals([parser peek], '1', @"Peek is not 1");
+    STAssertEquals([parser peek2], '2', @"Peek2 is not 2");
+    STAssertEquals([parser read], '1', @"Read is not 1");
+
+    STAssertEquals([parser peek], '2', @"Peek is not 2");
+    STAssertEquals([parser peek2], -1, @"Peek2 is not -1");
+    STAssertEquals([parser read], '2', @"Read is not 2");
+
+    STAssertEquals([parser peek], -1, @"Peek is not -1");
+    STAssertEquals([parser peek2], -1, @"Peek2 is not -1");
+    STAssertEquals([parser read], -1, @"Read is not -1");
+}
+
 - (void)testSkipLastEndMessageInArgument
 {
-    message = [LangParser parse:@"method(a\n,b)" inRuntime:runtime];
+    message = [LangParser2 parse:@"method(a\n,b)" inRuntime:runtime];
     argument = (LMessage*)[message.arguments objectAtIndex:0];
     STAssertNil(argument.nextMessage, @"End message before next argument not skipped");
     STAssertTrue([message.arguments count] == 2, @"Not enough arguments");
