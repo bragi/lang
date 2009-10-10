@@ -21,16 +21,16 @@
 - (void)testSimpleMessage
 {
     NSLog(@"testSimpleMesage");
-    [builder identifier:@"name"];
+    [builder identifier:@"name" withLine:0 andColumn:0];
     STAssertTrue([[builder message] isEqual:name], 
                  @"Different messages: %@", [builder message]);
 }
 
 - (void)testSimpleMessageWithArgument
 {
-    [builder identifier:@"name"];
+    [builder identifier:@"name" withLine:0 andColumn:0];
     [builder argumentsStart];
-    [builder identifier:@"hello"];
+    [builder identifier:@"hello" withLine:0 andColumn:0];
     [builder argumentsEnd];
     [name addArgument:hello];
     STAssertTrue([[builder message] isEqual:name], 

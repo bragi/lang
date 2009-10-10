@@ -37,9 +37,12 @@
     currentMessage = newMessage;
 }
 
-- (void)identifier:(NSString*)name
+- (void)identifier:(NSString*)name withLine:(NSUInteger)line andColumn:(NSUInteger)column
 {
-    [self addMessage:[LMessage buildWithName:name]];
+    LMessage *result = [LMessage buildWithName:name];
+    result.line = line;
+    result.column = column;
+    [self addMessage:result];
 }
 
 - (void)argumentsStart
@@ -60,19 +63,28 @@
     argumentStarted = YES;
 }
 
-- (void)endMessage
+- (void)endMessageWithLine:(NSUInteger)line andColumn:(NSUInteger)column
 {
-    [self addMessage:[EndMessage build]];
+    LMessage *result = [EndMessage build];
+    result.line = line;
+    result.column = column;
+    [self addMessage:result];
 }
 
-- (void)textLiteral:(NSString*)name
+- (void)textLiteral:(NSString*)name withLine:(NSUInteger)line andColumn:(NSUInteger)column
 {
-    [self addMessage:[LTextLiteral buildWithName:name]];
+    LMessage *result = [LTextLiteral buildWithName:name];
+    result.line = line;
+    result.column = column;
+    [self addMessage:result];
 }
 
-- (void)numberLiteral:(NSString*)name
+- (void)numberLiteral:(NSString*)name withLine:(NSUInteger)line andColumn:(NSUInteger)column
 {
-  [self addMessage:[LNumberLiteral buildWithName:name]];
+    LMessage *result = [LNumberLiteral buildWithName:name];
+    result.line = line;
+    result.column = column;
+    [self addMessage:result];
 }
 
 @end

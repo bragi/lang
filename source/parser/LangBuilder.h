@@ -21,13 +21,13 @@
 @property (readonly) LMessage *message;
 
 - (id)initWithRuntime:(LRuntime*)runtime;
-- (void)identifier:(NSString*)name;
+- (void)identifier:(NSString*)name withLine:(NSUInteger)line andColumn:(NSUInteger)column;
 - (void)argumentsStart;
 - (void)argumentsEnd;
 - (void)nextArgument;
-- (void)endMessage;
-- (void)textLiteral:(NSString*)name;
-- (void)numberLiteral:(NSString*)name;
-- (void)addMessage:(LMessage*) newMessage;
+- (void)endMessageWithLine:(NSUInteger)line andColumn:(NSUInteger)column;
+- (void)textLiteral:(NSString*)name withLine:(NSUInteger)line andColumn:(NSUInteger)column;
+- (void)numberLiteral:(NSString*)name withLine:(NSUInteger)line andColumn:(NSUInteger)column;
+- (void)addMessage:(LMessage*)newMessage;
 
 @end

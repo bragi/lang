@@ -1,7 +1,7 @@
 
 #line 1 "source/parser/LangScanner.rl"
 
-#line 49 "source/parser/LangScanner.rl"
+#line 59 "source/parser/LangScanner.rl"
 
 
 //
@@ -95,7 +95,7 @@ static const int Lang_error = 0;
 static const int Lang_en_main = 5;
 
 
-#line 61 "source/parser/LangScanner.rl"
+#line 71 "source/parser/LangScanner.rl"
 
 @interface LangScanner()
 - (void) identifier:(char*)start length:(int)length;
@@ -123,7 +123,7 @@ static const int Lang_en_main = 5;
 
 - (void) endMessage
 {
-    [builder endMessage];
+    [builder endMessageWithLine:line andColumn:column];
 }
 
 - (void) argumentsStart
@@ -139,19 +139,19 @@ static const int Lang_en_main = 5;
 - (void) identifier:(char*)start length:(int)length
 {
     NSString* name = [[NSString alloc] initWithBytes:start length:length encoding:NSUTF8StringEncoding];
-    [builder identifier:name];
+    [builder identifier:name withLine:line andColumn:column];
 }
 
 - (void) textLiteral:(char*)start length:(int)length
 {
     NSString* name = [[NSString alloc] initWithBytes:start+1 length:length-1 encoding:NSUTF8StringEncoding];
-    [builder textLiteral:name];
+    [builder textLiteral:name withLine:line andColumn:column];
 }
 
 - (void) numberLiteral:(char*)start length:(int)length
 {
     NSString* name = [[NSString alloc] initWithBytes:start length:length encoding:NSUTF8StringEncoding];
-    [builder numberLiteral:name];
+    [builder numberLiteral:name withLine:line andColumn:column];
 }
 
 - (void) scan:(NSString*)code
@@ -173,7 +173,7 @@ static const int Lang_en_main = 5;
 	act = 0;
 	}
 
-#line 130 "source/parser/LangScanner.rl"
+#line 140 "source/parser/LangScanner.rl"
     
 #line 179 "source/parser/LangScanner.m"
 	{
@@ -267,73 +267,73 @@ _eof_trans:
 	{te = p+1;}
 	break;
 	case 4:
-#line 30 "source/parser/LangScanner.rl"
+#line 40 "source/parser/LangScanner.rl"
 	{act = 5;}
 	break;
 	case 5:
-#line 44 "source/parser/LangScanner.rl"
+#line 54 "source/parser/LangScanner.rl"
 	{act = 9;}
 	break;
 	case 6:
-#line 18 "source/parser/LangScanner.rl"
+#line 28 "source/parser/LangScanner.rl"
 	{te = p+1;{
       [self identifier:ts length:te-ts];
     }}
 	break;
 	case 7:
-#line 22 "source/parser/LangScanner.rl"
+#line 32 "source/parser/LangScanner.rl"
 	{te = p+1;{
       [self textLiteral:ts length:te-ts-1];
     }}
 	break;
 	case 8:
-#line 32 "source/parser/LangScanner.rl"
+#line 42 "source/parser/LangScanner.rl"
 	{te = p+1;{
       [self argumentsStart];
     }}
 	break;
 	case 9:
-#line 36 "source/parser/LangScanner.rl"
+#line 46 "source/parser/LangScanner.rl"
 	{te = p+1;{
       [self argumentsEnd];
     }}
 	break;
 	case 10:
-#line 40 "source/parser/LangScanner.rl"
+#line 50 "source/parser/LangScanner.rl"
 	{te = p+1;{
       [self nextArgument];
     }}
 	break;
 	case 11:
-#line 44 "source/parser/LangScanner.rl"
+#line 54 "source/parser/LangScanner.rl"
 	{te = p+1;{
       [self endMessage];
     }}
 	break;
 	case 12:
-#line 14 "source/parser/LangScanner.rl"
+#line 24 "source/parser/LangScanner.rl"
 	{te = p;p--;{
       [self identifier:ts length:te-ts];
     }}
 	break;
 	case 13:
-#line 18 "source/parser/LangScanner.rl"
+#line 28 "source/parser/LangScanner.rl"
 	{te = p;p--;{
       [self identifier:ts length:te-ts];
     }}
 	break;
 	case 14:
-#line 26 "source/parser/LangScanner.rl"
+#line 36 "source/parser/LangScanner.rl"
 	{te = p;p--;{
       [self numberLiteral:ts length:te-ts];
     }}
 	break;
 	case 15:
-#line 30 "source/parser/LangScanner.rl"
+#line 40 "source/parser/LangScanner.rl"
 	{te = p;p--;}
 	break;
 	case 16:
-#line 44 "source/parser/LangScanner.rl"
+#line 54 "source/parser/LangScanner.rl"
 	{te = p;p--;{
       [self endMessage];
     }}
@@ -392,6 +392,6 @@ _again:
 	_out: {}
 	}
 
-#line 131 "source/parser/LangScanner.rl"
+#line 141 "source/parser/LangScanner.rl"
 }
 @end

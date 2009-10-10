@@ -13,9 +13,11 @@
 @class LExecution;
 
 @interface LMessage : LObject {
-	NSString *name;
-	LMessage *nextMessage;
-	NSMutableArray *arguments;
+    NSString *name;
+    LMessage *nextMessage;
+    NSMutableArray *arguments;
+    NSInteger line;
+    NSInteger column;
 }
 
 + (id)buildWithName:(NSString*)newName;
@@ -24,6 +26,9 @@
 @property LMessage *nextMessage;
 @property NSString *name;
 @property NSMutableArray *arguments;
+@property NSInteger line;
+@property NSInteger column;
+
 
 - (void)addArgument:(LMessage*)argument;
 - (NSString*)stringValue;

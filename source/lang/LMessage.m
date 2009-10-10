@@ -14,6 +14,8 @@
 @synthesize nextMessage;
 @synthesize arguments;
 @synthesize name;
+@synthesize line;
+@synthesize column;
 
 + (id)buildWithName:(NSString*) newName
 {

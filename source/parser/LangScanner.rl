@@ -1,5 +1,15 @@
 %%{
   machine Lang;
+
+  newline = '\n' @{
+    line += 1;
+    column = 0;
+  };
+  
+  newchar = any @{
+    column += 1;
+  };
+
   main := |*
     identifier = alpha+;
     
@@ -85,7 +95,7 @@
 
 - (void) endMessage
 {
-    [builder endMessage];
+    [builder endMessageWithLine:line andColumn:column];
 }
 
 - (void) argumentsStart
@@ -101,19 +111,19 @@
 - (void) identifier:(char*)start length:(int)length
 {
     NSString* name = [[NSString alloc] initWithBytes:start length:length encoding:NSUTF8StringEncoding];
-    [builder identifier:name];
+    [builder identifier:name withLine:line andColumn:column];
 }
 
 - (void) textLiteral:(char*)start length:(int)length
 {
     NSString* name = [[NSString alloc] initWithBytes:start+1 length:length-1 encoding:NSUTF8StringEncoding];
-    [builder textLiteral:name];
+    [builder textLiteral:name withLine:line andColumn:column];
 }
 
 - (void) numberLiteral:(char*)start length:(int)length
 {
     NSString* name = [[NSString alloc] initWithBytes:start length:length encoding:NSUTF8StringEncoding];
-    [builder numberLiteral:name];
+    [builder numberLiteral:name withLine:line andColumn:column];
 }
 
 - (void) scan:(NSString*)code

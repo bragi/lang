@@ -11,6 +11,8 @@
 
 @interface LangScanner : NSObject {
     LangBuilder *builder;
+    NSUInteger line;
+    NSUInteger column;
 }
 
 - (id)initWithBuilder:(LangBuilder*)builder;
