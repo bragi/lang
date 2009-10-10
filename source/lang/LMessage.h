@@ -23,11 +23,11 @@
 + (id)messageWithName:(NSString*)newName;
 - (id)initWithName:(NSString*)newName;
 
-@property LMessage *nextMessage;
-@property NSString *name;
-@property NSMutableArray *arguments;
-@property NSInteger line;
-@property NSInteger column;
+@property (retain) LMessage *nextMessage;
+@property (retain) NSString *name;
+@property (retain) NSMutableArray *arguments;
+@property (assign) NSInteger line;
+@property (assign) NSInteger column;
 
 
 - (void)addArgument:(LMessage*)argument;

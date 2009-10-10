@@ -28,8 +28,7 @@
 
 - (void)testSimpleMessageWithArgument
 {
-    [builder identifier:@"name" withLine:0 andColumn:0];
-    [builder argumentsStart];
+    [builder identifierWithArguments:@"name" withLine:0 andColumn:0];
     [builder identifier:@"hello" withLine:0 andColumn:0];
     [builder argumentsEnd];
     [name addArgument:hello];

@@ -22,7 +22,7 @@
 
 - (id)initWithRuntime:(LRuntime*)runtime;
 - (void)identifier:(NSString*)name withLine:(NSUInteger)line andColumn:(NSUInteger)column;
-- (void)argumentsStart;
+- (void)identifierWithArguments:(NSString*)name withLine:(NSUInteger)line andColumn:(NSUInteger)column;
 - (void)argumentsEnd;
 - (void)nextArgument;
 - (void)endMessageWithLine:(NSUInteger)line andColumn:(NSUInteger)column;

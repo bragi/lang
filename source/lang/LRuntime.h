@@ -65,19 +65,19 @@
     LMessage *theMessage;
 }
 
-@property LObject *theBaseContext;
-@property LObject *theObject;
-@property LObject *theTrue;
-@property LObject *theFalse;
-@property LObject *theNil;
-@property LText *theText;
-@property LNumber *theNumber;
-@property LList *theList;
-@property LObject *theExecutable;
-@property LObject *theLangExecutable;
-@property LObject *theMethod;
-@property LObject *theMacro;
-@property LMessage *theMessage;
+@property (retain) LObject *theBaseContext;
+@property (retain) LObject *theObject;
+@property (retain) LObject *theTrue;
+@property (retain) LObject *theFalse;
+@property (retain) LObject *theNil;
+@property (retain) LText *theText;
+@property (retain) LNumber *theNumber;
+@property (retain) LList *theList;
+@property (retain) LObject *theExecutable;
+@property (retain) LObject *theLangExecutable;
+@property (retain) LObject *theMethod;
+@property (retain) LObject *theMacro;
+@property (retain) LMessage *theMessage;
 
 /**
  Initializes Runtime, creates all necessary runtime objects.

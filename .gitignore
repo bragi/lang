@@ -9,3 +9,7 @@ build/*
 # osx noise
 .DS_Store
 profile
+
+# Textmate noise
+.classes.TM_Completions.txt.gz
+.methods.TM_Completions.txt.gz

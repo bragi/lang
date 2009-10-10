@@ -45,8 +45,9 @@
     [self addMessage:result];
 }
 
-- (void)argumentsStart
+- (void)identifierWithArguments:(NSString*)name withLine:(NSUInteger)line andColumn:(NSUInteger)column
 {
+    [self identifier:name withLine:line andColumn:column];
     argumentStarted = YES;
     [messages addObject:currentMessage];
 }

@@ -1,7 +1,7 @@
 
 #line 1 "source/parser/LangScanner.rl"
 
-#line 59 "source/parser/LangScanner.rl"
+#line 61 "source/parser/LangScanner.rl"
 
 
 //
@@ -19,8 +19,8 @@ static const char _Lang_actions[] = {
 	0, 1, 2, 1, 6, 1, 7, 1, 
 	8, 1, 9, 1, 10, 1, 11, 1, 
 	12, 1, 13, 1, 14, 1, 15, 1, 
-	16, 1, 17, 2, 0, 1, 2, 3, 
-	4, 2, 3, 5
+	16, 1, 17, 1, 18, 2, 0, 1, 
+	2, 3, 4, 2, 3, 5
 };
 
 static const char _Lang_key_offsets[] = {
@@ -34,12 +34,13 @@ static const char _Lang_trans_keys[] = {
 	92, 95, 43, 45, 48, 57, 65, 90, 
 	97, 122, 10, 32, 41, 44, 10, 32, 
 	41, 44, 92, 32, 92, 48, 57, 61, 
-	95, 48, 57, 65, 90, 97, 122, 0
+	40, 95, 48, 57, 65, 90, 97, 122, 
+	0
 };
 
 static const char _Lang_single_lengths[] = {
 	0, 4, 1, 2, 0, 11, 4, 5, 
-	2, 0, 1, 1
+	2, 0, 1, 2
 };
 
 static const char _Lang_range_lengths[] = {
@@ -58,24 +59,24 @@ static const char _Lang_indicies[] = {
 	3, 13, 12, 15, 17, 16, 12, 14, 
 	16, 16, 9, 1, 1, 2, 3, 18, 
 	1, 10, 2, 3, 17, 19, 4, 17, 
-	19, 14, 20, 12, 21, 16, 16, 16, 
-	16, 22, 0
+	19, 14, 20, 12, 21, 23, 16, 16, 
+	16, 16, 22, 0
 };
 
 static const char _Lang_trans_targs[] = {
 	5, 1, 5, 5, 8, 3, 5, 4, 
 	6, 0, 7, 5, 5, 5, 9, 10, 
-	11, 2, 5, 5, 5, 5, 5
+	11, 2, 5, 5, 5, 5, 5, 5
 };
 
 static const char _Lang_trans_actions[] = {
-	25, 0, 9, 11, 30, 0, 5, 0, 
-	33, 0, 30, 7, 3, 13, 0, 0, 
-	0, 0, 23, 21, 19, 17, 15
+	27, 0, 11, 13, 32, 0, 7, 0, 
+	35, 0, 32, 9, 5, 15, 0, 0, 
+	0, 0, 25, 23, 21, 19, 17, 3
 };
 
 static const char _Lang_to_state_actions[] = {
-	0, 0, 0, 0, 0, 27, 0, 0, 
+	0, 0, 0, 0, 0, 29, 0, 0, 
 	0, 0, 0, 0
 };
 
@@ -95,16 +96,17 @@ static const int Lang_error = 0;
 static const int Lang_en_main = 5;
 
 
-#line 71 "source/parser/LangScanner.rl"
+#line 73 "source/parser/LangScanner.rl"
 
 @interface LangScanner()
-- (void) identifier:(char*)start length:(int)length;
-- (void) argumentsStart;
-- (void) argumentsEnd;
-- (void) nextArgument;
-- (void) endMessage;
-- (void) textLiteral:(char *)start length:(int)length;
-- (void) numberLiteral:(char *)start length:(int)length;
+- (void)identifier:(char*)start length:(int)length;
+- (void)identifierWithArguments:(char*)start length:(int)length;
+- (void)emptyMessage;
+- (void)argumentsEnd;
+- (void)nextArgument;
+- (void)endMessage;
+- (void)textLiteral:(char *)start length:(int)length;
+- (void)numberLiteral:(char *)start length:(int)length;
 @end
 
 @implementation LangScanner
@@ -116,45 +118,51 @@ static const int Lang_en_main = 5;
     return self;
 }
 
-- (void) nextArgument
+- (void)nextArgument
 {
     [builder nextArgument];
 }
 
-- (void) endMessage
+- (void)endMessage
 {
     [builder endMessageWithLine:line andColumn:column];
 }
 
-- (void) argumentsStart
+- (void)emptyMessage
 {
-    [builder argumentsStart];
+    [builder identifierWithArguments:@"" withLine:line andColumn:column];
 }
 
-- (void) argumentsEnd
+- (void)argumentsEnd
 {
     [builder argumentsEnd];
 }
 
-- (void) identifier:(char*)start length:(int)length
+- (void)identifier:(char*)start length:(int)length
 {
     NSString* name = [[NSString alloc] initWithBytes:start length:length encoding:NSUTF8StringEncoding];
     [builder identifier:name withLine:line andColumn:column];
 }
 
-- (void) textLiteral:(char*)start length:(int)length
+- (void)identifierWithArguments:(char*)start length:(int)length
+{
+    NSString* name = [[NSString alloc] initWithBytes:start length:length encoding:NSUTF8StringEncoding];
+    [builder identifierWithArguments:name withLine:line andColumn:column];
+}
+
+- (void)textLiteral:(char*)start length:(int)length
 {
     NSString* name = [[NSString alloc] initWithBytes:start+1 length:length-1 encoding:NSUTF8StringEncoding];
     [builder textLiteral:name withLine:line andColumn:column];
 }
 
-- (void) numberLiteral:(char*)start length:(int)length
+- (void)numberLiteral:(char*)start length:(int)length
 {
     NSString* name = [[NSString alloc] initWithBytes:start length:length encoding:NSUTF8StringEncoding];
     [builder numberLiteral:name withLine:line andColumn:column];
 }
 
-- (void) scan:(NSString*)code
+- (void)scan:(NSString*)code
 {
     char *code_string = (char*)[code UTF8String];
     
@@ -165,7 +173,7 @@ static const int Lang_en_main = 5;
     char *eof = pe;
 
     
-#line 169 "source/parser/LangScanner.m"
+#line 177 "source/parser/LangScanner.m"
 	{
 	cs = Lang_start;
 	ts = 0;
@@ -173,9 +181,9 @@ static const int Lang_en_main = 5;
 	act = 0;
 	}
 
-#line 140 "source/parser/LangScanner.rl"
+#line 149 "source/parser/LangScanner.rl"
     
-#line 179 "source/parser/LangScanner.m"
+#line 187 "source/parser/LangScanner.m"
 	{
 	int _klen;
 	unsigned int _trans;
@@ -196,7 +204,7 @@ _resume:
 #line 1 "source/parser/LangScanner.rl"
 	{ts = p;}
 	break;
-#line 200 "source/parser/LangScanner.m"
+#line 208 "source/parser/LangScanner.m"
 		}
 	}
 
@@ -267,84 +275,90 @@ _eof_trans:
 	{te = p+1;}
 	break;
 	case 4:
-#line 40 "source/parser/LangScanner.rl"
-	{act = 5;}
+#line 42 "source/parser/LangScanner.rl"
+	{act = 6;}
 	break;
 	case 5:
-#line 54 "source/parser/LangScanner.rl"
-	{act = 9;}
+#line 56 "source/parser/LangScanner.rl"
+	{act = 10;}
 	break;
 	case 6:
-#line 28 "source/parser/LangScanner.rl"
+#line 26 "source/parser/LangScanner.rl"
+	{te = p+1;{
+      [self identifierWithArguments:ts length:(te-ts-1)];
+    }}
+	break;
+	case 7:
+#line 30 "source/parser/LangScanner.rl"
 	{te = p+1;{
       [self identifier:ts length:te-ts];
     }}
 	break;
-	case 7:
-#line 32 "source/parser/LangScanner.rl"
+	case 8:
+#line 34 "source/parser/LangScanner.rl"
 	{te = p+1;{
       [self textLiteral:ts length:te-ts-1];
     }}
 	break;
-	case 8:
-#line 42 "source/parser/LangScanner.rl"
+	case 9:
+#line 44 "source/parser/LangScanner.rl"
 	{te = p+1;{
-      [self argumentsStart];
+      [self emptyMessage];
     }}
 	break;
-	case 9:
-#line 46 "source/parser/LangScanner.rl"
+	case 10:
+#line 48 "source/parser/LangScanner.rl"
 	{te = p+1;{
       [self argumentsEnd];
     }}
 	break;
-	case 10:
-#line 50 "source/parser/LangScanner.rl"
+	case 11:
+#line 52 "source/parser/LangScanner.rl"
 	{te = p+1;{
       [self nextArgument];
     }}
 	break;
-	case 11:
-#line 54 "source/parser/LangScanner.rl"
+	case 12:
+#line 56 "source/parser/LangScanner.rl"
 	{te = p+1;{
       [self endMessage];
     }}
 	break;
-	case 12:
-#line 24 "source/parser/LangScanner.rl"
-	{te = p;p--;{
-      [self identifier:ts length:te-ts];
-    }}
-	break;
 	case 13:
-#line 28 "source/parser/LangScanner.rl"
+#line 22 "source/parser/LangScanner.rl"
 	{te = p;p--;{
       [self identifier:ts length:te-ts];
     }}
 	break;
 	case 14:
-#line 36 "source/parser/LangScanner.rl"
+#line 30 "source/parser/LangScanner.rl"
+	{te = p;p--;{
+      [self identifier:ts length:te-ts];
+    }}
+	break;
+	case 15:
+#line 38 "source/parser/LangScanner.rl"
 	{te = p;p--;{
       [self numberLiteral:ts length:te-ts];
     }}
 	break;
-	case 15:
-#line 40 "source/parser/LangScanner.rl"
+	case 16:
+#line 42 "source/parser/LangScanner.rl"
 	{te = p;p--;}
 	break;
-	case 16:
-#line 54 "source/parser/LangScanner.rl"
+	case 17:
+#line 56 "source/parser/LangScanner.rl"
 	{te = p;p--;{
       [self endMessage];
     }}
 	break;
-	case 17:
+	case 18:
 #line 1 "source/parser/LangScanner.rl"
 	{	switch( act ) {
 	case 0:
 	{{cs = 0; goto _again;}}
 	break;
-	case 9:
+	case 10:
 	{{p = ((te))-1;}
       [self endMessage];
     }
@@ -355,7 +369,7 @@ _eof_trans:
 	}
 	}
 	break;
-#line 359 "source/parser/LangScanner.m"
+#line 373 "source/parser/LangScanner.m"
 		}
 	}
 
@@ -372,7 +386,7 @@ _again:
 #line 1 "source/parser/LangScanner.rl"
 	{act = 0;}
 	break;
-#line 376 "source/parser/LangScanner.m"
+#line 390 "source/parser/LangScanner.m"
 		}
 	}
 
@@ -392,6 +406,6 @@ _again:
 	_out: {}
 	}
 
-#line 141 "source/parser/LangScanner.rl"
+#line 150 "source/parser/LangScanner.rl"
 }
 @end
