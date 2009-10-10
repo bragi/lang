@@ -12,11 +12,11 @@
 
 - (void)setUp
 {
-    hello = [LMessage buildWithName:@"hello"];
-    beautiful = [LMessage buildWithName:@"beautiful"];
-    world = [LMessage buildWithName:@"world"];
-    lady = [LMessage buildWithName:@"lady"];
-    more = [LMessage buildWithName:@"more"];
+    hello = [LMessage messageWithName:@"hello"];
+    beautiful = [LMessage messageWithName:@"beautiful"];
+    world = [LMessage messageWithName:@"world"];
+    lady = [LMessage messageWithName:@"lady"];
+    more = [LMessage messageWithName:@"more"];
 }
 
 - (void)testLMessageExists
@@ -59,7 +59,7 @@
 
 - (void)testEqualSimpleMessages
 {
-    STAssertTrue([hello isEqual:[LMessage buildWithName:@"hello"]], @"identical messages not equal");
-    STAssertFalse([lady isEqual:[LMessage buildWithName:@"hello"]], @"different messages not");
+    STAssertTrue([hello isEqual:[LMessage messageWithName:@"hello"]], @"identical messages not equal");
+    STAssertFalse([lady isEqual:[LMessage messageWithName:@"hello"]], @"different messages not");
 }
 @end

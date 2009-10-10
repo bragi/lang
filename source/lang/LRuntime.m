@@ -66,7 +66,7 @@
     theLangExecutable = [LObject objectWithAncestor:theExecutable];
     theMethod = [LObject objectWithAncestor:theLangExecutable];
     theMacro = [LObject objectWithAncestor:theLangExecutable];
-    theMessage = [LMessage buildWithName:@""];
+    theMessage = [LMessage messageWithName:@""];
     [theMessage addAncestor:theObject];
 }
 

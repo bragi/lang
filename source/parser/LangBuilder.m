@@ -39,7 +39,7 @@
 
 - (void)identifier:(NSString*)name withLine:(NSUInteger)line andColumn:(NSUInteger)column
 {
-    LMessage *result = [LMessage buildWithName:name];
+    LMessage *result = [LMessage messageWithName:name];
     result.line = line;
     result.column = column;
     [self addMessage:result];
@@ -73,7 +73,7 @@
 
 - (void)textLiteral:(NSString*)name withLine:(NSUInteger)line andColumn:(NSUInteger)column
 {
-    LMessage *result = [LTextLiteral buildWithName:name];
+    LMessage *result = [LTextLiteral messageWithName:name];
     result.line = line;
     result.column = column;
     [self addMessage:result];
@@ -81,7 +81,7 @@
 
 - (void)numberLiteral:(NSString*)name withLine:(NSUInteger)line andColumn:(NSUInteger)column
 {
-    LMessage *result = [LNumberLiteral buildWithName:name];
+    LMessage *result = [LNumberLiteral messageWithName:name];
     result.line = line;
     result.column = column;
     [self addMessage:result];

@@ -23,7 +23,7 @@
 - (void)testRunSelf
 {
     // self
-    LMessage *selfMessage = [LMessage buildWithName:@"self"];
+    LMessage *selfMessage = [LMessage messageWithName:@"self"];
     result = [execution runMessage:selfMessage withContext:context];
     STAssertEquals(result, context, @"Different result: %@ (context: %@)", result, context);
 }
@@ -31,8 +31,8 @@
 - (void)testRunMimic
 {
     // mimic
-    LMessage *objectMessage = [LMessage buildWithName:@"Object"];
-    objectMessage.nextMessage = [LMessage buildWithName:@"mimic"];
+    LMessage *objectMessage = [LMessage messageWithName:@"Object"];
+    objectMessage.nextMessage = [LMessage messageWithName:@"mimic"];
     result = [execution runMessage:objectMessage withContext:context];
     STAssertFalse(result == runtime.theObject, @"Same current target");
 }
@@ -40,10 +40,10 @@
 - (void)testRunMultipleMimics
 {
     // mimic mimic
-    LMessage *objectMessage = [LMessage buildWithName:@"Object"];
-    LMessage *mimicMessage = [LMessage buildWithName:@"mimic"];
+    LMessage *objectMessage = [LMessage messageWithName:@"Object"];
+    LMessage *mimicMessage = [LMessage messageWithName:@"mimic"];
     objectMessage.nextMessage = mimicMessage;
-    mimicMessage.nextMessage = [LMessage buildWithName:@"mimic"];
+    mimicMessage.nextMessage = [LMessage messageWithName:@"mimic"];
     result = [execution runMessage:objectMessage withContext:context];
     STAssertFalse(result == context, @"Same current target");
 }
@@ -51,7 +51,7 @@
 - (void)testRunTextLiteral
 {
     // "hello"
-    LMessage *textLiteral = [LTextLiteral buildWithName:@"hello"];
+    LMessage *textLiteral = [LTextLiteral messageWithName:@"hello"];
     result = [execution runMessage:textLiteral withContext:context];
     STAssertTrue([result isKindOfClass:[LText class]], @"Different class");
 }
@@ -59,8 +59,8 @@
 - (void)testRunTextUpcase
 {
     // "hello" upcase
-    LMessage *textLiteral = [LTextLiteral buildWithName:@"hello"];
-    textLiteral.nextMessage = [LMessage buildWithName:@"upcase"];
+    LMessage *textLiteral = [LTextLiteral messageWithName:@"hello"];
+    textLiteral.nextMessage = [LMessage messageWithName:@"upcase"];
     result = [execution runMessage:textLiteral withContext:context];
     STAssertEqualObjects([(LText*)result text], @"HELLO", @"Not upper case");
 }
@@ -69,7 +69,7 @@
 {
     // "hello"
     //
-    LMessage *textLiteral = [LTextLiteral buildWithName:@"hello"];
+    LMessage *textLiteral = [LTextLiteral messageWithName:@"hello"];
     textLiteral.nextMessage = [EndMessage build];
     result = [execution runMessage:textLiteral withContext:context];
     STAssertEquals(result, context, @"Different current target");
@@ -79,14 +79,14 @@
 {
     // hello = "Hello Cell"
     // hello
-    LMessage *assignment = [LMessage buildWithName:@"="];
-    [assignment addArgument:[LMessage buildWithName:@"hello"]];
-    [assignment addArgument:[LTextLiteral buildWithName:@"Hello Cell"]];
+    LMessage *assignment = [LMessage messageWithName:@"="];
+    [assignment addArgument:[LMessage messageWithName:@"hello"]];
+    [assignment addArgument:[LTextLiteral messageWithName:@"Hello Cell"]];
     
     LMessage *end = [EndMessage build];
     assignment.nextMessage = end;
     
-    end.nextMessage = [LMessage buildWithName:@"hello"];
+    end.nextMessage = [LMessage messageWithName:@"hello"];
     
     result = [execution runMessage:assignment withContext:context];
     STAssertEqualObjects([(LText*)result text], @"Hello Cell", @"Target not evaluated");
@@ -95,7 +95,7 @@
 - (void)testRunNumberLiteral
 {
     // 9
-    LMessage *numberLiteral = [LNumberLiteral buildWithName:@"9"];
+    LMessage *numberLiteral = [LNumberLiteral messageWithName:@"9"];
     result = [execution runMessage:numberLiteral withContext:context];
     STAssertTrue([result isKindOfClass:[LNumber class]], @"Different class");
 }

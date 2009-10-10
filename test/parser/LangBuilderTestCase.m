@@ -14,8 +14,8 @@
 - (void)setUp
 {
     builder = [[LangBuilder alloc] initWithRuntime:[[LRuntime alloc] init]];
-    name = [LMessage buildWithName:@"name"];
-    hello = [LMessage buildWithName:@"hello"];
+    name = [LMessage messageWithName:@"name"];
+    hello = [LMessage messageWithName:@"hello"];
 }
 
 - (void)testSimpleMessage
