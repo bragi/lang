@@ -11,15 +11,15 @@ nil new = nil
 Nil = nil
 
 true ifFalse = nil
-
 false ifTrue = nil
+
+nil ifTrue = nil
+nil ifFalse = true cell("ifTrue")
+
+Object ifTrue = true cell("ifTrue")
+Object ifFalse = nil
 
 nil toText = "nil"
 false toText = "false"
 true toText = "true"
 
-Object ifTrue = true cell("ifTrue")
-
-if = macro(
-  call arguments 
-)

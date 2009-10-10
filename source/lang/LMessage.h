@@ -55,6 +55,9 @@
 
 
 @interface EndMessage : LMessage {}
+
++ (id)messageWithName:(NSString*)newName;
+
 @end
 
 

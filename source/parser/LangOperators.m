@@ -61,31 +61,54 @@
     LMessage *cellName = previousMessage;
     LMessage *value = currentMessage.nextMessage;
     LMessage *argumentEnd;
-    NSLog(@"target: %@, cellName: %@, value: %@", target.name, cellName.name, value.name);
-    while ([value.name isEqual:@"\n"]) {
+    
+    if (value == nil) {
+        NSLog(@"Value is nil, can not do shuffle");
+        return;
+    }
+    
+    NSLog(@"target: %@, cellName: %@, value: %@, currentMessage: %@", target.name, cellName.name, value.name, currentMessage.name);
+
+    // Ignore terminators directly after =
+    while (value != nil && [value isTerminator]) {
         value = value.nextMessage;
     }
+    // In value we have message that should be used as second argument
+    if (value == nil) {
+        NSLog(@"Value is nil, can not do shuffle");
+        return;
+    }
+    
     argumentEnd = value;
     NSLog(@"value: %@", value.name);
-    while (argumentEnd.nextMessage && ![argumentEnd.nextMessage isKindOfClass:[EndMessage class]]) {
+    while (argumentEnd.nextMessage && ![argumentEnd.nextMessage isTerminator]) {
         argumentEnd = argumentEnd.nextMessage;
     }
     NSLog(@"argumentEnd: %@", argumentEnd.name);
+    // Short circut ='s next message to be next message after argumentEnd
     currentMessage.nextMessage = argumentEnd.nextMessage;
+    // argumentEnd next message is nil, it's the last message in second argument
     argumentEnd.nextMessage = nil;
+    // value is becoming first argument, arguments do not have previous message
+    value.previousMessage = nil;
+    // cellName is a single message of first argument, it doesn't have nextMessage
+    cellName.nextMessage = nil;
     
     if (target == nil) {
-        NSLog(@"target is nil");
+        NSLog(@"There was no target yet");
         startMessage = currentMessage;
-        NSLog(@"target is set");
+        currentMessage.previousMessage = nil;
+        NSLog(@"Made assignement a start message");
     } else {
-        NSLog(@"target is not nil");
+        NSLog(@"Target of assignement is: %@", target.name);
         target.nextMessage = currentMessage;
+        currentMessage.previousMessage = target;
     }
     
     currentMessage.arguments = [NSMutableArray arrayWithCapacity:2];
     [currentMessage.arguments addObject:cellName];
     [currentMessage.arguments addObject:value];
+    NSLog(@"Shuffling done: %@", [currentMessage stringValueWithoutNested]);
 }
 
 @end

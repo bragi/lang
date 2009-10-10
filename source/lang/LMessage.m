@@ -144,6 +144,10 @@
     return YES;
 }
 
+- (NSMutableString*)stringValueWithoutNested
+{
+    return [NSMutableString stringWithString:@"."];
+}
 @end
 
 
