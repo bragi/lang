@@ -23,6 +23,7 @@
     [object setCell:[runtime withExecutableAncestor:[[ECreateMacro alloc] init]] withName:@"macro"];
     [object setCell:[runtime withExecutableAncestor:[[EForward alloc] initWithName:@"toText"]] withName:@"toText"];
     [object setCell:[runtime withExecutableAncestor:[[EForward alloc] initWithName:@"cell"]] withName:@"cell"];
+    [object setCell:[runtime withExecutableAncestor:[[EEvaluateFirstArgument alloc] init]] withName:@""];
     
     /* Object cell */
     [object setCell:runtime.theObject withName:@"Object"];

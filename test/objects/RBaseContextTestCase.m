@@ -32,4 +32,10 @@
     STAssertEqualObjects([(LText*)result text], @"HELLO", @"Macro not called properly");
 }
 
+- (void)testEmptyMessage
+{
+    result = [lang run:@"(\"hello\")"];
+    STAssertEqualObjects([(LText*)result text], @"hello", @"Empty message not called");
+}
+
 @end
