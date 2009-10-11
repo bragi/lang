@@ -11,8 +11,6 @@
   };
 
   main := |*
-    identifier = alpha+;
-    
     # Alpha numberic characters or underscore.
     alnum_u = alnum | '_';
     
@@ -21,11 +19,13 @@
     
     operator_char = '=' | '+' | '-' | ':' | '<' | '>' | '!';
     
-    alpha_u alnum_u* '(' {
+    identifier = alpha_u (alnum_u | ':')* ('?'|'!')?;
+    
+    identifier '(' {
       [self identifierWithArguments:ts length:(te-ts-1)];
     };
 
-    alpha_u alnum_u* {
+    identifier {
       [self identifier:ts length:te-ts];
     };
     

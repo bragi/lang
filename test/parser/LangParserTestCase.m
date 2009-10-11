@@ -54,11 +54,31 @@
 {
     message = [LangParser parse:@"a = 1" inRuntime:runtime];
     STAssertEqualObjects(message.name, @"=", @"Assignement not shuffled properly");
-    NSLog(@"Arguments: %d", [message.arguments count]);
     STAssertTrue([message.arguments count] == 2, @"Not enough arguments");
     argument = (LMessage*)[message.arguments objectAtIndex:0];
     STAssertEqualObjects(argument.name, @"a", @"Assignement not shuffled properly");
     argument = (LMessage*)[message.arguments objectAtIndex:1];
     STAssertEqualObjects(argument.name, @"1", @"Assignement not shuffled properly");
+}
+
+- (void)testComplexMessageNames
+{
+    message = [LangParser parse:@"hello? hello:world! some:complex:message!(argument?, arg:ument!)" inRuntime:runtime];
+    LMessage * current = message;
+    STAssertEqualObjects(current.name, @"hello?", @"Message with question mark not parsed properly");
+
+    current = current.nextMessage;
+    STAssertEqualObjects(current.name, @"hello:world!", @"Message with colon and exclamation mark not parsed properly");
+
+    current = current.nextMessage;
+    STAssertEqualObjects(current.name, @"some:complex:message!", @"Message with colons, exclamation mark and arguments not parsed properly");
+    
+    STAssertTrue([current.arguments count] == 2, @"Wrong number of arguments for complex message");
+    
+    argument = [current.arguments objectAtIndex:0];
+    STAssertEqualObjects(argument.name, @"argument?", @"Argument with question mark not parsed properly");
+
+    argument = [current.arguments objectAtIndex:1];
+    STAssertEqualObjects(argument.name, @"arg:ument!", @"Argument with colon and exclamation mark not parsed properly");
 }
 @end
