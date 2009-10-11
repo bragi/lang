@@ -86,7 +86,7 @@
     }
 }
 
-- (BOOL)isAssignement
+- (BOOL)isAssignment
 {
     return NO;
 }
@@ -137,9 +137,14 @@
 
 @implementation OperatorMessage
 
-- (BOOL)isAssignement
++ (id)messageWithName:(NSString*)newName
 {
-    return [name isEqualToString:@"="];
+    return [[OperatorMessage alloc] initWithName:newName];
+}
+
+- (BOOL)isAssignment
+{
+    return [name isEqualTo:@"="];
 }
 
 - (BOOL)isOperator

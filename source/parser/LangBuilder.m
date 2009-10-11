@@ -52,6 +52,14 @@
     [messages addObject:currentMessage];
 }
 
+- (void)operator:(NSString*)name withLine:(NSUInteger)line andColumn:(NSUInteger)column
+{
+    LMessage *result = [OperatorMessage messageWithName:name];
+    result.line = line;
+    result.column = column;
+    [self addMessage:result];
+}
+
 - (void)argumentsEnd
 {
     currentMessage = [messages lastObject];

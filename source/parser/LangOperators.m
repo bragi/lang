@@ -26,7 +26,7 @@
         if ([currentMessage.arguments count] > 0) {
             [self shuffleArguments:currentMessage];
         } else {
-            if ([currentMessage.name isEqual:@"="]) {
+            if ([currentMessage isAssignment]) {
                 [self shuffleAssignement];
             }
         }
@@ -39,14 +39,14 @@
 
 - (LMessage*)shuffleArguments:(LMessage *)message
 {
-    NSLog(@"Shuffling arguments");
+    NSLog(@"+Shuffling arguments of %@", message.name);
     NSMutableArray *shuffledArguments = [NSMutableArray arrayWithCapacity:[message.arguments count]];
     for(LMessage *argument in message.arguments) {
         LangOperators *operators = [[LangOperators alloc] init];
         [shuffledArguments addObject:[operators shuffle:argument]];
     }
     message.arguments = shuffledArguments;
-    NSLog(@"Done shuffling arguments");
+    NSLog(@"-Shuffling arguments of %@", message.name);
     return message;
 }
 

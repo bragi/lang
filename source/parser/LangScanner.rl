@@ -38,7 +38,7 @@
     };
     
     operator_char operator_char* {
-      [self identifier:ts length:te-ts];
+      [self operator:ts length:te-ts];
     };
     
     (" " | "\\\n")+;
@@ -128,6 +128,12 @@
 {
     NSString* name = [[NSString alloc] initWithBytes:start length:length encoding:NSUTF8StringEncoding];
     [builder identifierWithArguments:name withLine:line andColumn:column];
+}
+
+- (void)operator:(char*)start length:(int)length
+{
+    NSString* name = [[NSString alloc] initWithBytes:start length:length encoding:NSUTF8StringEncoding];
+    [builder operator:name withLine:line andColumn:column];
 }
 
 - (void)listMessage

@@ -33,9 +33,9 @@
 - (NSMutableString*)stringValueWithoutNested;
 
 /**
- Returns true if is an assignement message, false otherwise.
+ Returns true if is an assignment message, false otherwise.
  */
-- (BOOL)isAssignement;
+- (BOOL)isAssignment;
 
 /**
  Returns true if is an operator message, false otherwise.

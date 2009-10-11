@@ -159,6 +159,12 @@ static const int Lang_en_main = 5;
     [builder identifierWithArguments:name withLine:line andColumn:column];
 }
 
+- (void)operator:(char*)start length:(int)length
+{
+    NSString* name = [[NSString alloc] initWithBytes:start length:length encoding:NSUTF8StringEncoding];
+    [builder operator:name withLine:line andColumn:column];
+}
+
 - (void)listMessage
 {
     [builder identifierWithArguments:@"[]" withLine:line andColumn:column];
@@ -187,7 +193,7 @@ static const int Lang_en_main = 5;
     char *eof = pe;
 
     
-#line 191 "source/parser/LangScanner.m"
+#line 197 "source/parser/LangScanner.m"
 	{
 	cs = Lang_start;
 	ts = 0;
@@ -195,9 +201,9 @@ static const int Lang_en_main = 5;
 	act = 0;
 	}
 
-#line 161 "source/parser/LangScanner.rl"
+#line 167 "source/parser/LangScanner.rl"
     
-#line 201 "source/parser/LangScanner.m"
+#line 207 "source/parser/LangScanner.m"
 	{
 	int _klen;
 	unsigned int _trans;
@@ -218,7 +224,7 @@ _resume:
 #line 1 "source/parser/LangScanner.rl"
 	{ts = p;}
 	break;
-#line 222 "source/parser/LangScanner.m"
+#line 228 "source/parser/LangScanner.m"
 		}
 	}
 
@@ -353,7 +359,7 @@ _eof_trans:
 	case 15:
 #line 40 "source/parser/LangScanner.rl"
 	{te = p;p--;{
-      [self identifier:ts length:te-ts];
+      [self operator:ts length:te-ts];
     }}
 	break;
 	case 16:
@@ -383,7 +389,7 @@ _eof_trans:
 	}
 	}
 	break;
-#line 387 "source/parser/LangScanner.m"
+#line 393 "source/parser/LangScanner.m"
 		}
 	}
 
@@ -400,7 +406,7 @@ _again:
 #line 1 "source/parser/LangScanner.rl"
 	{act = 0;}
 	break;
-#line 404 "source/parser/LangScanner.m"
+#line 410 "source/parser/LangScanner.m"
 		}
 	}
 
@@ -420,6 +426,6 @@ _again:
 	_out: {}
 	}
 
-#line 162 "source/parser/LangScanner.rl"
+#line 168 "source/parser/LangScanner.rl"
 }
 @end
