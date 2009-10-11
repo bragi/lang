@@ -1,7 +1,7 @@
 
 #line 1 "source/parser/LangScanner.rl"
 
-#line 63 "source/parser/LangScanner.rl"
+#line 67 "source/parser/LangScanner.rl"
 
 
 //
@@ -19,29 +19,30 @@ static const char _Lang_actions[] = {
 	0, 1, 2, 1, 6, 1, 7, 1, 
 	8, 1, 9, 1, 10, 1, 11, 1, 
 	12, 1, 13, 1, 14, 1, 15, 1, 
-	16, 1, 17, 2, 0, 1, 2, 3, 
-	4, 2, 3, 5
+	16, 1, 17, 1, 18, 2, 0, 1, 
+	2, 3, 4, 2, 3, 5
 };
 
 static const char _Lang_key_offsets[] = {
-	0, 0, 4, 5, 7, 7, 28, 32, 
-	37, 39, 45, 53, 56, 58, 68
+	0, 0, 5, 6, 8, 8, 31, 36, 
+	42, 44, 50, 58, 61, 63, 73
 };
 
 static const char _Lang_trans_keys[] = {
-	10, 32, 41, 44, 10, 34, 92, 10, 
-	32, 33, 34, 40, 41, 43, 44, 45, 
-	46, 58, 92, 95, 48, 57, 60, 62, 
-	65, 90, 97, 122, 10, 32, 41, 44, 
-	10, 32, 41, 44, 92, 32, 92, 33, 
-	43, 45, 58, 60, 62, 33, 43, 45, 
-	58, 48, 57, 60, 62, 46, 48, 57, 
-	48, 57, 33, 40, 63, 95, 48, 58, 
-	65, 90, 97, 122, 40, 0
+	10, 32, 41, 44, 93, 10, 34, 92, 
+	10, 32, 33, 34, 40, 41, 43, 44, 
+	45, 46, 58, 91, 92, 93, 95, 48, 
+	57, 60, 62, 65, 90, 97, 122, 10, 
+	32, 41, 44, 93, 10, 32, 41, 44, 
+	92, 93, 32, 92, 33, 43, 45, 58, 
+	60, 62, 33, 43, 45, 58, 48, 57, 
+	60, 62, 46, 48, 57, 48, 57, 33, 
+	40, 63, 95, 48, 58, 65, 90, 97, 
+	122, 40, 0
 };
 
 static const char _Lang_single_lengths[] = {
-	0, 4, 1, 2, 0, 13, 4, 5, 
+	0, 5, 1, 2, 0, 15, 5, 6, 
 	2, 4, 4, 1, 0, 4, 1
 };
 
@@ -51,38 +52,39 @@ static const char _Lang_range_lengths[] = {
 };
 
 static const char _Lang_index_offsets[] = {
-	0, 0, 5, 7, 10, 11, 29, 34, 
-	40, 43, 49, 56, 59, 61, 69
+	0, 0, 6, 8, 11, 12, 32, 38, 
+	45, 48, 54, 61, 64, 66, 74
 };
 
 static const char _Lang_indicies[] = {
-	1, 1, 2, 3, 0, 4, 0, 6, 
-	7, 5, 5, 8, 10, 11, 5, 12, 
-	2, 11, 3, 13, 14, 11, 17, 16, 
-	15, 11, 16, 16, 9, 1, 1, 2, 
-	3, 18, 1, 10, 2, 3, 17, 19, 
-	4, 17, 19, 11, 11, 11, 11, 11, 
-	20, 11, 11, 11, 11, 15, 11, 20, 
-	22, 15, 21, 22, 21, 24, 25, 24, 
-	16, 16, 16, 16, 23, 25, 23, 0
+	1, 1, 2, 3, 2, 0, 4, 0, 
+	6, 7, 5, 5, 8, 10, 11, 5, 
+	12, 2, 11, 3, 13, 14, 11, 17, 
+	18, 2, 16, 15, 11, 16, 16, 9, 
+	1, 1, 2, 3, 2, 19, 1, 10, 
+	2, 3, 18, 2, 20, 4, 18, 20, 
+	11, 11, 11, 11, 11, 21, 11, 11, 
+	11, 11, 15, 11, 21, 23, 15, 22, 
+	23, 22, 25, 26, 25, 16, 16, 16, 
+	16, 24, 26, 24, 0
 };
 
 static const char _Lang_trans_targs[] = {
 	5, 1, 5, 5, 8, 3, 5, 4, 
 	6, 0, 7, 9, 5, 10, 5, 11, 
-	13, 2, 5, 5, 5, 5, 12, 5, 
-	14, 5
+	13, 5, 2, 5, 5, 5, 5, 12, 
+	5, 14, 5
 };
 
 static const char _Lang_trans_actions[] = {
-	25, 0, 9, 11, 30, 0, 5, 0, 
-	33, 0, 30, 0, 7, 0, 13, 0, 
-	0, 0, 23, 21, 19, 17, 0, 15, 
-	0, 3
+	27, 0, 11, 13, 32, 0, 5, 0, 
+	35, 0, 32, 0, 7, 0, 15, 0, 
+	0, 9, 0, 25, 23, 21, 19, 0, 
+	17, 0, 3
 };
 
 static const char _Lang_to_state_actions[] = {
-	0, 0, 0, 0, 0, 27, 0, 0, 
+	0, 0, 0, 0, 0, 29, 0, 0, 
 	0, 0, 0, 0, 0, 0, 0
 };
 
@@ -92,8 +94,8 @@ static const char _Lang_from_state_actions[] = {
 };
 
 static const char _Lang_eof_trans[] = {
-	0, 1, 1, 0, 0, 0, 19, 20, 
-	20, 21, 21, 22, 22, 24, 24
+	0, 1, 1, 0, 0, 0, 20, 21, 
+	21, 22, 22, 23, 23, 25, 25
 };
 
 static const int Lang_start = 5;
@@ -102,7 +104,7 @@ static const int Lang_error = 0;
 static const int Lang_en_main = 5;
 
 
-#line 75 "source/parser/LangScanner.rl"
+#line 79 "source/parser/LangScanner.rl"
 
 @interface LangScanner()
 - (void)identifier:(char*)start length:(int)length;
@@ -111,6 +113,7 @@ static const int Lang_en_main = 5;
 - (void)argumentsEnd;
 - (void)nextArgument;
 - (void)endMessage;
+- (void)listMessage;
 - (void)textLiteral:(char *)start length:(int)length;
 - (void)numberLiteral:(char *)start length:(int)length;
 @end
@@ -156,6 +159,11 @@ static const int Lang_en_main = 5;
     [builder identifierWithArguments:name withLine:line andColumn:column];
 }
 
+- (void)listMessage
+{
+    [builder identifierWithArguments:@"[]" withLine:line andColumn:column];
+}
+
 - (void)textLiteral:(char*)start length:(int)length
 {
     NSString* name = [[NSString alloc] initWithBytes:start+1 length:length-1 encoding:NSUTF8StringEncoding];
@@ -179,7 +187,7 @@ static const int Lang_en_main = 5;
     char *eof = pe;
 
     
-#line 183 "source/parser/LangScanner.m"
+#line 191 "source/parser/LangScanner.m"
 	{
 	cs = Lang_start;
 	ts = 0;
@@ -187,9 +195,9 @@ static const int Lang_en_main = 5;
 	act = 0;
 	}
 
-#line 151 "source/parser/LangScanner.rl"
+#line 161 "source/parser/LangScanner.rl"
     
-#line 193 "source/parser/LangScanner.m"
+#line 201 "source/parser/LangScanner.m"
 	{
 	int _klen;
 	unsigned int _trans;
@@ -210,7 +218,7 @@ _resume:
 #line 1 "source/parser/LangScanner.rl"
 	{ts = p;}
 	break;
-#line 214 "source/parser/LangScanner.m"
+#line 222 "source/parser/LangScanner.m"
 		}
 	}
 
@@ -285,8 +293,8 @@ _eof_trans:
 	{act = 6;}
 	break;
 	case 5:
-#line 58 "source/parser/LangScanner.rl"
-	{act = 10;}
+#line 62 "source/parser/LangScanner.rl"
+	{act = 11;}
 	break;
 	case 6:
 #line 24 "source/parser/LangScanner.rl"
@@ -309,56 +317,62 @@ _eof_trans:
 	case 9:
 #line 50 "source/parser/LangScanner.rl"
 	{te = p+1;{
-      [self argumentsEnd];
+      [self listMessage];
     }}
 	break;
 	case 10:
 #line 54 "source/parser/LangScanner.rl"
 	{te = p+1;{
-      [self nextArgument];
+      [self argumentsEnd];
     }}
 	break;
 	case 11:
 #line 58 "source/parser/LangScanner.rl"
 	{te = p+1;{
-      [self endMessage];
+      [self nextArgument];
     }}
 	break;
 	case 12:
+#line 62 "source/parser/LangScanner.rl"
+	{te = p+1;{
+      [self endMessage];
+    }}
+	break;
+	case 13:
 #line 28 "source/parser/LangScanner.rl"
 	{te = p;p--;{
       [self identifier:ts length:te-ts];
     }}
 	break;
-	case 13:
+	case 14:
 #line 36 "source/parser/LangScanner.rl"
 	{te = p;p--;{
       [self numberLiteral:ts length:te-ts];
     }}
 	break;
-	case 14:
+	case 15:
 #line 40 "source/parser/LangScanner.rl"
 	{te = p;p--;{
       [self identifier:ts length:te-ts];
     }}
 	break;
-	case 15:
+	case 16:
 #line 44 "source/parser/LangScanner.rl"
 	{te = p;p--;}
 	break;
-	case 16:
-#line 58 "source/parser/LangScanner.rl"
+	case 17:
+#line 62 "source/parser/LangScanner.rl"
 	{te = p;p--;{
       [self endMessage];
     }}
 	break;
-	case 17:
+	case 18:
 #line 1 "source/parser/LangScanner.rl"
 	{	switch( act ) {
 	case 0:
 	{{cs = 0; goto _again;}}
 	break;
-	case 10:
+	case 11:
 	{{p = ((te))-1;}
       [self endMessage];
     }
@@ -369,7 +383,7 @@ _eof_trans:
 	}
 	}
 	break;
-#line 373 "source/parser/LangScanner.m"
+#line 387 "source/parser/LangScanner.m"
 		}
 	}
 
@@ -386,7 +400,7 @@ _again:
 #line 1 "source/parser/LangScanner.rl"
 	{act = 0;}
 	break;
-#line 390 "source/parser/LangScanner.m"
+#line 404 "source/parser/LangScanner.m"
 		}
 	}
 
@@ -406,6 +420,6 @@ _again:
 	_out: {}
 	}
 
-#line 152 "source/parser/LangScanner.rl"
+#line 162 "source/parser/LangScanner.rl"
 }
 @end

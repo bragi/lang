@@ -47,7 +47,11 @@
       [self emptyMessage];
     };
 
-    ("\n" | " ")* ')' {
+    '[' {
+      [self listMessage];
+    };
+    
+    ("\n" | " ")* (')' | ']') {
       [self argumentsEnd];
     };
     
@@ -80,6 +84,7 @@
 - (void)argumentsEnd;
 - (void)nextArgument;
 - (void)endMessage;
+- (void)listMessage;
 - (void)textLiteral:(char *)start length:(int)length;
 - (void)numberLiteral:(char *)start length:(int)length;
 @end
@@ -123,6 +128,11 @@
 {
     NSString* name = [[NSString alloc] initWithBytes:start length:length encoding:NSUTF8StringEncoding];
     [builder identifierWithArguments:name withLine:line andColumn:column];
+}
+
+- (void)listMessage
+{
+    [builder identifierWithArguments:@"[]" withLine:line andColumn:column];
 }
 
 - (void)textLiteral:(char*)start length:(int)length

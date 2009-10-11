@@ -46,6 +46,7 @@
     /* List cell */
     [object setCell:runtime.theList withName:@"List"];
     [object setCell:[runtime withExecutableAncestor:[[ECreateList alloc] init]] withName:@"list"];
+    [object setCell:[runtime withExecutableAncestor:[[ECreateList alloc] init]] withName:@"[]"];
 }
 
 @end

@@ -38,4 +38,10 @@
     STAssertEqualObjects([(LText*)result text], @"hello", @"Empty message not called");
 }
 
+- (void)testListLiteral
+{
+    result = [lang run:@"[]"];
+    NSLog(@"Result class is: %@", [result class]);
+    STAssertTrue([result isKindOfClass:[LList class]], @"List message does not return list");
+}
 @end
