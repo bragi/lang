@@ -19,15 +19,17 @@
     # Alpha charactres or underscore.
     alpha_u = alpha | '_';
     
-    alpha_u alnum_u* {
-      [self identifier:ts length:te-ts];
-    };
+    operator_char = '=' | '+' | '-' | ':' | '<' | '>' | '!';
     
     alpha_u alnum_u* '(' {
       [self identifierWithArguments:ts length:(te-ts-1)];
     };
 
-    '=' '='? | '+' | '-' | ':' {
+    alpha_u alnum_u* {
+      [self identifier:ts length:te-ts];
+    };
+    
+    operator_char operator_char* {
       [self identifier:ts length:te-ts];
     };
     

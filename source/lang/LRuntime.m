@@ -116,6 +116,7 @@
     LMessage *code = [LangParser parse:codeText inRuntime:self];
 
     [[LExecution buildWithRuntime:self] runMessage:code withContext:theBaseContext];
+    NSLog(@"Bootstrapped");
     return self;
 }
 

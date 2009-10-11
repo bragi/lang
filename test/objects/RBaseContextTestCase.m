@@ -28,7 +28,7 @@
 
 - (void)testMacro
 {
-    result = [lang run:@"=(hello, macro(\"hello\" upcase)). hello"];
+    result = [lang run:@"hello = macro(\"hello\" upcase). hello"];
     STAssertEqualObjects([(LText*)result text], @"HELLO", @"Macro not called properly");
 }
 

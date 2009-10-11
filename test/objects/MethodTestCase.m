@@ -21,7 +21,7 @@
 {
     // hello = method("hello")
     // hello
-    result = [lang run:@"=(hello, method(\"hello\"))\nhello"];
+    result = [lang run:@"hello = method(\"hello\"). hello"];
     STAssertEqualObjects([(LText*)result text], @"hello", @"Method not called");
 }
 
@@ -29,7 +29,7 @@
 {
     // hello = method("hello" upcase)
     // hello
-    result = [lang run:@"=(hello, method(\"hello\" upcase))\nhello"];
+    result = [lang run:@"hello = method(\"hello\" upcase). hello"];
     STAssertEqualObjects([(LText*)result text], @"HELLO", @"Method not called");
 }
 
@@ -37,7 +37,7 @@
 {
     // true hello = method(self)
     // true hello
-    result = [lang run:@"true =(hello, method(self))\ntrue hello"];
+    result = [lang run:@"true hello = method(self). true hello"];
     STAssertEqualObjects(result, lang.runtime.theTrue, @"Self in invoked method differs");
 }
 
@@ -45,7 +45,7 @@
 {
     // hello = method(return(true). false)
     // hello
-    result = [lang run:@"=(hello, method(return(true). false))\nhello"];
+    result = [lang run:@"hello = method(return(true). false). hello"];
     STAssertEqualObjects(result, lang.runtime.theTrue, @"Return does not return proper value");
 }
 
@@ -53,7 +53,7 @@
 {
     // myUpcase = method(text, text upcase)
     // myUpcase("hello")
-    result = [lang run:@"=(myUpcase, method(text, text upcase)). myUpcase(\"hello\")"];
+    result = [lang run:@"myUpcase = method(text, text upcase). myUpcase(\"hello\")"];
     STAssertEqualObjects([(LText*)result text], @"HELLO", @"Method not called");
 }
 
@@ -62,7 +62,7 @@
     // text = "hello"
     // myUpcase = method(text, text upcase)
     // myUpcase(text)
-    result = [lang run:@"=(text, \"hello\").=(myUpcase, method(text, text upcase)). myUpcase(text)"];
+    result = [lang run:@"text = \"hello\". myUpcase = method(text, text upcase). myUpcase(text)"];
     STAssertEqualObjects([(LText*)result text], @"HELLO", @"Method not called");
 }
 
@@ -70,9 +70,9 @@
 {
     // myUpcase = method(text "hello", text upcase)
     // myUpcase
-    result = [lang run:@"=(myUpcase, method(text \"hello\", text upcase)). myUpcase"];
+    result = [lang run:@"myUpcase = method(text \"hello\", text upcase). myUpcase"];
     STAssertEqualObjects([(LText*)result text], @"HELLO", @"Method not called");
-    result = [lang run:@"=(myUpcase, method(text \"hello\", text upcase)). myUpcase(\"xxx\")"];
+    result = [lang run:@"myUpcase = method(text \"hello\", text upcase). myUpcase(\"xxx\")"];
     STAssertEqualObjects([(LText*)result text], @"XXX", @"Method not called");
 }
 
@@ -81,7 +81,7 @@
     // inner = method(a, true)
     // outer = method(inner(return(false))) # This returns false always, inner code is never called
     // outer
-    result = [lang run:@"=(inner, method(a, true)). =(outer, method(inner(return(false)))). outer"];
+    result = [lang run:@"inner = method(a, true). outer = method(inner(return(false))). outer"];
     STAssertEqualObjects(result, lang.runtime.theFalse, @"return not evaluated properly in arguments");
 }
 
@@ -89,7 +89,7 @@
 {
     // m = macro(call message name)
     // m
-    result = [lang run:@"=(m, macro(call message name)). m"];
+    result = [lang run:@"m = macro(call message name). m"];
     STAssertEqualObjects([(LText*)result text], @"m", @"Message name is different");
 }
 
@@ -97,7 +97,7 @@
 {
     // m = macro(call message arguments first name)
     // m(hello)
-    result = [lang run:@"=(m, macro(call message arguments first name)). m(hello)"];
+    result = [lang run:@"m = macro(call message arguments first name). m(hello)"];
     STAssertEqualObjects([(LText*)result text], @"hello", @"Message name is different");
 }
 @end
