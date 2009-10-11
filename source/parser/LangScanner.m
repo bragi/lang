@@ -25,71 +25,75 @@ static const char _Lang_actions[] = {
 
 static const char _Lang_key_offsets[] = {
 	0, 0, 4, 5, 7, 7, 28, 32, 
-	37, 39, 45, 47, 57
+	37, 39, 45, 53, 56, 58, 68
 };
 
 static const char _Lang_trans_keys[] = {
 	10, 32, 41, 44, 10, 34, 92, 10, 
-	32, 33, 34, 40, 41, 44, 46, 58, 
-	92, 95, 43, 45, 48, 57, 60, 62, 
+	32, 33, 34, 40, 41, 43, 44, 45, 
+	46, 58, 92, 95, 48, 57, 60, 62, 
 	65, 90, 97, 122, 10, 32, 41, 44, 
 	10, 32, 41, 44, 92, 32, 92, 33, 
-	43, 45, 58, 60, 62, 48, 57, 33, 
-	40, 63, 95, 48, 58, 65, 90, 97, 
-	122, 40, 0
+	43, 45, 58, 60, 62, 33, 43, 45, 
+	58, 48, 57, 60, 62, 46, 48, 57, 
+	48, 57, 33, 40, 63, 95, 48, 58, 
+	65, 90, 97, 122, 40, 0
 };
 
 static const char _Lang_single_lengths[] = {
-	0, 4, 1, 2, 0, 11, 4, 5, 
-	2, 4, 0, 4, 1
+	0, 4, 1, 2, 0, 13, 4, 5, 
+	2, 4, 4, 1, 0, 4, 1
 };
 
 static const char _Lang_range_lengths[] = {
-	0, 0, 0, 0, 0, 5, 0, 0, 
-	0, 1, 1, 3, 0
+	0, 0, 0, 0, 0, 4, 0, 0, 
+	0, 1, 2, 1, 1, 3, 0
 };
 
 static const char _Lang_index_offsets[] = {
-	0, 0, 5, 7, 10, 11, 28, 33, 
-	39, 42, 48, 50, 58
+	0, 0, 5, 7, 10, 11, 29, 34, 
+	40, 43, 49, 56, 59, 61, 69
 };
 
 static const char _Lang_indicies[] = {
 	1, 1, 2, 3, 0, 4, 0, 6, 
 	7, 5, 5, 8, 10, 11, 5, 12, 
-	2, 3, 13, 11, 16, 15, 11, 14, 
-	11, 15, 15, 9, 1, 1, 2, 3, 
-	17, 1, 10, 2, 3, 16, 18, 4, 
-	16, 18, 11, 11, 11, 11, 11, 19, 
-	14, 20, 22, 23, 22, 15, 15, 15, 
-	15, 21, 23, 21, 0
+	2, 11, 3, 13, 14, 11, 17, 16, 
+	15, 11, 16, 16, 9, 1, 1, 2, 
+	3, 18, 1, 10, 2, 3, 17, 19, 
+	4, 17, 19, 11, 11, 11, 11, 11, 
+	20, 11, 11, 11, 11, 15, 11, 20, 
+	22, 15, 21, 22, 21, 24, 25, 24, 
+	16, 16, 16, 16, 23, 25, 23, 0
 };
 
 static const char _Lang_trans_targs[] = {
 	5, 1, 5, 5, 8, 3, 5, 4, 
-	6, 0, 7, 9, 5, 5, 10, 11, 
-	2, 5, 5, 5, 5, 5, 12, 5
+	6, 0, 7, 9, 5, 10, 5, 11, 
+	13, 2, 5, 5, 5, 5, 12, 5, 
+	14, 5
 };
 
 static const char _Lang_trans_actions[] = {
 	25, 0, 9, 11, 30, 0, 5, 0, 
-	33, 0, 30, 0, 7, 13, 0, 0, 
-	0, 23, 21, 17, 19, 15, 0, 3
+	33, 0, 30, 0, 7, 0, 13, 0, 
+	0, 0, 23, 21, 19, 17, 0, 15, 
+	0, 3
 };
 
 static const char _Lang_to_state_actions[] = {
 	0, 0, 0, 0, 0, 27, 0, 0, 
-	0, 0, 0, 0, 0
+	0, 0, 0, 0, 0, 0, 0
 };
 
 static const char _Lang_from_state_actions[] = {
 	0, 0, 0, 0, 0, 1, 0, 0, 
-	0, 0, 0, 0, 0
+	0, 0, 0, 0, 0, 0, 0
 };
 
 static const char _Lang_eof_trans[] = {
-	0, 1, 1, 0, 0, 0, 18, 19, 
-	19, 20, 21, 22, 22
+	0, 1, 1, 0, 0, 0, 19, 20, 
+	20, 21, 21, 22, 22, 24, 24
 };
 
 static const int Lang_start = 5;
@@ -175,7 +179,7 @@ static const int Lang_en_main = 5;
     char *eof = pe;
 
     
-#line 179 "source/parser/LangScanner.m"
+#line 183 "source/parser/LangScanner.m"
 	{
 	cs = Lang_start;
 	ts = 0;
@@ -185,7 +189,7 @@ static const int Lang_en_main = 5;
 
 #line 151 "source/parser/LangScanner.rl"
     
-#line 189 "source/parser/LangScanner.m"
+#line 193 "source/parser/LangScanner.m"
 	{
 	int _klen;
 	unsigned int _trans;
@@ -206,7 +210,7 @@ _resume:
 #line 1 "source/parser/LangScanner.rl"
 	{ts = p;}
 	break;
-#line 210 "source/parser/LangScanner.m"
+#line 214 "source/parser/LangScanner.m"
 		}
 	}
 
@@ -291,7 +295,7 @@ _eof_trans:
     }}
 	break;
 	case 7:
-#line 36 "source/parser/LangScanner.rl"
+#line 32 "source/parser/LangScanner.rl"
 	{te = p+1;{
       [self textLiteral:ts length:te-ts-1];
     }}
@@ -327,15 +331,15 @@ _eof_trans:
     }}
 	break;
 	case 13:
-#line 32 "source/parser/LangScanner.rl"
+#line 36 "source/parser/LangScanner.rl"
 	{te = p;p--;{
-      [self identifier:ts length:te-ts];
+      [self numberLiteral:ts length:te-ts];
     }}
 	break;
 	case 14:
 #line 40 "source/parser/LangScanner.rl"
 	{te = p;p--;{
-      [self numberLiteral:ts length:te-ts];
+      [self identifier:ts length:te-ts];
     }}
 	break;
 	case 15:
@@ -365,7 +369,7 @@ _eof_trans:
 	}
 	}
 	break;
-#line 369 "source/parser/LangScanner.m"
+#line 373 "source/parser/LangScanner.m"
 		}
 	}
 
@@ -382,7 +386,7 @@ _again:
 #line 1 "source/parser/LangScanner.rl"
 	{act = 0;}
 	break;
-#line 386 "source/parser/LangScanner.m"
+#line 390 "source/parser/LangScanner.m"
 		}
 	}
 

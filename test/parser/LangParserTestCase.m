@@ -81,4 +81,20 @@
     argument = [current.arguments objectAtIndex:1];
     STAssertEqualObjects(argument.name, @"arg:ument!", @"Argument with colon and exclamation mark not parsed properly");
 }
+
+- (void)testNegativeNumber
+{
+    message = [LangParser parse:@"2 -3 2.2 -3.141" inRuntime:runtime];
+    LMessage * current = message;
+    STAssertEqualObjects(current.name, @"2", @"Positive integer not parsed properly");
+
+    current = current.nextMessage;
+    STAssertEqualObjects(current.name, @"-3", @"Negative integer not parsed properly");
+
+    current = current.nextMessage;
+    STAssertEqualObjects(current.name, @"2.2", @"Positive float not parsed properly");
+
+    current = current.nextMessage;
+    STAssertEqualObjects(current.name, @"-3.141", @"Negative float not parsed properly");
+}
 @end

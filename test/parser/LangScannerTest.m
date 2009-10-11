@@ -28,7 +28,7 @@
 
 - (void)testParseComplexExpression
 {
-    [scanner scan:@"=(Company, Object new)\n=(company, Company new). company new"];
+    [scanner scan:@"Company = Object new\ncompany = Company new. company new"];
 }
 
 @end

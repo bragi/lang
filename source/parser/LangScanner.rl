@@ -29,16 +29,16 @@
       [self identifier:ts length:te-ts];
     };
     
-    operator_char operator_char* {
-      [self identifier:ts length:te-ts];
-    };
-    
     '"' ( [^\\"] | '\\' any ) * '"' {
       [self textLiteral:ts length:te-ts-1];
     };
     
-    digit+  {
+    '-'? digit+ '.'? digit*  {
       [self numberLiteral:ts length:te-ts];
+    };
+    
+    operator_char operator_char* {
+      [self identifier:ts length:te-ts];
     };
     
     (" " | "\\\n")+;
