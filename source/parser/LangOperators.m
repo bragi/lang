@@ -40,14 +40,12 @@
 
 - (LMessage*)shuffleArguments:(LMessage *)message
 {
-    NSLog(@"+Shuffling arguments of %@", message.name);
     NSMutableArray *shuffledArguments = [NSMutableArray arrayWithCapacity:[message.arguments count]];
     for(LMessage *argument in message.arguments) {
         LangOperators *operators = [[LangOperators alloc] init];
         [shuffledArguments addObject:[operators shuffle:argument]];
     }
     message.arguments = shuffledArguments;
-    NSLog(@"-Shuffling arguments of %@", message.name);
     return message;
 }
 
@@ -56,30 +54,23 @@
  */
 - (void)shuffleAssignement
 {
-    NSLog(@"In shuffleAssignement");
     LMessage *target = previousMessage2;
     LMessage *cellName = previousMessage;
     LMessage *value = currentMessage.nextMessage;
     LMessage *argumentEnd;
-    NSLog(@"target: %@, cellName: %@, value: %@", target.name, cellName.name, value.name);
     while ([value.name isEqual:@"\n"]) {
         value = value.nextMessage;
     }
     argumentEnd = value;
-    NSLog(@"value: %@", value.name);
     while (argumentEnd.nextMessage && ![argumentEnd.nextMessage isKindOfClass:[EndMessage class]]) {
         argumentEnd = argumentEnd.nextMessage;
     }
-    NSLog(@"argumentEnd: %@", argumentEnd.name);
     currentMessage.nextMessage = argumentEnd.nextMessage;
     argumentEnd.nextMessage = nil;
     
     if (target == nil) {
-        NSLog(@"target is nil");
         startMessage = currentMessage;
-        NSLog(@"target is set");
     } else {
-        NSLog(@"target is not nil");
         target.nextMessage = currentMessage;
     }
     

@@ -34,7 +34,9 @@
             currentMessage.nextMessage = newMessage;
         }
     }
+    previousMessage = currentMessage;
     currentMessage = newMessage;
+    currentMessage.previousMessage = previousMessage;
 }
 
 - (void)identifier:(NSString*)name withLine:(NSUInteger)line andColumn:(NSUInteger)column
@@ -48,7 +50,7 @@
 - (void)identifierWithArguments:(NSString*)name withLine:(NSUInteger)line andColumn:(NSUInteger)column
 {
     [self identifier:name withLine:line andColumn:column];
-    argumentStarted = YES;
+    [self nextArgument];
     [messages addObject:currentMessage];
 }
 
@@ -81,6 +83,7 @@
 - (void)nextArgument
 {
     argumentStarted = YES;
+    previousMessage = nil;
 }
 
 - (void)endMessageWithLine:(NSUInteger)line andColumn:(NSUInteger)column

@@ -12,6 +12,7 @@
 @implementation LMessage
 
 @synthesize nextMessage;
+@synthesize previousMessage;
 @synthesize arguments;
 @synthesize name;
 @synthesize line;

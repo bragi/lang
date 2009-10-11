@@ -14,6 +14,7 @@
     LRuntime *runtime;
     LMessage *message;
     LMessage *currentMessage;
+    LMessage *previousMessage;
     BOOL argumentStarted;
     NSMutableArray *messages;
 }

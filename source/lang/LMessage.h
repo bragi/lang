@@ -15,12 +15,14 @@
 @interface LMessage : LObject {
     NSString *name;
     LMessage *nextMessage;
+    LMessage *previousMessage;
     NSMutableArray *arguments;
     NSInteger line;
     NSInteger column;
 }
 
 @property (retain) LMessage *nextMessage;
+@property (retain) LMessage *previousMessage;
 @property (retain) NSString *name;
 @property (retain) NSMutableArray *arguments;
 @property (assign) NSInteger line;
