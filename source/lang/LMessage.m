@@ -86,6 +86,16 @@
     }
 }
 
+- (BOOL)isAssignement
+{
+    return NO;
+}
+
+- (BOOL)isOperator
+{
+    return NO;
+}
+
 - (BOOL)isEqual:(id)object
 {
     if (![object isKindOfClass:[LMessage class]]) {
@@ -122,6 +132,21 @@
 {
     return [execution.runtime makeTextWithString:name];
 }
+@end
+
+
+@implementation OperatorMessage
+
+- (BOOL)isAssignement
+{
+    return [name isEqualToString:@"="];
+}
+
+- (BOOL)isOperator
+{
+    return YES;
+}
+
 @end
 
 

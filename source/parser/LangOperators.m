@@ -18,11 +18,10 @@
         a = 2
      This becomes:
         =(a, 2)
-     and return message is the second one. 
+     and start message is now '='. We need to return proper start message
      */
     startMessage = message;
     currentMessage = message;
-    NSLog(@"Starting shuffling of: %@", startMessage.name);
     while (currentMessage) {
         if ([currentMessage.arguments count] > 0) {
             [self shuffleArguments:currentMessage];

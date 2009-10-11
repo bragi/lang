@@ -103,7 +103,7 @@
 - (LObject*)equalsToWithExecution:(LExecution*)execution
 {
     LObject *other = [execution evaluatedArgumentAtIndex:0];
-    return [self isEqualTo:other] ? execution.runtime.theTrue : execution.runtime.theFalse;
+    return [self isEqual:other] ? execution.runtime.theTrue : execution.runtime.theFalse;
 }
 
 @end

@@ -20,19 +20,27 @@
     NSInteger column;
 }
 
-+ (id)messageWithName:(NSString*)newName;
-- (id)initWithName:(NSString*)newName;
-
 @property (retain) LMessage *nextMessage;
 @property (retain) NSString *name;
 @property (retain) NSMutableArray *arguments;
 @property (assign) NSInteger line;
 @property (assign) NSInteger column;
 
-
++ (id)messageWithName:(NSString*)newName;
+- (id)initWithName:(NSString*)newName;
 - (void)addArgument:(LMessage*)argument;
 - (NSString*)stringValue;
 - (NSMutableString*)stringValueWithoutNested;
+
+/**
+ Returns true if is an assignement message, false otherwise.
+ */
+- (BOOL)isAssignement;
+
+/**
+ Returns true if is an operator message, false otherwise.
+ */
+- (BOOL)isOperator;
 
 /**
  Gives access to the next message within execution.
@@ -58,12 +66,17 @@
 @end
 
 
-/**Base class for all literals. */
+/** Represents operator. */
+@interface OperatorMessage : LMessage {}
+@end
+
+
+/** Base class for all literals. */
 @interface LLiteral : LMessage {}
 @end
 
 
-/**Text literal. */
+/** Text literal. */
 @interface LTextLiteral : LLiteral {}
 @end
 
