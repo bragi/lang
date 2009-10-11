@@ -21,5 +21,14 @@ true toText = "true"
 Object ifTrue = true cell("ifTrue")
 
 if = macro(
-  call arguments 
+  arguments = call arguments
+  (arguments length == 0) ifTrue(return nil)
+  condition = call evaluatedArgument(0)
+  (arguments length == 1) ifTrue(
+    condition ifTrue(
+      call evaluatedArgument(1)
+    )
+  ) ifFalse(
+    condition
+  )
 )

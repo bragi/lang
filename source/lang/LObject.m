@@ -96,8 +96,14 @@
 
 - (LObject*)cellWithExecution:(LExecution*)execution
 {
-    NSString *name = [(LText*)[[execution evaluatedArguments] objectAtIndex:0] text];
+    NSString *name = [(LText*)[execution evaluatedArgumentAtIndex:0] text];
     return [self cellForName:name];
+}
+
+- (LObject*)equalsToWithExecution:(LExecution*)execution
+{
+    LObject *other = [execution evaluatedArgumentAtIndex:0];
+    return [self isEqualTo:other] ? execution.runtime.theTrue : execution.runtime.theFalse;
 }
 
 @end

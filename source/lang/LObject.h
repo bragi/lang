@@ -42,6 +42,7 @@
  Adds cell to the object with given name.
  */
 - (void)setCell:(LObject*)object withName:(NSString*)name;
+
 /**
  Finds cell with given name in the object.
  */
@@ -92,5 +93,15 @@
  Returns Text representation of this object.
  */
 - (LObject*)toTextWithExecution:(LExecution*)execution;
+
+/**
+ Returns cell with name given in first argument.
+ */
+- (LObject*)cellWithExecution:(LExecution*)execution;
+
+/**
+ Returns true if self is equal to another object, false otherwise.
+ */
+- (LObject*)equalsToWithExecution:(LExecution*)execution;
 
 @end

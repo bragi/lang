@@ -24,7 +24,8 @@
     [object setCell:[runtime withExecutableAncestor:[[EForward alloc] initWithName:@"toText"]] withName:@"toText"];
     [object setCell:[runtime withExecutableAncestor:[[EForward alloc] initWithName:@"cell"]] withName:@"cell"];
     [object setCell:[runtime withExecutableAncestor:[[EEvaluateFirstArgument alloc] init]] withName:@""];
-    
+    [object setCell:[runtime withExecutableAncestor:[[EForward alloc] initWithName:@"equalsTo"]] withName:@"=="];
+
     /* Object cell */
     [object setCell:runtime.theObject withName:@"Object"];
     

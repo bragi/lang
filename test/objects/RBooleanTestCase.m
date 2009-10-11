@@ -47,4 +47,10 @@
     STAssertEqualObjects(result, lang.runtime.theNil, @"ifTrue does not evaluate properly on false");
 }
 
+- (void)testIfWithTrueConditionEvaluatesSecondArgument
+{
+  result = [lang run:@"if(true, \"hello\")"];
+  STAssertEqualObjects([(LText*)result text], @"hello", @"if does not evaluate second argument when condition is true");
+}
+
 @end

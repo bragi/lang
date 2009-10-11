@@ -48,7 +48,7 @@
         // TODO: Rethink. Maybe we should call message's runWithExecution and message decides what to do next
         // Normal messages re-send to target. Literals create instances. Complex...
         
-        // NSLog(@"Executing message: %@", message.name);
+        NSLog(@"Executing message: %@", message.name);
         
         // Handle literals
         if([message isKindOfClass: [LLiteral class]]) {
@@ -82,6 +82,12 @@
     // BOGUS: code smell, this and method above are way too similar!
     LExecution *codeExecution = [[LExecution alloc] initWithParent:self];
     return [codeExecution runMessage:code withContext:givenContext];
+}
+
+- (LObject*)evaluatedArgumentAtIndex:(NSUInteger)index
+{
+    LMessage *m = (LMessage*)[message.arguments objectAtIndex:index];
+    return [self evaluateWithCurrentContext:m];
 }
 
 - (NSMutableArray*)evaluatedArguments
