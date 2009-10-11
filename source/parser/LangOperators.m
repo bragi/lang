@@ -9,6 +9,7 @@
 #import "LangOperators.h"
 
 
+
 @implementation LangOperators
 
 - (LMessage*)shuffle:(LMessage *)message

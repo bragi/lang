@@ -54,7 +54,18 @@
 
 - (void)operator:(NSString*)name withLine:(NSUInteger)line andColumn:(NSUInteger)column
 {
-    LMessage *result = [OperatorMessage messageWithName:name];
+    LMessage *result;
+    if ([name isEqual:@"="] ||
+        [name isEqual:@"+="] ||
+        [name isEqual:@"-="] ||
+        [name isEqual:@"||="] ||
+        [name isEqual:@"&&="] ||
+        [name isEqual:@"*="] ||
+        [name isEqual:@"/="]) {
+        result = [AssignmentOperatorMessage messageWithName:name];
+    } else {
+        result = [OperatorMessage messageWithName:name];
+    }
     result.line = line;
     result.column = column;
     [self addMessage:result];

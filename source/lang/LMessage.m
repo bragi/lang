@@ -142,12 +142,22 @@
     return [[OperatorMessage alloc] initWithName:newName];
 }
 
-- (BOOL)isAssignment
+- (BOOL)isOperator
 {
-    return [name isEqualTo:@"="];
+    return YES;
 }
 
-- (BOOL)isOperator
+@end
+
+
+@implementation AssignmentOperatorMessage
+
++ (id)messageWithName:(NSString*)newName
+{
+    return [[AssignmentOperatorMessage alloc] initWithName:newName];
+}
+
+- (BOOL)isAssignment
 {
     return YES;
 }

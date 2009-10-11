@@ -71,6 +71,11 @@
 @end
 
 
+/** Represents operator. */
+@interface AssignmentOperatorMessage : OperatorMessage {}
+@end
+
+
 /** Base class for all literals. */
 @interface LLiteral : LMessage {}
 @end
