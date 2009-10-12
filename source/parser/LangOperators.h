@@ -16,6 +16,8 @@
     LMessage *currentMessage;
 }
 
++ (LangOperators*)langOperators;
+
 /**
  Returns message chain with all operators shuffled.
  */

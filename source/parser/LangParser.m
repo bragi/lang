@@ -18,7 +18,7 @@
     LangBuilder *builder = [[LangBuilder alloc] initWithRuntime:runtime];
     LangScanner *scanner = [[LangScanner alloc] initWithBuilder:builder];
     [scanner scan:codeText];
-    LangOperators *operators = [[LangOperators alloc] init];
+    LangOperators *operators = [LangOperators langOperators];
     return [operators shuffle:[builder message]];
 }
 @end

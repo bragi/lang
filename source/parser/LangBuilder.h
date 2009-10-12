@@ -17,9 +17,13 @@
     LMessage *previousMessage;
     BOOL argumentStarted;
     NSMutableArray *messages;
+    NSMutableDictionary *levels;
+    NSMutableDictionary *operators;
 }
 
 @property (readonly) LMessage *message;
+
++ (NSMutableDictionary*)defaultLevels;
 
 - (id)initWithRuntime:(LRuntime*)runtime;
 - (void)identifier:(NSString*)name withLine:(NSUInteger)line andColumn:(NSUInteger)column;

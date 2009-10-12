@@ -31,6 +31,7 @@
 + (id)messageWithName:(NSString*)newName;
 - (id)initWithName:(NSString*)newName;
 - (void)addArgument:(LMessage*)argument;
+- (BOOL)isTerminal;
 - (NSString*)stringValue;
 - (NSMutableString*)stringValueWithoutNested;
 
@@ -69,7 +70,14 @@
 
 
 /** Represents operator. */
-@interface OperatorMessage : LMessage {}
+@interface OperatorMessage : LMessage {
+  NSNumber *level;
+}
+@property (assign) NSNumber *level;
+
+/** Shuffles operator in operator chain. Returns new start message of chain. */
+- (LMessage*)shuffleWithStartMessage:(LMessage*)startMessage;
+
 @end
 
 

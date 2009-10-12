@@ -97,6 +97,11 @@
     return NO;
 }
 
+- (BOOL)isTerminal
+{
+    return NO;
+}
+
 - (BOOL)isEqual:(id)object
 {
     if (![object isKindOfClass:[LMessage class]]) {
@@ -138,9 +143,22 @@
 
 @implementation OperatorMessage
 
+@synthesize level;
+
 + (id)messageWithName:(NSString*)newName
 {
     return [[OperatorMessage alloc] initWithName:newName];
+}
+
+- (LMessage*)shuffleWithStartMessage:(LMessage*)startMessage
+{
+    LMessage* argumentStart = nextMessage;
+    // Skip all terminal messages to determine start of arguments
+    while(argumentStart && [argumentStart isTerminal]) {
+        argumentStart = argumentStart.nextMessage;
+    }
+    LMessage* argumentEnd = argumentStart;
+    return startMessage;
 }
 
 - (BOOL)isOperator
@@ -177,6 +195,11 @@
 {
     self = [super initWithName:@"\n"];
     return self;
+}
+
+- (BOOL)isTerminal
+{
+    return YES;
 }
 
 @end

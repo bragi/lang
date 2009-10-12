@@ -13,10 +13,25 @@
 
 @synthesize message;
 
++ (NSMutableDictionary*)defaultLevels
+{
+    NSMutableDictionary *levels = [NSMutableDictionary dictionaryWithCapacity:13];
+    [levels setObject:[NSNumber numberWithInt:14] forKey:@"="];
+    
+    [levels setObject:[NSNumber numberWithInt:6] forKey:@"=="];
+    [levels setObject:[NSNumber numberWithInt:6] forKey:@"!="];
+    
+    [levels setObject:[NSNumber numberWithInt:5] forKey:@"<"];
+    [levels setObject:[NSNumber numberWithInt:5] forKey:@">"];
+    return levels;
+}
+
 - (id)initWithRuntime:(LRuntime*)aRuntime
 {
     self = [super init];
     runtime = aRuntime;
+    levels = [LangBuilder defaultLevels];
+    operators = [NSMutableDictionary dictionary];
     messages = [NSMutableArray array];
     return self;
 }
@@ -56,7 +71,7 @@
 
 - (void)operator:(NSString*)name withLine:(NSUInteger)line andColumn:(NSUInteger)column
 {
-    LMessage *result;
+    OperatorMessage *result;
     if ([name isEqual:@"="] ||
         [name isEqual:@"+="] ||
         [name isEqual:@"-="] ||
@@ -68,6 +83,16 @@
     } else {
         result = [OperatorMessage messageWithName:name];
     }
+    result.level = [levels objectForKey:name];
+    NSLog(@"Result level is %@, name is %@", result.level, name);
+    
+    NSMutableArray *op = [operators objectForKey:result.level];
+    if (!op) {
+        op = [NSMutableArray array];
+        [operators setObject:op forKey:result.level];
+    }
+    [op addObject:result];
+    
     result.line = line;
     result.column = column;
     [self addMessage:result];

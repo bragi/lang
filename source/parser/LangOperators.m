@@ -12,6 +12,11 @@
 
 @implementation LangOperators
 
++ (LangOperators*)langOperators
+{
+    return [[LangOperators alloc] init];
+}
+
 - (LMessage*)shuffle:(LMessage *)message
 {
     /**
