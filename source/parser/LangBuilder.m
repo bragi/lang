@@ -11,7 +11,7 @@
 
 @implementation LangBuilder
 
-@synthesize message;
+@synthesize operators;
 
 + (NSMutableDictionary*)defaultLevels
 {
@@ -84,7 +84,6 @@
         result = [OperatorMessage messageWithName:name];
     }
     result.level = [levels objectForKey:name];
-    NSLog(@"Result level is %@, name is %@", result.level, name);
     
     NSMutableArray *op = [operators objectForKey:result.level];
     if (!op) {
@@ -133,6 +132,19 @@
     result.line = line;
     result.column = column;
     [self addMessage:result];
+}
+
+- (LMessage*)message
+{
+    // Shuffle operators
+    NSArray *activeLevels = [operators allKeys];
+    activeLevels = [activeLevels sortedArrayUsingSelector:@selector(compare:)];
+    for(NSNumber *levelNumber in activeLevels) {
+        for(OperatorMessage *operator in [operators objectForKey:levelNumber]) {
+            message = [operator shuffleWithStartMessage:message];
+        }
+    }
+    return message;
 }
 
 @end

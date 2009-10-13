@@ -21,7 +21,7 @@
     NSMutableDictionary *operators;
 }
 
-@property (readonly) LMessage *message;
+@property (readonly) NSMutableDictionary *operators;
 
 + (NSMutableDictionary*)defaultLevels;
 
@@ -35,5 +35,6 @@
 - (void)textLiteral:(NSString*)name withLine:(NSUInteger)line andColumn:(NSUInteger)column;
 - (void)numberLiteral:(NSString*)name withLine:(NSUInteger)line andColumn:(NSUInteger)column;
 - (void)addMessage:(LMessage*)newMessage;
+- (LMessage*)message;
 
 @end

@@ -140,6 +140,14 @@
 }
 @end
 
+@interface OperatorMessage (OperatorShuffling)
+
+- (LMessage*)argumentStart;
+- (LMessage*)argumentEndFromStart:(LMessage*)start;
+
+@end
+
+
 
 @implementation OperatorMessage
 
@@ -152,18 +160,47 @@
 
 - (LMessage*)shuffleWithStartMessage:(LMessage*)startMessage
 {
-    LMessage* argumentStart = nextMessage;
-    // Skip all terminal messages to determine start of arguments
-    while(argumentStart && [argumentStart isTerminal]) {
-        argumentStart = argumentStart.nextMessage;
+    LMessage* start = [self argumentStart];
+    LMessage* end = [self argumentEndFromStart:start];
+    LMessage* next = end.nextMessage;
+    
+    nextMessage = next;
+    if (next) {
+        next.previousMessage = self;
     }
-    LMessage* argumentEnd = argumentStart;
+    
+    start.previousMessage = nil;
+    end.nextMessage = nil;
+    arguments = [NSMutableArray arrayWithObject:start];
+    
     return startMessage;
 }
 
 - (BOOL)isOperator
 {
     return YES;
+}
+
+- (LMessage*)argumentStart
+{
+    LMessage *start = nextMessage;
+    // Skip all terminal messages to determine start of arguments
+    while(start && [start isTerminal]) {
+        start = start.nextMessage;
+    }
+    return start;
+}
+
+- (LMessage*)argumentEndFromStart:(LMessage*)start
+{
+    LMessage *end = start;
+    LMessage *next = end.nextMessage;
+    
+    while(next && ![next isTerminal] && !([next isOperator] && ([next.arguments count] != 0) && [(OperatorMessage*)next level] == level)) {
+        end = next;
+        next = next.nextMessage;
+    }
+    return end;
 }
 
 @end
@@ -179,6 +216,36 @@
 - (BOOL)isAssignment
 {
     return YES;
+}
+
+- (LMessage*)shuffleWithStartMessage:(LMessage*)startMessage
+{
+    LMessage *start = [self argumentStart];
+    LMessage *end = [self argumentEndFromStart:start];
+    LMessage *next = end.nextMessage;
+    LMessage *cellName = self.previousMessage;
+    LMessage *target = cellName.previousMessage;
+    
+    nextMessage = next;
+    if (next) {
+        next.previousMessage = self;
+    }
+    
+    start.previousMessage = nil;
+    end.nextMessage = nil;
+    arguments = [NSMutableArray arrayWithObject:cellName];
+    [arguments addObject:start];
+    
+    cellName.nextMessage = nil;
+    cellName.previousMessage = nil;
+    
+    if (target) {
+        target.nextMessage = self;
+        previousMessage = target;
+        return startMessage;
+    } else {
+        return self;
+    }
 }
 
 @end
