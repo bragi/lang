@@ -12,7 +12,9 @@
 #import "LText.h"
 #import "LNumber.h"
 #import "LList.h"
+#import "LCall.h"
 #import "LMethod.h"
+#import "LExecution.h"
 
 /**
  Runtime of the Lang. Initializes all basic objects, provides access to them,
@@ -63,6 +65,9 @@
 
     /** Message */
     LMessage *theMessage;
+
+    /** Call */
+    LObject *theCall;
 }
 
 @property (retain) LObject *theBaseContext;
@@ -78,6 +83,7 @@
 @property (retain) LObject *theMethod;
 @property (retain) LObject *theMacro;
 @property (retain) LMessage *theMessage;
+@property (retain) LObject *theCall;
 
 /**
  Initializes Runtime, creates all necessary runtime objects.
@@ -114,4 +120,8 @@
  */
 - (LObject*)withExecutableAncestor:(LObject*)nativeMethod;
 
+/**
+ Creates new instance of Call
+ */
+- (LCall*)makeCallWithExecution:(LExecution*)execution;
 @end

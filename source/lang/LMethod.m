@@ -183,7 +183,7 @@
     /**
      Call represents the call to this macro, gives access to all parts of macro.
      */
-    LObject *call = [execution.runtime.theObject newWithExecution:execution];
+    LObject *call = [execution.runtime makeCallWithExecution:execution];
     [context setCell:call withName:@"call"];
     /**
      Message that was sent to activate this macro.

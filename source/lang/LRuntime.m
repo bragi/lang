@@ -17,6 +17,7 @@
 #import "RText.h"
 #import "RList.h"
 #import "RMessage.h"
+#import "RCall.h"
 
 @interface LRuntime()
 - (void)createObjectHierarchy;
@@ -40,6 +41,7 @@
 @synthesize theMethod;
 @synthesize theMacro;
 @synthesize theMessage;
+@synthesize theCall;
 
 - (id)init
 {
@@ -68,6 +70,7 @@
     theMacro = [LObject objectWithAncestor:theLangExecutable];
     theMessage = [LMessage messageWithName:@""];
     [theMessage addAncestor:theObject];
+    theCall = [LObject objectWithAncestor:theObject];
 }
 
 - (void)createObjectCells
@@ -80,6 +83,7 @@
     [RNil addCellsTo:theNil inRuntime:self];
     [RList addCellsTo:theList inRuntime:self];
     [RMessage addCellsTo:theMessage inRuntime:self];
+    [RCall addCellsTo:theMessage inRuntime:self];
 }
 
 - (LText*)makeTextWithString:(NSString*)string
@@ -106,6 +110,11 @@
 {
     [method addAncestor:theExecutable];
     return method;
+}
+
+- (LCall*)makeCallWithExecution:(LExecution*)execution
+{
+    return [LCall callWithAncestor:theCall execution:execution];
 }
 
 - (LRuntime*)bootstrap
