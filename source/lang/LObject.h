@@ -102,6 +102,6 @@
 /**
  Returns true if self is equal to another object, false otherwise.
  */
-- (LObject*)equalsToWithExecution:(LExecution*)execution;
+- (LObject*)isEqualWithExecution:(LExecution*)execution;
 
 @end

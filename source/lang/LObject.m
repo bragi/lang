@@ -100,7 +100,7 @@
     return [self cellForName:name];
 }
 
-- (LObject*)equalsToWithExecution:(LExecution*)execution
+- (LObject*)isEqualWithExecution:(LExecution*)execution
 {
     LObject *other = [execution evaluatedArgumentAtIndex:0];
     return [self isEqual:other] ? execution.runtime.theTrue : execution.runtime.theFalse;

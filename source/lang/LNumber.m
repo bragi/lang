@@ -47,4 +47,20 @@
     return [execution.runtime makeTextWithString:[NSString stringWithFormat:@"%d", [number integerValue]]];
 }
 
+- (LObject*)isEqualWithExecution:(LExecution*)execution
+{
+    LObject *other = [execution evaluatedArgumentAtIndex:0];
+    if ([other isKindOfClass:[LNumber class]]) {
+        NSDecimalNumber *otherNumber = [(LNumber*)other number];
+        if ([number isEqualToNumber:otherNumber]) {
+            return execution.runtime.theTrue;
+        } else {
+            return execution.runtime.theFalse;
+        }
+    } else {
+        return execution.runtime.theFalse;
+    }
+}
+
+
 @end

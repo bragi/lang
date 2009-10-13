@@ -15,6 +15,7 @@
 {
     /* Add methods */
     [object setCell:[runtime withExecutableAncestor:[[EForward alloc] initWithName:@"new"]] withName:@"new"];
+    [object setCell:[runtime withExecutableAncestor:[[EForward alloc] initWithName:@"isEqual"]] withName:@"=="];
 }
 
 @end
