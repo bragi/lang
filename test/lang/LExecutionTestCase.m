@@ -28,22 +28,22 @@
     STAssertEquals(result, context, @"Different result: %@ (context: %@)", result, context);
 }
 
-- (void)testRunMimic
+- (void)testRunNew
 {
     // mimic
     LMessage *objectMessage = [LMessage messageWithName:@"Object"];
-    objectMessage.nextMessage = [LMessage messageWithName:@"mimic"];
+    objectMessage.nextMessage = [LMessage messageWithName:@"new"];
     result = [execution runMessage:objectMessage withContext:context];
     STAssertFalse(result == runtime.theObject, @"Same current target");
 }
 
-- (void)testRunMultipleMimics
+- (void)testRunMultipleNew
 {
     // mimic mimic
     LMessage *objectMessage = [LMessage messageWithName:@"Object"];
-    LMessage *mimicMessage = [LMessage messageWithName:@"mimic"];
+    LMessage *mimicMessage = [LMessage messageWithName:@"new"];
     objectMessage.nextMessage = mimicMessage;
-    mimicMessage.nextMessage = [LMessage messageWithName:@"mimic"];
+    mimicMessage.nextMessage = [LMessage messageWithName:@"new"];
     result = [execution runMessage:objectMessage withContext:context];
     STAssertFalse(result == context, @"Same current target");
 }

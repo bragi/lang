@@ -70,6 +70,10 @@
     LMessage *message = execution.message;
     NSString *name = [message name];
     LObject *cell = [self cellForName: name];
+    if (cell == nil) {
+        @throw [NSException exceptionWithName:@"Cell not found" reason:[NSString stringWithFormat:@"Could not find cell with name: %@", name] userInfo:nil];
+    }
+    
     return [cell activate:execution];
 }
 
