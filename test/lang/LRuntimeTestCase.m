@@ -34,7 +34,7 @@
 
 - (void)testBootstrap
 {
-    [self executeText:@"Object kind"];
+    [self executeText:@"Object cell(\"kind\")"];
     STAssertNil(result, @"Object kind is not nil");
     [runtime bootstrap];
     [self executeText:@"Object kind"];
