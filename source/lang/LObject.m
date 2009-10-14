@@ -71,7 +71,7 @@
     NSString *name = [message name];
     LObject *cell = [self cellForName: name];
     if (cell == nil) {
-        @throw [NSException exceptionWithName:@"Cell not found" reason:[NSString stringWithFormat:@"Could not find cell with name: %@", name] userInfo:nil];
+        @throw [NSException exceptionWithName:@"Cell not found" reason:[NSString stringWithFormat:@"Could not find cell with name %@ on %@", name, self] userInfo:nil];
     }
     
     return [cell activate:execution];
