@@ -84,6 +84,10 @@
     NSString *name = [(LMessage*)[arguments objectAtIndex:0] name];
     LObject *value = [execution evaluateWithCurrentContext:[arguments objectAtIndex:1]];
     [self setCell:value withName:name];
+    // Check if name starts with uppercase
+    if ([name rangeOfCharacterFromSet:[NSCharacterSet uppercaseLetterCharacterSet]].location == 0) {
+        [value setCell:[execution.runtime makeTextWithString:name] withName:@"kind"];
+    }
     
     return value;
 }
@@ -108,6 +112,39 @@
 {
     LObject *other = [execution evaluatedArgumentAtIndex:0];
     return [self isEqual:other] ? execution.runtime.theTrue : execution.runtime.theFalse;
+}
+
+- (void)logInternals
+{
+    [self logInternalsWithIndentation:@""];
+}
+
+- (void)logInternalsWithIndentation:(NSString*)indentation
+{
+    NSLog(@"%@Class: %@", indentation, [self class]);
+    [self logClassSpecificInternalsWithIndentation:indentation];
+    NSLog(@"%@Cells:", indentation);
+    for (NSString *name in [cells keyEnumerator]) {
+        NSLog(@"%@  name: %@", indentation, name);
+    }
+    NSLog(@"%@Ancestors:", indentation);
+    for (LObject *ancestor in ancestors) {
+        NSLog(@"%@  %@", indentation, [ancestor kind]);
+    }
+}
+
+- (void)logClassSpecificInternalsWithIndentation:(NSString*)indentation
+{
+    
+}
+
+- (NSString *)kind
+{
+    LObject *kindCell = [self cellForName:@"kind"];
+    if (kindCell && [kindCell isKindOfClass:[LText class]]) {
+        return [(LText*)kindCell text];
+    }
+    return [NSString stringWithFormat:@"Unknown %@", [kindCell class]];
 }
 
 @end

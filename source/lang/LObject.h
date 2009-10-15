@@ -76,6 +76,14 @@
  */
 - (LObject*)send:(LExecution*)execution;
 
+/**
+ Outputs full state including type, cells and ancestors.
+ */
+- (void)logInternals;
+- (void)logInternalsWithIndentation:(NSString*)indentation;
+- (void)logClassSpecificInternalsWithIndentation:(NSString*)indentation;
+- (NSString *)kind;
+
 #pragma mark Lang methods - called by method invocations.
 
 /**

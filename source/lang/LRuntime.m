@@ -83,7 +83,7 @@
     [RNil addCellsTo:theNil inRuntime:self];
     [RList addCellsTo:theList inRuntime:self];
     [RMessage addCellsTo:theMessage inRuntime:self];
-    [RCall addCellsTo:theMessage inRuntime:self];
+    [RCall addCellsTo:theCall inRuntime:self];
 }
 
 - (LText*)makeTextWithString:(NSString*)string

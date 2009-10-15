@@ -41,7 +41,23 @@
 - (void)testListLiteral
 {
     result = [lang run:@"[]"];
-    NSLog(@"Result class is: %@", [result class]);
     STAssertTrue([result isKindOfClass:[LList class]], @"List message does not return list");
 }
+
+- (void)testAssignKind
+{
+    result = [lang run:@"Test = Object new. Test kind"];
+    STAssertEqualObjects([(LText*)result text], @"Test", @"Test kind not assigned");
+}
+
+- (void)testTypesKinds
+{
+    STAssertEqualObjects([(LText*)[lang run:@"Object kind"] text], @"Object", @"Object kind is not Object");
+    STAssertEqualObjects([(LText*)[lang run:@"Text kind"] text], @"Text", @"Text kind is not Text");
+    STAssertEqualObjects([(LText*)[lang run:@"Nil kind"] text], @"Nil", @"Nil kind is not Nil");
+    STAssertEqualObjects([(LText*)[lang run:@"False kind"] text], @"False", @"False kind is not False");
+    STAssertEqualObjects([(LText*)[lang run:@"True kind"] text], @"True", @"True kind is not True");
+    STAssertEqualObjects([(LText*)[lang run:@"Number kind"] text], @"Number", @"Number kind is not Number");
+}
+
 @end

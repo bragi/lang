@@ -1,4 +1,7 @@
 Object kind = "Object"
+Text kind = "Text"
+Number kind = "Number"
+
 Object puts = method(self toText puts)
 
 false new = false
@@ -19,6 +22,7 @@ false toText = "false"
 true toText = "true"
 
 Object ifTrue = true cell("ifTrue")
+Object ifFalse = nil
 
 if = macro(
   arguments = call arguments
