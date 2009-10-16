@@ -38,4 +38,9 @@
     printf("%s\n", [text cStringUsingEncoding:NSUTF8StringEncoding]);
     return self;
 }
+
+- (void)logClassSpecificInternalsWithIndentation:(NSString *)indentation
+{
+    NSLog(@"%@%@", indentation, text);
+}
 @end

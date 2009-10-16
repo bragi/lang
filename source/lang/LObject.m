@@ -125,7 +125,7 @@
     [self logClassSpecificInternalsWithIndentation:indentation];
     NSLog(@"%@Cells:", indentation);
     for (NSString *name in [cells keyEnumerator]) {
-        NSLog(@"%@  name: %@", indentation, name);
+        NSLog(@"%@  %@", indentation, name);
     }
     NSLog(@"%@Ancestors:", indentation);
     for (LObject *ancestor in ancestors) {
