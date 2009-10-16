@@ -63,6 +63,9 @@
       [self endMessage];
     };
     
+    # Comments
+    ";" any* "\n";
+    
   *|;
 }%%
 
