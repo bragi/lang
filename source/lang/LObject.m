@@ -69,12 +69,14 @@
 {
     LMessage *message = execution.message;
     NSString *name = [message name];
-    LObject *cell = [self cellForName: name];
+    LObject *cell = [self cellForName:name];
     if (cell == nil) {
         @throw [NSException exceptionWithName:@"Cell not found" reason:[NSString stringWithFormat:@"Could not find cell with name %@ on %@", name, self] userInfo:nil];
     }
+    LObject *result = [cell activate:execution];
+    // NSLog(@"%@ received %@, returns %@", [cell kind], [message stringValueWithoutNested], [result kind]);
     
-    return [cell activate:execution];
+    return result;
 }
 
 - (LObject*)assignmentWithExecution:(LExecution*)execution
@@ -145,10 +147,15 @@
     if (kindCell && [kindCell isKindOfClass:[LText class]]) {
         return [(LText*)kindCell text];
     }
-    if(kindCell == nil) {
-      @throw @"Nil";
-    }
+    // if(kindCell == nil) {
+    //   @throw @"Nil";
+    // }
     return [NSString stringWithFormat:@"Unknown %@", [kindCell class]];
+}
+
+- (NSString *)inspect
+{
+    return [NSString stringWithFormat:@"<%@(%@)>", [self kind], [self class]];
 }
 
 @end

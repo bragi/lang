@@ -21,9 +21,9 @@ True = true
 nil new = nil
 Nil = nil
 
-true ifFalse = nil
+true ifFalse = false
 
-false ifTrue = nil
+false ifTrue = false
 
 nil toText = "nil"
 false toText = "false"
@@ -33,14 +33,7 @@ Object ifTrue = true cell("ifTrue")
 Object ifFalse = nil
 
 if = macro(
-  arguments = call arguments
-  (arguments length == 0) ifTrue(return nil)
-  condition = call evaluatedArgument(0)
-  (arguments length == 1) ifTrue(
-    condition ifTrue(
-      call evaluatedArgument(1)
-    )
-  ) ifFalse(
-    condition
+  call evaluatedArgument(0) ifTrue(
+    call evaluatedArgument(1)
   )
 )

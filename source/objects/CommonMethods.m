@@ -88,7 +88,7 @@
 - (LObject*)activate:(LExecution*)execution
 {
     NSArray *arguments = [execution.message arguments];
-    LMessage *methodCode = (LMessage*)[arguments lastObject];
+    LMessage *methodCode = (LMessage*)[arguments objectAtIndex:0];
     return [execution evaluateWithCurrentContext:methodCode];
 }
 

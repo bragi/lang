@@ -32,7 +32,7 @@
 - (void)testIfFalseOnTrue
 {
     result = [lang run:@"true ifFalse(\"hello\")"];
-    STAssertEqualObjects(result, lang.runtime.theNil, @"ifFalse does not evaluate properly on true");
+    STAssertEqualObjects(result, lang.runtime.theFalse, @"ifFalse does not evaluate properly on true");
 }
 
 - (void)testIfFalseOnFalse
@@ -44,14 +44,18 @@
 - (void)testIfTrueOnFalse
 {
     result = [lang run:@"false ifTrue(\"hello\")"];
-    STAssertEqualObjects(result, lang.runtime.theNil, @"ifTrue does not evaluate properly on false");
+    STAssertEqualObjects(result, lang.runtime.theFalse, @"ifTrue does not evaluate properly on false");
 }
 
 - (void)testIfWithTrueConditionEvaluatesSecondArgument
 {
     result = [lang run:@"if(true, \"hello\")"];
-    [result logInternals];
     STAssertEqualObjects([(LText*)result text], @"hello", @"if does not evaluate second argument when condition is true");
 }
 
+- (void)testIfWithFalseConditionDoesNotEvaluateSecondArgument
+{
+    result = [lang run:@"if(false, return \"hello\")"];
+    STAssertEqualObjects(result, lang.runtime.theFalse , @"if evaluates second argument when condition is false");
+}
 @end

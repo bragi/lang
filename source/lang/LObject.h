@@ -83,6 +83,7 @@
 - (void)logInternalsWithIndentation:(NSString*)indentation;
 - (void)logClassSpecificInternalsWithIndentation:(NSString*)indentation;
 - (NSString *)kind;
+- (NSString *)inspect;
 
 #pragma mark Lang methods - called by method invocations.
 

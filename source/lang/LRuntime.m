@@ -18,6 +18,7 @@
 #import "RList.h"
 #import "RMessage.h"
 #import "RCall.h"
+#include <mach-o/dyld.h>
 
 @interface LRuntime()
 - (void)createObjectHierarchy;
