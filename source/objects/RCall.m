@@ -15,6 +15,7 @@
 {
     [object setCell:[runtime withExecutableAncestor:[[EForward alloc] initWithName:@"arguments"]] withName:@"arguments"];
     [object setCell:[runtime withExecutableAncestor:[[EForward alloc] initWithName:@"evaluatedArgument"]] withName:@"evaluatedArgument"];
+    [object setCell:[runtime withExecutableAncestor:[[EForward alloc] initWithName:@"message"]] withName:@"message"];
 }
 
 @end

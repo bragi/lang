@@ -38,4 +38,9 @@
     return [callExecution evaluatedArgumentAtIndex:[argumentPosition.number integerValue]];
 }
 
+- (LObject*)messageWithExecution:(LExecution*)execution
+{
+    return [callExecution message];
+}
+
 @end

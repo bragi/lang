@@ -31,4 +31,9 @@
  */
 - (LObject*)evaluatedArgumentWithExecution:(LExecution*)execution;
 
+/**
+ Returns message sent.
+ */
+- (LObject*)messageWithExecution:(LExecution*)execution;
+
 @end

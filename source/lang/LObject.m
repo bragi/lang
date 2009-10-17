@@ -122,6 +122,7 @@
 - (void)logInternalsWithIndentation:(NSString*)indentation
 {
     NSLog(@"%@Class: %@", indentation, [self class]);
+    NSLog(@"%@Kind: %@", indentation, [self kind]);
     [self logClassSpecificInternalsWithIndentation:indentation];
     NSLog(@"%@Cells:", indentation);
     for (NSString *name in [cells keyEnumerator]) {

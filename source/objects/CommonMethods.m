@@ -31,13 +31,15 @@
 - (id)initWithName:(NSString*)newName
 {
     self = [super init];
-    name = sel_registerName([[newName stringByAppendingString:@"WithExecution:"] UTF8String]);
+    name = newName;
+    nameSelector = sel_registerName([[name stringByAppendingString:@"WithExecution:"] UTF8String]);
     return self;
 }
 
 - (LObject*)activate:(LExecution*)execution
 {
-    return (LObject*)objc_msgSend(execution.target, name, execution);
+    // NSLog(@"activating %@", name);
+    return (LObject*)objc_msgSend(execution.target, nameSelector, execution);
 }
 
 @end

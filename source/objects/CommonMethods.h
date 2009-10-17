@@ -19,7 +19,8 @@
 /** Executes Objective-C method called *name*WithExecution: */
 @interface EForward : LMethod
 {
-    SEL name;
+    NSString *name;
+    SEL nameSelector;
 }
 
 - (id)initWithName:(NSString*)newName;

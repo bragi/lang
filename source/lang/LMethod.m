@@ -186,10 +186,6 @@
     LObject *call = [execution.runtime makeCallWithExecution:execution];
     [context setCell:call withName:@"call"];
     /**
-     Message that was sent to activate this macro.
-     */
-    [call setCell:execution.message withName:@"message"];
-    /**
      Self in execution context must point to execution target, not the
      context itself. We need to redefine self then.
      */
