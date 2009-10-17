@@ -144,6 +144,9 @@
     if (kindCell && [kindCell isKindOfClass:[LText class]]) {
         return [(LText*)kindCell text];
     }
+    if(kindCell == nil) {
+      @throw @"Nil";
+    }
     return [NSString stringWithFormat:@"Unknown %@", [kindCell class]];
 }
 

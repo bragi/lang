@@ -13,8 +13,6 @@
 
 + (void)addCellsTo:(LObject*)object inRuntime:(LRuntime*)runtime
 {
-    /* Self in BaseContext */
-    [object setCell:object withName:@"BaseContext"];
 
     /* Basic methods */
     [object setCell:[runtime withExecutableAncestor:[[ESelf alloc] init]] withName:@"self"];
@@ -26,26 +24,23 @@
     [object setCell:[runtime withExecutableAncestor:[[EEvaluateFirstArgument alloc] init]] withName:@""];
     [object setCell:[runtime withExecutableAncestor:[[EForward alloc] initWithName:@"equalsTo"]] withName:@"=="];
 
-    /* Object cell */
+    /* Basic Objects Cell */
+    [object setCell:object withName:@"BaseContext"];
+    [object setCell:runtime.theCall withName:@"Call"];
+    [object setCell:runtime.theExecutable withName:@"Executable"];
+    [object setCell:runtime.theFalse withName:@"false"];
+    [object setCell:runtime.theLangExecutable withName:@"LangExecutable"];
+    [object setCell:runtime.theList withName:@"List"];
     [object setCell:runtime.theObject withName:@"Object"];
-    
-    /* True cell */
+    [object setCell:runtime.theMacro withName:@"Macro"];
+    [object setCell:runtime.theMessage withName:@"Message"];
+    [object setCell:runtime.theMethod withName:@"Method"];
+    [object setCell:runtime.theNil withName:@"nil"];
+    [object setCell:runtime.theNumber withName:@"Number"];
+    [object setCell:runtime.theText withName:@"Text"];
     [object setCell:runtime.theTrue withName:@"true"];
 
-    /* False cell */
-    [object setCell:runtime.theFalse withName:@"false"];
-
-    /* Nil cell */
-    [object setCell:runtime.theNil withName:@"nil"];
-
-    /* Text cell */
-    [object setCell:runtime.theText withName:@"Text"];
-
-    /* Number cell */
-    [object setCell:runtime.theNumber withName:@"Number"];
-
     /* List cell */
-    [object setCell:runtime.theList withName:@"List"];
     [object setCell:[runtime withExecutableAncestor:[[ECreateList alloc] init]] withName:@"list"];
     [object setCell:[runtime withExecutableAncestor:[[ECreateList alloc] init]] withName:@"[]"];
 }

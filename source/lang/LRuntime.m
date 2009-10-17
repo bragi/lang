@@ -29,19 +29,19 @@
 
 @synthesize theBaseContext;
 
-@synthesize theObject;
-@synthesize theTrue;
-@synthesize theFalse;
-@synthesize theNil;
-@synthesize theText;
-@synthesize theNumber;
-@synthesize theList;
+@synthesize theCall;
 @synthesize theExecutable;
+@synthesize theFalse;
 @synthesize theLangExecutable;
-@synthesize theMethod;
+@synthesize theList;
+@synthesize theObject;
 @synthesize theMacro;
 @synthesize theMessage;
-@synthesize theCall;
+@synthesize theMethod;
+@synthesize theNil;
+@synthesize theNumber;
+@synthesize theText;
+@synthesize theTrue;
 
 - (id)init
 {
