@@ -120,13 +120,11 @@
 
 - (LRuntime*)bootstrap
 {
-    // BOGUS: this is trully HARDcoded :(
     NSString *codeText = [NSString stringWithContentsOfFile:[self bootstrapPath] encoding:NSUTF8StringEncoding error:nil];
 
     LMessage *code = [LangParser parse:codeText inRuntime:self];
 
     [[LExecution buildWithRuntime:self] runMessage:code withContext:theBaseContext];
-    NSLog(@"Bootstrapped");
     return self;
 }
 
