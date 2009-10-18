@@ -21,6 +21,7 @@
 #import "RMessage.h"
 #import "RCall.h"
 #import "RPair.h"
+#import "RNumber.h"
 
 @interface LRuntime()
 - (void)createObjectHierarchy;
@@ -90,6 +91,7 @@
     [RMessage addCellsTo:theMessage inRuntime:self];
     [RCall addCellsTo:theCall inRuntime:self];
     [RPair addCellsTo:thePair inRuntime:self];
+    [RNumber addCellsTo:theNumber inRuntime:self];
 }
 
 - (LText*)makeTextWithString:(NSString*)string
@@ -123,7 +125,7 @@
     return [LCall callWithAncestor:theCall execution:execution];
 }
 
-- (LCall*)makePairWithKey:(LObject*)key andValue:(LObject*)value
+- (LPair*)makePairWithKey:(LObject*)key andValue:(LObject*)value
 {
     return [LPair pairWithAncestor:thePair key:key andValue:value];
 }

@@ -62,5 +62,13 @@
     }
 }
 
+- (LObject*)timesWithExecution:(LExecution*)execution
+{
+    long long value = [number longLongValue];
+    for(long long i = 0; i < value; i++) {
+        [execution evaluateWithCurrentContext:[execution.message.arguments objectAtIndex:0]];
+    }
+    return self;
+}
 
 @end

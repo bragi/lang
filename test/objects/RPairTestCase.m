@@ -25,5 +25,11 @@
     STAssertEqualObjects([(LText*)result text], @"hello", @"Method not called");
     result = [lang run:@"p = pair(\"hello\", \"world\"). p value"];
     STAssertEqualObjects([(LText*)result text], @"world", @"Method not called");
+    
+//    result = [lang run:@"p = (\"hello\" : \"world\"). p key"];
+//    STAssertEqualObjects([(LText*)result text], @"hello", @"Method not called");
+//    result = [lang run:@"p = (\"hello\" : \"world\"). p value"];
+//    STAssertEqualObjects([(LText*)result text], @"world", @"Method not called");
 }
+
 @end

@@ -133,5 +133,5 @@
 /**
  Creates new instance of Pair
  */
-- (LCall*)makePairWithKey:(LObject*)key andValue:(LObject*)value;
+- (LPair*)makePairWithKey:(LObject*)key andValue:(LObject*)value;
 @end

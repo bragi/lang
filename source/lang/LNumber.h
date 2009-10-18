@@ -8,6 +8,7 @@
 
 #import <Cocoa/Cocoa.h>
 #import "LObject.h"
+#import "LExecution.h"
 
 @interface LNumber : LObject {
     NSDecimalNumber *number;
@@ -20,5 +21,9 @@
 
 - (id)initWithString:(NSString*)string;
 - (id)initWithInteger:(NSInteger)integer;
+
+
+/** Executes argument *number* of times. */
+- (LObject*)timesWithExecution:(LExecution*)execution;
 
 @end
