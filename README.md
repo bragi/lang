@@ -2,9 +2,10 @@ Lang
 ====
 
 Lang is a computer language that is:
-* fully object-oriented
-* based on prototypes (rather than class hierarchy)
-* based on message passing (every invocation is a message)
+
+*   fully object-oriented
+*   based on prototypes (rather than class hierarchy)
+*   based on message passing (every invocation is a message)
 
 Lang does not have any language structures, there are only messages sent to objects. Message may have some arguments and it's up to receiver to decide if they want to evaluate those arguments. This makes it possible to implement `if()`, `for()` and other constructs known from other languages directly within the language.
 
