@@ -76,12 +76,14 @@
  */
 - (LObject*)send:(LExecution*)execution;
 
+#pragma mark Logging
 /**
  Outputs full state including type, cells and ancestors.
  */
 - (void)logInternals;
 - (void)logInternalsWithIndentation:(NSString*)indentation;
 - (void)logClassSpecificInternalsWithIndentation:(NSString*)indentation;
+/** Returns string value of 'kind' cell */
 - (NSString *)kind;
 - (NSString *)inspect;
 
