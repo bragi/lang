@@ -1,0 +1,731 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXAggregateTarget section */
+		A061620A1041417B00A2CC3F /* Documentation */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = A061621F1041420000A2CC3F /* Build configuration list for PBXAggregateTarget "Documentation" */;
+			buildPhases = (
+				A06162091041417B00A2CC3F /* ShellScript */,
+			);
+			dependencies = (
+				A061620E1041418300A2CC3F /* PBXTargetDependency */,
+			);
+			name = Documentation;
+			productName = Documentation;
+		};
+/* End PBXAggregateTarget section */
+
+/* Begin PBXBuildFile section */
+		8DD76F9A0486AA7600D96B5E /* lang.m in Sources */ = {isa = PBXBuildFile; fileRef = 08FB7796FE84155DC02AAC07 /* lang.m */; settings = {ATTRIBUTES = (); }; };
+		8DD76F9C0486AA7600D96B5E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08FB779EFE84155DC02AAC07 /* Foundation.framework */; };
+		8DD76F9F0486AA7600D96B5E /* lang.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = C6859EA3029092ED04C91782 /* lang.1 */; };
+		A013F5CD105CF970009DBBB6 /* Lang.m in Sources */ = {isa = PBXBuildFile; fileRef = A013F5AA105CF970009DBBB6 /* Lang.m */; };
+		A013F5CE105CF970009DBBB6 /* LExecution.m in Sources */ = {isa = PBXBuildFile; fileRef = A013F5AC105CF970009DBBB6 /* LExecution.m */; };
+		A013F5CF105CF970009DBBB6 /* LMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = A013F5AE105CF970009DBBB6 /* LMessage.m */; };
+		A013F5D0105CF970009DBBB6 /* LMethod.m in Sources */ = {isa = PBXBuildFile; fileRef = A013F5B0105CF970009DBBB6 /* LMethod.m */; };
+		A013F5D1105CF970009DBBB6 /* LObject.m in Sources */ = {isa = PBXBuildFile; fileRef = A013F5B2105CF970009DBBB6 /* LObject.m */; };
+		A013F5D2105CF970009DBBB6 /* LRuntime.m in Sources */ = {isa = PBXBuildFile; fileRef = A013F5B4105CF970009DBBB6 /* LRuntime.m */; };
+		A013F5D3105CF970009DBBB6 /* LText.m in Sources */ = {isa = PBXBuildFile; fileRef = A013F5B6105CF970009DBBB6 /* LText.m */; };
+		A013F5D4105CF970009DBBB6 /* CommonMethods.m in Sources */ = {isa = PBXBuildFile; fileRef = A013F5B9105CF970009DBBB6 /* CommonMethods.m */; };
+		A013F5D5105CF970009DBBB6 /* RBaseContext.m in Sources */ = {isa = PBXBuildFile; fileRef = A013F5BB105CF970009DBBB6 /* RBaseContext.m */; };
+		A013F5D6105CF970009DBBB6 /* RBoolean.m in Sources */ = {isa = PBXBuildFile; fileRef = A013F5BD105CF970009DBBB6 /* RBoolean.m */; };
+		A013F5D7105CF970009DBBB6 /* RNil.m in Sources */ = {isa = PBXBuildFile; fileRef = A013F5BF105CF970009DBBB6 /* RNil.m */; };
+		A013F5D8105CF970009DBBB6 /* RObject.m in Sources */ = {isa = PBXBuildFile; fileRef = A013F5C1105CF970009DBBB6 /* RObject.m */; };
+		A013F5D9105CF970009DBBB6 /* RText.m in Sources */ = {isa = PBXBuildFile; fileRef = A013F5C3105CF970009DBBB6 /* RText.m */; };
+		A013F5DA105CF970009DBBB6 /* LangBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = A013F5C8105CF970009DBBB6 /* LangBuilder.m */; };
+		A013F5DB105CF970009DBBB6 /* LangParser.m in Sources */ = {isa = PBXBuildFile; fileRef = A013F5CA105CF970009DBBB6 /* LangParser.m */; };
+		A013F5DC105CF970009DBBB6 /* LangScanner.m in Sources */ = {isa = PBXBuildFile; fileRef = A013F5CB105CF970009DBBB6 /* LangScanner.m */; };
+		A013F5F2105CF988009DBBB6 /* LExecutionTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = A013F5DF105CF988009DBBB6 /* LExecutionTestCase.m */; };
+		A013F5F3105CF988009DBBB6 /* LMessageTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = A013F5E1105CF988009DBBB6 /* LMessageTestCase.m */; };
+		A013F5F4105CF988009DBBB6 /* LObjectTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = A013F5E3105CF988009DBBB6 /* LObjectTestCase.m */; };
+		A013F5F5105CF988009DBBB6 /* LRuntimeTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = A013F5E5105CF988009DBBB6 /* LRuntimeTestCase.m */; };
+		A013F5F7105CF988009DBBB6 /* RBooleanTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = A013F5EA105CF988009DBBB6 /* RBooleanTestCase.m */; };
+		A013F5F8105CF988009DBBB6 /* LangBuilderTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = A013F5ED105CF988009DBBB6 /* LangBuilderTestCase.m */; };
+		A013F5F9105CF988009DBBB6 /* LangParserTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = A013F5EF105CF988009DBBB6 /* LangParserTestCase.m */; };
+		A013F5FA105CF988009DBBB6 /* LangScannerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = A013F5F1105CF988009DBBB6 /* LangScannerTest.m */; };
+		A013F61D105CFD2F009DBBB6 /* LNumber.m in Sources */ = {isa = PBXBuildFile; fileRef = A013F61C105CFD2F009DBBB6 /* LNumber.m */; };
+		A013F64A105D09B3009DBBB6 /* RNumber.m in Sources */ = {isa = PBXBuildFile; fileRef = A013F649105D09B3009DBBB6 /* RNumber.m */; };
+		A013F666105D1388009DBBB6 /* LList.m in Sources */ = {isa = PBXBuildFile; fileRef = A013F665105D1388009DBBB6 /* LList.m */; };
+		A06ABC7E105EA78D0091E538 /* RListTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = A06ABC7D105EA78D0091E538 /* RListTestCase.m */; };
+		A06ABCB2105EAE2F0091E538 /* RList.m in Sources */ = {isa = PBXBuildFile; fileRef = A06ABCB1105EAE2F0091E538 /* RList.m */; };
+		A074C70C10652834000B9A08 /* MethodTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = A074C70B10652834000B9A08 /* MethodTestCase.m */; };
+		A0756150106D0EB000D7CBEC /* RMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = A075614F106D0EB000D7CBEC /* RMessage.m */; };
+		A08133DD10850BC80045FAED /* LCall.m in Sources */ = {isa = PBXBuildFile; fileRef = A08133DC10850BC80045FAED /* LCall.m */; };
+		A08133F2108511160045FAED /* RCall.m in Sources */ = {isa = PBXBuildFile; fileRef = A08133F1108511160045FAED /* RCall.m */; };
+		A0E912B4105FC3D900FE7A61 /* RBaseContextTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = A0E912B3105FC3D900FE7A61 /* RBaseContextTestCase.m */; };
+		A0FBCD4310613012008EE0D8 /* ToTextTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = A0FBCD4210613012008EE0D8 /* ToTextTestCase.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		A061620D1041418300A2CC3F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 08FB7793FE84155DC02AAC07 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8DD76F960486AA7600D96B5E;
+			remoteInfo = lang;
+		};
+		A085233D1039B32C001BBCA1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 08FB7793FE84155DC02AAC07 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8DD76F960486AA7600D96B5E;
+			remoteInfo = lang;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		8DD76F9E0486AA7600D96B5E /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 8;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+				8DD76F9F0486AA7600D96B5E /* lang.1 in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		08FB7796FE84155DC02AAC07 /* lang.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = lang.m; path = source/lang.m; sourceTree = "<group>"; };
+		08FB779EFE84155DC02AAC07 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
+		32A70AAB03705E1F00C91783 /* lang_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = lang_Prefix.pch; path = source/lang_Prefix.pch; sourceTree = "<group>"; };
+		8DD76FA10486AA7600D96B5E /* lang */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = lang; sourceTree = BUILT_PRODUCTS_DIR; };
+		A013F5A9105CF970009DBBB6 /* Lang.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Lang.h; sourceTree = "<group>"; };
+		A013F5AA105CF970009DBBB6 /* Lang.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Lang.m; sourceTree = "<group>"; };
+		A013F5AB105CF970009DBBB6 /* LExecution.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LExecution.h; sourceTree = "<group>"; };
+		A013F5AC105CF970009DBBB6 /* LExecution.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LExecution.m; sourceTree = "<group>"; };
+		A013F5AD105CF970009DBBB6 /* LMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMessage.h; sourceTree = "<group>"; };
+		A013F5AE105CF970009DBBB6 /* LMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMessage.m; sourceTree = "<group>"; };
+		A013F5AF105CF970009DBBB6 /* LMethod.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMethod.h; sourceTree = "<group>"; };
+		A013F5B0105CF970009DBBB6 /* LMethod.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMethod.m; sourceTree = "<group>"; };
+		A013F5B1105CF970009DBBB6 /* LObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LObject.h; sourceTree = "<group>"; };
+		A013F5B2105CF970009DBBB6 /* LObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LObject.m; sourceTree = "<group>"; };
+		A013F5B3105CF970009DBBB6 /* LRuntime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LRuntime.h; sourceTree = "<group>"; };
+		A013F5B4105CF970009DBBB6 /* LRuntime.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LRuntime.m; sourceTree = "<group>"; };
+		A013F5B5105CF970009DBBB6 /* LText.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LText.h; sourceTree = "<group>"; };
+		A013F5B6105CF970009DBBB6 /* LText.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LText.m; sourceTree = "<group>"; };
+		A013F5B8105CF970009DBBB6 /* CommonMethods.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonMethods.h; sourceTree = "<group>"; };
+		A013F5B9105CF970009DBBB6 /* CommonMethods.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommonMethods.m; sourceTree = "<group>"; };
+		A013F5BA105CF970009DBBB6 /* RBaseContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RBaseContext.h; sourceTree = "<group>"; };
+		A013F5BB105CF970009DBBB6 /* RBaseContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RBaseContext.m; sourceTree = "<group>"; };
+		A013F5BC105CF970009DBBB6 /* RBoolean.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RBoolean.h; sourceTree = "<group>"; };
+		A013F5BD105CF970009DBBB6 /* RBoolean.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RBoolean.m; sourceTree = "<group>"; };
+		A013F5BE105CF970009DBBB6 /* RNil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RNil.h; sourceTree = "<group>"; };
+		A013F5BF105CF970009DBBB6 /* RNil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RNil.m; sourceTree = "<group>"; };
+		A013F5C0105CF970009DBBB6 /* RObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RObject.h; sourceTree = "<group>"; };
+		A013F5C1105CF970009DBBB6 /* RObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RObject.m; sourceTree = "<group>"; };
+		A013F5C2105CF970009DBBB6 /* RText.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RText.h; sourceTree = "<group>"; };
+		A013F5C3105CF970009DBBB6 /* RText.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RText.m; sourceTree = "<group>"; };
+		A013F5C7105CF970009DBBB6 /* LangBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LangBuilder.h; sourceTree = "<group>"; };
+		A013F5C8105CF970009DBBB6 /* LangBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LangBuilder.m; sourceTree = "<group>"; };
+		A013F5C9105CF970009DBBB6 /* LangParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LangParser.h; sourceTree = "<group>"; };
+		A013F5CA105CF970009DBBB6 /* LangParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LangParser.m; sourceTree = "<group>"; };
+		A013F5CB105CF970009DBBB6 /* LangScanner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LangScanner.m; sourceTree = "<group>"; };
+		A013F5CC105CF970009DBBB6 /* LangScanner.rl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LangScanner.rl; sourceTree = "<group>"; };
+		A013F5DE105CF988009DBBB6 /* LExecutionTestCase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LExecutionTestCase.h; sourceTree = "<group>"; };
+		A013F5DF105CF988009DBBB6 /* LExecutionTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LExecutionTestCase.m; sourceTree = "<group>"; };
+		A013F5E0105CF988009DBBB6 /* LMessageTestCase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMessageTestCase.h; sourceTree = "<group>"; };
+		A013F5E1105CF988009DBBB6 /* LMessageTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMessageTestCase.m; sourceTree = "<group>"; };
+		A013F5E2105CF988009DBBB6 /* LObjectTestCase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LObjectTestCase.h; sourceTree = "<group>"; };
+		A013F5E3105CF988009DBBB6 /* LObjectTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LObjectTestCase.m; sourceTree = "<group>"; };
+		A013F5E4105CF988009DBBB6 /* LRuntimeTestCase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LRuntimeTestCase.h; sourceTree = "<group>"; };
+		A013F5E5105CF988009DBBB6 /* LRuntimeTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LRuntimeTestCase.m; sourceTree = "<group>"; };
+		A013F5E9105CF988009DBBB6 /* RBooleanTestCase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RBooleanTestCase.h; sourceTree = "<group>"; };
+		A013F5EA105CF988009DBBB6 /* RBooleanTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RBooleanTestCase.m; sourceTree = "<group>"; };
+		A013F5EC105CF988009DBBB6 /* LangBuilderTestCase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LangBuilderTestCase.h; sourceTree = "<group>"; };
+		A013F5ED105CF988009DBBB6 /* LangBuilderTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LangBuilderTestCase.m; sourceTree = "<group>"; };
+		A013F5EE105CF988009DBBB6 /* LangParserTestCase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LangParserTestCase.h; sourceTree = "<group>"; };
+		A013F5EF105CF988009DBBB6 /* LangParserTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LangParserTestCase.m; sourceTree = "<group>"; };
+		A013F5F0105CF988009DBBB6 /* LangScannerTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LangScannerTest.h; sourceTree = "<group>"; };
+		A013F5F1105CF988009DBBB6 /* LangScannerTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LangScannerTest.m; sourceTree = "<group>"; };
+		A013F61B105CFD2F009DBBB6 /* LNumber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LNumber.h; sourceTree = "<group>"; };
+		A013F61C105CFD2F009DBBB6 /* LNumber.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LNumber.m; sourceTree = "<group>"; };
+		A013F648105D09B3009DBBB6 /* RNumber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RNumber.h; sourceTree = "<group>"; };
+		A013F649105D09B3009DBBB6 /* RNumber.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RNumber.m; sourceTree = "<group>"; };
+		A013F664105D1388009DBBB6 /* LList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LList.h; sourceTree = "<group>"; };
+		A013F665105D1388009DBBB6 /* LList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LList.m; sourceTree = "<group>"; };
+		A06ABC7C105EA78D0091E538 /* RListTestCase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RListTestCase.h; sourceTree = "<group>"; };
+		A06ABC7D105EA78D0091E538 /* RListTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RListTestCase.m; sourceTree = "<group>"; };
+		A06ABCB0105EAE2F0091E538 /* RList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RList.h; sourceTree = "<group>"; };
+		A06ABCB1105EAE2F0091E538 /* RList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RList.m; sourceTree = "<group>"; };
+		A074C70A10652834000B9A08 /* MethodTestCase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MethodTestCase.h; sourceTree = "<group>"; };
+		A074C70B10652834000B9A08 /* MethodTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MethodTestCase.m; sourceTree = "<group>"; };
+		A075614E106D0EB000D7CBEC /* RMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMessage.h; sourceTree = "<group>"; };
+		A075614F106D0EB000D7CBEC /* RMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMessage.m; sourceTree = "<group>"; };
+		A08133DB10850BC80045FAED /* LCall.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCall.h; sourceTree = "<group>"; };
+		A08133DC10850BC80045FAED /* LCall.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCall.m; sourceTree = "<group>"; };
+		A08133F0108511160045FAED /* RCall.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCall.h; sourceTree = "<group>"; };
+		A08133F1108511160045FAED /* RCall.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCall.m; sourceTree = "<group>"; };
+		A08523211039B2A7001BBCA1 /* Test-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Test-Info.plist"; sourceTree = "<group>"; };
+		A08523371039B311001BBCA1 /* Test.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Test.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A09B4E171060CEF7000C5286 /* LangScanner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LangScanner.h; sourceTree = "<group>"; };
+		A0E91298105FC21E00FE7A61 /* boot.lang */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = boot.lang; path = system/boot.lang; sourceTree = "<group>"; };
+		A0E912B2105FC3D900FE7A61 /* RBaseContextTestCase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RBaseContextTestCase.h; sourceTree = "<group>"; };
+		A0E912B3105FC3D900FE7A61 /* RBaseContextTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RBaseContextTestCase.m; sourceTree = "<group>"; };
+		A0FBCD4110613012008EE0D8 /* ToTextTestCase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToTextTestCase.h; sourceTree = "<group>"; };
+		A0FBCD4210613012008EE0D8 /* ToTextTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToTextTestCase.m; sourceTree = "<group>"; };
+		C6859EA3029092ED04C91782 /* lang.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; name = lang.1; path = documentation/lang.1; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		8DD76F9B0486AA7600D96B5E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8DD76F9C0486AA7600D96B5E /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A08523341039B311001BBCA1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		08FB7794FE84155DC02AAC07 /* lang-objective-c */ = {
+			isa = PBXGroup;
+			children = (
+				A0E91298105FC21E00FE7A61 /* boot.lang */,
+				08FB7795FE84155DC02AAC07 /* Source */,
+				A061612C1040185900A2CC3F /* Test */,
+				C6859EA2029092E104C91782 /* Documentation */,
+				08FB779DFE84155DC02AAC07 /* External Frameworks and Libraries */,
+				1AB674ADFE9D54B511CA2CBB /* Products */,
+				A08523211039B2A7001BBCA1 /* Test-Info.plist */,
+			);
+			name = "lang-objective-c";
+			sourceTree = "<group>";
+		};
+		08FB7795FE84155DC02AAC07 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				A013F5A8105CF970009DBBB6 /* lang */,
+				A013F5B7105CF970009DBBB6 /* objects */,
+				A013F5C4105CF970009DBBB6 /* parser */,
+				32A70AAB03705E1F00C91783 /* lang_Prefix.pch */,
+				08FB7796FE84155DC02AAC07 /* lang.m */,
+			);
+			name = Source;
+			sourceTree = "<group>";
+		};
+		08FB779DFE84155DC02AAC07 /* External Frameworks and Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				08FB779EFE84155DC02AAC07 /* Foundation.framework */,
+			);
+			name = "External Frameworks and Libraries";
+			sourceTree = "<group>";
+		};
+		1AB674ADFE9D54B511CA2CBB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8DD76FA10486AA7600D96B5E /* lang */,
+				A08523371039B311001BBCA1 /* Test.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A013F5A8105CF970009DBBB6 /* lang */ = {
+			isa = PBXGroup;
+			children = (
+				A013F5A9105CF970009DBBB6 /* Lang.h */,
+				A013F5AA105CF970009DBBB6 /* Lang.m */,
+				A013F5AB105CF970009DBBB6 /* LExecution.h */,
+				A013F5AC105CF970009DBBB6 /* LExecution.m */,
+				A013F5AD105CF970009DBBB6 /* LMessage.h */,
+				A013F5AE105CF970009DBBB6 /* LMessage.m */,
+				A013F5AF105CF970009DBBB6 /* LMethod.h */,
+				A013F5B0105CF970009DBBB6 /* LMethod.m */,
+				A013F5B1105CF970009DBBB6 /* LObject.h */,
+				A013F5B2105CF970009DBBB6 /* LObject.m */,
+				A013F5B3105CF970009DBBB6 /* LRuntime.h */,
+				A013F5B4105CF970009DBBB6 /* LRuntime.m */,
+				A013F5B5105CF970009DBBB6 /* LText.h */,
+				A013F5B6105CF970009DBBB6 /* LText.m */,
+				A013F61B105CFD2F009DBBB6 /* LNumber.h */,
+				A013F61C105CFD2F009DBBB6 /* LNumber.m */,
+				A013F664105D1388009DBBB6 /* LList.h */,
+				A013F665105D1388009DBBB6 /* LList.m */,
+				A08133DB10850BC80045FAED /* LCall.h */,
+				A08133DC10850BC80045FAED /* LCall.m */,
+			);
+			name = lang;
+			path = source/lang;
+			sourceTree = "<group>";
+		};
+		A013F5B7105CF970009DBBB6 /* objects */ = {
+			isa = PBXGroup;
+			children = (
+				A013F5B8105CF970009DBBB6 /* CommonMethods.h */,
+				A013F5B9105CF970009DBBB6 /* CommonMethods.m */,
+				A013F5BA105CF970009DBBB6 /* RBaseContext.h */,
+				A013F5BB105CF970009DBBB6 /* RBaseContext.m */,
+				A013F5BC105CF970009DBBB6 /* RBoolean.h */,
+				A013F5BD105CF970009DBBB6 /* RBoolean.m */,
+				A013F5BE105CF970009DBBB6 /* RNil.h */,
+				A013F5BF105CF970009DBBB6 /* RNil.m */,
+				A013F5C0105CF970009DBBB6 /* RObject.h */,
+				A013F5C1105CF970009DBBB6 /* RObject.m */,
+				A013F5C2105CF970009DBBB6 /* RText.h */,
+				A013F5C3105CF970009DBBB6 /* RText.m */,
+				A013F648105D09B3009DBBB6 /* RNumber.h */,
+				A013F649105D09B3009DBBB6 /* RNumber.m */,
+				A06ABCB0105EAE2F0091E538 /* RList.h */,
+				A06ABCB1105EAE2F0091E538 /* RList.m */,
+				A075614E106D0EB000D7CBEC /* RMessage.h */,
+				A075614F106D0EB000D7CBEC /* RMessage.m */,
+				A08133F0108511160045FAED /* RCall.h */,
+				A08133F1108511160045FAED /* RCall.m */,
+			);
+			name = objects;
+			path = source/objects;
+			sourceTree = "<group>";
+		};
+		A013F5C4105CF970009DBBB6 /* parser */ = {
+			isa = PBXGroup;
+			children = (
+				A013F5C7105CF970009DBBB6 /* LangBuilder.h */,
+				A013F5C8105CF970009DBBB6 /* LangBuilder.m */,
+				A013F5C9105CF970009DBBB6 /* LangParser.h */,
+				A013F5CA105CF970009DBBB6 /* LangParser.m */,
+				A09B4E171060CEF7000C5286 /* LangScanner.h */,
+				A013F5CB105CF970009DBBB6 /* LangScanner.m */,
+				A013F5CC105CF970009DBBB6 /* LangScanner.rl */,
+			);
+			name = parser;
+			path = source/parser;
+			sourceTree = "<group>";
+		};
+		A013F5DD105CF988009DBBB6 /* lang */ = {
+			isa = PBXGroup;
+			children = (
+				A013F5DE105CF988009DBBB6 /* LExecutionTestCase.h */,
+				A013F5DF105CF988009DBBB6 /* LExecutionTestCase.m */,
+				A013F5E0105CF988009DBBB6 /* LMessageTestCase.h */,
+				A013F5E1105CF988009DBBB6 /* LMessageTestCase.m */,
+				A013F5E2105CF988009DBBB6 /* LObjectTestCase.h */,
+				A013F5E3105CF988009DBBB6 /* LObjectTestCase.m */,
+				A013F5E4105CF988009DBBB6 /* LRuntimeTestCase.h */,
+				A013F5E5105CF988009DBBB6 /* LRuntimeTestCase.m */,
+			);
+			name = lang;
+			path = test/lang;
+			sourceTree = "<group>";
+		};
+		A013F5E8105CF988009DBBB6 /* objects */ = {
+			isa = PBXGroup;
+			children = (
+				A013F5E9105CF988009DBBB6 /* RBooleanTestCase.h */,
+				A013F5EA105CF988009DBBB6 /* RBooleanTestCase.m */,
+				A06ABC7C105EA78D0091E538 /* RListTestCase.h */,
+				A06ABC7D105EA78D0091E538 /* RListTestCase.m */,
+				A0E912B2105FC3D900FE7A61 /* RBaseContextTestCase.h */,
+				A0E912B3105FC3D900FE7A61 /* RBaseContextTestCase.m */,
+				A0FBCD4110613012008EE0D8 /* ToTextTestCase.h */,
+				A0FBCD4210613012008EE0D8 /* ToTextTestCase.m */,
+				A074C70A10652834000B9A08 /* MethodTestCase.h */,
+				A074C70B10652834000B9A08 /* MethodTestCase.m */,
+			);
+			name = objects;
+			path = test/objects;
+			sourceTree = "<group>";
+		};
+		A013F5EB105CF988009DBBB6 /* parser */ = {
+			isa = PBXGroup;
+			children = (
+				A013F5EC105CF988009DBBB6 /* LangBuilderTestCase.h */,
+				A013F5ED105CF988009DBBB6 /* LangBuilderTestCase.m */,
+				A013F5EE105CF988009DBBB6 /* LangParserTestCase.h */,
+				A013F5EF105CF988009DBBB6 /* LangParserTestCase.m */,
+				A013F5F0105CF988009DBBB6 /* LangScannerTest.h */,
+				A013F5F1105CF988009DBBB6 /* LangScannerTest.m */,
+			);
+			name = parser;
+			path = test/parser;
+			sourceTree = "<group>";
+		};
+		A061612C1040185900A2CC3F /* Test */ = {
+			isa = PBXGroup;
+			children = (
+				A013F5DD105CF988009DBBB6 /* lang */,
+				A013F5E8105CF988009DBBB6 /* objects */,
+				A013F5EB105CF988009DBBB6 /* parser */,
+			);
+			name = Test;
+			sourceTree = "<group>";
+		};
+		C6859EA2029092E104C91782 /* Documentation */ = {
+			isa = PBXGroup;
+			children = (
+				C6859EA3029092ED04C91782 /* lang.1 */,
+			);
+			name = Documentation;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		8DD76F960486AA7600D96B5E /* lang */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1DEB927408733DD40010E9CD /* Build configuration list for PBXNativeTarget "lang" */;
+			buildPhases = (
+				8DD76F990486AA7600D96B5E /* Sources */,
+				8DD76F9B0486AA7600D96B5E /* Frameworks */,
+				8DD76F9E0486AA7600D96B5E /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = lang;
+			productInstallPath = "$(HOME)/bin";
+			productName = "lang-objective-c";
+			productReference = 8DD76FA10486AA7600D96B5E /* lang */;
+			productType = "com.apple.product-type.tool";
+		};
+		A08523361039B311001BBCA1 /* Test */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A085233C1039B312001BBCA1 /* Build configuration list for PBXNativeTarget "Test" */;
+			buildPhases = (
+				A08523321039B311001BBCA1 /* Resources */,
+				A08523331039B311001BBCA1 /* Sources */,
+				A08523341039B311001BBCA1 /* Frameworks */,
+				A08523351039B311001BBCA1 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A085233E1039B32C001BBCA1 /* PBXTargetDependency */,
+			);
+			name = Test;
+			productName = Test;
+			productReference = A08523371039B311001BBCA1 /* Test.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		08FB7793FE84155DC02AAC07 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				ORGANIZATIONNAME = Ragnarson;
+			};
+			buildConfigurationList = 1DEB927808733DD40010E9CD /* Build configuration list for PBXProject "lang" */;
+			compatibilityVersion = "Xcode 3.2";
+			hasScannedForEncodings = 1;
+			mainGroup = 08FB7794FE84155DC02AAC07 /* lang-objective-c */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				8DD76F960486AA7600D96B5E /* lang */,
+				A08523361039B311001BBCA1 /* Test */,
+				A061620A1041417B00A2CC3F /* Documentation */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A08523321039B311001BBCA1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		A06162091041417B00A2CC3F /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "#  Build the doxygen documentation for the project and load the docset into Xcode.\n\n#  Use the following to adjust the value of the $DOXYGEN_PATH User-Defined Setting:\n#    Binary install location: /Applications/Doxygen.app/Contents/Resources/doxygen\n#    Source build install location: /usr/local/bin/doxygen\n\n#  If the config file doesn't exist, run 'doxygen -g $SOURCE_ROOT/doxygen.config' to \n#   a get default file.\n\nif ! [ -f $SOURCE_ROOT/doxygen.config ] \nthen \n  echo doxygen config file does not exist\n  $DOXYGEN_PATH -g $SOURCE_ROOT/doxygen.config\nfi\n\n#  Append the proper input/output directories and docset info to the config file.\n#  This works even though values are assigned higher up in the file. Easier than sed.\n\ncp $SOURCE_ROOT/doxygen.config $TEMP_DIR/doxygen.config\n\necho \"INPUT = $SOURCE_ROOT\" >> $TEMP_DIR/doxygen.config\necho \"OUTPUT_DIRECTORY = $SOURCE_ROOT/DoxygenDocs.docset\" >> $TEMP_DIR/doxygen.config\necho \"GENERATE_DOCSET        = YES\" >> $TEMP_DIR/doxygen.config\necho \"DOCSET_BUNDLE_ID       = com.mycompany.DoxygenExample\" >> $TEMP_DIR/doxygen.config\n\n#  Run doxygen on the updated config file.\n#  Note: doxygen creates a Makefile that does most of the heavy lifting.\n\n$DOXYGEN_PATH $TEMP_DIR/doxygen.config\n\n#  make will invoke docsetutil. Take a look at the Makefile to see how this is done.\n\nmake -C $SOURCE_ROOT/DoxygenDocs.docset/html install\n\n#  Construct a temporary applescript file to tell Xcode to load a docset.\n\nrm -f $TEMP_DIR/loadDocSet.scpt\n\necho \"tell application \\\"Xcode\\\"\" >> $TEMP_DIR/loadDocSet.scpt\necho \"load documentation set with path \\\"/Users/$USER/Library/Developer/Shared/Documentation/DocSets/\\\"\" \n     >> $TEMP_DIR/loadDocSet.scpt\necho \"end tell\" >> $TEMP_DIR/loadDocSet.scpt\n\n#  Run the load-docset applescript command.\n\nosascript $TEMP_DIR/loadDocSet.scpt\n\nexit 0\n";
+		};
+		A08523351039B311001BBCA1 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8DD76F990486AA7600D96B5E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8DD76F9A0486AA7600D96B5E /* lang.m in Sources */,
+				A013F5CD105CF970009DBBB6 /* Lang.m in Sources */,
+				A013F5CE105CF970009DBBB6 /* LExecution.m in Sources */,
+				A013F5CF105CF970009DBBB6 /* LMessage.m in Sources */,
+				A013F5D0105CF970009DBBB6 /* LMethod.m in Sources */,
+				A013F5D1105CF970009DBBB6 /* LObject.m in Sources */,
+				A013F5D2105CF970009DBBB6 /* LRuntime.m in Sources */,
+				A013F5D3105CF970009DBBB6 /* LText.m in Sources */,
+				A013F5D4105CF970009DBBB6 /* CommonMethods.m in Sources */,
+				A013F5D5105CF970009DBBB6 /* RBaseContext.m in Sources */,
+				A013F5D6105CF970009DBBB6 /* RBoolean.m in Sources */,
+				A013F5D7105CF970009DBBB6 /* RNil.m in Sources */,
+				A013F5D8105CF970009DBBB6 /* RObject.m in Sources */,
+				A013F5D9105CF970009DBBB6 /* RText.m in Sources */,
+				A013F5DA105CF970009DBBB6 /* LangBuilder.m in Sources */,
+				A013F5DB105CF970009DBBB6 /* LangParser.m in Sources */,
+				A013F5DC105CF970009DBBB6 /* LangScanner.m in Sources */,
+				A013F61D105CFD2F009DBBB6 /* LNumber.m in Sources */,
+				A013F64A105D09B3009DBBB6 /* RNumber.m in Sources */,
+				A013F666105D1388009DBBB6 /* LList.m in Sources */,
+				A06ABCB2105EAE2F0091E538 /* RList.m in Sources */,
+				A0756150106D0EB000D7CBEC /* RMessage.m in Sources */,
+				A08133DD10850BC80045FAED /* LCall.m in Sources */,
+				A08133F2108511160045FAED /* RCall.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A08523331039B311001BBCA1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A013F5F2105CF988009DBBB6 /* LExecutionTestCase.m in Sources */,
+				A013F5F3105CF988009DBBB6 /* LMessageTestCase.m in Sources */,
+				A013F5F4105CF988009DBBB6 /* LObjectTestCase.m in Sources */,
+				A013F5F5105CF988009DBBB6 /* LRuntimeTestCase.m in Sources */,
+				A013F5F7105CF988009DBBB6 /* RBooleanTestCase.m in Sources */,
+				A013F5F8105CF988009DBBB6 /* LangBuilderTestCase.m in Sources */,
+				A013F5F9105CF988009DBBB6 /* LangParserTestCase.m in Sources */,
+				A013F5FA105CF988009DBBB6 /* LangScannerTest.m in Sources */,
+				A06ABC7E105EA78D0091E538 /* RListTestCase.m in Sources */,
+				A0E912B4105FC3D900FE7A61 /* RBaseContextTestCase.m in Sources */,
+				A0FBCD4310613012008EE0D8 /* ToTextTestCase.m in Sources */,
+				A074C70C10652834000B9A08 /* MethodTestCase.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		A061620E1041418300A2CC3F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8DD76F960486AA7600D96B5E /* lang */;
+			targetProxy = A061620D1041418300A2CC3F /* PBXContainerItemProxy */;
+		};
+		A085233E1039B32C001BBCA1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8DD76F960486AA7600D96B5E /* lang */;
+			targetProxy = A085233D1039B32C001BBCA1 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		1DEB927508733DD40010E9CD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = source/lang_Prefix.pch;
+				INSTALL_PATH = /usr/local/bin;
+				PRODUCT_NAME = lang;
+			};
+			name = Debug;
+		};
+		1DEB927608733DD40010E9CD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "source/lang-objective-c_Prefix.pch";
+				INSTALL_PATH = /usr/local/bin;
+				PRODUCT_NAME = lang;
+			};
+			name = Release;
+		};
+		1DEB927908733DD40010E9CD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_ENABLE_OBJC_GC = required;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PREBINDING = NO;
+				PRODUCT_NAME = lang;
+				RUN_CLANG_STATIC_ANALYZER = YES;
+				SDKROOT = macosx10.6;
+			};
+			name = Debug;
+		};
+		1DEB927A08733DD40010E9CD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_ENABLE_SSE3_EXTENSIONS = NO;
+				GCC_ENABLE_SSE41_EXTENSIONS = NO;
+				GCC_ENABLE_SSE42_EXTENSIONS = NO;
+				GCC_ENABLE_SUPPLEMENTAL_SSE3_INSTRUCTIONS = NO;
+				GCC_STRICT_ALIASING = NO;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				PREBINDING = NO;
+				PRODUCT_NAME = lang;
+				SDKROOT = macosx10.6;
+			};
+			name = Release;
+		};
+		A061620B1041417C00A2CC3F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				DOXYGEN_PATH = /Applications/Doxygen.app/Contents/Resources/doxygen;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				PRODUCT_NAME = Documentation;
+			};
+			name = Debug;
+		};
+		A061620C1041417C00A2CC3F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				PRODUCT_NAME = Documentation;
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
+		A08523381039B312001BBCA1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/lang";
+				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = "$(DEVELOPER_LIBRARY_DIR)/Frameworks";
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/Cocoa.framework/Headers/Cocoa.h";
+				INFOPLIST_FILE = "Test-Info.plist";
+				INSTALL_PATH = "$(USER_LIBRARY_DIR)/Bundles";
+				OTHER_LDFLAGS = (
+					"-framework",
+					Cocoa,
+					"-framework",
+					SenTestingKit,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = Test;
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		A08523391039B312001BBCA1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				FRAMEWORK_SEARCH_PATHS = "$(DEVELOPER_LIBRARY_DIR)/Frameworks";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/Cocoa.framework/Headers/Cocoa.h";
+				INFOPLIST_FILE = "Test-Info.plist";
+				INSTALL_PATH = "$(USER_LIBRARY_DIR)/Bundles";
+				OTHER_LDFLAGS = (
+					"-framework",
+					Cocoa,
+					"-framework",
+					SenTestingKit,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = Test;
+				WRAPPER_EXTENSION = octest;
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1DEB927408733DD40010E9CD /* Build configuration list for PBXNativeTarget "lang" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1DEB927508733DD40010E9CD /* Debug */,
+				1DEB927608733DD40010E9CD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1DEB927808733DD40010E9CD /* Build configuration list for PBXProject "lang" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1DEB927908733DD40010E9CD /* Debug */,
+				1DEB927A08733DD40010E9CD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A061621F1041420000A2CC3F /* Build configuration list for PBXAggregateTarget "Documentation" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A061620B1041417C00A2CC3F /* Debug */,
+				A061620C1041417C00A2CC3F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A085233C1039B312001BBCA1 /* Build configuration list for PBXNativeTarget "Test" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A08523381039B312001BBCA1 /* Debug */,
+				A08523391039B312001BBCA1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 08FB7793FE84155DC02AAC07 /* Project object */;
+}
