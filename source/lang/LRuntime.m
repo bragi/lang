@@ -6,6 +6,8 @@
 //  Copyright 2009 Ragnarson. All rights reserved.
 //
 
+#include <mach-o/dyld.h>
+
 #import "LRuntime.h"
 #import "LExecution.h"
 #import "LangParser.h"
@@ -18,7 +20,7 @@
 #import "RList.h"
 #import "RMessage.h"
 #import "RCall.h"
-#include <mach-o/dyld.h>
+#import "RPair.h"
 
 @interface LRuntime()
 - (void)createObjectHierarchy;
@@ -41,6 +43,7 @@
 @synthesize theMethod;
 @synthesize theNil;
 @synthesize theNumber;
+@synthesize thePair;
 @synthesize theText;
 @synthesize theTrue;
 
@@ -72,6 +75,7 @@
     theMessage = [LMessage messageWithName:@""];
     [theMessage addAncestor:theObject];
     theCall = [LObject objectWithAncestor:theObject];
+    thePair = [LPair pairWithAncestor:theObject key:theNil andValue:theNil];
 }
 
 - (void)createObjectCells
@@ -85,6 +89,7 @@
     [RList addCellsTo:theList inRuntime:self];
     [RMessage addCellsTo:theMessage inRuntime:self];
     [RCall addCellsTo:theCall inRuntime:self];
+    [RPair addCellsTo:thePair inRuntime:self];
 }
 
 - (LText*)makeTextWithString:(NSString*)string
@@ -116,6 +121,11 @@
 - (LCall*)makeCallWithExecution:(LExecution*)execution
 {
     return [LCall callWithAncestor:theCall execution:execution];
+}
+
+- (LCall*)makePairWithKey:(LObject*)key andValue:(LObject*)value
+{
+    return [LPair pairWithAncestor:thePair key:key andValue:value];
 }
 
 - (LRuntime*)bootstrap

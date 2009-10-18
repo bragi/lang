@@ -37,12 +37,17 @@
     [object setCell:runtime.theMethod withName:@"Method"];
     [object setCell:runtime.theNil withName:@"nil"];
     [object setCell:runtime.theNumber withName:@"Number"];
+    [object setCell:runtime.thePair withName:@"Pair"];
     [object setCell:runtime.theText withName:@"Text"];
     [object setCell:runtime.theTrue withName:@"true"];
 
     /* List cell */
     [object setCell:[runtime withExecutableAncestor:[[ECreateList alloc] init]] withName:@"list"];
     [object setCell:[runtime withExecutableAncestor:[[ECreateList alloc] init]] withName:@"[]"];
+    
+    /* Pair cell */
+    [object setCell:[runtime withExecutableAncestor:[[ECreatePair alloc] init]] withName:@"pair"];
+    [object setCell:[runtime withExecutableAncestor:[[ECreatePair alloc] init]] withName:@":b"];
 }
 
 @end

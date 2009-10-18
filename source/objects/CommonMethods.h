@@ -63,3 +63,10 @@
  */
 @interface EReturn : EEvaluateFirstArgument {}
 @end
+
+/** 
+ Creates new instance of LPair with evaluated arguments as key and value.
+ Represents pair() in runtime.
+ */
+@interface ECreatePair : LExecutable {}
+@end

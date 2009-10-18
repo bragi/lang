@@ -9,6 +9,7 @@ Number kind = "Number"
 Macro kind = "Macro"
 Method kind = "Method"
 Message kind = "Message"
+Pair kind = "Pair"
 
 Object puts = method(self toText puts)
 

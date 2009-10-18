@@ -103,3 +103,15 @@
 }
 
 @end
+
+@implementation ECreatePair
+
+- (LObject*)activate:(LExecution*)execution
+{
+    // Create and return new instance of LPair
+    // TODO: Add error handling
+    NSMutableArray *arguments = [execution evaluatedArguments];
+    return [execution.runtime makePairWithKey:[arguments objectAtIndex:0] andValue:[arguments objectAtIndex:1]];
+}
+
+@end

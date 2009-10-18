@@ -15,6 +15,7 @@
 #import "LCall.h"
 #import "LMethod.h"
 #import "LExecution.h"
+#import "LPair.h"
 
 /**
  Runtime of the Lang. Initializes all basic objects, provides access to them,
@@ -54,7 +55,7 @@
     /** Executable */
     LObject *theExecutable;
 
-    /** Executable */
+    /** LangExecutable */
     LObject *theLangExecutable;
 
     /** Method */
@@ -68,6 +69,9 @@
 
     /** Call */
     LObject *theCall;
+
+    /** Pair */
+    LPair *thePair;
 }
 
 @property (retain) LObject *theBaseContext;
@@ -84,6 +88,7 @@
 @property (retain) LObject *theMacro;
 @property (retain) LMessage *theMessage;
 @property (retain) LObject *theCall;
+@property (retain) LPair *thePair;
 
 /**
  Initializes Runtime, creates all necessary runtime objects.
@@ -124,4 +129,9 @@
  Creates new instance of Call
  */
 - (LCall*)makeCallWithExecution:(LExecution*)execution;
+
+/**
+ Creates new instance of Pair
+ */
+- (LCall*)makePairWithKey:(LObject*)key andValue:(LObject*)value;
 @end
